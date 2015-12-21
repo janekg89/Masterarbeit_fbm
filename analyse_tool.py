@@ -5,6 +5,10 @@ import matplotlib.pyplot as plt # module for plotting "a la" matlab
 
 
 class Analyse(simulation.Felix_Method):
+    """
+        Beinhaltet mehrere Methoden zur Analyse der Trajectorie. Erbt von der Klasse Simulation.Felix_Method .
+    """
+
 
     def msdanalyt(self):
         return 2*((self.t)**self.alpha)*self.K_alpha

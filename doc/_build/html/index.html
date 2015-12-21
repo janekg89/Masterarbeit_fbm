@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Welcome to Masterarbeit documentation! &mdash; Project 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.4/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.3.4/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Project 1.0 documentation" href="#" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          Project</a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"></ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Welcome to Masterarbeit documentation!</a></li>
+<li><a class="reference internal" href="#module-simulation">Simulations</a></li>
+<li><a class="reference internal" href="#module-analyse_tool">Analyse</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/index.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="welcome-to-masterarbeit-documentation">
+<h1>Welcome to Masterarbeit documentation!<a class="headerlink" href="#welcome-to-masterarbeit-documentation" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="section" id="module-simulation">
+<span id="simulations"></span><h1>Simulations<a class="headerlink" href="#module-simulation" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="simulation.Felix_Method">
+<em class="property">class </em><code class="descclassname">simulation.</code><code class="descname">Felix_Method</code><span class="sig-paren">(</span><em>D</em>, <em>particles</em>, <em>length</em>, <em>alpha</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/simulation.html#Felix_Method"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#simulation.Felix_Method" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulation von Trajektorien der Länge n von mit einer Anzahl (particles) an Teilchen von Anomaler Diffusion.
+Die Methode benutzt eine FFT funktioniert ca. für alpha &gt;0.25</p>
+<dl class="method">
+<dt id="simulation.Felix_Method.z">
+<code class="descname">z</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/simulation.html#Felix_Method.z"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#simulation.Felix_Method.z" title="Permalink to this definition">¶</a></dt>
+<dd><p>die Correlationsfunktion im Frequenzraum welche auf die gewöhnliche diffusion angewendet wird</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-analyse_tool">
+<span id="analyse"></span><h1>Analyse<a class="headerlink" href="#module-analyse_tool" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="analyse_tool.Analyse">
+<em class="property">class </em><code class="descclassname">analyse_tool.</code><code class="descname">Analyse</code><span class="sig-paren">(</span><em>D</em>, <em>particles</em>, <em>length</em>, <em>alpha</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/analyse_tool.html#Analyse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#analyse_tool.Analyse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Beinhaltet mehrere Methoden zur Analyse der Trajectorie. Erbt von der Klasse Simulation.Felix_Method .</p>
+</dd></dl>
+
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span>Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span>Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span>Search Page</span></a></li>
+</ul>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

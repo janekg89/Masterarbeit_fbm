@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ising &mdash; Project 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.3.4/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="Project 1.0 documentation" href="../index.html" />
+    <link rel="up" title="Module code" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Project</a>
+        <span class="navbar-text navbar-version pull-left"><b>1.0</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"></ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <h1>Source code for ising</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">clib</span> <span class="kn">import</span> <span class="n">cIsing</span>
+
+<div class="viewcode-block" id="Ising"><a class="viewcode-back" href="../index.html#ising.Ising">[docs]</a><span class="k">class</span> <span class="nc">Ising</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot; &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="Ising.__init__"><a class="viewcode-back" href="../index.html#ising.Ising.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">temperature</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Initialisiert die Variablen und erstellt die Konfiguration (Gitter)</span>
+
+<span class="sd">        :param size: Die Seitenlänge des Arrays (Es wird ein size*size Array erstellt).</span>
+<span class="sd">        :param temperature: Temperatur der Kofiguration in :math:`\dfrac{T}{T_C}`.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">temperature</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">):</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Inkorrekte Temperatur&#39;</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">size</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">):</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Inkorrekte Grid-Größe&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">J</span>             <span class="o">=</span> <span class="mf">1.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">size</span>          <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">temperature</span>   <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">beta</span>          <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">temperature</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">makeConfig</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">initialConfig</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">setrecursionlimit</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Ising.makeConfig"><a class="viewcode-back" href="../index.html#ising.Ising.makeConfig">[docs]</a>    <span class="k">def</span> <span class="nf">makeConfig</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Erstellt ein Array mit zufälligen Werten :math:`i \in \{-1,1\}`</span>
+<span class="sd">        </span>
+<span class="sd">        :return: Array       </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">initial_config</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random_integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">))</span><span class="o">*</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">initial_config</span>
+</div>
+<div class="viewcode-block" id="Ising.randXY"><a class="viewcode-back" href="../index.html#ising.Ising.randXY">[docs]</a>    <span class="k">def</span> <span class="nf">randXY</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Gibt ein Tupel zufälliger integer zwischen 0 und size-1 zurück. </span>
+<span class="sd">        </span>
+<span class="sd">        :return: zufälliges Tupel (int, int)</span>
+<span class="sd">        </span>
+<span class="sd">        :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; x, y = randXY()</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Ising.bc"><a class="viewcode-back" href="../index.html#ising.Ising.bc">[docs]</a>    <span class="k">def</span> <span class="nf">bc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Prüft periodische Randbedingungen.</span>
+<span class="sd">        </span>
+<span class="sd">        :return: integer :math:`i \in \{0, i , size-1\}`      </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="o">-</span><span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">i</span>
+</div>
+<div class="viewcode-block" id="Ising.getEnergy"><a class="viewcode-back" href="../index.html#ising.Ising.getEnergy">[docs]</a>    <span class="k">def</span> <span class="nf">getEnergy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Berechnet die Gesamtenergie der gegebenen Konfiguration: :math:`\mathcal{H} = - \dfrac{1}{2}\displaystyle\sum_{&lt;i j&gt;} s_i s_j`</span>
+<span class="sd">        </span>
+<span class="sd">        :param config: Quadratisches Array mit den Einträgen :math:`s \in \{-1,1\}`</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">config</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">config</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">):</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&#39;Illegale Konfiguration - Inkorrekte Grid-Größe oder -Format&#39;</span><span class="p">)</span>
+        <span class="n">energy</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+                <span class="n">S</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+                <span class="n">nb</span> <span class="o">=</span> <span class="n">config</span><span class="p">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">config</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">config</span><span class="p">[</span><span class="n">i</span><span class="p">,(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">config</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+</span> <span class="n">config</span><span class="p">[(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">config</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">config</span><span class="p">[</span><span class="n">i</span><span class="p">,(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="n">config</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+                <span class="n">energy</span> <span class="o">+=</span> <span class="o">-</span><span class="n">nb</span><span class="o">*</span><span class="n">S</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">J</span><span class="o">*</span><span class="n">energy</span><span class="o">/</span><span class="mf">2.</span>
+</div>
+<div class="viewcode-block" id="Ising.getLocalEnergy"><a class="viewcode-back" href="../index.html#ising.Ising.getLocalEnergy">[docs]</a>    <span class="k">def</span> <span class="nf">getLocalEnergy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Berechnet die Energieänderung an der Stelle (x,y) im Array, die ein Flip verursachen würde. :math:`\Delta E = -2\displaystyle\sum_{&lt;j&gt;} s_i s_j`</span>
+<span class="sd">              </span>
+<span class="sd">        :param config: Quadratisches Array mit den Einträgen :math:`s \in \{-1,1\}`</span>
+<span class="sd">        :param x: Index der Zeile des Arrays.</span>
+<span class="sd">        :param y: Index der Spalte des Arrays.</span>
+<span class="sd">        :return: Energieänderung :math:`\Delta E`</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">config</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span><span class="o">*</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">bc</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">y</span><span class="p">]</span><span class="o">+</span><span class="n">config</span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">bc</span><span class="p">(</span><span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span><span class="o">+</span><span class="n">config</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">bc</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="n">y</span><span class="p">]</span><span class="o">+</span><span class="n">config</span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">bc</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">)])</span>
+</div>
+    <span class="k">def</span> <span class="nf">getJ</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">J</span>
+
+    <span class="k">def</span> <span class="nf">getSize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span>
+
+    <span class="k">def</span> <span class="nf">getTemp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">temperature</span>
+
+    <span class="k">def</span> <span class="nf">getBeta</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">beta</span>
+
+    <span class="k">def</span> <span class="nf">getMag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Wolff"><a class="viewcode-back" href="../index.html#ising.Wolff">[docs]</a><span class="k">class</span> <span class="nc">Wolff</span><span class="p">(</span><span class="n">Ising</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">temperature</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Initialisiert Variablen</span>
+
+<span class="sd">        :param size: Die Seitenlänge des Arrays (Es wird ein size*size Array erstellt).</span>
+<span class="sd">        :param temperature: Temperatur der Kofiguration in :math:`\dfrac{T}{T_C}`.</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; from lib import ising</span>
+<span class="sd">        &gt;&gt;&gt; model = ising.Wolff(200,1.3)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">Ising</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">temperature</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">delta</span>         <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p</span>             <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mf">2.</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">J</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">beta</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">counter</span>       <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flipCount</span>     <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clusterSteps</span>   <span class="o">=</span> <span class="mi">0</span>
+
+<div class="viewcode-block" id="Wolff.oneClusterStep"><a class="viewcode-back" href="../index.html#ising.Wolff.oneClusterStep">[docs]</a>    <span class="k">def</span> <span class="nf">oneClusterStep</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Führt einen Cluster-Schritt des Wolff-Algorithmus&#39; auf der momentanen Konfiguration durch und überschreibt diese dann mit der entstandenen Konfiguration. &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">clusterSteps</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">randXY</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">oldSpin</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">growCluster</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flipCount</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Wolff.growCluster"><a class="viewcode-back" href="../index.html#ising.Wolff.growCluster">[docs]</a>    <span class="k">def</span> <span class="nf">growCluster</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Bildet rekursiv ein Cluster ausgehend von der STelle (x,y) im Array.</span>
+<span class="sd">        </span>
+<span class="sd">        Im Wolff-Algorithmus wird in jedem Cluster-Schritt ein Cluster von einem zufällig gewählten Startfeld ausgehend gebildet.</span>
+<span class="sd">        Dabei wird der Spin des Startfelds gespeichert und angrenzende Felder mit gleichem Spin werden rekursiv mit Wahrscheinlichkeit hinzugefügt.</span>
+<span class="sd">        Anschließend wird das gesamte Cluster geflipt.  </span>
+<span class="sd">        </span>
+<span class="sd">        :param x: Index der Zeile des Arrays.</span>
+<span class="sd">        :param y: Index der Spalte des Arrays.       </span>
+<span class="sd">         &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">]</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">delta</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">])</span>
+
+        <span class="n">xprev</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bc</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">xnext</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bc</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">yprev</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bc</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">ynext</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bc</span><span class="p">(</span><span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">site</span> <span class="ow">in</span> <span class="p">[[</span><span class="n">xprev</span><span class="p">,</span><span class="n">y</span><span class="p">],[</span><span class="n">xnext</span><span class="p">,</span><span class="n">y</span><span class="p">],[</span><span class="n">x</span><span class="p">,</span><span class="n">yprev</span><span class="p">],[</span><span class="n">x</span><span class="p">,</span><span class="n">ynext</span><span class="p">]]:</span>
+             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="n">site</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="n">site</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">oldSpin</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">growCluster</span><span class="p">(</span><span class="n">site</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">site</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</div>
+<div class="viewcode-block" id="Wolff.run"><a class="viewcode-back" href="../index.html#ising.Wolff.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">steps</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Führt den Wolff-Algorithmus auf der gegebenen Konfiguration aus.</span>
+<span class="sd">        </span>
+<span class="sd">        :param steps: Anzahl der Cluster-Schritte, die ausgeführt werden sollen.</span>
+<span class="sd">        </span>
+<span class="sd">        :return: Start-Konfiguration, Delta-Array, Flip-Array</span>
+<span class="sd">            Der Zustand des Systems kann zu jedem Zeitschritt nachverfolgt werden:</span>
+<span class="sd">            Das Delta-Array enthält Tupel (x,y). Jeder Eintrag ist ein Flip, der im Algorithmus durchgeführt wurde.</span>
+<span class="sd">            Das Flip-Array enthält Integer-Werte, die anzeigen, nach welcher Anzahl von Schritten der Cluster-Bau beendet wurde. Das dient dazu, später nur ganze Clusterflips ind der Visualisierungdarzustellen..</span>
+<span class="sd">            Der Zustand des Systems nach dem ersten Cluster-Schritt kann also berechnet werden, indem die ersten k Tupel des Delta-Arrays in der Start-Konfiguration geflippt werden, wobei k der erste Eintrag des Flip-Arrays ist.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">print</span> <span class="s">&quot;p =&quot;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span>
+        <span class="n">starttime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="c">#while abs(self.getMag(self.config)) &lt; (self.size*self.size*0.98):</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">steps</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getMag</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">))</span> <span class="o">&lt;</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">))</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">counter</span> <span class="o">&lt;</span> <span class="n">steps</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">oneClusterStep</span><span class="p">()</span>
+        <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">getMag</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">&quot;Finished calculation in &quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">clusterSteps</span><span class="p">,</span><span class="s">&quot;cluster steps with&quot;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">counter</span><span class="p">,</span><span class="s">&quot;elementary steps in&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">starttime</span><span class="p">,</span><span class="s">&quot;s.&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">initialConfig</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">delta</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">flipCount</span>
+</div></div>
+<div class="viewcode-block" id="Metropolis"><a class="viewcode-back" href="../index.html#ising.Metropolis">[docs]</a><span class="k">class</span> <span class="nc">Metropolis</span><span class="p">(</span><span class="n">Ising</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">temperature</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Initialisiert Variablen</span>
+
+<span class="sd">        :param size: Die Seitenlänge des Arrays (Es wird ein size*size Array erstellt).</span>
+<span class="sd">        :param temperature: Temperatur der Kofiguration in :math:`\dfrac{T}{T_C}`.</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; from lib import ising</span>
+<span class="sd">        &gt;&gt;&gt; model = ising.Metropolis(200,1.3)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">Ising</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">temperature</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flips</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">delta</span> <span class="o">=</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="Metropolis.oneStep"><a class="viewcode-back" href="../index.html#ising.Metropolis.oneStep">[docs]</a>    <span class="k">def</span> <span class="nf">oneStep</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Führt einen Schritt des Metropolis-Algorithmus auf der gegebenen Konfiguration aus, und überschreibt diese dann.&quot;&quot;&quot;</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">randXY</span><span class="p">()</span>
+        <span class="n">Delta</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getLocalEnergy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">Delta</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">beta</span><span class="o">*</span><span class="n">Delta</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="n">x</span><span class="p">][</span><span class="n">y</span><span class="p">]</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">delta</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">flips</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">delta</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</div>
+<div class="viewcode-block" id="Metropolis.run"><a class="viewcode-back" href="../index.html#ising.Metropolis.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">steps</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Führt den Metropolis-Algorithmus auf der gegebenen Konfiguration aus.</span>
+<span class="sd">        </span>
+<span class="sd">        :param steps: Anzahl der Schritte, die ausgeführt werden sollen.</span>
+<span class="sd">        </span>
+<span class="sd">        :return: Start-Konfiguration, Delta-Array</span>
+<span class="sd">            Der Zustand des Systems kann zu jedem Zeitschritt nachverfolgt werden:</span>
+<span class="sd">            Das Delta-Array enthält Tupel (x,y). Jeder Eintrag ist ein Flip, der im Algorithmus durchgeführt wurde.</span>
+<span class="sd">            Der Zustand des Systems nach k Schritten kann also berechnet werden, indem die ersten k Tupel des Delta-Arrays in der Start-Konfiguration geflippt werden.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">starttime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">delta</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">steps</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">oneStep</span><span class="p">()</span>
+        <span class="k">print</span> <span class="s">&quot;Finished calculation in &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">delta</span><span class="p">),</span><span class="s">&quot;steps doing&quot;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">flips</span><span class="p">,</span><span class="s">&quot;flips in&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">starttime</span><span class="p">,</span><span class="s">&quot;s.&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">initialConfig</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">delta</span>
+</div></div>
+<div class="viewcode-block" id="cMetropolis"><a class="viewcode-back" href="../index.html#ising.cMetropolis">[docs]</a><span class="k">class</span> <span class="nc">cMetropolis</span><span class="p">(</span><span class="n">Ising</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Metropolois Algorithmus mit cython unterstützung&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">temperature</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Initialisiert Variablen</span>
+
+<span class="sd">        :param size: Die Seitenlänge des Arrays (Es wird ein size*size Array erstellt).</span>
+<span class="sd">        :param temperature: Temperatur der Kofiguration in :math:`\dfrac{T}{T_C}`.</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; from lib import ising</span>
+<span class="sd">        &gt;&gt;&gt; model = ising.cMetropolis(200,1.3)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">Ising</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">temperature</span><span class="p">)</span>
+
+<div class="viewcode-block" id="cMetropolis.oneStep"><a class="viewcode-back" href="../index.html#ising.cMetropolis.oneStep">[docs]</a>    <span class="k">def</span> <span class="nf">oneStep</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Führt einen Schritt des Metropolis-Algorithmus auf der gegebenen Konfiguration aus, und überschreibt diese dann.&quot;&quot;&quot;</span>
+        <span class="n">cIsing</span><span class="o">.</span><span class="n">oneMetropolisStep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">delta</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">beta</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="cMetropolis.run"><a class="viewcode-back" href="../index.html#ising.cMetropolis.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">steps</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Führt den Metropolis-Algorithmus auf der gegebenen Konfiguration mit C-Code aus.</span>
+<span class="sd">        </span>
+<span class="sd">        :param steps: Anzahl der Schritte, die ausgeführt werden sollen.</span>
+<span class="sd">        </span>
+<span class="sd">        :return: Start-Konfiguration, Delta-Array</span>
+<span class="sd">            Der Zustand des Systems kann zu jedem Zeitschritt nachverfolgt werden:</span>
+<span class="sd">            Das Delta-Array enthält Tupel (x,y). Jeder Eintrag ist ein Flip, der im Algorithmus durchgeführt wurde.</span>
+<span class="sd">            Der Zustand des Systems nach k Schritten kann also berechnet werden, indem die ersten k Tupel des Delta-Arrays in der Start-Konfiguration geflippt werden.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">steps</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">-</span><span class="mi">1</span>
+        <span class="n">starttime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">cIsing</span><span class="o">.</span><span class="n">runMetropolis</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">delta</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">beta</span><span class="p">,</span> <span class="n">steps</span><span class="p">)</span>
+        <span class="k">print</span> <span class="s">&quot;Finished calculation in &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">delta</span><span class="p">),</span><span class="s">&quot;steps in&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">starttime</span><span class="p">,</span><span class="s">&quot;s.&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">initialConfig</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">delta</span>
+</div>
+<div class="viewcode-block" id="cMetropolis.runPartial"><a class="viewcode-back" href="../index.html#ising.cMetropolis.runPartial">[docs]</a>    <span class="k">def</span> <span class="nf">runPartial</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">steps</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Führt den Metropolis-Algorithmus auf der gegebenen Konfiguration mit partiellem C-Code aus (nur oneStep()).</span>
+<span class="sd">        </span>
+<span class="sd">        :param steps: Anzahl der Schritte, die ausgeführt werden sollen.</span>
+<span class="sd">        </span>
+<span class="sd">        :return: Start-Konfiguration, Delta-Array</span>
+<span class="sd">            Der Zustand des Systems kann zu jedem Zeitschritt nachverfolgt werden:</span>
+<span class="sd">            Das Delta-Array enthält Tupel (x,y). Jeder Eintrag ist ein Flip, der im Algorithmus durchgeführt wurde.</span>
+<span class="sd">            Der Zustand des Systems nach k Schritten kann also berechnet werden, indem die ersten k Tupel des Delta-Arrays in der Start-Konfiguration geflippt werden.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">steps</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="o">-</span><span class="mi">1</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">starttime</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">steps</span><span class="p">:</span>
+            <span class="n">cIsing</span><span class="o">.</span><span class="n">oneMetropolisStep</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">delta</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">beta</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">print</span> <span class="s">&quot;Finished calculation in &quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">delta</span><span class="p">),</span><span class="s">&quot;steps in&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">-</span><span class="n">starttime</span><span class="p">,</span><span class="s">&quot;s.&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">initialConfig</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">delta</span></div></div>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2015.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
