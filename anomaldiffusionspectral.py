@@ -79,7 +79,7 @@ def msdanalyt(t, K_alpha, alpha):
 msd = [None] * particles
 for particle in range(15):
     msd[particle] = compute_msd(r_t_allparticles[particle])
-print len(msd[0])
+
 
 
 def msd_ensemble(r_t_allparticles):
@@ -98,13 +98,12 @@ def caluculate_s_w(v_ano_frq_all_particles):
     # v_ano_frq_all_particles_squared=abs(v_ano_frq_all_particles_squared)
     s_w = v_ano_frq_all_particles_squared.mean(axis=0)
     return s_w
-
+print len(msd[0])
 
 s_w_ano = caluculate_s_w(v_ano_frq_all_particles)
 s_w1 = caluculate_s_w(v_frq_all_particles * np.sqrt(2 * D))
 
 plt.figure(figsize=(20, 10))
-# plt.xlim(0,100)
 plt.plot(frq, s_w1[:] * np.sqrt(K_alpha * 2))
 plt.plot(frq, s_w_ano[:])
 
