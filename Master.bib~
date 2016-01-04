@@ -2,7 +2,7 @@
 
 % This file was created with JabRef 2.10.
 % Encoding: UTF-8
-@article{test1,
+@article{Craigmile2003,
 	abstract = "We demonstrate that the fast and exact Davies--Harte algorithm is valid for simulating a certain class of stationary Gaussian processes -- those with a negative autocovariance sequence for all non-zero lags. The result applies to well known classes of long memory processes: Gaussian fractionally differenced (FD) processes, fractional Gaussian noise (fGn) and the nonstationary fractional Brownian Motion (fBm).",
 	author = "PETER F. CRAIGMILE",
 	doi = "10.1111/1467-9892.00318",

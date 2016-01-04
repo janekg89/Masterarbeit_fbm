@@ -8,7 +8,13 @@ import analyse_tool
 
 #print timeit.timeit(" import Spectral_method; Spectral_method.Felix_Method(D=2,particles=1,length=int(1e6),alpha=0.5).compute_trajectory()", number=1)
 #Spectral_method.Felix_Method(D=2,particles=1,length=1000,alpha=0.5).compute_trajectory()
-analyse_tool.Analyse(D=2,particles=1000,length=1000,alpha=0.6).plotting()
-analyse_tool.Analyse(D=2,particles=1000,length=1000,alpha=0.7).plotting()
-analyse_tool.Analyse(D=2,particles=1000,length=1000,alpha=1).plotting()
+#analyse_tool.Analyse(D=2,particles=1000,length=1000,alpha=0.6).plotting()
+a=analyse_tool.Analyse(D=2,particles=1000,length=2000,alpha=1)
+a.plotting(error=2)
+a.plotting(error=0.00001,msdtype="time")
 plt.show()
+#msd,std=analyse_tool.Analyse(D=2,particles=1000,length=1000,alpha=0.6).msd_time()
+
+#print np.array(msd).size
+#print np.array(std).size
+

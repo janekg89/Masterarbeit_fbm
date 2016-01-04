@@ -1,0 +1,33 @@
+@comment{x-kbibtex-personnameformatting=<%f ><%l><, %s>}
+
+% This file was created with JabRef 2.10.
+% Encoding: UTF-8
+
+@article{Hoefling2013,
+	abstract = "A ubiquitous observation in cell biology is that the diffusive motion of macromolecules and organelles is anomalous, and a description simply based on the conventional diffusion equation with diffusion constants measured in dilute solution fails. This is commonly attributed to macromolecular crowding in the interior of cells and in cellular membranes, summarizing their densely packed and heterogeneous structures. The most familiar phenomenon is a sublinear, power-law increase of the mean-square displacement (MSD) as a function of the lag time, but there are other manifestations like strongly reduced and time-dependent diffusion coefficients, persistent correlations in time, non-Gaussian distributions of spatial displacements, heterogeneous diffusion and a fraction of immobile particles. After a general introduction to the statistical description of slow, anomalous transport, we summarize some widely used theoretical models: Gaussian models like fractional Brownian motion and Langevin equations for visco-elastic media, the continuous-time random walk model, and the Lorentz model describing obstructed transport in a heterogeneous environment. Particular emphasis is put on the spatio-temporal properties of the transport in terms of two-point correlation functions, dynamic scaling behaviour, and how the models are distinguished by their propagators even if the MSDs are identical. Then, we review the theory underlying commonly applied experimental techniques in the presence of anomalous transport like single-particle tracking, fluorescence correlation spectroscopy (FCS) and fluorescence recovery after photobleaching (FRAP). We report on the large body of recent experimental evidence for anomalous transport in crowded biological media: in cyto- and nucleoplasm as well as in cellular membranes, complemented by in vitro experiments where a variety of model systems mimic physiological crowding conditions. Finally, computer simulations are discussed which play an important role in testing the theoretical models and corroborating the experimental findings. The review is completed by a synthesis of the theoretical and experimental progress identifying open questions for future investigation.",
+	author = "Felix H{\"o}fling and Thomas Franosch",
+	journal = "Reports on Progress in Physics",
+	number = "4",
+	pages = "046602",
+	title = "{Anomalous transport in the crowded world of biological cells}",
+	url = "http://stacks.iop.org/0034-4885/76/i=4/a=046602",
+	volume = "76",
+	year = "2013"
+}
+
+@article{Graigmile2003,
+	abstract = "We demonstrate that the fast and exact Davies--Harte algorithm is valid for simulating a certain class of stationary Gaussian processes -- those with a negative autocovariance sequence for all non-zero lags. The result applies to well known classes of long memory processes: Gaussian fractionally differenced (FD) processes, fractional Gaussian noise (fGn) and the nonstationary fractional Brownian Motion (fBm).",
+	author = "PETER F. CRAIGMILE",
+	doi = "10.1111/1467-9892.00318",
+	issn = "1467-9892",
+	journal = "Journal of Time Series Analysis",
+	keywords = "Davies--; Harte algorithm; circulant embedding; simulation; negative autocovariance sequence; long memory process; time series analysis",
+	number = "5",
+	pages = "505--511",
+	publisher = "Blackwell Publishing Ltd",
+	title = "{Simulating a class of stationary Gaussian processes using the Davies--Harte algorithm, with application to long memory processes}",
+	url = "http://dx.doi.org/10.1111/1467-9892.00318",
+	volume = "24",
+	year = "2003"
+}
+

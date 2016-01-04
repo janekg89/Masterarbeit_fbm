@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to Masterarbeit documentation! &mdash; Project 1.0 documentation</title>
+    <title>Willkommen zur Dokumentation der Masterarbeit: Reaction-diffusion dynamcis with fractional Brownian motion von Jan Grzegorzewski! &mdash; Project 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -77,8 +77,13 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Welcome to Masterarbeit documentation!</a></li>
-<li><a class="reference internal" href="#module-simulation">Simulations</a></li>
+<li><a class="reference internal" href="#">Willkommen zur Dokumentation der Masterarbeit: Reaction-diffusion dynamcis with fractional Brownian motion von Jan Grzegorzewski!</a></li>
+<li><a class="reference internal" href="#einleitung">Einleitung</a></li>
+<li><a class="reference internal" href="#simulations">Simulations</a><ul>
+<li><a class="reference internal" href="#module-simulation">Dokumentation</a></li>
+<li><a class="reference internal" href="#algorithmus">Algorithmus</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#module-analyse_tool">Analyse</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
@@ -120,24 +125,71 @@
   <div class="row">
     <div class="col-md-12 content">
       
-  <div class="section" id="welcome-to-masterarbeit-documentation">
-<h1>Welcome to Masterarbeit documentation!<a class="headerlink" href="#welcome-to-masterarbeit-documentation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="willkommen-zur-dokumentation-der-masterarbeit-reaction-diffusion-dynamcis-with-fractional-brownian-motion-von-jan-grzegorzewski">
+<h1>Willkommen zur Dokumentation der Masterarbeit: Reaction-diffusion dynamcis with fractional Brownian motion von Jan Grzegorzewski!<a class="headerlink" href="#willkommen-zur-dokumentation-der-masterarbeit-reaction-diffusion-dynamcis-with-fractional-brownian-motion-von-jan-grzegorzewski" title="Permalink to this headline">¶</a></h1>
 </div>
+<div class="section" id="einleitung">
+<h1>Einleitung<a class="headerlink" href="#einleitung" title="Permalink to this headline">¶</a></h1>
+<p>Die Masterarbeit beschäftigt sich Reaktions-Diffusionsprozessen bei fractionaler Borwnischer Bewegung. Für eine algemeine Einleitung in das Thema empfehle ich folgenden Review:
+<a class="reference internal" href="#hoefling2013" id="id1">[HoflingF13]</a></p>
+</div>
+<div class="section" id="simulations">
+<h1>Simulations<a class="headerlink" href="#simulations" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-simulation">
-<span id="simulations"></span><h1>Simulations<a class="headerlink" href="#module-simulation" title="Permalink to this headline">¶</a></h1>
+<span id="dokumentation"></span><h2>Dokumentation<a class="headerlink" href="#module-simulation" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="simulation.Felix_Method">
 <em class="property">class </em><code class="descclassname">simulation.</code><code class="descname">Felix_Method</code><span class="sig-paren">(</span><em>D</em>, <em>particles</em>, <em>length</em>, <em>alpha</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/simulation.html#Felix_Method"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#simulation.Felix_Method" title="Permalink to this definition">¶</a></dt>
-<dd><p>Simulation von Trajektorien der Länge n von mit einer Anzahl (particles) an Teilchen von Anomaler Diffusion.
-Die Methode benutzt eine FFT funktioniert ca. für alpha &gt;0.25</p>
+<dd><dl class="method">
+<dt id="simulation.Felix_Method.compute_trajectory">
+<code class="descname">compute_trajectory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simulation.Felix_Method.compute_trajectory" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>D</strong> &#8211; Diffusionskoeffizient</li>
+<li><strong>particles</strong> &#8211; Anzahl an Teilechen welche simuliert werden sollen.</li>
+<li><strong>length</strong> &#8211; Länge der Trajektorien, welche simuliert werden sollen.</li>
+<li><strong>alpha</strong> &#8211; Anomalieparameter</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">( Particles x Length ) Array of Trajectories of all particles. Close to <a class="reference internal" href="#graigmile2003" id="id2">[CRA03]</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="method">
 <dt id="simulation.Felix_Method.z">
-<code class="descname">z</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/simulation.html#Felix_Method.z"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#simulation.Felix_Method.z" title="Permalink to this definition">¶</a></dt>
-<dd><p>die Correlationsfunktion im Frequenzraum welche auf die gewöhnliche diffusion angewendet wird</p>
+<code class="descname">z</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#simulation.Felix_Method.z" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>D</strong> &#8211; Diffusionskoeffizient</li>
+<li><strong>alpha</strong> &#8211; Anomalieparameter</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">z: Correlationsfunktion im Frequenzraum welche auf die gewöhnliche diffusion angewendet wird.</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
 
+</div>
+<div class="section" id="algorithmus">
+<h2>Algorithmus<a class="headerlink" href="#algorithmus" title="Permalink to this headline">¶</a></h2>
+<p>Hier wird der Algorythmus beschrieben.
+<a class="reference internal" href="#graigmile2003" id="id3">[CRA03]</a></p>
+</div>
 </div>
 <div class="section" id="module-analyse_tool">
 <span id="analyse"></span><h1>Analyse<a class="headerlink" href="#module-analyse_tool" title="Permalink to this headline">¶</a></h1>
@@ -145,8 +197,66 @@ Die Methode benutzt eine FFT funktioniert ca. für alpha &gt;0.25</p>
 <dt id="analyse_tool.Analyse">
 <em class="property">class </em><code class="descclassname">analyse_tool.</code><code class="descname">Analyse</code><span class="sig-paren">(</span><em>D</em>, <em>particles</em>, <em>length</em>, <em>alpha</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/analyse_tool.html#Analyse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#analyse_tool.Analyse" title="Permalink to this definition">¶</a></dt>
 <dd><p>Beinhaltet mehrere Methoden zur Analyse der Trajectorie. Erbt von der Klasse Simulation.Felix_Method .</p>
+<dl class="method">
+<dt id="analyse_tool.Analyse.msd_ensemble">
+<code class="descname">msd_ensemble</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/analyse_tool.html#Analyse.msd_ensemble"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#analyse_tool.Analyse.msd_ensemble" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">returns the ensemble average of the simulated trajectories of all particles.</td>
+</tr>
+</tbody>
+</table>
+<div class="math">
+\[\delta r^{2}(t=\frac{\sum_{j=0}^N {\eta_i}}{N}\]\[N= number of particles\]\[i= cumulant\]</div>
 </dd></dl>
 
+<dl class="method">
+<dt id="analyse_tool.Analyse.msdanalyt">
+<code class="descname">msdanalyt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/analyse_tool.html#Analyse.msdanalyt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#analyse_tool.Analyse.msdanalyt" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">returns the analytical result for MSD</td>
+</tr>
+</tbody>
+</table>
+<div class="math">
+\[\delta r^{2}(t)=2 D t^{ \alpha}\]</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="analyse_tool.Analyse.plotting">
+<code class="descname">plotting</code><span class="sig-paren">(</span><em>error=2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/analyse_tool.html#Analyse.plotting"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#analyse_tool.Analyse.plotting" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>error</strong> &#8211; Number of standard deviations from mean, which is shown in the figure</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A figure with plotting of the Ensemble MSD</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<p id="bibtex-bibliography-index-0"><table class="docutils citation" frame="void" id="graigmile2003" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[CRA03]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id3">2</a>)</em> PETER&nbsp;F. CRAIGMILE. Simulating a class of stationary Gaussian processes using the Davies–Harte algorithm, with application to long memory processes. <em>Journal of Time Series Analysis</em>, 24(5):505–511, 2003. <a class="reference external" href="http://dx.doi.org/10.1111/1467-9892.00318">URL: http://dx.doi.org/10.1111/1467-9892.00318</a>, <a class="reference external" href="http://dx.doi.org/10.1111/1467-9892.00318">doi:10.1111/1467-9892.00318</a>.</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="hoefling2013" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[HoflingF13]</a></td><td>Felix Höfling and Thomas Franosch. Anomalous transport in the crowded world of biological cells. <em>Reports on Progress in Physics</em>, 76(4):046602, 2013. <a class="reference external" href="http://stacks.iop.org/0034-4885/76/i=4/a=046602">URL: http://stacks.iop.org/0034-4885/76/i=4/a=046602</a>.</td></tr>
+</tbody>
+</table>
+</p>
 </div>
 <div class="section" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>

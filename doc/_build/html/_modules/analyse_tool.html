@@ -124,19 +124,47 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 
-    <span class="k">def</span> <span class="nf">msdanalyt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">)</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="p">)</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">K_alpha</span>
+<div class="viewcode-block" id="Analyse.msdanalyt"><a class="viewcode-back" href="../index.html#analyse_tool.Analyse.msdanalyt">[docs]</a>    <span class="k">def</span> <span class="nf">msdanalyt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        :return: returns the analytical result for MSD</span>
+<span class="sd">        .. math::</span>
+
+<span class="sd">            \\delta r^{2}(t)=2 D t^{ \\alpha}</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="p">)</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="p">)</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">K_alpha</span></div>
 
 
-    <span class="k">def</span> <span class="nf">msd_ensemble</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="Analyse.msd_ensemble"><a class="viewcode-back" href="../index.html#analyse_tool.Analyse.msd_ensemble">[docs]</a>    <span class="k">def</span> <span class="nf">msd_ensemble</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="sd">        :return: returns the ensemble average of the simulated trajectories of all particles.</span>
+<span class="sd">        .. math::</span>
+
+<span class="sd">            \\delta r^{2}(t=\\frac{\\sum_{j=0}^N {\\eta_i}}{N}</span>
+
+<span class="sd">            N= number of particles</span>
+
+<span class="sd">            i= cumulant</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">r_t_allparticles</span><span class="o">=</span><span class="n">simulation</span><span class="o">.</span><span class="n">Felix_Method</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">particles</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="p">)</span><span class="o">.</span><span class="n">compute_trajectory</span><span class="p">()</span>
         <span class="n">r_t_allparticles</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">r_t_allparticles</span><span class="p">)</span>
         <span class="n">r_t_allparticles_squared</span><span class="o">=</span><span class="nb">abs</span><span class="p">(</span><span class="n">r_t_allparticles</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
         <span class="n">msd</span><span class="o">=</span><span class="n">r_t_allparticles_squared</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">std</span><span class="o">=</span><span class="n">r_t_allparticles</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-        <span class="k">return</span>  <span class="n">msd</span><span class="p">,</span> <span class="n">std</span>
+        <span class="k">return</span>  <span class="n">msd</span><span class="p">,</span> <span class="n">std</span></div>
 
-    <span class="k">def</span> <span class="nf">plotting</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">error</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">msd_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+<div class="viewcode-block" id="Analyse.plotting"><a class="viewcode-back" href="../index.html#analyse_tool.Analyse.plotting">[docs]</a>    <span class="k">def</span> <span class="nf">plotting</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">error</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        :param error: Number of standard deviations from mean, which is shown in the figure</span>
+
+
+<span class="sd">        :return: A figure with plotting of the Ensemble MSD</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">msd_ensemble</span><span class="p">,</span><span class="n">std</span><span class="o">=</span><span class="n">Analyse</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">D</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">particles</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="p">)</span><span class="o">.</span><span class="n">msd_ensemble</span><span class="p">()</span>
         <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">,</span><span class="s">&#39;g&#39;</span><span class="p">,</span><span class="s">&#39;k&#39;</span><span class="p">,</span><span class="s">&#39;c&#39;</span><span class="p">,</span><span class="s">&#39;w&#39;</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;g&#39;</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">,</span><span class="s">&#39;k&#39;</span><span class="p">,</span><span class="s">&#39;c&#39;</span><span class="p">,</span><span class="s">&#39;w&#39;</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;g&#39;</span><span class="p">,</span><span class="s">&#39;b&#39;</span><span class="p">,</span><span class="s">&#39;k&#39;</span><span class="p">,</span><span class="s">&#39;c&#39;</span><span class="p">,</span><span class="s">&#39;w&#39;</span><span class="p">,</span><span class="s">&#39;bo&#39;</span><span class="p">,</span><span class="s">&#39;ro&#39;</span><span class="p">,</span><span class="s">&#39;go&#39;</span><span class="p">,</span><span class="s">&#39;bo&#39;</span><span class="p">,</span><span class="s">&#39;ko&#39;</span><span class="p">,</span><span class="s">&#39;co&#39;</span><span class="p">,</span><span class="s">&#39;wo&#39;</span><span class="p">,</span><span class="s">&#39;bo&#39;</span><span class="p">]</span>
         <span class="c">#fig=plt.plot(range(msd_ensemble.size), msd_ensemble ,colors[2], label=&quot;ensemble msd&quot;)</span>
@@ -145,10 +173,7 @@
         <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Steps&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;MSD&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">fig</span></div>
-
-
-
+        <span class="k">return</span> <span class="n">fig</span></div></div>
 </pre></div>
 
     </div>

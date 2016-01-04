@@ -3,14 +3,30 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Masterarbeit documentation!
+Willkommen zur Dokumentation der Masterarbeit: Reaction-diffusion dynamcis with fractional Brownian motion von Jan Grzegorzewski!
 ===============================================
+
+Einleitung
+===============
+Die Masterarbeit beschäftigt sich Reaktions-Diffusionsprozessen bei fractionaler Borwnischer Bewegung. Für eine algemeine Einleitung in das Thema empfehle ich folgenden Review: 
+:cite:`Hoefling2013`
+
+
 
 Simulations
 ==================
+
+Dokumentation
+-------------
 .. automodule:: simulation
 .. autoclass:: Felix_Method
    :members:
+Algorithmus
+-----------
+
+Hier wird der Algorythmus beschrieben.
+:cite:`Graigmile2003`
+
 
 Analyse
 ==================
@@ -19,7 +35,8 @@ Analyse
    :members:
 
 
-
+.. bibliography:: Master.bib 
+   :cited:
 
 Indices and tables
 ==================
