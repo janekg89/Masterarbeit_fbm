@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt # module for plotting "a la" matlab
 
 class Felix_Method():
 
-    def __init__(self,D,particles,length,alpha):
+    def __init__(self, D, particles,length,alpha):
         self.D=D
         self.K_alpha=D
         self.particles=particles
@@ -51,12 +51,12 @@ class Felix_Method():
             v_ano_frq= np.sqrt(Felix_Method(self.D,self.particles,self.n,self.alpha).z().real*2.)*v_frq
             v_ano_frq[0]=np.random.normal(0,np.sqrt(2.*self.K_alpha*self.ki**self.alpha))
             v_ano_frq[self.n]=np.sqrt(Felix_Method(self.D,self.particles,self.n,self.alpha).z()[self.n].real*self.n*2)*v_t[self.ki-1]
-            #v_ano_frq[self.n-1]=np.sqrt(Felix_Method(self.D,self.particles,self.n-1,self.alpha).z()[self.n].real*self.n*2)*v_t[self.ki-1]
+            v_ano_frq[self.n-1]=np.sqrt(Felix_Method(self.D,self.particles,self.n-1,self.alpha).z()[self.n].real*self.n*2)*v_t[self.ki-1]
 
             v_ano_t=np.fft.ifft(v_ano_frq)
             r_t=np.cumsum(v_ano_t[:self.n].real) #Ort bei anomaler Diffusion in Abhängigkeit von der zeit
             r_t_allparticles.append(r_t) # Trajektorie bei anomaler Diffusion für alle teilchen
-        return r_t_allparticles
+        return np.array(r_t_allparticles)
 
 
 
