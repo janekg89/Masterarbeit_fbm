@@ -25,7 +25,7 @@ steps=20
 c=analyse_tool.Analyse(D=2,particles=9000,length=length+1,alpha=0.5)
 shades=np.linspace(0,1,steps+1)
 colornum=-1
-for j in range(900,1000,5):
+for j in range(900,1000,50): #TODO find out why to lines if you run it
     print j
     colornum=1+colornum
 #    d=c.rescaled_analytical_distribution(t=j,r_dis=50)
