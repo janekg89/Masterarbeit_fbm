@@ -3,6 +3,7 @@ import simulation
 import numpy as np # module for scientific computing
 import matplotlib.pyplot as plt # module for plotting "a la" matlab
 from scipy.stats import norm
+from scipy.stats import moment
 
 
 class Analyse(simulation.Felix_Method):
@@ -56,7 +57,7 @@ class Analyse(simulation.Felix_Method):
     def rescaled_function(self,t=0,histpoints=70):
 
         r,dist=Analyse(self.D,self.particles,self.n,self.alpha).distribution(t,histpoints)
-        res_r=abs(r)*(2*self.D*t)**(-self.alpha/2.)
+        res_r=r*(2*self.D*t)**(-self.alpha/2.)
         res_dis=dist*res_r*np.sqrt(2*self.D*t**self.alpha)
 
         return res_r, res_dis
@@ -64,7 +65,7 @@ class Analyse(simulation.Felix_Method):
 
 
     def analytical_distribution_of_particles(self,t, r_dis=50):
-        r=np.arange(-r_dis, r_dis, 0.01)
+        r=np.arange(0, r_dis, 0.01)
         #r=abs(r)
         distrib=np.exp(-(r**2)/(2*2*self.D*t**self.alpha))/np.sqrt(np.pi*2*2*self.D*t**self.alpha)
         distrib1=norm.pdf(r,0,np.sqrt(2*self.D*t**self.alpha))
@@ -98,6 +99,13 @@ class Analyse(simulation.Felix_Method):
             msd[j]=np.array(msdink).mean(axis=0)
             std[j]=np.array(msdink).std(axis=0)
         return np.array(msd),np.array(std)
+
+    def nongaussian_parameter(self):
+        moment2poten2=(moment(self.trajectory,moment=2,axis=0))**2
+        moment4=moment(self.trajectory,moment=4,axis=0)
+        nongaussianparamter=(1/3.)*moment4/moment2poten2-1
+        return  nongaussianparamter
+
 
     def plotting(self, msdtype="ensemble", particlemsdtime=0,error=0, showlegend=None):
         """

@@ -45,7 +45,7 @@ class Felix_Method():
         """
         r_t_allparticles=[]
         for particle in range(self.particles):
-            v_t=(np.random.normal(0,1,size=self.ki))
+            v_t=(np.random.normal(0,1,size=self.ki)) #todo mit matrix.shape können man eine zufällige verteilung von allen daten generieren
             v_t=np.array(v_t)
             v_frq=np.fft.fft(v_t)
             v_ano_frq= np.sqrt(Felix_Method(self.D,self.particles,self.n,self.alpha).z().real*2.)*v_frq
