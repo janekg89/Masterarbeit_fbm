@@ -53,27 +53,48 @@ class Analyse(simulation.Felix_Method):
         hist_p=hist_p[1:]
         return hist_p,hist
 
+    def distribution_abs(self,t=0,histpoints=70):
+        """
+        :param t: point in time
+        :param histpoints: amount of timepoints
+        :return: Distribution of particles at time t
+        """
+        r_t_allparticles=abs(self.trajectory)
+        r_tt=r_t_allparticles.T
+        hist, hist_p = np.histogram(r_tt[t], histpoints, normed=True)
+        hist_p=hist_p[1:]
+        return hist_p,hist
 
     def rescaled_function(self,t=0,histpoints=70):
-
-        r,dist=Analyse(self.D,self.particles,self.n,self.alpha).distribution(t,histpoints)
-        res_r=r*(2*self.D*t)**(-self.alpha/2.)
-        res_dis=dist*res_r*np.sqrt(2*self.D*t**self.alpha)
+        r_t_allparticles=abs(self.trajectory)
+        r_tt=r_t_allparticles.T
+        hist, hist_p = np.histogram(r_tt[t], histpoints, normed=True)
+        hist_p=hist_p[1:]
+        #r,dist=Analyse(self.D,self.particles,self.n,self.alpha).distribution_abs(t,histpoints)
+        res_r=hist_p*(2*self.D*t)**(-self.alpha/2.)
+        res_dis=hist*res_r*np.sqrt(2*self.D*t**self.alpha)
 
         return res_r, res_dis
 
 
 
     def analytical_distribution_of_particles(self,t, r_dis=50):
-        r=np.arange(0, r_dis, 0.01)
+
+        r=np.arange(-r_dis, r_dis, 0.01)
         #r=abs(r)
         distrib=np.exp(-(r**2)/(2*2*self.D*t**self.alpha))/np.sqrt(np.pi*2*2*self.D*t**self.alpha)
         distrib1=norm.pdf(r,0,np.sqrt(2*self.D*t**self.alpha))
         return r, distrib, distrib1
 
-    def rescaled_analytical_distribution(self, t, r_dis= 50):
-        r=np.arange(-r_dis, r_dis, 0.01)
-        res_r=abs(r)*(2*self.D*t)**(-self.alpha/2.)
+    def rescaled_analytical_distribution(self, t, r_dis= 30):
+        """
+
+        :param t: point in time (return should be independed of t, but i left possiblitiy to also demonstrate that this is true)
+        :param r_dis: the distance which want to be sampled. (not recommended to change)
+        :return: analytical rescaled function ( fill in math)
+        """
+        r=np.arange(0, r_dis, 0.01)
+        res_r=r*(2*self.D*t)**(-self.alpha/2.)
         res_dis=(res_r*np.exp(-res_r**2./2.))/np.sqrt(2.*np.pi)
 
         #res_r, res_dis = Analyse(self.D,self.particles,self.n,self.alpha).analytical_distribution_of_particles(t,r_dis=r_res)
@@ -100,12 +121,21 @@ class Analyse(simulation.Felix_Method):
             std[j]=np.array(msdink).std(axis=0)
         return np.array(msd),np.array(std)
 
+
+
     def nongaussian_parameter(self):
         moment2poten2=(moment(self.trajectory,moment=2,axis=0))**2
         moment4=moment(self.trajectory,moment=4,axis=0)
         nongaussianparamter=(1/3.)*moment4/moment2poten2-1
         return  nongaussianparamter
 
+    def invert_time(self):
+        """
+        Dreht die Richtung der Zeit
+
+        :return:
+        """
+        self.trajectory=np.fliplr(self.trajectory)
 
     def plotting(self, msdtype="ensemble", particlemsdtime=0,error=0, showlegend=None):
         """
