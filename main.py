@@ -25,7 +25,7 @@ def show_gaussian():
     steps=30
     gaussianparamter=[]
     for i in range(steps):
-        c=analyse_tool.Analyse(D=2,particles=5000,length=length+1,alpha=0.5)
+        c=analyse_tool.Analyse(D=2,particles=5000,length=length+1,alpha=0.5,dt=1)
         shades=np.linspace(0,1,steps+1)
         b=c.nongaussian_parameter()
         gaussianparamter.append(b)
@@ -39,7 +39,7 @@ def show_rescaled():
     length=1100
     steps=5
     shades=np.linspace(0,1,steps+1)
-    c=analyse_tool.Analyse(D=2,particles=10000,length=length+1,alpha=0.5)
+    c=analyse_tool.Analyse(D=2,particles=10000,length=length+1,alpha=0.5,dt=1)
     for j in range(100,1100,1000/steps):
         colornum=1+colornum
         shade=shades[colornum]
@@ -57,7 +57,7 @@ def show_distrib():
     length=1000
     steps=50
     shades=np.linspace(0,1,steps+1)
-    c=analyse_tool.Analyse(D=2,particles=6000,length=length+1,alpha=0.5)
+    c=analyse_tool.Analyse(D=2,particles=6000,length=length+1,alpha=0.5,dt=1)
     c.invert_time()
     for j in range(100,1000,900/steps):
         colornum=1+colornum
@@ -69,15 +69,22 @@ def show_distrib():
     plt.show()
 
 def plot_msd_invert():
-    c=analyse_tool.Analyse(D=2,particles=6000,length=1000,alpha=0.5)
+    c=analyse_tool.Analyse(D=2,particles=6000,length=1000,alpha=0.5,dt=1)
     c.invert_time()
     c.plotting(showlegend="yes")
     c.plotting("time",showlegend="yes")
     plt.show()
-
-
-
-plot_msd_invert()
+c=analyse_tool.Analyse(D=2,particles=6000,length=1000,alpha=0.5,dt=1)
+msddopp=[]
+for i in range(5999):
+    msdd=c.msd_time(i=i)
+    msddopp.append(msdd)
+msddopp=np.array(msddopp)
+c.trajectory=msddopp
+c.plotting(showlegend="yes")
+c.plotting("time",showlegend="yes")
+plt.show()
+#plot_msd_invert()
 #show_gaussian()
 #show_rescaled()
 #show_distrib()

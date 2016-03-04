@@ -10,9 +10,9 @@ class Analyse(simulation.Felix_Method):
     """
         Beinhaltet mehrere Methoden zur Analyse der Trajectorie. Erbt von der Klasse Simulation.Felix_Method .
     """
-    def __init__(self, D , particles,length, alpha):
-        simulation.Felix_Method.__init__(self,D=D, particles=particles,length=length,alpha=alpha)
-        self.trajectory=simulation.Felix_Method(D,particles,length,alpha).compute_trajectory()
+    def __init__(self, D , particles,length, alpha,dt):
+        simulation.Felix_Method.__init__(self,D=D, particles=particles,length=length,alpha=alpha,dt=dt)
+        self.trajectory=simulation.Felix_Method(D,particles,length,alpha,dt=dt).compute_trajectory()
     def msdanalyt(self):
         """
         :return: returns the analytical result for MSD
@@ -20,7 +20,7 @@ class Analyse(simulation.Felix_Method):
 
             \\delta r^{2}(t)=2 D t^{ \\alpha}
         """
-        return 2*((self.t)**self.alpha)*self.K_alpha
+        return 2*((self.t*self.dt)**self.alpha)*self.K_alpha
 
     def msd_ensemble(self):
         """
@@ -135,9 +135,14 @@ class Analyse(simulation.Felix_Method):
 
         :return:
         """
-        self.trajectory=np.fliplr(self.trajectory)
+        traject=np.fliplr(self.trajectory)
+        traject=np.subtract(traject.T,traject[:,0].T)
+        self.trajectory=traject.T
+    def plot_freq(self):
+            plt.plot(self.frq)
+            plt.show()
 
-    def plotting(self, msdtype="ensemble", particlemsdtime=0,error=0, showlegend=None):
+    def plotting(self, msdtype="ensemble", particlemsdtime=0,error=0, showlegend=None,scale="loglog"):
         """
         :param error: Number of standard deviations from mean, which is shown in the figure
 
@@ -145,15 +150,18 @@ class Analyse(simulation.Felix_Method):
         :return: A figure with plotting of the Ensemble MSD
         """
         if msdtype=="ensemble":
-            msd,std=Analyse(self.D,self.particles,self.n,self.alpha).msd_ensemble()
+            msd,std=self.msd_ensemble()
         if msdtype=="time":
-            msd,std=Analyse(self.D,self.particles,self.n,self.alpha).msd_time(particlemsdtime)
+            msd,std=self.msd_time(particlemsdtime)
 
 
         colors=['r','b','g','k','c','w','b','r','g','b','k','c','w','b','r','g','b','k','c','w','bo','ro','go','bo','ko','co','wo','bo']
         #fig=plt.plot(range(msd_ensemble.size), msd_ensemble ,colors[2], label="ensemble msd")
-        plt.loglog(self.t,Analyse(self.D,self.particles,self.n,self.alpha).msdanalyt(),":",color=colors[1], label="analytisch D=%f,particles=%d,length=%d,alpha=%f" %(self.D,self.particles,self.n,self.alpha))
-        fig=plt.errorbar(range(msd.size), msd, yerr=error*std,label="Spektrale Methode mit D=%f,particles=%d, length=%d ,alpha=%f, Std=%f" %(self.D,self.particles,self.n,self.alpha,error))
+        if scale == "lin":
+            plt.plot(self.t*self.dt,self.msdanalyt(),":",color=colors[1], label="analytisch D=%f,particles=%d,length=%d,alpha=%f" %(self.D,self.particles,self.n,self.alpha))
+        if scale == "loglog":
+            plt.loglog(self.t*self.dt,self.msdanalyt(),":",color=colors[1], label="analytisch D=%f,particles=%d,length=%d,alpha=%f" %(self.D,self.particles,self.n,self.alpha))
+        fig=plt.errorbar(self.t*self.dt, msd, yerr=error*std,label="Spektrale Methode mit D=%f,particles=%d, length=%d ,alpha=%f, Std=%f" %(self.D,self.particles,self.n,self.alpha,error))
         if showlegend is not None:
             plt.legend(loc=2)
         plt.xlabel('Steps', fontsize=14)
