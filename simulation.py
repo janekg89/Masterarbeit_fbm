@@ -50,6 +50,7 @@ class Felix_Method():
         #plt.plot( np.arange(-np.pi/self.dt , np.pi/self.dt,(np.pi/(self.n*self.dt))))
         #plt.show()
         for particle in range(self.particles):
+            #r = np.random.RandomState(1234)
             v_t=(np.random.normal(0,np.sqrt(self.dt),size=self.ki)) #todo mit matrix.shape können man eine zufällige verteilung von allen daten generieren
             v_t=np.array(v_t)
             v_frq=np.fft.fft(v_t)

@@ -133,15 +133,15 @@ Dabei werden anfänglich alle Inkremente (Geschwindigkeiten) für gewöhnliches 
  P(r,t)=[2 \pi \delta r^{2}_{norm}(t)/d]^{-\frac{d}{2}} e^{ \frac{-r^2 d}{2 \delta r^{2}_{norm}(t) }}
 \end{equation}
 \section{Gebrochen-rationale Brownische Bewegung}
-Es wurde eine festgestellt, dass für eine Systeme die Mittlere Quadratische Verschiebung nicht mit der für Brownische Bewegung übereinstimmt, aber statt dessen eine exponentielle Abhängigkeit zur Zeit besitzt. $\delta r^{2}_{fBr}(t)= < \Delta R(t)_{fBr}>=2dK_{\alpha}t^{\alpha}$ Dieses Phänomen wurde als Gebrochen-rationale Brownische Bewegung definiert. Für dem mittlere quadratische Verschiebung gilt allgemein $\delta r^{2}_{fBr}(t) = \int^t_{0}dt' v(t')$ ...
-....
+Als Ausgangspunkt wird weiterhin die Differentialgleichung $\partial \boldsymbol{R}(t) = \boldsymbol{\eta}(t)$ betrachtet. $\eta_i(t)$ ist in dem Fall aber nicht mehr delta korreliert in der Zeit, wie für einfache Brownische Bewegung. Für Gebrochen-rationale Brownische Bewegung wird eine dauerhaftes Korrelation angenommen, sodass die Mittlere Quadratische Verschiebung nicht mit der für Brownische Bewegung übereinstimmt, aber stattdessen eine exponentielle Abhängigkeit zur Zeit aufweist $\delta r^{2}_{fBr}(t)= < \Delta R(t)_{fBr}>=2dK_{\alpha}t^{\alpha}$. 
+%Für die Mittlere Quadratische Verschiebung gilt allgemein $\delta r^{2}_{fBr}(t) = \int^t_{0}dt' v(t')$ ...
 Die Geschwindigkeitsautokorrelationsfunktion für Gebrochen-rationale Brownische Bewegung kann wie folgt definiert werden:
 \begin{equation}
 Z(\omega)= K_{\alpha} \Gamma(1+\alpha)(i z)^{1-\alpha} \text{   für} 
 \end{equation}
 \begin{itemize}
  \item $K_{\alpha} =$ generalisierter Diffusions-Koeffizient 
- \item $\omega = $ Frequenz (die Variable nach der  nach der Fouriertransformation)
+ \item $\omega = $ Frequenz 
 \end{itemize}
 
 
@@ -155,7 +155,7 @@ Für den im Verlauf verwendeten Integrator muss davon ausgegangen werden, dass k
 Die dickgeschriebenen Inkremente $\boldsymbol{\eta}_j$ sind als Vektoren zu verstehen. Die Schreibweise wird im Verlauf so belassen.
 Es ergibt sich für die Länge der Trajektorie:
 \begin{align}
- \Delta \boldsymbol{R}_n =  \sum_{j=0}^n \boldsymbol{\eta}_j  \label{eq:diskretdeltar}
+ \Delta \boldsymbol{R}_n =  \sum_{j=0}^n \boldsymbol{\eta}_j  \Delta t \label{eq:diskretdeltar}
 \end{align}
  Der Algorithmus hat die Motivation die Inkremente $ \boldsymbol{\eta}_j$so zu generieren, dass sie die Eigenschaften der Gebrochen-rationale Brownische Bewegung wiederspiegeln und sie insbesondere dem potentiellen Abklingen der Mittleren Quadratischen Verschiebung folgen.
 \begin{align}
@@ -175,7 +175,7 @@ Im Verlauf des Algorithmus wird die Motivation für die doppelte Anzahl an Zufal
   \end{align}
  Die entsprechende analytische Fouriertransformation ist:
  \begin{align}
- \eta(\omega)=\int_0^{\infty}e^{- i 2 \pi \omega t} \eta(t) dt  \label{eq:diskret-freq1} \\
+  \boldsymbol{\eta}(\omega)=\int_0^{\infty}e^{- i 2 \pi \omega t}  \boldsymbol{\eta}(t) dt  \label{eq:diskret-freq1} \\
  \text{mit }\omega = g \Delta \omega \text{ , } \Delta \omega =  \frac{1}{2n \Delta t} \text{ und } t=j \Delta t \ \label{eq:diskret-freq}
  \end{align}
  
@@ -190,14 +190,14 @@ Im Verlauf des Algorithmus wird die Motivation für die doppelte Anzahl an Zufal
  \end{align}
  \item Für gebrochen-rationale Brownischen Bewegung ist die Auto-Korrelations Funktion  an der Stelle 0: $Z_{g=0}=0$. Daraus folgt nach Formel \ref{eq:corelastion}, dass auch das Nullte Inkrement im Frequenzraum $\boldsymbol{\eta_{fbr_{g=o}}}= 0$ ist. Das Nullte Inkrement im Frequenzraum ist mit Formel \ref{eq:diskretdeltar} aber auch:
  \begin{align}
-  \boldsymbol{\eta_{fbr_{g=o}}} = \sum_{j=0}^{2n-1} \boldsymbol{\eta_j} e^{0}=\Delta  \boldsymbol{R} 
+  \boldsymbol{\eta_{fbr_{g=o}}} = \sum_{j=0}^{2n-1} \boldsymbol{\eta_j} e^{0}=\frac{\Delta  \boldsymbol{R}}{\Delta t}
  \end{align}
 $\Delta \boldsymbol{R} $ ist in dem Fall die zurückgelegt Entfernung nach $2n$ Zeitschritten.
 Dadurch würde das Teilchen nach $2n$ Schritten wieder zurück an seinen Ursprung kehren. Stattdessen wird Das Nullte Inkrement im Frequenzraum folgendermaßen berechnet:
 \begin{align}
 \boldsymbol{\eta_{fbr_{g=o}}} = \mathcal{N}(0,\sqrt{2 K_{\alpha} (2n \Delta t)^\alpha})
 \end{align}
- gerechnet. Dies wäre korrekt, wenn gebrochen-rationalen Brownische Bewegung ein Markowischer Prozess wäre. Da dies nicht der Fall ist, entsteht an dieser Stelle eine Approximation. Um sie genauer zu verstehen muss ich mich damit noch weiter beschäftigen. Um den Einfluss der Approximation zu verringern wurde in Schritt 1 die doppelte Menge an Inkrementen erstellt. Die Hoffnung ist, dass die Abweichung der Approximation  mit zunehmender Entfernung von $2 \Delta R_{fbr}$ immer geringer wird und bei $\Delta R_{fbr}$ bereits vernachlässigbar ist.
+ gerechnet. Dies wäre korrekt, wenn Gebrochen-rationale Brownische Bewegung ein Markowischer Prozess wäre. Da dies nicht der Fall ist, entsteht an dieser Stelle eine Approximation. Um sie genauer zu verstehen muss ich mich damit noch weiter beschäftigen. Um den Einfluss der Approximation zu verringern wurde in Schritt 1 die doppelte Menge an Inkrementen erstellt. Die Hoffnung ist, dass der Einfluss der Approximation  mit zunehmender Entfernung von $2 \Delta R_{fbr}$ immer geringer wird und bei $\Delta R_{fbr}$ bereits vernachlässigbar ist.
  %\item Laut dem Davies Harte Algorithmus wird außerdem das n-te Inkrement im Frequenzraum %umgeändert:
  %\begin{align}
  %\eta_{fbr_{g=n}} =\sqrt{Re(Z_g 2 n)} \mathcal{N}(0,1) 
@@ -209,7 +209,7 @@ Dadurch würde das Teilchen nach $2n$ Schritten wieder zurück an seinen Ursprun
  \end{align}
 Es wird nur die erste Hälfte der Inkremente, $\eta_{fbr_j}$ für $j=(0,1,..,n)$, weiter verwendet.
 \end{enumerate}
-Für die drei dimensionale Gebrochen-rationale Brownische Bewegung kann für jede kartesische Komponente der soeben beschriebene Algorithmus verwendet werden. 
+Für die drei dimensionale Gebrochen-rationale Brownische Bewegung kann für jede kartesische Komponente der soeben beschriebene Algorithmus verwendet werden, da davon ausgegangen wird, dass die Kartesischen Komponenten der Inkremente untereinander nicht korreliert sind. 
 \subsection{Analyse des Algorithmuses}
 Hier kommen die Plots  aus dem Analyse Skript rein.
 \chapter{Reaktions-Diffusions-Dynamik}

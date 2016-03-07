@@ -51,7 +51,7 @@ class Analyse(simulation.Felix_Method):
         r_tt=r_t_allparticles.T
         hist, hist_p = np.histogram(r_tt[t], histpoints, normed=True)
         hist_p=hist_p[1:]
-        return hist_p,hist
+        return hist_p*self.dt,hist
 
     def distribution_abs(self,t=0,histpoints=70):
         """
@@ -71,8 +71,8 @@ class Analyse(simulation.Felix_Method):
         hist, hist_p = np.histogram(r_tt[t], histpoints, normed=True)
         hist_p=hist_p[1:]
         #r,dist=Analyse(self.D,self.particles,self.n,self.alpha).distribution_abs(t,histpoints)
-        res_r=hist_p*(2*self.D*t)**(-self.alpha/2.)
-        res_dis=hist*res_r*np.sqrt(2*self.D*t**self.alpha)
+        res_r=hist_p*(2*self.D*t*self.dt)**(-self.alpha/2.)
+        res_dis=hist*res_r*np.sqrt(2*self.D*(t*self.dt)**self.alpha)
 
         return res_r, res_dis
 
@@ -82,8 +82,8 @@ class Analyse(simulation.Felix_Method):
 
         r=np.arange(-r_dis, r_dis, 0.01)
         #r=abs(r)
-        distrib=np.exp(-(r**2)/(2*2*self.D*t**self.alpha))/np.sqrt(np.pi*2*2*self.D*t**self.alpha)
-        distrib1=norm.pdf(r,0,np.sqrt(2*self.D*t**self.alpha))
+        distrib=np.exp(-(r**2)/(2*2*self.D*(t*self.dt)**self.alpha))/np.sqrt(np.pi*2*2*self.D*t**self.alpha)
+        distrib1=norm.pdf(r,0,np.sqrt(2*self.D*(tself.dt)**self.alpha))
         return r, distrib, distrib1
 
     def rescaled_analytical_distribution(self, t, r_dis= 30):
@@ -94,7 +94,7 @@ class Analyse(simulation.Felix_Method):
         :return: analytical rescaled function ( fill in math)
         """
         r=np.arange(0, r_dis, 0.01)
-        res_r=r*(2*self.D*t)**(-self.alpha/2.)
+        res_r=r*(2*self.D*t*self.dt)**(-self.alpha/2.)
         res_dis=(res_r*np.exp(-res_r**2./2.))/np.sqrt(2.*np.pi)
 
         #res_r, res_dis = Analyse(self.D,self.particles,self.n,self.alpha).analytical_distribution_of_particles(t,r_dis=r_res)

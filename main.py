@@ -64,30 +64,49 @@ def show_distrib():
         shade=shades[colornum]
         f=c.analytical_distribution_of_particles(t=j,r_dis=50)
         g=c.distribution(t=j)
-        plt.semilogy(g[0],g[1],color='%f' %(shade))
-        plt.plot(f[0],f[2],color='%f' %(shade))
+    plt.semilogy(g[0],g[1],color='%f' %(shade))
+    plt.plot(f[0],f[2],color='%f' %(shade))
     plt.show()
 
 def plot_msd_invert():
     c=analyse_tool.Analyse(D=2,particles=6000,length=1000,alpha=0.5,dt=1)
-    c.invert_time()
+    #c.invert_time()
     c.plotting(showlegend="yes")
     c.plotting("time",showlegend="yes")
     plt.show()
-c=analyse_tool.Analyse(D=2,particles=6000,length=1000,alpha=0.5,dt=1)
-msddopp=[]
-for i in range(5999):
-    msdd=c.msd_time(i=i)
-    msddopp.append(msdd)
-msddopp=np.array(msddopp)
-c.trajectory=msddopp
-c.plotting(showlegend="yes")
-c.plotting("time",showlegend="yes")
-plt.show()
+#c=analyse_tool.Analyse(D=2,particles=6000,length=1000,alpha=0.5,dt=1)
+#msddopp=[]
+#for i in range(5999):
+#    msdd=c.msd_time(i=i)
+#    msddopp.append(msdd)
+#msddopp=np.array(msddopp)
+#c.trajectory=msddopp
+#c.plotting(showlegend="yes")
+#c.plotting(showlegend="yes")
+#plt.show()
 #plot_msd_invert()
 #show_gaussian()
 #show_rescaled()
 #show_distrib()
+#show_rescaled()
+def plot_different_dt():
+    for j in np.arange(0.1,2,0.2):
+        length=100
+        steps=30
+        gaussianparamter=[]
+        for i in range(steps):
+            c=analyse_tool.Analyse(D=2,particles=5000,length=length+1,alpha=0.5,dt=j)
+            shades=np.linspace(0,1,steps+1)
+            b=c.nongaussian_parameter()
+            gaussianparamter.append(b)
+        gaussianparamter=np.array(gaussianparamter)
+        plt.errorbar(range(length+1), gaussianparamter.mean(axis=0), yerr=gaussianparamter.std(axis=0))
+    plt.show()
+plot_different_dt()
+
+
+
+
 
 
 
