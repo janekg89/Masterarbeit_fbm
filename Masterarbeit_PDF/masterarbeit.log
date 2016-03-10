@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.10.30)  7 MAR 2016 12:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.10.30)  10 MAR 2016 15:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -457,33 +457,61 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 )
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/04/25 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count102
+))
+\Gin@req@height=\dimen114
+\Gin@req@width=\dimen115
+)
 (/usr/share/texlive/texmf-dist/tex/latex/lastpage/lastpage.sty
 Package: lastpage 2013/01/28 v1.2l Refers to last page's name (HMM; JPG)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/nomencl/nomencl.sty
 Package: nomencl 2005/09/22 v4.2 Nomenclature package (LN)
-\nomlabelwidth=\dimen114
-\nom@tempdim=\dimen115
+\nomlabelwidth=\dimen116
+\nom@tempdim=\dimen117
 \nomitemsep=\skip51
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count102
+\lst@mode=\count103
 \lst@gtempboxa=\box29
 \lst@token=\toks22
-\lst@length=\count103
-\lst@currlwidth=\dimen116
-\lst@column=\count104
-\lst@pos=\count105
-\lst@lostspace=\dimen117
-\lst@width=\dimen118
-\lst@newlines=\count106
-\lst@lineno=\count107
-\lst@maxwidth=\dimen119
+\lst@length=\count104
+\lst@currlwidth=\dimen118
+\lst@column=\count105
+\lst@pos=\count106
+\lst@lostspace=\dimen119
+\lst@width=\dimen120
+\lst@newlines=\count107
+\lst@lineno=\count108
+\lst@maxwidth=\dimen121
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2014/09/06 1.5e (Carsten Heinz)
-\c@lstnumber=\count108
-\lst@skipnumbers=\count109
+\c@lstnumber=\count109
+\lst@skipnumbers=\count110
 \lst@framebox=\box30
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
@@ -498,64 +526,101 @@ Package: color 2014/04/23 v1.1a Standard LaTeX Color (DPC)
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 137.
-
-(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
-File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
-
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
-)
-\Gread@gobject=\count110
-))
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2014/09/06 1.5e listings language file
 )
 (./masterarbeit.aux)
 \openout1 = `masterarbeit.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 72.
-LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count111
+\scratchdimen=\dimen122
+\scratchbox=\box31
+\nofMPsegments=\count112
+\nofMParguments=\count113
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count114
+\MPscratchDim=\dimen123
+\MPnumerator=\count115
+\makeMPintoPDFobject=\count116
+\everyMPtoPDFconversion=\toks24
+) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             macros/latex/contrib/pageslts/ 
 (lastpage)             or
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             install/macros/latex/contrib/pageslts.tds.zip
-(lastpage)             ! on input line 72.
-\c@lstlisting=\count111
+(lastpage)             ! on input line 73.
+\c@lstlisting=\count117
+LaTeX Font Info:    Try loading font information for U+msa on input line 82.
 
-(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count112
-\scratchdimen=\dimen120
-\scratchbox=\box31
-\nofMPsegments=\count113
-\nofMParguments=\count114
-\everyMPshowfont=\toks23
-\MPscratchCnt=\count115
-\MPscratchDim=\dimen121
-\MPnumerator=\count116
-\makeMPintoPDFobject=\count117
-\everyMPtoPDFconversion=\toks24
-)
-LaTeX Font Info:    Try loading font information for U+msa on input line 81.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 81.
+LaTeX Font Info:    Try loading font information for U+msb on input line 82.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -607,18 +672,18 @@ Class scrbook Warning: \float@addtolists detected!
 (scrbook)              deprecated \float@addtolist interface .
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--132
+Underfull \hbox (badness 10000) in paragraph at lines 128--133
 
  []
 
 
-Overfull \hbox (6.83215pt too wide) in paragraph at lines 127--132
+Overfull \hbox (6.83215pt too wide) in paragraph at lines 128--133
 \OT1/cmr/m/n/10.95 Simulation). Die Mo-ti-va-tion ist einen per-for-man-ten In-
 te-gra-tor f^^?ur gebrochen-rationale
  []
 
 
-Overfull \hbox (28.89986pt too wide) in paragraph at lines 127--132
+Overfull \hbox (28.89986pt too wide) in paragraph at lines 128--133
 \OML/cmm/m/it/10.95 ^^Nr[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 t\OT1/cmr/m/n
 /10.95 ) =\OML/cmm/m/it/10.95 < \OT1/cmr/m/n/10.95 ^^A\OML/cmm/m/it/10.95 R\OT1
 /cmr/m/n/10.95 (\OML/cmm/m/it/10.95 t\OT1/cmr/m/n/10.95 )[] \OML/cmm/m/it/10.95
@@ -628,7 +693,7 @@ mm/m/it/10.95 d \OT1/cmr/m/n/10.95 = []$, $\OML/cmm/m/it/10.95 D \OT1/cmr/m/n/1
  []
 
 
-Overfull \hbox (5.13052pt too wide) in paragraph at lines 136--139
+Overfull \hbox (5.13052pt too wide) in paragraph at lines 137--140
 \OT1/cmr/m/n/10.95 eine ex-po-nen-tielle Abh^^?angigkeit zur Zeit aufweist $\OM
 L/cmm/m/it/10.95 ^^Nr[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 t\OT1/cmr/m/n/10
 .95 ) =\OML/cmm/m/it/10.95 < \OT1/cmr/m/n/10.95 ^^A\OML/cmm/m/it/10.95 R\OT1/cm
@@ -640,15 +705,15 @@ OT1/cmr/m/n/10.95 = 2\OML/cmm/m/it/10.95 dK[]t[]$\OT1/cmr/m/n/10.95 .
 
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 143.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 144.
 
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 143.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 144.
  [4]
-Overfull \hbox (0.42691pt too wide) in paragraph at lines 186--188
+Overfull \hbox (0.42691pt too wide) in paragraph at lines 187--189
 $\OML/cmm/m/it/10.95 Z\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 !\OT1/cmr/m/n/10.
 95 )$ wurde durch die an-a-lytis-che Fouri-er-trans-for-ma-tion $\OML/cmm/m/it/
 10.95 Z\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 !\OT1/cmr/m/n/10.95 ) = [][] \OM
@@ -657,32 +722,165 @@ L/cmm/m/it/10.95 e[]Z\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 t\OT1/cmr/m/n/10.9
  []
 
 [5]
-Overfull \hbox (5.96019pt too wide) in paragraph at lines 191--192
+Overfull \hbox (5.96019pt too wide) in paragraph at lines 192--193
 []\OT1/cmr/m/n/10.95 F^^?ur gebrochen-rationale Brown-is-chen Be-we-gung ist di
 e Auto-Korrelations Funk-
  []
 
 
-Overfull \hbox (1.07253pt too wide) in paragraph at lines 194--197
+Overfull \hbox (1.07253pt too wide) in paragraph at lines 195--198
 $\OT1/cmr/m/n/10.95 ^^A[]$ ist in dem Fall die zur^^?uck-gelegt Ent-fer-nung na
 ch $2\OML/cmm/m/it/10.95 n$ \OT1/cmr/m/n/10.95 Zeitschrit-ten. Dadurch
  []
 
 
-Overfull \hbox (1.30894pt too wide) in paragraph at lines 194--197
+Overfull \hbox (1.30894pt too wide) in paragraph at lines 195--198
 \OT1/cmr/m/n/10.95 w^^?urde das Teilchen nach $2\OML/cmm/m/it/10.95 n$ \OT1/cmr
 /m/n/10.95 Schrit-ten wieder zur^^?uck an seinen Ur-sprung kehren.
  []
 
 
-Overfull \hbox (10.82687pt too wide) in paragraph at lines 194--197
+Overfull \hbox (10.82687pt too wide) in paragraph at lines 195--198
 \OT1/cmr/m/n/10.95 Stattdessen wird Das Nullte Inkre-ment im Fre-quen-zraum fol
 -gen-der-ma^^Yen berech-
  []
 
-[6] [7]
+[6] <./msd_ensemble_alpha.pdf, id=57, 1734.48pt x 964.80452pt>
+File: ./msd_ensemble_alpha.pdf Graphic file (type pdf)
+
+<use ./msd_ensemble_alpha.pdf>
+Package pdftex.def Info: ./msd_ensemble_alpha.pdf used on input line 218.
+(pdftex.def)             Requested size: 398.33864pt x 221.57649pt.
+
+<./msd_ensemble_4000particles_log.pdf, id=58, 1734.48pt x 964.80452pt>
+File: ./msd_ensemble_4000particles_log.pdf Graphic file (type pdf)
+
+<use ./msd_ensemble_4000particles_log.pdf>
+Package pdftex.def Info: ./msd_ensemble_4000particles_log.pdf used on input lin
+e 226.
+(pdftex.def)             Requested size: 398.33864pt x 221.57649pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./msd_ensemble_dt_nostd_lin.pdf, id=59, 1734.48pt x 964.80452pt>
+File: ./msd_ensemble_dt_nostd_lin.pdf Graphic file (type pdf)
+
+<use ./msd_ensemble_dt_nostd_lin.pdf>
+Package pdftex.def Info: ./msd_ensemble_dt_nostd_lin.pdf used on input line 233
+.
+(pdftex.def)             Requested size: 398.33864pt x 221.57649pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./msd_time_ensemble_dt_lin.pdf, id=60, 1734.48pt x 964.80452pt>
+File: ./msd_time_ensemble_dt_lin.pdf Graphic file (type pdf)
+
+<use ./msd_time_ensemble_dt_lin.pdf>
+Package pdftex.def Info: ./msd_time_ensemble_dt_lin.pdf used on input line 240.
+
+(pdftex.def)             Requested size: 398.33864pt x 221.57649pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+<./non_gaussian_D=2_t=1001_dt=1_alpha=05particles_5000_std01.pdf, id=61, 1734.4
+8pt x 993.7125pt>
+File: ./non_gaussian_D=2_t=1001_dt=1_alpha=05particles_5000_std01.pdf Graphic f
+ile (type pdf)
+
+<use ./non_gaussian_D=2_t=1001_dt=1_alpha=05particles_5000_std01.pdf>
+Package pdftex.def Info: ./non_gaussian_D=2_t=1001_dt=1_alpha=05particles_5000_
+std01.pdf used on input line 247.
+(pdftex.def)             Requested size: 398.33864pt x 228.21548pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./msd_ensemble_t_inverted.pdf, id=62, 1734.48pt x 964.80452pt>
+File: ./msd_ensemble_t_inverted.pdf Graphic file (type pdf)
+
+<use ./msd_ensemble_t_inverted.pdf>
+Package pdftex.def Info: ./msd_ensemble_t_inverted.pdf used on input line 254.
+(pdftex.def)             Requested size: 398.33864pt x 221.57649pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./rescaled_function.pdf, id=63, 1734.48pt x 993.7125pt>
+File: ./rescaled_function.pdf Graphic file (type pdf)
+
+<use ./rescaled_function.pdf>
+Package pdftex.def Info: ./rescaled_function.pdf used on input line 261.
+(pdftex.def)             Requested size: 398.33864pt x 228.21548pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./dt_variert_bei_factor_1_lin.pdf, id=64, 1734.48pt x 964.80452pt>
+File: ./dt_variert_bei_factor_1_lin.pdf Graphic file (type pdf)
+
+<use ./dt_variert_bei_factor_1_lin.pdf>
+Package pdftex.def Info: ./dt_variert_bei_factor_1_lin.pdf used on input line 2
+68.
+(pdftex.def)             Requested size: 398.33864pt x 221.57649pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./dt_variert_bei_factor_1_log.pdf, id=65, 1734.48pt x 964.80452pt>
+File: ./dt_variert_bei_factor_1_log.pdf Graphic file (type pdf)
+
+<use ./dt_variert_bei_factor_1_log.pdf>
+Package pdftex.def Info: ./dt_variert_bei_factor_1_log.pdf used on input line 2
+75.
+(pdftex.def)             Requested size: 398.33864pt x 221.57649pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./faktor_variert_bei_dt_1_lin.pdf, id=66, 1734.48pt x 964.80452pt>
+File: ./faktor_variert_bei_dt_1_lin.pdf Graphic file (type pdf)
+
+<use ./faktor_variert_bei_dt_1_lin.pdf>
+Package pdftex.def Info: ./faktor_variert_bei_dt_1_lin.pdf used on input line 2
+82.
+(pdftex.def)             Requested size: 398.33864pt x 221.57649pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./faktor_variert_bei_dt_1_log.pdf, id=67, 1734.48pt x 964.80452pt>
+File: ./faktor_variert_bei_dt_1_log.pdf Graphic file (type pdf)
+
+<use ./faktor_variert_bei_dt_1_log.pdf>
+Package pdftex.def Info: ./faktor_variert_bei_dt_1_log.pdf used on input line 2
+89.
+(pdftex.def)             Requested size: 398.33864pt x 221.57649pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[7 <./msd_ensemble_alpha.pdf>] [8 <./msd_ensemble_4000particles_log.pdf> <./msd
+_ensemble_dt_nostd_lin.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./msd_ensemble_dt_nostd_lin.pdf): PDF i
+nclusion: multiple pdfs with page group included in a single page
+>] [9 <./msd_time_ensemble_dt_lin.pdf>] [10 <./non_gaussian_D=2_t=1001_dt=1_alp
+ha=05particles_5000_std01.pdf>] [11 <./msd_ensemble_t_inverted.pdf>] [12 <./res
+caled_function.pdf> <./dt_variert_bei_factor_1_lin.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./dt_variert_bei_factor_1_lin.pdf): PDF
+ inclusion: multiple pdfs with page group included in a single page
+>] [13 <./dt_variert_bei_factor_1_log.pdf> <./faktor_variert_bei_dt_1_lin.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./faktor_variert_bei_dt_1_lin.pdf): PDF
+ inclusion: multiple pdfs with page group included in a single page
+>] [14 <./faktor_variert_bei_dt_1_log.pdf>]
 Chapter 2.
-[8
+[15
 
 ]
 Chapter 3.
@@ -720,7 +918,7 @@ l.28 ... Frequenzraum welche auf die gewöhnliche
 You need to provide a definition with \DeclareInputText 
 or \DeclareInputMath before using this key.
 
-[9
+[16
 
 ]
 
@@ -901,19 +1099,19 @@ Writing nomenclature file masterarbeit.nlo
 \openout7 = `masterarbeit.nlo'.
 
 Writing nomenclature file masterarbeit.nlo
-(./masterarbeit.bbl [10]) 
+(./masterarbeit.bbl [17]) 
 AED: lastpage setting LastPage
-[11
+[18
 
 ] (./masterarbeit.aux) ) 
 Here is how much of TeX's memory you used:
- 6279 strings out of 493105
- 85999 string characters out of 6137071
- 482006 words of memory out of 5000000
- 9631 multiletter control sequences out of 15000+600000
+ 6913 strings out of 493105
+ 98034 string characters out of 6137071
+ 486433 words of memory out of 5000000
+ 10211 multiletter control sequences out of 15000+600000
  16041 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,13n,59p,683b,1926s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 47i,13n,59p,683b,1926s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmbsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmbx6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8
@@ -936,10 +1134,10 @@ are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on masterarbeit.pdf (16 pages, 263300 bytes).
+Output written on masterarbeit.pdf (23 pages, 6587918 bytes).
 PDF statistics:
- 149 PDF objects out of 1000 (max. 8388607)
- 106 compressed objects within 2 object streams
+ 1756 PDF objects out of 2073 (max. 8388607)
+ 276 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -6,13 +6,13 @@ import matplotlib.pyplot as plt # module for plotting "a la" matlab
 
 class Felix_Method():
 
-    def __init__(self, D, particles,length,alpha,dt):
+    def __init__(self, D, particles,length,alpha,dt,x=2):
         self.D=D
         self.K_alpha=D
         self.particles=particles
         self.n=length
         self.alpha=alpha
-        self.ki=self.n*2
+        self.ki=self.n*x
         self.frq=np.fft.fftfreq(self.ki)*(np.pi*2./(dt))
         self.t=np.array(range(length))
         self.dt=dt

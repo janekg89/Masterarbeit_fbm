@@ -10,9 +10,9 @@ class Analyse(simulation.Felix_Method):
     """
         Beinhaltet mehrere Methoden zur Analyse der Trajectorie. Erbt von der Klasse Simulation.Felix_Method .
     """
-    def __init__(self, D , particles,length, alpha,dt):
-        simulation.Felix_Method.__init__(self,D=D, particles=particles,length=length,alpha=alpha,dt=dt)
-        self.trajectory=simulation.Felix_Method(D,particles,length,alpha,dt=dt).compute_trajectory()
+    def __init__(self, D , particles,length, alpha,dt,x=2):
+        simulation.Felix_Method.__init__(self,D=D, particles=particles,length=length,alpha=alpha,dt=dt,x=x)
+        self.trajectory=simulation.Felix_Method(D,particles,length,alpha,dt=dt,x=x).compute_trajectory()
     def msdanalyt(self):
         """
         :return: returns the analytical result for MSD
@@ -82,8 +82,8 @@ class Analyse(simulation.Felix_Method):
 
         r=np.arange(-r_dis, r_dis, 0.01)
         #r=abs(r)
-        distrib=np.exp(-(r**2)/(2*2*self.D*(t*self.dt)**self.alpha))/np.sqrt(np.pi*2*2*self.D*t**self.alpha)
-        distrib1=norm.pdf(r,0,np.sqrt(2*self.D*(tself.dt)**self.alpha))
+        distrib=np.exp(-(r**2)/(2*2*self.D*(t*self.dt)**self.alpha))/np.sqrt(np.pi*2*2*self.D*(t*self.dt)**self.alpha)
+        distrib1=norm.pdf(r,0,np.sqrt(2*self.D*(t*self.dt)**self.alpha))
         return r, distrib, distrib1
 
     def rescaled_analytical_distribution(self, t, r_dis= 30):
@@ -118,7 +118,7 @@ class Analyse(simulation.Felix_Method):
             for i in range(0,totalsize-j):
                 msdink.append(((sinfgletrajectory[i]-sinfgletrajectory[j+i])**2))
             msd[j]=np.array(msdink).mean(axis=0)
-            std[j]=np.array(msdink).std(axis=0)
+            std[j]=np.array(msdink).std(axis=0)/np.sqrt(totalsize-j)
         return np.array(msd),np.array(std)
 
 
@@ -138,6 +138,7 @@ class Analyse(simulation.Felix_Method):
         traject=np.fliplr(self.trajectory)
         traject=np.subtract(traject.T,traject[:,0].T)
         self.trajectory=traject.T
+
     def plot_freq(self):
             plt.plot(self.frq)
             plt.show()

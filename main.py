@@ -21,7 +21,7 @@ import pstats
 #a,b=analyse_tool.Analyse(D=2,particles=5000,length=200,alpha=0.5).distribution(t=199)
 #print analyse_tool.Analyse(D=2,particles=50,length=20,alpha=0).D
 def show_gaussian():
-    length=100
+    length=1000
     steps=30
     gaussianparamter=[]
     for i in range(steps):
@@ -31,6 +31,8 @@ def show_gaussian():
         gaussianparamter.append(b)
     gaussianparamter=np.array(gaussianparamter)
     plt.errorbar(range(length+1), gaussianparamter.mean(axis=0), yerr=gaussianparamter.std(axis=0))
+    plt.xlabel('t', fontsize=14)
+    plt.ylabel('$\\alpha_2(t)$ non-Gaussian parameter', fontsize=14)
     plt.show()
 
 def show_rescaled():
@@ -43,12 +45,13 @@ def show_rescaled():
     for j in range(100,1100,1000/steps):
         colornum=1+colornum
         shade=shades[colornum]
-        d=c.rescaled_analytical_distribution(t=j,r_dis=50)
+        #d=c.rescaled_analytical_distribution(t=j,r_dis=50)
         h=c.rescaled_function(t=j,histpoints=35)
-        plt.plot(h[0],h[1],color='%f' %(shade), label='%f' %(shade))
-        plt.plot(d[0],d[1],color='%f' %(shade))
-
-#plt.legend(loc=1)
+        plt.loglog(h[0],h[1],color='%f' %(shade), label="rescaled function at $t=%d$" %(j))
+        #plt.plot(d[0],d[1],color='%f' %(shade))
+    plt.xlabel('rescaled distance $ r_{res} $ ', fontsize=14)
+    plt.ylabel('rescaled distribution', fontsize=14)
+    plt.legend(loc=1)
     plt.show()
 
 def show_distrib():
@@ -57,22 +60,19 @@ def show_distrib():
     length=1000
     steps=50
     shades=np.linspace(0,1,steps+1)
-    c=analyse_tool.Analyse(D=2,particles=6000,length=length+1,alpha=0.5,dt=1)
-    c.invert_time()
+    c=analyse_tool.Analyse(D=2,particles=6000,length=length+1,alpha=0.5,dt=1,)
     for j in range(100,1000,900/steps):
         colornum=1+colornum
         shade=shades[colornum]
         f=c.analytical_distribution_of_particles(t=j,r_dis=50)
         g=c.distribution(t=j)
-    plt.semilogy(g[0],g[1],color='%f' %(shade))
-    plt.plot(f[0],f[2],color='%f' %(shade))
+        plt.semilogy(g[0],g[1],color='%f' %(shade))
+        plt.plot(f[0],f[2],color='%f' %(shade))
     plt.show()
 
 def plot_msd_invert():
-    c=analyse_tool.Analyse(D=2,particles=6000,length=1000,alpha=0.5,dt=1)
-    #c.invert_time()
-    c.plotting(showlegend="yes")
-    c.plotting("time",showlegend="yes")
+    c=analyse_tool.Analyse(D=2,particles=6000,length=5000,alpha=0.5,dt=1)
+    c.invert_time()
     plt.show()
 #c=analyse_tool.Analyse(D=2,particles=6000,length=1000,alpha=0.5,dt=1)
 #msddopp=[]
@@ -89,24 +89,42 @@ def plot_msd_invert():
 #show_rescaled()
 #show_distrib()
 #show_rescaled()
-def plot_different_dt():
-    for j in np.arange(0.1,2,0.2):
-        length=100
-        steps=30
-        gaussianparamter=[]
-        for i in range(steps):
-            c=analyse_tool.Analyse(D=2,particles=5000,length=length+1,alpha=0.5,dt=j)
-            shades=np.linspace(0,1,steps+1)
-            b=c.nongaussian_parameter()
-            gaussianparamter.append(b)
-        gaussianparamter=np.array(gaussianparamter)
-        plt.errorbar(range(length+1), gaussianparamter.mean(axis=0), yerr=gaussianparamter.std(axis=0))
-    plt.show()
-plot_different_dt()
+#def plot_different_dt():
+#        gaussianparamter=[]
+#        for i in range(steps):
+ #           c=analyse_tool.Analyse(D=2,particles=5000,length=length+1,alpha=0.5,dt=j)
+  #          shades=np.linspace(0,1,steps+1)
+   #         b=c.nongaussian_parameter()
+    #        gaussianparamter.append(b)
+     #   gaussianparamter=np.array(gaussianparamter)
+      #  plt.errorbar(range(length+1), gaussianparamter.mean(axis=0), yerr=gaussianparamter.std(axis=0))
+    #plt.show()
+#plot_different_dt()
 
 
 
+def plot_ensemble_mean_of_time_msd():
+        c=analyse_tool.Analyse(D=2,particles=100,length=1000,alpha=0.5,dt=1)
+        msd_all=[]
+        for ii in range(c.particles):
+            print ii
+            msd,std=c.msd_time(i=ii)
+            msd_all.append(msd)
+        colors=['r','b','g','k','c','w','b','r','g','b','k','c','w','b','r','g','b','k','c','w','bo','ro','go','bo','ko','co','wo','bo']
+        msd_time=np.array(msd_all)
+        msd_time_mean=msd_time.mean(axis=0)
+        #plt.plot(c.t*c.dt,c.msdanalyt(),":",color=colors[1], label="analytisch D=%f,particles=%d,length=%d,alpha=%f" %(c.D,c.particles,c.n,c.alpha))
+        #plt.errorbar(c.t*c.dt, msd_time_mean, yerr=0,label="Spektrale Methode mit D=%f,particles=%d, length=%d ,alpha=%f" %(c.D,c.particles,c.n,c.alpha))
+        #plt.show()
+        return msd_time_mean
 
 
 
+#plot_msd_invert()
+#show_gaussian()
+
+#show_rescaled()
+
+
+#show_distrib()
 

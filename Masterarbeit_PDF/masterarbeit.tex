@@ -10,6 +10,7 @@
 \usepackage{amsmath} 
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{graphicx}
 \usepackage{lastpage}% to get last page use \pageref{LastPage}
 \usepackage[refpage,intoc]{nomencl}% for nomenlature Abkuerzungsverzeichnis
 \usepackage{listings}
@@ -212,6 +213,85 @@ Es wird nur die erste Hälfte der Inkremente, $\eta_{fbr_j}$ für $j=(0,1,..,n)$
 Für die drei dimensionale Gebrochen-rationale Brownische Bewegung kann für jede kartesische Komponente der soeben beschriebene Algorithmus verwendet werden, da davon ausgegangen wird, dass die Kartesischen Komponenten der Inkremente untereinander nicht korreliert sind. 
 \subsection{Analyse des Algorithmuses}
 Hier kommen die Plots  aus dem Analyse Skript rein.
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{./msd_ensemble_alpha.pdf}
+\caption{Mean Square Displacement of different $\alpha$}
+% msd_ensemble_4000particles_log.pdf: 0x0 pixel, -2147483648dpi, 0.00x0.00 cm, bb=
+ \centering
+\end{figure}
+
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{./msd_ensemble_4000particles_log.pdf}
+\caption{Mean Square Displacement (Ensemble average of 4000 Trajectories)}
+% msd_ensemble_4000particles_log.pdf: 0x0 pixel, -2147483648dpi, 0.00x0.00 cm, bb=
+ \centering
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{./msd_ensemble_dt_nostd_lin.pdf}
+\caption{Mean Square Displacement (Ensemble average fpr different $\Delta t$)}
+% msd_ensemble_4000particles_log.pdf: 0x0 pixel, -2147483648dpi, 0.00x0.00 cm, bb=
+ \centering
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{./msd_time_ensemble_dt_lin.pdf}
+\caption{Mean Square Displacement (time and ensemble avarge for different $ \Delta t$ and with standard deviation of the Mean)}
+% msd_ensemble_4000particles_log.pdf: 0x0 pixel, -2147483648dpi, 0.00x0.00 cm, bb=
+ \centering
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{./non_gaussian_D=2_t=1001_dt=1_alpha=05particles_5000_std01.pdf}
+\caption{Non-gaussian parameter of $\alpha=0.5$ , $ D=2 $ and 5000 trajectories ensemble.}
+% msd_ensemble_4000particles_log.pdf: 0x0 pixel, -2147483648dpi, 0.00x0.00 cm, bb=
+ \centering
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{./msd_ensemble_t_inverted.pdf}
+\caption{Non-gaussian parameter of $\alpha=0.5$ , $ D=2 $ and 5000 trajectories ensemble.}
+% msd_ensemble_4000particles_log.pdf: 0x0 pixel, -2147483648dpi, 0.00x0.00 cm, bb=
+ \centering
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{./rescaled_function.pdf}
+\caption{rescaled function for different times}
+% msd_ensemble_4000particles_log.pdf: 0x0 pixel, -2147483648dpi, 0.00x0.00 cm, bb=
+ \centering
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{./dt_variert_bei_factor_1_lin.pdf}
+\caption{variere dt bei gleichem Faktor 1}
+% msd_ensemble_4000particles_log.pdf: 0x0 pixel, -2147483648dpi, 0.00x0.00 cm, bb=
+ \centering
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{./dt_variert_bei_factor_1_log.pdf}
+\caption{variere dt bei gleichem Faktor 1, logarithmisch}
+% msd_ensemble_4000particles_log.pdf: 0x0 pixel, -2147483648dpi, 0.00x0.00 cm, bb=
+ \centering
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{./faktor_variert_bei_dt_1_lin.pdf}
+\caption{variere Faktor bei gleichem dt}
+% msd_ensemble_4000particles_log.pdf: 0x0 pixel, -2147483648dpi, 0.00x0.00 cm, bb=
+ \centering
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{./faktor_variert_bei_dt_1_log.pdf}
+\caption{variere Faktor bei gleichem dt, logarithmisch}
+% msd_ensemble_4000particles_log.pdf: 0x0 pixel, -2147483648dpi, 0.00x0.00 cm, bb=
+ \centering
+\end{figure}
+
 \chapter{Reaktions-Diffusions-Dynamik}
 \chapter{Appendix}
 \subsection{Code:Gebrochen-rationale Brownische Bewegung}
