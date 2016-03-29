@@ -29,7 +29,7 @@ class Felix_Method():
 
 
         """
-        z=((((+1j*self.frq))**(1-self.alpha))*self.K_alpha*np.math.gamma(1+self.alpha))*np.exp(np.pi/self.ki)
+        z=((((+1j*self.frq))**(1-self.alpha))*self.K_alpha*np.math.gamma(1+self.alpha))
         return z
 
     def compute_trajectory(self):
@@ -58,10 +58,10 @@ class Felix_Method():
             v_ano_frq[0]=np.random.normal(0,np.sqrt(2.*self.K_alpha*(self.ki*self.dt)**self.alpha))
             #v_ano_frq[self.n]=np.sqrt(self.z()[self.n].real*self.n*2)*v_t[self.ki-1]
             #v_ano_frq[self.n-1]=np.sqrt(self.z()[self.n].real*self.n*2)*v_t[self.ki-1]
-
             v_ano_t=np.fft.ifft(v_ano_frq)
             #r_t1=np.cumsum(v_ano_t[:self.n].real) #Ort bei anomaler Diffusion in Abhängigkeit von der zeit
-            r_t=integrate.cumtrapz(v_ano_t[:self.n].real,initial=0) #Ort bei anomaler Diffusion in Abhängigkeit von der zeit
+            r_t=np.zeros(self.n)
+            r_t[1:]=np.cumsum(v_ano_t[:self.n].real)[:-1] #Ort bei anomaler Diffusion in Abhängigkeit von der zeit
             r_t_allparticles.append(r_t) # Trajektorie bei anomaler Diffusion für alle teilchen
         return np.array(r_t_allparticles)
 
