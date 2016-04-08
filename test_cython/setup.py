@@ -5,8 +5,11 @@ from Cython.Distutils import build_ext
 ext_modules=[
     Extension("genereatefracincrements",
               sources=["./cincrements.pyx" ,
-                       "./_generatefracincrements.c"],
-            libraries=["m"], # Unix-like specific
+                       "./_generatefracincrements.cpp"],
+            libraries=["fftw3","m","gsl","gslcblas"], # Unix-like specific
+            library_dirs = ['./lib/','/user/lib'],
+            language="c++",
+	
     )
 ]
 setup(

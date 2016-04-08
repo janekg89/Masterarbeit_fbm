@@ -1,7 +1,7 @@
 cimport numpy
 
 cdef extern from "_generatefracincrements.h":
-    double _generateIncrements (int N, double* D,double* tau, double* alpha)
+     double _generateIncrements(int N, double* D,double* tau, double* alpha)
 
 def generateIncrements(N, D, tau, alpha):
     """
@@ -19,5 +19,5 @@ def generateIncrements(N, D, tau, alpha):
     _tau = <double*> numpy.PyArray_DATA(D)
     _D = <double*> numpy.PyArray_DATA(tau)
     _alpha=<double*> numpy.PyArray_DATA(alpha)
-    return _generateIncrements (N, _D, _tau, _alpha)
+    return _generateIncrements(N, _D, _tau, _alpha)
 
