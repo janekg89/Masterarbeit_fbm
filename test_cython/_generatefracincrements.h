@@ -1,1 +1,1 @@
- double  _generateIncrements (int N, double* D,double* tau, double* alpha);
+ std::vector<double>  _generateIncrements (int N, double* D,double* tau, double* alpha,int particles);

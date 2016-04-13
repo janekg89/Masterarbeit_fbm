@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt # module for plotting "a la" matlab
 import simulation
 import timeit
 import analyse_tool
+import test_cython.genereatefracincrements as ginc
+
 import cProfile
 import pstats
 #print timeit.timeit(" import Spectral_method; Spectral_method.Felix_Method(D=2,particles=1,length=int(1e6),alpha=0.5).compute_trajectory()", number=1)
@@ -71,7 +73,7 @@ def show_distrib():
     plt.show()
 
 def plot_msd_invert():
-    c=analyse_tool.Analyse(D=2,particles=6000,length=5000,alpha=0.5,dt=1)
+    c=analyse_tool.Analyse(D=2,particles=500,length=5000,alpha=0.5,dt=1)
     c.invert_time()
     plt.show()
 #c=analyse_tool.Analyse(D=2,particles=6000,length=1000,alpha=0.5,dt=1)
@@ -104,7 +106,7 @@ def plot_msd_invert():
 
 
 def plot_ensemble_mean_of_time_msd():
-        c=analyse_tool.Analyse(D=2,particles=100,length=1000,alpha=0.5,dt=1)
+        c=analyse_tool.Analyse(D=2,particles=10,length=1000,alpha=0.5,dt=1,version="cpp")
         msd_all=[]
         for ii in range(c.particles):
             print ii
@@ -113,7 +115,7 @@ def plot_ensemble_mean_of_time_msd():
         colors=['r','b','g','k','c','w','b','r','g','b','k','c','w','b','r','g','b','k','c','w','bo','ro','go','bo','ko','co','wo','bo']
         msd_time=np.array(msd_all)
         msd_time_mean=msd_time.mean(axis=0)
-        #plt.plot(c.t*c.dt,c.msdanalyt(),":",color=colors[1], label="analytisch D=%f,particles=%d,length=%d,alpha=%f" %(c.D,c.particles,c.n,c.alpha))
+        plt.plot(c.t*c.dt,c.msdanalyt(),":",color=colors[1], label="analytisch D=%f,particles=%d,length=%d,alpha=%f" %(c.D,c.particles,c.n,c.alpha))
         #plt.errorbar(c.t*c.dt, msd_time_mean, yerr=0,label="Spektrale Methode mit D=%f,particles=%d, length=%d ,alpha=%f" %(c.D,c.particles,c.n,c.alpha))
         #plt.show()
         return msd_time_mean
@@ -121,10 +123,42 @@ def plot_ensemble_mean_of_time_msd():
 
 
 #plot_msd_invert()
+
+
+#plt.plot(plot_ensemble_mean_of_time_msd())
+#plt.show()
 #show_gaussian()
 
 #show_rescaled()
 
 
 #show_distrib()
+
+
+#print timeit.timeit("import analyse_tool; analyse_tool.Analyse(D=2,particles=2,length=1024*1000,alpha=0.5,dt=1,version='cpp').compute_trajectory()", number=1)
+#print timeit.timeit("import analyse_tool; analyse_tool.Analyse(D=2,particles=2,length=1024*1000,alpha=0.5,dt=1).compute_trajectory()", number=1)
+
+#e=analyse_tool.Analyse(D=2,particles=1000,length=1024*2,alpha=0.5,dt=1.,version='cpp')
+#plt.plot(e.compute_trajectory()[0],"r")
+'''
+a = ginc.generateIncrements(N=e.n, D=np.array(2.0), tau=np.array(1.0), alpha=np.array(0.5))
+
+v_t=(np.random.normal(0,np.sqrt(1.),size=e.n))
+v_t=np.array(v_t)
+v_frq=np.fft.fft(v_t)
+v_ano_frq= np.sqrt(e.z().real[:2048]*2.)*v_frq
+plt.plot(v_ano_frq.real)
+plt.plot(a,"r")
+print v_ano_frq.std()
+print np.array(a).std()
+
+'''
+d=analyse_tool.Analyse(D=2.0,particles=2000,length=1024*4,alpha=0.5,dt=0.5,x=3)
+ #plt.plot(d.compute_trajectory()[0])
+e=analyse_tool.Analyse(D=2,particles=2,length=1024*4,alpha=0.5,dt=1.0,version='cpp')
+
+e.plotting(msdtype="time",scale="lin",showlegend="Yes")
+d.plotting(scale="lin",showlegend="Yes")
+plt.show()
+
 

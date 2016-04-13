@@ -1,9 +1,9 @@
 cimport numpy
-
+from libcpp.vector cimport vector
 cdef extern from "_generatefracincrements.h":
-     double _generateIncrements(int N, double* D,double* tau, double* alpha)
+     vector[double]_generateIncrements(int N, double* D,double* tau, double* alpha,int particles)
 
-def generateIncrements(N, D, tau, alpha):
+def generateIncrements(N, D, tau, alpha,particles):
     """
     Calculates the squared distance. x and p have to be numpy arrays of double with the same lenght that is given by dim for this to work
     :param dim:
@@ -15,9 +15,8 @@ def generateIncrements(N, D, tau, alpha):
     :return: double distance
         square of the distance of both points
     """
-
-    _tau = <double*> numpy.PyArray_DATA(D)
-    _D = <double*> numpy.PyArray_DATA(tau)
+    _D = <double*> numpy.PyArray_DATA(D)
+    _tau = <double*> numpy.PyArray_DATA(tau)
     _alpha=<double*> numpy.PyArray_DATA(alpha)
-    return _generateIncrements(N, _D, _tau, _alpha)
+    return _generateIncrements(N, _D, _tau, _alpha,particles)
 

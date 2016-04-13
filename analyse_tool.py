@@ -10,9 +10,11 @@ class Analyse(simulation.Felix_Method):
     """
         Beinhaltet mehrere Methoden zur Analyse der Trajectorie. Erbt von der Klasse Simulation.Felix_Method .
     """
-    def __init__(self, D , particles,length, alpha,dt,x=2):
-        simulation.Felix_Method.__init__(self,D=D, particles=particles,length=length,alpha=alpha,dt=dt,x=x)
-        self.trajectory=simulation.Felix_Method(D,particles,length,alpha,dt=dt,x=x).compute_trajectory()
+    def __init__(self, D , particles,length, alpha,dt,x=2, version="python"):
+        simulation.Felix_Method.__init__(self,D=D, particles=particles,length=length,alpha=alpha,dt=dt,x=x,version=version)
+        self.trajectory=simulation.Felix_Method(D,particles,length,alpha,dt=dt,x=x,version=version).compute_trajectory()
+
+
     def msdanalyt(self):
         """
         :return: returns the analytical result for MSD
