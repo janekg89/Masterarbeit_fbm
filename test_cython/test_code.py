@@ -5,12 +5,14 @@ import matplotlib.pyplot as plt
 __author__ = 'janek'
 i = 1
 
-N=2024*2
+N=2024
 
-a = ginc.generateIncrements(N=N, D=numpy.array(0.3), tau=numpy.array(1.0), alpha=numpy.array(0.9))
-print a
-plt.plot(a)
-plt.show()
+a = ginc.generateIncrements(N=N, D=numpy.array(0.3), tau=numpy.array(1.0), alpha=numpy.array(0.9), particles=3)
+#for ii in range(3):
+print a[0:100]
+
+#plt.plot(a)
+#plt.show()
 '''
 r_t=numpy.zeros(N)
 r_t[1:]=numpy.cumsum(a)[:-1]

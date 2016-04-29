@@ -1,22 +1,32 @@
-cimport numpy
-from libcpp.vector cimport vector
+
+import numpy as np
+cimport numpy as np
+np.import_array()
+
 cdef extern from "_generatefracincrements.h":
-     vector[double]_generateIncrements(int N, double* D,double* tau, double* alpha,int particles)
+    cdef cppclass Increments:
+        Increments(int, int)
+        void generateIncrements(double, double, double)
+        double * returnIncrements()
 
-def generateIncrements(N, D, tau, alpha,particles):
-    """
-    Calculates the squared distance. x and p have to be numpy arrays of double with the same lenght that is given by dim for this to work
-    :param dim:
-        the dimension of x AND p
-    :param x:
-       first point
-    :param p:
-        second point
-    :return: double distance
-        square of the distance of both points
-    """
-    _D = <double*> numpy.PyArray_DATA(D)
-    _tau = <double*> numpy.PyArray_DATA(tau)
-    _alpha=<double*> numpy.PyArray_DATA(alpha)
-    return _generateIncrements(N, _D, _tau, _alpha,particles)
-
+cdef class pyIncrements:
+    cdef Increments *thisptr
+    cdef int shape0
+    cdef int shape1
+    def __cinit__(self, n, particles):
+        self.thisptr = new Increments(n, particles)
+        self.shape0 = particles
+        self.shape1 = n
+    def __dealloc__(self):
+        del self.thisptr
+    def generateIncrements(self, D, tau, alpha):
+        self.thisptr.generateIncrements(D, tau, alpha)
+    def returnIncrements(self):
+        cdef np.npy_intp shape[3]
+        shape[0] = <np.npy_intp> self.shape0
+        shape[1] = <np.npy_intp> 3
+        shape[2] = <np.npy_intp> self.shape1
+        # Create a 1D array, of length 'size'
+        data_ptr = <void*> self.thisptr.returnIncrements()
+        ndarray = np.PyArray_SimpleNewFromData(3, shape, np.NPY_DOUBLE, data_ptr)
+        return ndarray

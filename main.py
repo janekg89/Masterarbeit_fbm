@@ -135,8 +135,8 @@ def plot_ensemble_mean_of_time_msd():
 #show_distrib()
 
 
-#print timeit.timeit("import analyse_tool; analyse_tool.Analyse(D=2,particles=2,length=1024*1000,alpha=0.5,dt=1,version='cpp').compute_trajectory()", number=1)
-#print timeit.timeit("import analyse_tool; analyse_tool.Analyse(D=2,particles=2,length=1024*1000,alpha=0.5,dt=1).compute_trajectory()", number=1)
+print timeit.timeit("import analyse_tool; analyse_tool.Analyse(D=2,particles=1024,length=1024,alpha=0.5,dt=1,version='cpp').compute_trajectory()", number=1)
+print timeit.timeit("import analyse_tool; analyse_tool.Analyse(D=2,particles=1024,length=1024,alpha=0.5,dt=1).compute_trajectory()", number=1)
 
 #e=analyse_tool.Analyse(D=2,particles=1000,length=1024*2,alpha=0.5,dt=1.,version='cpp')
 #plt.plot(e.compute_trajectory()[0],"r")
@@ -152,13 +152,20 @@ plt.plot(a,"r")
 print v_ano_frq.std()
 print np.array(a).std()
 
-'''
-d=analyse_tool.Analyse(D=2.0,particles=2000,length=1024*4,alpha=0.5,dt=0.5,x=3)
- #plt.plot(d.compute_trajectory()[0])
-e=analyse_tool.Analyse(D=2,particles=2,length=1024*4,alpha=0.5,dt=1.0,version='cpp')
 
-e.plotting(msdtype="time",scale="lin",showlegend="Yes")
-d.plotting(scale="lin",showlegend="Yes")
+d=analyse_tool.Analyse(D=2.0,particles=2000,length=1000,alpha=0.5,dt=0.5,x=4)
+ #plt.plot(d.compute_trajectory()[0])
+e=analyse_tool.Analyse(D=2,particles=2000,length=1000,alpha=0.5,dt=1.,version='cpp')
+print d.compute_trajectory().shape
+print e.compute_trajectory().shape
+
+d.plotting(showlegend="Yes")
+#e.plotting(msdtype="time",scale="lin",showlegend="Yes")
+e.plotting(showlegend="Yes",scale="lin")
+#d.plotting(scale="lin",showlegend="Yes")
 plt.show()
 
-
+import revreaddy.build.Debug.revreaddy as rdy
+s =rdy.Sim()
+s.run(steps=10000, timestep=0.1)
+'''
