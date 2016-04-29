@@ -4,12 +4,12 @@
 \select@language {ngerman}
 \select@language {english}
 \contentsline {chapter}{\numberline {1}Introduction}{1}
-\contentsline {chapter}{\numberline {2}Theory}{2}
-\contentsline {section}{\numberline {2.1}Brownian Motion}{2}
-\contentsline {section}{\numberline {2.2}Fractional Brownian Motion}{3}
-\contentsline {section}{\numberline {2.3}Algorythm}{3}
-\contentsline {subsection}{\numberline {2.3.1}Analyse of Algorythm}{6}
-\contentsline {chapter}{\numberline {3}Reaktions-Diffusions-Dynamics}{14}
-\contentsline {chapter}{\numberline {4}Appendix}{15}
-\contentsline {subsection}{\numberline {4.0.1}Code:Gebrochen-rationale Brownische Bewegung}{15}
-\contentsline {chapter}{\nonumberline Bibliography}{18}
+\contentsline {chapter}{\numberline {2}Theory}{3}
+\contentsline {section}{\numberline {2.1}Brownian Motion}{3}
+\contentsline {section}{\numberline {2.2}Fractional Brownian Motion}{4}
+\contentsline {section}{\numberline {2.3}Algorythm}{4}
+\contentsline {subsection}{\numberline {2.3.1}Analyse of Algorythm}{7}
+\contentsline {chapter}{\numberline {3}Reaktions-Diffusions-Dynamics}{16}
+\contentsline {chapter}{\numberline {4}Appendix}{17}
+\contentsline {subsection}{\numberline {4.0.2}Code:Gebrochen-rationale Brownische Bewegung}{17}
+\contentsline {chapter}{\nonumberline Bibliography}{20}
