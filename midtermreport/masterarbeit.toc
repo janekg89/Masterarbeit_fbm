@@ -3,13 +3,15 @@
 \select@language {english}
 \select@language {ngerman}
 \select@language {english}
-\contentsline {chapter}{\numberline {1}Introduction}{1}
-\contentsline {chapter}{\numberline {2}Theory}{3}
-\contentsline {section}{\numberline {2.1}Brownian Motion}{3}
-\contentsline {section}{\numberline {2.2}Fractional Brownian Motion}{4}
-\contentsline {section}{\numberline {2.3}Algorythm}{4}
-\contentsline {subsection}{\numberline {2.3.1}Analyse of Algorythm}{7}
-\contentsline {chapter}{\numberline {3}Reaktions-Diffusions-Dynamics}{16}
-\contentsline {chapter}{\numberline {4}Appendix}{17}
-\contentsline {subsection}{\numberline {4.0.2}Code:Gebrochen-rationale Brownische Bewegung}{17}
-\contentsline {chapter}{\nonumberline Bibliography}{20}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {chapter}{\numberline {2}Theory}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Brownian Motion}{3}{section.2.1}
+\contentsline {section}{\numberline {2.2}Fractional Brownian Motion}{6}{section.2.2}
+\contentsline {section}{\numberline {2.3}Fractional Brownian Motion}{7}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Algorythm}{8}{subsection.2.3.1}
+\contentsline {subsubsection}{\nonumberline Analyse of Algorythm}{10}{section*.4}
+\contentsline {chapter}{\numberline {3}Reactions-Diffusion-Dynamics}{19}{chapter.3}
+\contentsline {chapter}{\numberline {4}Status Quo \& Outlook}{20}{chapter.4}
+\contentsline {chapter}{\numberline {5}Appendix}{21}{chapter.5}
+\contentsline {subsection}{\numberline {5.0.1}Code:Gebrochen-rationale Brownische Bewegung}{21}{subsection.5.0.1}
+\contentsline {chapter}{\nonumberline Bibliography}{24}{chapter*.5}
