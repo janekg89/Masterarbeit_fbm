@@ -17,6 +17,7 @@
 \usepackage{color}
 \usepackage{hyperref}
 \usepackage{bm}
+\usepackage{cleveref}
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
@@ -120,7 +121,7 @@ The Generating function for a random variable $Y$ is:
 \begin{align}
  G_Y(k)=\langle e^{ikY}\rangle = \int e^{ikY} \rho(y)dy
 \end{align}
-\ref{eq:CLT} can be inserted into the generating function, which results in:
+\cref{eq:CLT} can be inserted into the generating function, which results in:
 \begin{align*}
 G_Y(k)=\langle e^{\frac{ik}{\sqrt{N}} \sum_{j=1}^N X_j}\rangle \\
 G_Y(k)=\langle \prod_{j=i}^N e^{\frac{ik}{\sqrt{N}} X_j} \rangle 
@@ -151,7 +152,7 @@ The distribution of Y can be calculated via the inverse Fourier Transform:
 \end{align}
 The seemingly innocent assumption of independence for the random variables $\{X_i\}$ in the summation result in an Gaussian distribution. Microscopic processes, which result in independent random position changes of an particle and add up over time, thus have a Gaussian distribution function for the overall position change.The propagator for Brownian motion has a Gaussian distribution.
 \begin{mydef}
-Standard Brownian motion is an stochastic process $ \{ W_t \}_{t\geq0}: \Omega \rightarrow \mathbb{R}^n$ with $ W_t(\omega)$ being the position of a particle with $\omega \in \Omega$ at time $t \in T$ in the observation time $T =[0, \infty)$. It has a fixed $x \in \mathbb{R}^n$ as its origin. For $ 0 \leq t_1 \leq ... \leq t_k, k \in \mathbb{N}, t_i \in T $ we define measures $\nu_{t_{1}... t_{k}}: \mathcal{B}(\mathbb{R}^n)^K \rightarrow [0,1]$. $\mathcal{B}$ is a borel set. The transition propabilities are: 
+Standard Brownian motion is an stochastic process $ \{ W_t \}_{t\geq0}: \Omega \rightarrow \mathbb{R}^n$ with $ W_t(\omega)$ being the position of a particle with $\omega \in \Omega$ at time $t \in T$ in the observation time $T =[0, \infty)$. It has a fixed $x \in \mathbb{R}^n$ as its origin. The transition probabilities are: 
 \begin{align}
 T_{t}(y|x) & := (2 \pi t)^{- \frac{n}{2}} e^{- \frac{||x-y||^2}{2 t}} \text{for } y \in \mathbb{R}^n, t>0 \\ \nonumber
 T_{0}(y|x) & = \delta(x-y) 
@@ -173,10 +174,10 @@ Since $ E^x[(W_{t_i}-W_{t_{i-1}})(W_{t_j}-W_{t_{j-1}})]=0 $  all its increments 
 \end{itemize}
 For Brownian motion a linear relation between the MSD and the diffusion constant can be shown. The starting point is the diffusion equation for overdamped motion with a constant diffusion coefficient $D$. 
 \begin{align}
- \frac{\partial}{\partial t} C(x,t) = - \frac{\partial }{\partial x} J (x,t) = D  \frac{\partial^2 }{\partial x^2} C(x,t)
+ \frac{\partial}{\partial t} C(x,t) = - \frac{\partial }{\partial x} J (x,t) = D  \frac{\partial^2 }{\partial x^2} C(x,t) \label{eq:ficks}
 \end{align}
 Flux of particles  $J(x,t)=\frac{\partial }{\partial x} C(x,t)$ as a result of a linear response relation. 
-Under this approximation diffusion only depends on the position and not on the velocity. Therefore it is again a long-time approximation for normal diffusion. The propagator of Brownian motion solves this equation. The Concentration $C(x,t)$ can be in interpreted as a probability distribution if properly normalised as $\int dx C(x,t)=1$. The Mean Square Displacement (MSD) can be calculated as:
+Under this approximation diffusion only depends on the position and not on the velocity. Therefore it is again a long-time approximation for normal diffusion. The propagator of Brownian motion solves this equation. The Concentration $C(x,t)$ can be in interpreted as a probability distribution if properly normalized as $\int dx C(x,t)=1$. The Mean Square Displacement (MSD) can be calculated as:
 \begin{align}
  \frac{d}{dt} \langle x^2(t)\rangle & =\frac{d}{dt} \int dx x^2 C(x,t)=\int dx x^2 \frac{\partial}{\partial t} C(x,t) \\
 &= D \int_{-\infty}^{\infty}dx x^2 \frac{\partial^2 }{\partial x^2} C(x,t) = -2 D \int_{-\infty}^{\infty} dx x \frac{\partial }{\partial x} C(x,t) \\ &= 2 D \int_{-\infty}^{\infty} dx C(x,t) =2 D
@@ -186,6 +187,7 @@ In previous equations partial integration has been used and  $C(\pm \infty,t)=0$
 \section{Fractional Brownian Motion}
 In this section the theoretical foundation for Fractional Brownian Motion will be set and related to standard Brownian Motion. \\
 In the previous section the the Means Square Displacement (MSD) has been shown to be linear with time as a result of the central limit theorem. In normal liquids this behaviour can be be seen already at time scales higher than picosecends \cite{Hofling2013}. Nevertheless many experiments show that the MSDs has a power law behaviour ( $\delta r ^2 (t) \propto t^{\alpha}$ for  $0 < \alpha < 1$ ). Thus the central limit theorem does not hold, not even for long time scales. It can be shown that persistent correlations of the increments can be observed. In soft matter,like polymers, subdiffusive behaviour is typically present in an time window but finally the linear MSD takes over. In particular Fractional Brownian Motion examines the case that the central limit theorem is violated for all time scales.\\
+fractional Brownian scaling\\
 In the following some statistical tools are defined. They are important as the increments of Fractional Brownian motion are no longer assumed to be independent. The single particle density $\rho(\bm{r},t)=\delta(\bm{r}-\bm{R}(t))$ describes the density of a particle which is localized at position $\bm{R}(t)$, Its correlation function $P(\bm{r}-\bm{r}',t-t')= V\langle\rho(\bm{r},t) \rho(\bm{r}',t')\rangle$ is also called Van Hove self-correlation function. $V$ refers to the volume. From now on we will consider an isotropic system $ r= |\bm{r}|$. As for Brownian motion with independent increments the correlated increments  $\Delta\bm{R}(t)$ of fractional Brownian motion are assumed to follow a Gaussian distribution with zero mean.Thus the correlation function of the single particle density results in:
 \begin{align}
  P(r,t)=[2 \pi \delta r^{2}(t)/d]^{-\frac{d}{2}} e^{ \frac{-r^2 d}{2 \delta r^{2}(t) }}
@@ -195,15 +197,20 @@ The van hove correlation function can be transformed via the spatial Fourier tra
  F_{s}(k,t)&=\langle\rho(k,t) \rho(k',t')\rangle=\int d^{d}r e^{-i k r} P(r,t) \\
  &=\langle e^{-i k \Delta R(t)} \rangle
 \end{align}
-
-The intermediate scattering function for the single particle density turns out to be the characteristic or moment generating function of $\Delta R(t)$ by expanding it for small wave-numbers $k \rightarrow 0$ one can get the moments. An other important quantity is the dynamical structure factor, which is the time-frequency Fourier transform of the intermediate scattering function:
+The intermediate scattering function for the single particle density turns out to be the characteristic or moment generating function of $\Delta R(t)$ by expanding it for small wave-numbers $k \rightarrow 0$ one can get the moments. Its logarithm return the cumulants. For Gaussian propagators all but the second cumulants vanish. For non Gaussian transport also the fourth cumulant is non-zero. Therefore it is used to indicate beyond Gaussian transport.The non-Gaussian parameter is defined as:
+\begin{align}
+ \alpha_2=\frac{d \delta r^{4}(t)}{(d+2) [\delta r^{2}(t)]-1}
+\end{align}
+An other important quantity is the dynamical structure factor, which is the time-frequency Fourier transform of the intermediate scattering function:
 \begin{align}
  F_{s}(\bm{k},z)&=\langle\rho(\bm{k},z) \rho(\bm{k}',z')\rangle=\int_{0}^{\infty} d t e^{-i \bm{k} \bm{r}} P(r,t) \text{ for } k \rightarrow 0 , \operatorname{Im}(z) > 0 \\
  &= \frac{1}{-iz}-\frac{k^2}{2d}\int_{0}^{\infty} d t e^{izt} \delta r^2 (t) + \mathcal{O}(k^2)
 \end{align}
-
-From the observation of The Mean Square Displacement  $\delta r^{2}(t)= < \Delta R(t)>=2dK_{\alpha}t^{\alpha}$ one can calculated the velocity auto correlation function in the frequency domain as follows:
-
+From now on lets a differential equation $\partial_t \bm{R}(t)=\bm{\eta}(t)$. $\bm{\eta}(t)$ are velocities, which are no more delta-correlated in time as they would be for standard Brownian motion. Velocities can be used to calculated the Velocity Autocorrelation Function (VACF):
+\begin{align}
+Z(|t-t'|)&= \frac{1}{d}\langle \bm{\eta}(t) \bm{\eta}(t') \rangle = \frac{1}{2d} \frac{d^2}{dt^2} \delta r^2 (t-t')  \\
+\end{align}
+Subsequently, the VACF in the frequency domain for Fractional Brownian motion will be calculated. The MSD is $\delta r^{2}(t)= < \Delta R(t)>=2dK_{\alpha}t^{\alpha}$ with $K_{\alpha}$ being the generalized diffusion-coefficient:
 \begin{align*}
  \tilde{Z}(z)&=\int_{0}^{\infty} d t e^{izt} Z(t) \\
  &=2 d \int_{0}^{\infty} d t e^{izt} \left[\frac{d^2}{dt^2}\delta r^2 (t) \right]
@@ -219,85 +226,62 @@ From the observation of The Mean Square Displacement  $\delta r^{2}(t)= < \Delta
  \tilde{Z}(z) & \stackrel{par. integ.}{=} - 2d \left( \underbrace{\left [ e^{izt}\overbrace{ \frac{d}{dt} 2dK_{\alpha}t^{\alpha}}^{=B(t)} \right]_{0}^{\infty}}_{\stackrel{\alpha < 1} {=} 0}-\int_{0}^{\infty} d t e^{izt} \delta r^2 (t) \right) \\
   & = \int_{0}^{\infty} d t e^{izt} \delta r^2 (t)  \stackrel{\operatorname{Im}(z)> 0} {=}  K_{\alpha} \Gamma(1+\alpha)(i z)^{1-\alpha}
 \end{align*}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Gebrochene Brownische Bewegung ist eine Verallgemeinerung der Brownischen Bewegung. Sie kann benutzt werden bei der Simulation von Anomaler Diffusion.\newline \newline
-Theorie von Felix, bisschen von Christoph und die Motivation könnte sein, dass man zwar anomale Diffusion simuliert werden kann wenn man alle Teilchen berücksichtigt. Mit diesem Ansatz könnte man konkret den Einfluss von Gebrochen-rationale Brownische Bewegung auf Reaktionen test.zb.als Vergleich zu normaler Brownian motion und Brownian Motion an sich ist auch schon eine Vereinfachung, welche eine zufällige Gaußzahl annimmt. Das heißt sämtliche Stöße des Teilchens mit anderen Teilchen innerhalb eines Zeitinvervalls werden schon zu diesem Wert verallgemeinert. Als Unterschied zu tatsächlichen Simulation von allen Stößen (MD-Simulation).
-Die Motivation ist einen performanten Integrator für gebrochen-rationale Brownische Bewegung zu entwickeln. Die Anomale Diffusion, welche besonders in biologischen Systemen zu beobachten ist, wird durch Interaktion der Teilchen mit ihrer Umgebung verursacht. Für den im Verlauf verwendeten Integrator muss davon ausgegangen werden, dass keine weiteren Interaktion (Potentiale) auftreten. Da zur Erstellung der Trajektorie ihre sämtlichen Inkremente im voraus durch gewöhnliche Brownische Bewegung erstellt werden müssen. Der Vorteil von der Methode ist ihre Performance.  
-Der hier verwendete Algorithmus leitet sich vom Davies-Haste Algorithmus \cite{Craigmile2003} ab.
-Dabei werden anfänglich alle Inkremente (Geschwindigkeiten) für gewöhnliches Braunische Bewegung erzeugt $\eta_{Br}(t)= v(t)$. Für die Entfernung eines Teilchens zu seinem Ursprung gilt  $\Delta R(t)_{Br} = R(t)- R(0)= \int^t_{0}dt' v(t')$. Es ergibt sich für die Mittlere Quadratische Quadratische Verschiebung: \newline $\delta r^{2}_{norm}(t)= < \Delta R(t)_{Br}>=2dDt$ mit $d =\text{Anzahl der Dimension}$, $D = \text{Diffusionskonstante}$ und $t=$ Zeit. Da gewöhnliche Brownische Bewegung einer Gaußverteilung folgt und ein Markowischer Prozess ist,lässt sich für den Propagator  folgende Gleichung aufstellen:
-\begin{equation}
- P(r,t)=[2 \pi \delta r^{2}_{norm}(t)/d]^{-\frac{d}{2}} e^{ \frac{-r^2 d}{2 \delta r^{2}_{norm}(t) }}
-\end{equation}
-\section{Fractional Brownian Motion}
-Als Ausgangspunkt wird weiterhin die Differentialgleichung $\partial \boldsymbol{R}(t) = \boldsymbol{\eta}(t)$ betrachtet. $\eta_i(t)$ ist in dem Fall aber nicht mehr delta korreliert in der Zeit, wie für einfache Brownische Bewegung. Für Gebrochen-rationale Brownische Bewegung wird eine dauerhaftes Korrelation angenommen, sodass die Mittlere Quadratische Verschiebung nicht mit der für Brownische Bewegung übereinstimmt, aber stattdessen eine exponentielle Abhängigkeit zur Zeit aufweist $\delta r^{2}_{fBr}(t)= < \Delta R(t)_{fBr}>=2dK_{\alpha}t^{\alpha}$. 
-%Für die Mittlere Quadratische Verschiebung gilt allgemein $\delta r^{2}_{fBr}(t) = \int^t_{0}dt' v(t')$ ...
-Die Geschwindigkeitsautokorrelationsfunktion für Gebrochen-rationale Brownische Bewegung kann wie folgt definiert werden:
-\begin{equation}
-Z(\omega)= K_{\alpha} \Gamma(1+\alpha)(i z)^{1-\alpha} \text{   für} 
-\end{equation}
-\begin{itemize}
- \item $K_{\alpha} =$ generalisierter Diffusions-Koeffizient 
- \item $\omega = $ Frequenz 
-\end{itemize}
-\cite{Hofling2013}
-\subsection{Algorythm}
-Für den im Verlauf verwendeten Integrator muss davon ausgegangen werden, dass keine weiteren Interaktion (Potentiale) auftreten. Da zur Erstellung der Trajektorie ihre sämtlichen Inkremente im voraus durch gewöhnliche Brownische Bewegung erstellt werden müssen. Der Vorteil von der Methode ist ihre Performance. Der hier verwendete Algorithmus leitet sich vom Davies-Haste Algorithmus \cite{Craigmile2003} ab. Die theoretischen Überlegung aus dem Theorieteil müssen für den Algorithmus in eine diskrete Form gebracht werden. \\Das Inkrement ist:
+Eventually, the VACF in the frequency domain will be used to modify standard Brownian motion velocities, which are easily computable, to generate fractional Brownian motion velocities. The  starting point is again the differential equation $\partial_t \bm{R}(t)=\bm{\eta}(t)$. In the frequency domain they are represented as:
 \begin{align}
-\boldsymbol{\eta} (t) \longrightarrow \boldsymbol{\eta}_j  \text{  mit  } j=(0,1,2,...,n)  \text{  und  } n= \text{ Schrittanzahl}
+ \tilde{\bm{\eta}}(z)=\int_{0}^{\infty} dt e^{izt} \bm{\eta}(t) \label{eq:fourier}
 \end{align}
-Die dickgeschriebenen Inkremente $\boldsymbol{\eta}_j$ sind als Vektoren zu verstehen. Die Schreibweise wird im Verlauf so belassen.
-Es ergibt sich für die Länge der Trajektorie:
+Fractional correlations can be incorporated via its VACF:
 \begin{align}
- \Delta \boldsymbol{R}_n =  \sum_{j=0}^n \boldsymbol{\eta}_j  \Delta t \label{eq:diskretdeltar}
+\tilde{\bm{\xi}}(z) = \sqrt{2 \operatorname{Re} \left(\tilde{Z(z)}\right)}  \tilde{\bm{\eta}}(z) \label{eq:fracvacf}
 \end{align}
- Der Algorithmus hat die Motivation die Inkremente $ \boldsymbol{\eta}_j$so zu generieren, dass sie die Eigenschaften der Gebrochen-rationale Brownische Bewegung wiederspiegeln und sie insbesondere dem potentiellen Abklingen der Mittleren Quadratischen Verschiebung folgen.
+ With $\tilde{\bm{\xi}}(z)$ being fractional Brownian velocities in the frequency domain. Its Fourier-back-transform results in Fractional Brownian velocities in the time domain.
+ \begin{align}
+ \bm{\xi}(t)= \frac{1}{2 \pi} \int dz\tilde{\bm{\xi}}(z)
+ \end{align}
+
+\subsection{Algorithm}
+In the following an algorithm which generates fractional Brownian noise will be introduced. The algorithm is based on the Davis-Harte algorythm \cite{Craigmile2003}. The idea is to use the calculated VACF and thereby modify conventionally generated Gaussian random variables.  All the increments should be generated beforehand. With this concept it is more difficult to include forces. Nevertheless it is computationally favourable then computing each increment recursively considering also its history. This would be certainly necessary since all increments are defined to be more then just delta-correlated in time. For computational reasons the elaborations for fractional Brownian motion in the previous chapter on how to generate fractional Brownian increments have to be transformed into a discrete from thereby the solution is no longer exact, which will be shown in the analyse part of the algorithm.   
 \begin{align}
-< \Delta \boldsymbol{R}_{fbr}>=2dK_{\alpha}t^{\alpha}
+\bm{\eta} (t) \longrightarrow \bm{\eta}_j(t)  \text{  with  } j=0,1,2,...,n  \text{  ,  } n= \text{amount of steps}
 \end{align}
-Der verwendete Algorithmus geht wie folgt:
- 
+For a n-steps long trajectory one can write:
+\begin{align}
+ \Delta \bm{R}_n(t) =  \sum_{j=0}^n \bm{\eta}_j  \Delta t \label{eq:diskretdeltar}
+\end{align}
+ The MSD then can be written as:
+\begin{align}
+< \Delta \bm{R}_{j}(t)>=2dK_{\alpha} (\Delta t j)^{\alpha}
+\end{align}
+The algorithm goes as follows:
 \begin{enumerate}
- \item Es werden $2 n$ unabhängige Normalverteilte, mit dem Mittelwert $<\boldsymbol{n_j}>=0$ und der Standartabweichung $\delta \boldsymbol{n_j} = \sqrt{\Delta t}$, Zufallszahlen erstellt: 
+ \item $2 n$ independent normally distributed random increments are generated: 
+\begin{align}
+ \bm{\eta}_k(t)= \bm{\mathcal{N}}(0,\sqrt{\Delta t}) \text{  with  } k=0,1,2,...,2n
+\end{align}
+
+$2$ times more increments are generated to counteract the boundary problem in the discrete Fourier transform. 
+
+\item Via discrete Fourier transform these increments are transformed into the frequency domain:
+\begin{align}
+ \tilde{\bm{\eta}_k}(z)=\sum_{j=0}^{2n-1} \bm{\eta}_k e^{\frac{- i 2 \pi  j k }{2n}} \Delta t \\ 
+\end{align}
+By comparison with the \cref{eq:fourier} one can see that:
+\begin{align}
+ z \rightarrow  g \Delta z \text{ , } \Delta z =   \frac{2 \pi }{2n \Delta t} \text{ , } t \rightarrow j \Delta t \text{ and } \int dt \rightarrow \sum \Delta t \label{eq:diskret-freq} 
+\end{align}
+ 
+\item Comparable to \cref{eq:fracvacf} correlations are incorporated: 
  \begin{align}
-  \boldsymbol{\eta_j}=(\boldsymbol{\eta_0},\boldsymbol{\eta_1},\boldsymbol{\eta_2},...,\boldsymbol{\eta_{2n}})= \boldsymbol{\mathcal{N}}(0,\sqrt{\Delta t}) \text{  mit  } j=(0,1,2,...,2n)
- \end{align}
-Im Verlauf des Algorithmus wird die Motivation für die doppelte Anzahl an Zufallszahlen gegenüber der resultieren Trajektorienlänge für gebrochen-rationalen Brownische Bewegung erläutert.
- \item Die Inkremente werden dann mit Hilfe einer diskreten Fouriertransforamtion (numpy.fft) in den Frequenzraum transformiert.
- \begin{align}
-  \boldsymbol{\eta_g}=\sum_{j=0}^{2n-1} \boldsymbol{\eta_j} e^{\frac{- i 2 \pi  j g }{2n}} \text{ mit } g = (0,1,2,...,2n) \\ 
+  \bm{\xi}_{k}(z)&=\bm{\eta}_k(z) \sqrt{2 Re(Z_k(z))} \label{eq:corelastion} 
   \end{align}
- Die entsprechende analytische Fouriertransformation ist:
- \begin{align}
-  \boldsymbol{\eta}(\omega)=\int_0^{\infty}e^{- i 2 \pi \omega t}  \boldsymbol{\eta}(t) dt  \label{eq:diskret-freq1} \\
- \text{mit }\omega = g \Delta \omega \text{ , } \Delta \omega =  \frac{1}{2n \Delta t} \text{ und } t=j \Delta t \ \label{eq:diskret-freq}
+ with $\tilde{Z}(z)\rightarrow \tilde{Z}_k(z)$ as introduced in \cref{eq:diskret-freq}:
+  \begin{align}
+   \tilde{Z}_k(z) = K_{\alpha} \Gamma(1+\alpha)(i 2 \pi k \Delta \omega)^{1-\alpha} =  K_{\alpha} \Gamma(1+\alpha)(i k \frac{ \pi}{n \Delta t})^{1-\alpha} 
  \end{align}
  
- \item Daraufhin wird die Auto-Korrelation Funktion \text{\cite{Hofling2013}} angewendet, wodurch die Inkremente jetzt einen gebrochen-rationalen Brownischen Charakter bekommen: 
+ \item The discrete Fourier transform has a downside compared to the continuous Fourier transform, as already noted in the beginning of this section.The VACF is zero at zero-frequency $Z_{k=0}(0)=0$.  From \cref{eq:corelastion} also the first increment in the frequency domain is zero $\bm{\xi}_{k=o}(z)= 0$. Due to \cref{eq:diskretdeltar} also the following relation holds:
  \begin{align}
-  \boldsymbol{\eta_{fbr_g}}&=\boldsymbol{\eta_g} \sqrt{2 Re(Z_g)} \label{eq:corelastion} \\
-  Z(\omega)&= K_{\alpha} \Gamma(1+\alpha)( - i \omega)^{1-\alpha}
-  \end{align}
-  $Z(\omega)$ wurde durch die analytische Fouriertransformation $Z(\omega)=\int_0^{\infty}e^{i \omega t} Z(t) dt$ bestimmt. Da Numpy FFT eine andere Definition der Fouriertransformation  benutzt (siehe Formel \ref{eq:diskret-freq1}), \\ wird  $Z'(\omega)=\int_0^{\infty}e^{- i2 \pi \omega t} Z(t)dt= K_{\alpha} \Gamma(1+\alpha)(i \omega 2 \pi)^{1-\alpha}$ so umgeschrieben. Im Anschluss wird $Z(\omega) \longrightarrow Z_g$ (nach Formel \ref{eq:diskret-freq} ) in eine diskrete Form gebracht.
-  \begin{align}
-  \longrightarrow Z_g&= K_{\alpha} \Gamma(1+\alpha)(i 2 \pi g \Delta \omega)^{1-\alpha} =  K_{\alpha} \Gamma(1+\alpha)(i g \frac{ \pi}{n \Delta t})^{1-\alpha} 
- \end{align}
- \item Für gebrochen-rationale Brownischen Bewegung ist die Auto-Korrelations Funktion  an der Stelle 0: $Z_{g=0}=0$. Daraus folgt nach Formel \ref{eq:corelastion}, dass auch das Nullte Inkrement im Frequenzraum $\boldsymbol{\eta_{fbr_{g=o}}}= 0$ ist. Das Nullte Inkrement im Frequenzraum ist mit Formel \ref{eq:diskretdeltar} aber auch:
- \begin{align}
-  \boldsymbol{\eta_{fbr_{g=o}}} = \sum_{j=0}^{2n-1} \boldsymbol{\eta_j} e^{0}=\frac{\Delta  \boldsymbol{R}}{\Delta t}
+  \bm{\xi}_{k=o}(z) = \sum_{j=0}^{2n-1} \boldsymbol{\eta_j} e^{0}=\frac{\Delta  \boldsymbol{R}}{\Delta t}
  \end{align}
 $\Delta \boldsymbol{R} $ ist in dem Fall die zurückgelegt Entfernung nach $2n$ Zeitschritten.
 Dadurch würde das Teilchen nach $2n$ Schritten wieder zurück an seinen Ursprung kehren. Stattdessen wird Das Nullte Inkrement im Frequenzraum folgendermaßen berechnet:
