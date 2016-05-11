@@ -57,8 +57,8 @@
 \automark[section]{chapter}% !!! Wouldn't do that at oneside documents!!!
 \ihead[]{\leftmark}% header left part
 \ohead[]{\rightmark}% header right part
-\ifoot{Name}% footer left part
-\cfoot{Thema}% footer middle part
+%\ifoot{Name}% footer left part
+%\cfoot{Thema}% footer middle part
 \makeatletter
 % use different foot at front and main matter
 \g@addto@macro{\mainmatter}{%
@@ -92,7 +92,7 @@
 
 \tableofcontents
 \listoffigures
-\listoftables
+%\listoftables
 
 \mainmatter
 \selectlanguage{ngerman}
@@ -105,9 +105,8 @@
 
 \chapter{Introduction}
 Anomalous diffusion can be observed in many different areas of nature, in particular related to heterogeneous media (Crowded biological media, porous materials, ...). The most popular phenomenon of anomalous diffusion is a power-law behaviour of the Mean-Square-Displacement ($MSD\propto t^{\alpha}$), which is violating the Einstein formula $MSD=2 d D t$ and thereby the central limit theorem. Various theoretical models try to encounter the power-law behaviour of the MSD showing different origins for anomalous diffusion. These models have the main phenomenon, thus the power-law behaviour of the mean square displacement, in common. But differ in some other observables, due to different origins of the anomalous power-law behaviour. By measuring theses different quantities one might reveal the origin of the anomalous behaviour in an experiment.\newline
-A basic model which accounts this phenomenon so far is Fractional Brownian Motion. This thesis is going to focus on Fractional Brownian Motion especially in respect to Reaction and Diffusion Dynamics. (Normal Diffusion Limited Smoluchowski equation, chemical master equation, mass action law michaelis menden reaction ????? check it ) is failing miserably in describing Reaction and Diffusion Dynamics while anomalous motion is present.(explain ...because of fluctuations). The overall work aims not only to bring Reaction Diffusion and Fractional Brownian Motion together but also providing a Fractional Brownian Motion Integrator implemented into a \textbf{Rea}ction \textbf{D}iffusion \textbf{Dy}namics software (ReaDDy). ReaDDy being a particle-based \textbf{Rea}ction \textbf{D}iffusion \textbf{Dy}namics software is acting on a macromolecular level. It is coarse-graining molecules into spherical particles. Usually using Brownian or Lagevin motion as the integrator. A Fractional Brownian Motion Integrator may be an elegant way of adding an approximation due to a crowded environment. The phenomenon of anomalous motion can also be studied with conventional integrators by actually building a crowded environment (for example: by adding obstacles). Nevertheless, the Fractional Brownian Motion approach could save computational time since it is not necessary to simulated each particle  explicitly which builds up the crowded environment. Furthermore different studies show that heterogeneous environments have influences on particle segregation in the presents of reactions.\newline
-Having an Introduction set, chapter 2 deals with the theoretical foundation for Fractional Brownian Motion. Subsequently, due to computational reasons these theoretical elaborations need to be transferred into discrete space and finally casted into an algorithm. In the following some properties of the algorithm are studied.
-In Chapter 3 theoretical foundation for reactions are going to be set. The final chapter 4 will deal with the present state of the thesis and give an outlook on further challenges.  
+One of these models which accounts this phenomenon is Fractional Brownian Motion. This thesis is going to focus on Fractional Brownian Motion especially in respect to Reaction and Diffusion Dynamics. (Normal Diffusion Limited Smoluchowski equation, chemical master equation, mass action law michaelis menden reaction ????? check it ) is failing miserably in describing Reaction and Diffusion Dynamics while anomalous motion is present.(explain ). The overall work aims not only to bring Reaction Diffusion and Fractional Brownian Motion together but also to provide a Fractional Brownian Motion Integrator implemented into a \textbf{Rea}ction \textbf{D}iffusion \textbf{Dy}namics software (ReaDDy). ReaDDy being a particle-based \textbf{Rea}ction \textbf{D}iffusion \textbf{Dy}namics software is acting on a macromolecular level. It is coarse-graining molecules into spherical particles. Usually using Brownian or Lagevin motion as the integrator. A Fractional Brownian Motion Integrator may be an elegant way of adding an approximation due to a crowded environment. The phenomenon of anomalous motion can also be studied with conventional integrators by actually building a crowded environment (for example: by adding obstacles). Nevertheless, the Fractional Brownian Motion approach could save computational time since it is not necessary to simulated each particle  explicitly which builds up the crowded environment. Furthermore different studies show that heterogeneous environments have influences on particle segregation in the presents of reactions.\newline
+Having an Introduction set, chapter 2 deals with the theoretical foundation for Fractional Brownian Motion. Subsequently, due to computational reasons these theoretical elaborations need to be transferred into discrete space and finally casted into an algorithm. In the following some properties of the algorithm are studied. In Chapter 3, the theoretical foundation for reactions are going to be set. The final chapter 4 will deal with the present state of the thesis and give an outlook on further challenges.  
 
 \chapter{Theory}
 \section{Brownian Motion}
@@ -150,7 +149,7 @@ The distribution of Y can be calculated via the inverse Fourier Transform:
  \rho(y) &=\frac{1}{2 \pi} \int_{-\infty}^{\infty} e^{- \frac{\sigma^2 k^2}{2}} e^{i k y} dk \\  
  &=\frac{1}{\sqrt{2 \pi} \sigma } e^{-\frac{y^2}{2 \sigma^2}}
 \end{align}
-The seemingly innocent assumption of independence for the random variables $\{X_i\}$ in the summation result in an Gaussian distribution. Microscopic processes, which result in independent random position changes of an particle and add up over time, thus have a Gaussian distribution function for the overall position change.The propagator for Brownian motion has a Gaussian distribution.
+The seemingly innocent assumption of independence for the random variable $\{X_i\}$ in the summation results in an Gaussian distribution. Microscopic processes, which result in independent random position changes of an particle and add up over time, thus have a Gaussian distribution function for the overall position change. The propagator for Brownian motion has a Gaussian distribution.
 \begin{mydef}
 Standard Brownian motion is an stochastic process $ \{ W_t \}_{t\geq0}: \Omega \rightarrow \mathbb{R}^n$ with $ W_t(\omega)$ being the position of a particle with $\omega \in \Omega$ at time $t \in T$ in the observation time $T =[0, \infty)$. It has a fixed $x \in \mathbb{R}^n$ as its origin. The transition probabilities are: 
 \begin{align}
@@ -165,7 +164,7 @@ In the following some properties of Brownian motion are discussed:\\
 p_{t_1,...,t_k}(x_1,...,x_k)  =T_{t_k -t_{k-1}}(x_k|x_{k-1}) ... T_{t_2 - t_1}(x_2|x_1) T_{t_1}(x_1|x)  \\
 \text{ with }  0\leq t_1 < t_2 < ...< t_k,k \in \mathbb{N}
 \end{align*}
-\item Brownian motion is a Gaussian process with mean $E^x[W_t]=x$, $W_o=x$ 
+\item Brownian motion is a Gaussian process with mean $E^x[W_t]=x$, $W_o=x$.
 Since $ E^x[(W_{t_i}-W_{t_{i-1}})(W_{t_j}-W_{t_{j-1}})]=0 $  all its increments $\{W_{t_1},W_{t_2}-W_{t_1},...,W_{t_k}-W_{k-1}\}$ are independent.
 
 \item Brownian motion has stationary increments since ${W_{t-h}-W_{h}}$ has the same distribution for all $h>0$.
@@ -182,7 +181,7 @@ Under this approximation diffusion only depends on the position and not on the v
  \frac{d}{dt} \langle x^2(t)\rangle & =\frac{d}{dt} \int dx x^2 C(x,t)=\int dx x^2 \frac{\partial}{\partial t} C(x,t) \\
 &= D \int_{-\infty}^{\infty}dx x^2 \frac{\partial^2 }{\partial x^2} C(x,t) = -2 D \int_{-\infty}^{\infty} dx x \frac{\partial }{\partial x} C(x,t) \\ &= 2 D \int_{-\infty}^{\infty} dx C(x,t) =2 D
 \end{align}
-In previous equations partial integration has been used and  $C(\pm \infty,t)=0$ has been assumed.By integration for the initial condition $x(0) = 0$  one gets the Einstein Formula: $\langle (x(t)-x(o))^2)\rangle= 2Dt$, which can easily be extended for 2 and 3 dimensions. It will not be calculated here explicitly, but one can show that also for Smoluchowski eq. which follows from langevin dynamics for a long time limit the initial velocities decorrelates and thus the MSD is also linear with time.
+In previous equations partial integration has been used and  $C(\pm \infty,t)=0$ has been assumed. By integration, for the initial condition $x(0) = 0$,  one gets the Einstein Formula: $\langle (x(t)-x(o))^2)\rangle= 2Dt$, which can easily be extended for 2 and 3 dimensions. It will not be calculated here explicitly, but one can show that also for Smoluchowski eq. which follows from langevin dynamics for a long time limit the initial velocities decorrelates and thus the MSD is also linear with time.
 
 \section{Fractional Brownian Motion}
 In this section the theoretical foundation for Fractional Brownian Motion will be set and related to standard Brownian Motion. \\
@@ -248,60 +247,61 @@ For a n-steps long trajectory one can write:
 \begin{align}
  \Delta \bm{R}_n(t) =  \sum_{j=0}^n \bm{\eta}_j  \Delta t \label{eq:diskretdeltar}
 \end{align}
- The MSD then can be written as:
+
+ The following algorithm is explained for one dimension and can be easily extended for more dimensions. The MSD then can be written as:
 \begin{align}
-< \Delta \bm{R}_{j}(t)>=2dK_{\alpha} (\Delta t j)^{\alpha}
+< \Delta R_{j}(t)>=2K_{\alpha} (\Delta t j)^{\alpha}
 \end{align}
 The algorithm goes as follows:
 \begin{enumerate}
  \item $2 n$ independent normally distributed random increments are generated: 
 \begin{align}
- \bm{\eta}_k(t)= \bm{\mathcal{N}}(0,\sqrt{\Delta t}) \text{  with  } k=0,1,2,...,2n
+ \eta_k(t)= \mathcal{N}(0,\sqrt{\Delta t}) \text{  with  } k=0,1,2,...,2n
 \end{align}
 
 $2$ times more increments are generated to counteract the boundary problem in the discrete Fourier transform. 
 
 \item Via discrete Fourier transform these increments are transformed into the frequency domain:
 \begin{align}
- \tilde{\bm{\eta}_k}(z)=\sum_{j=0}^{2n-1} \bm{\eta}_k e^{\frac{- i 2 \pi  j k }{2n}} \Delta t \\ 
+ \tilde{\eta_l}(z)=\sum_{k=0}^{2n-1} \eta_k e^{\frac{- i 2 \pi  l k }{2n}} \Delta t   \text{  with  }  l=0,1,2,...,2n  \label{eq:fouriertrans}\\ 
 \end{align}
 By comparison with the \cref{eq:fourier} one can see that:
 \begin{align}
- z \rightarrow  g \Delta z \text{ , } \Delta z =   \frac{2 \pi }{2n \Delta t} \text{ , } t \rightarrow j \Delta t \text{ and } \int dt \rightarrow \sum \Delta t \label{eq:diskret-freq} 
+ z \rightarrow  l \Delta z \text{ , } \Delta z =   \frac{2 \pi }{2n \Delta t} \text{ , } t \rightarrow j \Delta t \text{ and } \int dt \rightarrow \sum \Delta t \label{eq:diskret-freq} 
 \end{align}
  
 \item Comparable to \cref{eq:fracvacf} correlations are incorporated: 
  \begin{align}
-  \bm{\xi}_{k}(z)&=\bm{\eta}_k(z) \sqrt{2 Re(Z_k(z))} \label{eq:corelastion} 
+   \tilde{\xi}_{l}(z)&= \tilde{\eta}_l(z) \sqrt{2 Re( \tilde{Z}_l(z))} \label{eq:corelastion} 
   \end{align}
- with $\tilde{Z}(z)\rightarrow \tilde{Z}_k(z)$ as introduced in \cref{eq:diskret-freq}:
+ with $\tilde{Z}(z)\rightarrow \tilde{Z}_l(z)$ as introduced in \cref{eq:diskret-freq}:
   \begin{align}
-   \tilde{Z}_k(z) = K_{\alpha} \Gamma(1+\alpha)(i 2 \pi k \Delta \omega)^{1-\alpha} =  K_{\alpha} \Gamma(1+\alpha)(i k \frac{ \pi}{n \Delta t})^{1-\alpha} 
+   \tilde{Z}_l(z) = K_{\alpha} \Gamma(1+\alpha)(i 2 \pi l \Delta z)^{1-\alpha} =  K_{\alpha} \Gamma(1+\alpha)(i l \frac{ \pi}{n \Delta t})^{1-\alpha} 
  \end{align}
  
- \item The discrete Fourier transform has a downside compared to the continuous Fourier transform, as already noted in the beginning of this section.The VACF is zero at zero-frequency $Z_{k=0}(0)=0$.  From \cref{eq:corelastion} also the first increment in the frequency domain is zero $\bm{\xi}_{k=o}(z)= 0$. Due to \cref{eq:diskretdeltar} also the following relation holds:
+ \item The discrete Fourier transform has a downside compared to the continuous Fourier transform, as already noted in the beginning of this section.The VACF is zero at zero-frequency $ \tilde{Z}_{l=0}(z=0)=0$.  From \cref{eq:corelastion} also the first increment in the frequency domain is zero $ \tilde{\xi}_{l=o}(z=0)= 0$. Due to \cref{eq:fouriertrans} also the following relation holds:
  \begin{align}
-  \bm{\xi}_{k=o}(z) = \sum_{j=0}^{2n-1} \boldsymbol{\eta_j} e^{0}=\frac{\Delta  \boldsymbol{R}}{\Delta t}
+   \tilde{\xi}_{l=o}(z) = \sum_{k=0}^{2n-1} \xi_k e^{0} \Delta t = \Delta  R_{2n}
  \end{align}
-$\Delta \boldsymbol{R} $ ist in dem Fall die zurückgelegt Entfernung nach $2n$ Zeitschritten.
-Dadurch würde das Teilchen nach $2n$ Schritten wieder zurück an seinen Ursprung kehren. Stattdessen wird Das Nullte Inkrement im Frequenzraum folgendermaßen berechnet:
+$\Delta R $ is the distance between the starting point and the position of the particle. Therefore the particle would travel after $2n$ steps back to its initial position. Instead the zero-increment in the frequency domain is calculated as follows;
 \begin{align}
-\boldsymbol{\eta_{fbr_{g=o}}} = \mathcal{N}(0,\sqrt{2 K_{\alpha} (2n \Delta t)^\alpha})
+ \tilde{\xi}_{l=o}(z) = \mathcal{N}(0,\sqrt{2 K_{\alpha} (2n \Delta t)^\alpha})
 \end{align}
- gerechnet. Dies wäre korrekt, wenn Gebrochen-rationale Brownische Bewegung ein Markowischer Prozess wäre. Da dies nicht der Fall ist, entsteht an dieser Stelle eine Approximation. Um sie genauer zu verstehen muss ich mich damit noch weiter beschäftigen. Um den Einfluss der Approximation zu verringern wurde in Schritt 1 die doppelte Menge an Inkrementen erstellt. Die Hoffnung ist, dass der Einfluss der Approximation  mit zunehmender Entfernung von $2 \Delta R_{fbr}$ immer geringer wird und bei $\Delta R_{fbr}$ bereits vernachlässigbar ist.
+ This equation would be correct if we assumed the fractional Brownian motion to be a Markovian process which certainly is not the cause. This is also the reason why k have been chosen to be $2n$. The presumption is, that the impact of the approximation would be negligible with increasing distance to $\Delta R_{2n}$ and negligible at $\Delta R_{n}$.  
  %\item Laut dem Davies Harte Algorithmus wird außerdem das n-te Inkrement im Frequenzraum %umgeändert:
  %\begin{align}
  %\eta_{fbr_{g=n}} =\sqrt{Re(Z_g 2 n)} \mathcal{N}(0,1) 
  %\end{align}
  % Noch nicht verstanden warum!!
- \item In der Zeitdomäne ergeben sich die Inkremente durch die Rücktransformation als:
+ \item With the reverse Fourier transform the fractional Brownian noise increments in the time domain result in:
  \begin{align}
- \boldsymbol{\eta_{fbr_j}}= \frac{1}{2n} \sum_{g=0}^{2n-1} \boldsymbol{\eta_g} e^{\frac{2 \pi i j g }{2n}}
+ \xi_{k}= \frac{1}{2n} \sum_{l=0}^{2n-1}  \tilde{\xi}_l e^{\frac{2 \pi i l k }{2n}} \Delta z
  \end{align}
-Es wird nur die erste Hälfte der Inkremente, $\eta_{fbr_j}$ für $j=(0,1,..,n)$, weiter verwendet.
+Only the first half of the increments are taken  into account $\xi_{j}$ für $j=(0,1,..,n)$.
 \end{enumerate}
-Für die drei dimensionale Gebrochen-rationale Brownische Bewegung kann für jede kartesische Komponente der soeben beschriebene Algorithmus verwendet werden, da davon ausgegangen wird, dass die Kartesischen Komponenten der Inkremente untereinander nicht korreliert sind. 
+The described algorithm can be performed for every Cartesian component of the three dimensional fractional Brownian motion. The Cartesian component are not correlated.
 \subsubsection{Analyse of Algorythm}
+
 Hier kommen die Plots  aus dem Analyse Skript rein.
 
 \begin{figure}[h]
@@ -386,13 +386,13 @@ Hier kommen die Plots  aus dem Analyse Skript rein.
 \chapter{Status Quo \& Outlook}
 \chapter{Appendix}
 \subsection{Code:Gebrochen-rationale Brownische Bewegung}
-\lstinputlisting[language=Python]{../simulation.py}
+%\lstinputlisting[language=Python]{../simulation.py}
 
 \nocite{}
 
 %\printindex
 \bibliography{literatur}
 \bibliographystyle{plain}
-inspired by \url{http://wwo.weizmann.ac.il/weizsites/mukamel/files/2013/01/Brownian_Motion.pdf}
+\url{http://wwo.weizmann.ac.il/weizsites/mukamel/files/2013/01/Brownian_Motion.pdf}
 
 \end{document}

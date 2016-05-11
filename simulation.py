@@ -58,8 +58,8 @@ class Felix_Method():
             inc = ginc.pyIncrements(self.n,self.particles)
             inc.generateIncrements(self.D, self.dt, self.alpha)
             a =inc.returnIncrements()
-            r_t=np.cumsum(a[:,0,:],axis=1)
-            r_t[:,0]=0
+            r_t=np.zeros((self.particles,self.n))
+            r_t[:,1:]=np.cumsum(a[:,0,0:self.n-1],axis=1)
             return r_t
         if self.version == "python":
             for particle in range(self.particles):
@@ -74,7 +74,7 @@ class Felix_Method():
                 v_ano_t=np.fft.ifft(v_ano_frq)
                 #r_t1=np.cumsum(v_ano_t[:self.n].real) #Ort bei anomaler Diffusion in Abhängigkeit von der zeit
                 r_t=np.zeros(self.n)
-                r_t[1:]=np.cumsum(v_ano_t[:self.n].real)[1:] #Ort bei anomaler Diffusion in Abhängigkeit von der zeit
+                r_t[1:]=np.cumsum(v_ano_t[:self.n].real)[:self.n-1] #Ort bei anomaler Diffusion in Abhängigkeit von der zeit
                 r_t_allparticles.append(r_t) # Trajektorie bei anomaler Diffusion für alle teilchen
             return np.array(r_t_allparticles)
 

@@ -23,7 +23,7 @@ import pstats
 #a,b=analyse_tool.Analyse(D=2,particles=5000,length=200,alpha=0.5).distribution(t=199)
 #print analyse_tool.Analyse(D=2,particles=50,length=20,alpha=0).D
 def show_gaussian():
-    length=1000
+    length=50
     steps=30
     gaussianparamter=[]
     for i in range(steps):
@@ -32,9 +32,11 @@ def show_gaussian():
         b=c.nongaussian_parameter()
         gaussianparamter.append(b)
     gaussianparamter=np.array(gaussianparamter)
-    plt.errorbar(range(length+1), gaussianparamter.mean(axis=0), yerr=gaussianparamter.std(axis=0))
+    plt.errorbar(range(length+1), gaussianparamter.mean(axis=0), yerr=gaussianparamter.std(axis=0),errorevery=3,label="non-Gaussianparamter")
     plt.xlabel('t', fontsize=14)
     plt.ylabel('$\\alpha_2(t)$ non-Gaussian parameter', fontsize=14)
+    plt.legend(loc=3)
+    plt.savefig('midtermreport/data/nongaussian.png',dpi=300)
     plt.show()
 
 def show_rescaled():
@@ -43,7 +45,7 @@ def show_rescaled():
     length=1100
     steps=5
     shades=np.linspace(0,1,steps+1)
-    c=analyse_tool.Analyse(D=2,particles=10000,length=length+1,alpha=0.5,dt=1)
+    c=analyse_tool.Analyse(D=2,particles=10000,length=length+1,alpha=0.5,dt=1,version="cpp")
     for j in range(100,1100,1000/steps):
         colornum=1+colornum
         shade=shades[colornum]
@@ -53,7 +55,8 @@ def show_rescaled():
         #plt.plot(d[0],d[1],color='%f' %(shade))
     plt.xlabel('rescaled distance $ r_{res} $ ', fontsize=14)
     plt.ylabel('rescaled distribution', fontsize=14)
-    plt.legend(loc=1)
+    plt.legend(loc=3)
+    plt.savefig('midtermreport/data/rescaled.png',dpi=300)
     plt.show()
 
 def show_distrib():
@@ -62,7 +65,7 @@ def show_distrib():
     length=1000
     steps=50
     shades=np.linspace(0,1,steps+1)
-    c=analyse_tool.Analyse(D=2,particles=6000,length=length+1,alpha=0.5,dt=1,)
+    c=analyse_tool.Analyse(D=2,particles=6000,length=length+1,alpha=0.5,dt=1,version="cpp")
     for j in range(100,1000,900/steps):
         colornum=1+colornum
         shade=shades[colornum]
@@ -106,7 +109,7 @@ def plot_msd_invert():
 
 
 def plot_ensemble_mean_of_time_msd():
-        c=analyse_tool.Analyse(D=2,particles=10,length=1000,alpha=0.5,dt=1,version="cpp")
+        c=analyse_tool.Analyse(D=2,particles=10,length=3000,alpha=0.5,dt=1,version="cpp")
         msd_all=[]
         for ii in range(c.particles):
             print ii
@@ -115,8 +118,8 @@ def plot_ensemble_mean_of_time_msd():
         colors=['r','b','g','k','c','w','b','r','g','b','k','c','w','b','r','g','b','k','c','w','bo','ro','go','bo','ko','co','wo','bo']
         msd_time=np.array(msd_all)
         msd_time_mean=msd_time.mean(axis=0)
-        plt.plot(c.t*c.dt,c.msdanalyt(),":",color=colors[1], label="analytisch D=%f,particles=%d,length=%d,alpha=%f" %(c.D,c.particles,c.n,c.alpha))
-        #plt.errorbar(c.t*c.dt, msd_time_mean, yerr=0,label="Spektrale Methode mit D=%f,particles=%d, length=%d ,alpha=%f" %(c.D,c.particles,c.n,c.alpha))
+        #_edplt.plot(c.t*c.dt,c.msdanalyt(),":",color=colors[1], label="analytisch D=%f,particles=%d,length=%d,alpha=%f" %(c.D,c.particles,c.n,c.alpha))
+        plt.errorbar(c.t*c.dt, msd_time_mean, yerr=0,label="time +ensemble average")
         #plt.show()
         return msd_time_mean
 
@@ -135,8 +138,8 @@ def plot_ensemble_mean_of_time_msd():
 #show_distrib()
 
 
-print timeit.timeit("import analyse_tool; analyse_tool.Analyse(D=2,particles=1024,length=1024,alpha=0.5,dt=1,version='cpp').compute_trajectory()", number=1)
-print timeit.timeit("import analyse_tool; analyse_tool.Analyse(D=2,particles=1024,length=1024,alpha=0.5,dt=1).compute_trajectory()", number=1)
+#print timeit.timeit("import analyse_tool; analyse_tool.Analyse(D=2,particles=1024,length=1024,alpha=0.5,dt=1,version='cpp').compute_trajectory()", number=1)
+#print timeit.timeit("import analyse_tool; analyse_tool.Analyse(D=2,particles=1024,length=1024,alpha=0.5,dt=1).compute_trajectory()", number=1)
 
 #e=analyse_tool.Analyse(D=2,particles=1000,length=1024*2,alpha=0.5,dt=1.,version='cpp')
 #plt.plot(e.compute_trajectory()[0],"r")
