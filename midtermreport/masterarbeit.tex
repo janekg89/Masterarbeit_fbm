@@ -308,26 +308,55 @@ The described algorithm can be performed for every Cartesian component of the th
   \centering
   \includegraphics[width=\linewidth]{./data/profiling_length.png}
   \captionsetup{width=0.9\linewidth}
-  \captionof{figure}{Profiling c++ and python code in respect to trajectory length}
+  \captionof{figure}{Profiling c++ and python code in respect to trajectory length $n$}
   \label{fig:test1}
 \end{minipage}%
 \begin{minipage}{.5\textwidth}
   \centering
   \includegraphics[width=\linewidth]{./data/profiling_particle.png}
   \captionsetup{width=0.9\linewidth}
-  \captionof{figure}{Profiling c++ and python code in respect to trajectory number}
+  \captionof{figure}{Profiling c++ and python code in respect to trajectory number $N$}
+  \label{fig:test2}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{./data/averages_comparison.png}
+  \captionsetup{width=0.9\linewidth}
+  \captionof{figure}{Comparison of Mean-Square-Displacements between time-average, ensemble-average and time-ensemble-average(for $D=2$, $\alpha=0.5$, $\Delta t=1$). }
+  \label{fig:test1}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{./data/dt_change.png}
+  \captionsetup{width=0.9\linewidth}
+  \captionof{figure}{Comparison of ensemble averaged Mean-Square-Displacements with different $\Delta t$(for $D=2$, $\alpha=0.5$). }
   \label{fig:test2}
 \end{minipage}
 \end{figure}
 
 
-
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{./data/rescaled.png}
 \caption{rescaled functions}
-% msd_ensemble_4000particles_log.pdf: 0x0 pixel, -2147483648dpi, 0.00x0.00 cm, bb=
  \centering
 \end{figure}
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{./data/alpha_change.png}
+\caption{Mean-Square-Displacement for different $\alpha$. With $K_{\alpha}=2$ , $N=2000$, $n=2000$ , $\delta t = 1$, $M=2n$ }
+ \centering
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{./data/nongaussian.png}
+\caption{Non-Gaussian-Parameter With $K_{\alpha}=2$ , $N=5000$, $n=1001$ , $\delta t = 1$, $M=2n$ averaged over $30$ non-Gaussian-Parameter}
+ \centering
+\end{figure}
+
 
 
 
