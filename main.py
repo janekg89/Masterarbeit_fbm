@@ -23,10 +23,11 @@ import pstats
 #a,b=analyse_tool.Analyse(D=2,particles=5000,length=200,alpha=0.5).distribution(t=199)
 #print analyse_tool.Analyse(D=2,particles=50,length=20,alpha=0).D
 def show_gaussian():
-    length=50
+    length=1000
     steps=30
     gaussianparamter=[]
     for i in range(steps):
+        print i
         c=analyse_tool.Analyse(D=2,particles=5000,length=length+1,alpha=0.5,dt=1)
         shades=np.linspace(0,1,steps+1)
         b=c.nongaussian_parameter()

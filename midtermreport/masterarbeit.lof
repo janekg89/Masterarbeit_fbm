@@ -5,8 +5,12 @@
 \select@language {english}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Profiling c++ and python code in respect to trajectory length\relax }}{12}{figure.caption.4}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Profiling c++ and python code in respect to trajectory number\relax }}{12}{figure.caption.4}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces rescaled functions\relax }}{13}{figure.caption.5}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Profiling c++ and python code in respect to trajectory length $n$\relax }}{12}{figure.caption.4}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Profiling c++ and python code in respect to trajectory number $N$\relax }}{12}{figure.caption.4}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Comparison of Mean-Square-Displacements between time-average, ensemble-average and time-ensemble-average(for $D=2$, $\alpha =0.5$, $\Delta t=1$). \relax }}{13}{figure.caption.5}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Comparison of ensemble averaged Mean-Square-Displacements with different $\Delta t$(for $D=2$, $\alpha =0.5$). \relax }}{13}{figure.caption.5}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces rescaled functions\relax }}{13}{figure.caption.6}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Mean-Square-Displacement for different $\alpha $. With $K_{\alpha }=2$ , $N=2000$, $n=2000$ , $\delta t = 1$, $M=2n$ \relax }}{14}{figure.caption.7}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Non-Gaussian-Parameter With $K_{\alpha }=2$ , $N=5000$, $n=1001$ , $\delta t = 1$, $M=2n$ averaged over $30$ non-Gaussian-Parameter\relax }}{14}{figure.caption.8}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

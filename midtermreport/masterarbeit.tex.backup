@@ -18,6 +18,7 @@
 \usepackage{hyperref}
 \usepackage{bm}
 \usepackage{cleveref}
+\usepackage{caption,setspace}
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
@@ -181,13 +182,12 @@ Under this approximation diffusion only depends on the position and not on the v
  \frac{d}{dt} \langle x^2(t)\rangle & =\frac{d}{dt} \int dx x^2 C(x,t)=\int dx x^2 \frac{\partial}{\partial t} C(x,t) \\
 &= D \int_{-\infty}^{\infty}dx x^2 \frac{\partial^2 }{\partial x^2} C(x,t) = -2 D \int_{-\infty}^{\infty} dx x \frac{\partial }{\partial x} C(x,t) \\ &= 2 D \int_{-\infty}^{\infty} dx C(x,t) =2 D
 \end{align}
-In previous equations partial integration has been used and  $C(\pm \infty,t)=0$ has been assumed. By integration, for the initial condition $x(0) = 0$,  one gets the Einstein Formula: $\langle (x(t)-x(o))^2)\rangle= 2Dt$, which can easily be extended for 2 and 3 dimensions. It will not be calculated here explicitly, but one can show that also for Smoluchowski eq. which follows from langevin dynamics for a long time limit the initial velocities decorrelates and thus the MSD is also linear with time.
+In previous equations partial integration has been used and  $C(\pm \infty,t)=0$ has been assumed. By integration, for the initial condition $x(0) = 0$,  one gets the Einstein Formula: $\langle (x(t)-x(o))^2)\rangle= 2Dt$, which can easily be extended for 2 and 3 dimensions. It will not be calculated here explicitly, but one can show that also for the  Smoluchowski eq. which follows from langevin dynamics for a long time limit the initial velocities decorrelate and thus the MSD is also linear with time.
 
 \section{Fractional Brownian Motion}
 In this section the theoretical foundation for Fractional Brownian Motion will be set and related to standard Brownian Motion. \\
-In the previous section the the Means Square Displacement (MSD) has been shown to be linear with time as a result of the central limit theorem. In normal liquids this behaviour can be be seen already at time scales higher than picosecends \cite{Hofling2013}. Nevertheless many experiments show that the MSDs has a power law behaviour ( $\delta r ^2 (t) \propto t^{\alpha}$ for  $0 < \alpha < 1$ ). Thus the central limit theorem does not hold, not even for long time scales. It can be shown that persistent correlations of the increments can be observed. In soft matter,like polymers, subdiffusive behaviour is typically present in an time window but finally the linear MSD takes over. In particular Fractional Brownian Motion examines the case that the central limit theorem is violated for all time scales.\\
-fractional Brownian scaling\\
-In the following some statistical tools are defined. They are important as the increments of Fractional Brownian motion are no longer assumed to be independent. The single particle density $\rho(\bm{r},t)=\delta(\bm{r}-\bm{R}(t))$ describes the density of a particle which is localized at position $\bm{R}(t)$, Its correlation function $P(\bm{r}-\bm{r}',t-t')= V\langle\rho(\bm{r},t) \rho(\bm{r}',t')\rangle$ is also called Van Hove self-correlation function. $V$ refers to the volume. From now on we will consider an isotropic system $ r= |\bm{r}|$. As for Brownian motion with independent increments the correlated increments  $\Delta\bm{R}(t)$ of fractional Brownian motion are assumed to follow a Gaussian distribution with zero mean.Thus the correlation function of the single particle density results in:
+In the previous section the the Means Square Displacement (MSD) has been shown to be linear with time as a result of the central limit theorem. In normal liquids this behaviour can be be seen already at time scales higher than picosecends \cite{Hofling2013}. Nevertheless many experiments show that the MSD has a power law behaviour ( $\delta r ^2 (t) \propto t^{\alpha}$ for  $0 < \alpha < 1$ ). Thus the central limit theorem does not hold, not even for long time scales. It can be shown that persistent correlations of the increments are present. In soft matter, like polymers, subdiffusive behaviour is typically present in an time window but finally the linear MSD takes over. Fractional Brownian Motion instead examines the case that the central limit theorem is violated for all time scales.\\
+In the following some statistical tools are defined. They are important as the increments of Fractional Brownian motion are no longer assumed to be independent. The single particle density $\rho(\bm{r},t)=\delta(\bm{r}-\bm{R}(t))$ describes the density of a particle which is localized at position $\bm{R}(t)$. Its correlation function $P(\bm{r}-\bm{r}',t-t')= V\langle\rho(\bm{r},t) \rho(\bm{r}',t')\rangle$ is also called Van Hove self-correlation function. $V$ refers to the volume. From now on we will consider an isotropic system $ r= |\bm{r}|$. As for Brownian motion with independent increments the correlated increments  $\Delta\bm{R}(t)$ of fractional Brownian motion are assumed to follow a Gaussian distribution with zero mean. Thus the correlation function of the single particle density results in:
 \begin{align}
  P(r,t)=[2 \pi \delta r^{2}(t)/d]^{-\frac{d}{2}} e^{ \frac{-r^2 d}{2 \delta r^{2}(t) }}
 \end{align}
@@ -202,14 +202,14 @@ The intermediate scattering function for the single particle density turns out t
 \end{align}
 An other important quantity is the dynamical structure factor, which is the time-frequency Fourier transform of the intermediate scattering function:
 \begin{align}
- F_{s}(\bm{k},z)&=\langle\rho(\bm{k},z) \rho(\bm{k}',z')\rangle=\int_{0}^{\infty} d t e^{-i \bm{k} \bm{r}} P(r,t) \text{ for } k \rightarrow 0 , \operatorname{Im}(z) > 0 \\
+ F_{s}(k,z)&=\langle\rho(k,z) \rho(k',z')\rangle=\int_{0}^{\infty} d t e^{-i k r} P(r,t) \text{ for } k \rightarrow 0 , \operatorname{Im}(z) > 0 \\
  &= \frac{1}{-iz}-\frac{k^2}{2d}\int_{0}^{\infty} d t e^{izt} \delta r^2 (t) + \mathcal{O}(k^2)
 \end{align}
-From now on lets a differential equation $\partial_t \bm{R}(t)=\bm{\eta}(t)$. $\bm{\eta}(t)$ are velocities, which are no more delta-correlated in time as they would be for standard Brownian motion. Velocities can be used to calculated the Velocity Autocorrelation Function (VACF):
+From now on lets start from a differential equation $\partial_t \bm{R}(t)=\bm{\eta}(t)$. $\bm{\eta}(t)$ are velocities, which are no more delta-correlated in time as they would be for standard Brownian motion. Velocities can be used to calculated the Velocity Autocorrelation Function (VACF):
 \begin{align}
 Z(|t-t'|)&= \frac{1}{d}\langle \bm{\eta}(t) \bm{\eta}(t') \rangle = \frac{1}{2d} \frac{d^2}{dt^2} \delta r^2 (t-t')  \\
 \end{align}
-Subsequently, the VACF in the frequency domain for Fractional Brownian motion will be calculated. The MSD is $\delta r^{2}(t)= < \Delta R(t)>=2dK_{\alpha}t^{\alpha}$ with $K_{\alpha}$ being the generalized diffusion-coefficient:
+Subsequently, the VACF in the frequency domain for Fractional Brownian motion can be calculated. The MSD is $\delta r^{2}(t)= < \Delta R(t)>=2dK_{\alpha}t^{\alpha}$ with $K_{\alpha}$ being the generalized diffusion-coefficient:
 \begin{align*}
  \tilde{Z}(z)&=\int_{0}^{\infty} d t e^{izt} Z(t) \\
  &=2 d \int_{0}^{\infty} d t e^{izt} \left[\frac{d^2}{dt^2}\delta r^2 (t) \right]
@@ -239,7 +239,7 @@ Fractional correlations can be incorporated via its VACF:
  \end{align}
 
 \subsection{Algorithm}
-In the following an algorithm which generates fractional Brownian noise will be introduced. The algorithm is based on the Davis-Harte algorythm \cite{Craigmile2003}. The idea is to use the calculated VACF and thereby modify conventionally generated Gaussian random variables.  All the increments should be generated beforehand. With this concept it is more difficult to include forces. Nevertheless it is computationally favourable then computing each increment recursively considering also its history. This would be certainly necessary since all increments are defined to be more then just delta-correlated in time. For computational reasons the elaborations for fractional Brownian motion in the previous chapter on how to generate fractional Brownian increments have to be transformed into a discrete from thereby the solution is no longer exact, which will be shown in the analyse part of the algorithm.   
+In the following an algorithm which generates fractional Brownian noise will be introduced. The algorithm is based on the Davis-Harte algorythm \cite{Craigmile2003}. The idea is to use the calculated VACF and thereby modify conventionally generated Gaussian random variables.  All the increments should be generated beforehand. With this concept it is more difficult to include forces. Nevertheless it is computationally favourable then computing each increment recursively considering also its history. This would be certainly necessary since all increments are defined to be more then just delta-correlated in time. For computational reasons the elaborations for fractional Brownian motion in the previous chapter on how to generate fractional Brownian increments have to be transformed into a discrete form, thereby the solution is no longer exact, which will be shown in the analyse part of the algorithm.   
 \begin{align}
 \bm{\eta} (t) \longrightarrow \bm{\eta}_j(t)  \text{  with  } j=0,1,2,...,n  \text{  ,  } n= \text{amount of steps}
 \end{align}
@@ -279,15 +279,15 @@ By comparison with the \cref{eq:fourier} one can see that:
    \tilde{Z}_l(z) = K_{\alpha} \Gamma(1+\alpha)(i 2 \pi l \Delta z)^{1-\alpha} =  K_{\alpha} \Gamma(1+\alpha)(i l \frac{ \pi}{n \Delta t})^{1-\alpha} 
  \end{align}
  
- \item The discrete Fourier transform has a downside compared to the continuous Fourier transform, as already noted in the beginning of this section.The VACF is zero at zero-frequency $ \tilde{Z}_{l=0}(z=0)=0$.  From \cref{eq:corelastion} also the first increment in the frequency domain is zero $ \tilde{\xi}_{l=o}(z=0)= 0$. Due to \cref{eq:fouriertrans} also the following relation holds:
+ \item The discrete Fourier transform has a downside compared to the continuous Fourier transform, as already noted in the beginning of this section. The VACF is zero at zero-frequency $ \tilde{Z}_{l=0}(z=0)=0$.  From \cref{eq:corelastion} also the first increment in the frequency domain is zero $ \tilde{\xi}_{l=o}(z=0)= 0$. Due to \cref{eq:fouriertrans} also the following relation holds:
  \begin{align}
    \tilde{\xi}_{l=o}(z) = \sum_{k=0}^{2n-1} \xi_k e^{0} \Delta t = \Delta  R_{2n}
  \end{align}
-$\Delta R $ is the distance between the starting point and the position of the particle. Therefore the particle would travel after $2n$ steps back to its initial position. Instead the zero-increment in the frequency domain is calculated as follows;
+$\Delta R $ is the distance between the starting point and the position of the particle. Therefore the particle would travel after $2n$ steps back to its initial position. Instead the zero-increment in the frequency domain is calculated as follows:
 \begin{align}
  \tilde{\xi}_{l=o}(z) = \mathcal{N}(0,\sqrt{2 K_{\alpha} (2n \Delta t)^\alpha})
 \end{align}
- This equation would be correct if we assumed the fractional Brownian motion to be a Markovian process which certainly is not the cause. This is also the reason why k have been chosen to be $2n$. The presumption is, that the impact of the approximation would be negligible with increasing distance to $\Delta R_{2n}$ and negligible at $\Delta R_{n}$.  
+ This equation would be correct if we assumed fractional Brownian motion to be a Markovian process which certainly is not the cause. This is also the reason why k have been chosen to be $2n$. The presumption is, that the impact of the approximation would be negligible with increasing distance to $\Delta R_{2n}$ and negligible at $\Delta R_{n}$.  
  %\item Laut dem Davies Harte Algorithmus wird außerdem das n-te Inkrement im Frequenzraum %umgeändert:
  %\begin{align}
  %\eta_{fbr_{g=n}} =\sqrt{Re(Z_g 2 n)} \mathcal{N}(0,1) 
@@ -302,90 +302,68 @@ Only the first half of the increments are taken  into account $\xi_{j}$ für $j=
 The described algorithm can be performed for every Cartesian component of the three dimensional fractional Brownian motion. The Cartesian component are not correlated.
 \subsubsection{Analyse of Algorythm}
 
-Hier kommen die Plots  aus dem Analyse Skript rein.
+\begin{figure}[h]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{./data/profiling_length.png}
+  \captionsetup{width=0.9\linewidth}
+  \captionof{figure}{Profiling c++ and python code in respect to trajectory length}
+  \label{fig:test1}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{./data/profiling_particle.png}
+  \captionsetup{width=0.9\linewidth}
+  \captionof{figure}{Profiling c++ and python code in respect to trajectory number}
+  \label{fig:test2}
+\end{minipage}
+\end{figure}
 
 \begin{figure}[h]
-\includegraphics[width=\textwidth]{./msd_ensemble_alpha.pdf}
-\caption{Mean Square Displacement of different $\alpha$}
-% msd_ensemble_4000particles_log.pdf: 0x0 pixel, -2147483648dpi, 0.00x0.00 cm, bb=
- \centering
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{./data/profiling_length.png}
+  \captionsetup{width=0.9\linewidth}
+  \captionof{figure}{Comparison of Mean-Square-Displacements between time-average, ensemble-average. time-ensemble-average.}
+  \label{fig:test1}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{./data/profiling_particle.png}
+  \captionsetup{width=0.9\linewidth}
+  \captionof{figure}{Profiling c++ and python code in respect to trajectory number}
+  \label{fig:test2}
+\end{minipage}
 \end{figure}
 
 
 \begin{figure}[h]
-\includegraphics[width=\textwidth]{./msd_ensemble_4000particles_log.pdf}
-\caption{Mean Square Displacement (Ensemble average of 4000 Trajectories)}
-% msd_ensemble_4000particles_log.pdf: 0x0 pixel, -2147483648dpi, 0.00x0.00 cm, bb=
+\includegraphics[width=\textwidth]{./data/rescaled.png}
+\caption{rescaled functions}
  \centering
 \end{figure}
 
 \begin{figure}[h]
-\includegraphics[width=\textwidth]{./msd_ensemble_dt_nostd_lin.pdf}
-\caption{Mean Square Displacement (Ensemble average fpr different $\Delta t$)}
-% msd_ensemble_4000particles_log.pdf: 0x0 pixel, -2147483648dpi, 0.00x0.00 cm, bb=
+\includegraphics[width=\textwidth]{./data/alpha_change.png}
+\caption{Mean-Square-Displacement for different $\alpha$. With $K_{\alpha}=2$ , $N=2000$, $n=2000$ , $\delta t = 1$, $M=2n$ }
  \centering
 \end{figure}
 
 \begin{figure}[h]
-\includegraphics[width=\textwidth]{./msd_time_ensemble_dt_lin.pdf}
-\caption{Mean Square Displacement (time and ensemble avarge for different $ \Delta t$ and with standard deviation of the Mean)}
-% msd_ensemble_4000particles_log.pdf: 0x0 pixel, -2147483648dpi, 0.00x0.00 cm, bb=
+\includegraphics[width=\textwidth]{./data/nongaussian.png}
+\caption{Mean-Square-Displacement for different $\alpha$. With $K_{\alpha}=2$ , $N=5000$, $n=1001$ , $\delta t = 1$, $M=2n$ averaged over $30$ non-Gaussian-Parameter}
  \centering
 \end{figure}
 
-\begin{figure}[h]
-\includegraphics[width=\textwidth]{./non_gaussian_D=2_t=1001_dt=1_alpha=05particles_5000_std01.pdf}
-\caption{Non-gaussian parameter of $\alpha=0.5$ , $ D=2 $ and 5000 trajectories ensemble.}
-% msd_ensemble_4000particles_log.pdf: 0x0 pixel, -2147483648dpi, 0.00x0.00 cm, bb=
- \centering
-\end{figure}
 
-\begin{figure}[h]
-\includegraphics[width=\textwidth]{./msd_ensemble_t_inverted.pdf}
-\caption{Non-gaussian parameter of $\alpha=0.5$ , $ D=2 $ and 5000 trajectories ensemble.}
-% msd_ensemble_4000particles_log.pdf: 0x0 pixel, -2147483648dpi, 0.00x0.00 cm, bb=
- \centering
-\end{figure}
 
-\begin{figure}[h]
-\includegraphics[width=\textwidth]{./rescaled_function.pdf}
-\caption{rescaled function for different times}
-% msd_ensemble_4000particles_log.pdf: 0x0 pixel, -2147483648dpi, 0.00x0.00 cm, bb=
- \centering
-\end{figure}
-
-\begin{figure}[h]
-\includegraphics[width=\textwidth]{./dt_variert_bei_factor_1_lin.pdf}
-\caption{variere dt bei gleichem Faktor 1}
-% msd_ensemble_4000particles_log.pdf: 0x0 pixel, -2147483648dpi, 0.00x0.00 cm, bb=
- \centering
-\end{figure}
-
-\begin{figure}[h]
-\includegraphics[width=\textwidth]{./dt_variert_bei_factor_1_log.pdf}
-\caption{variere dt bei gleichem Faktor 1, logarithmisch}
-% msd_ensemble_4000particles_log.pdf: 0x0 pixel, -2147483648dpi, 0.00x0.00 cm, bb=
- \centering
-\end{figure}
-
-\begin{figure}[h]
-\includegraphics[width=\textwidth]{./faktor_variert_bei_dt_1_lin.pdf}
-\caption{variere Faktor bei gleichem dt}
-% msd_ensemble_4000particles_log.pdf: 0x0 pixel, -2147483648dpi, 0.00x0.00 cm, bb=
- \centering
-\end{figure}
-
-\begin{figure}[h]
-\includegraphics[width=\textwidth]{./faktor_variert_bei_dt_1_log.pdf}
-\caption{variere Faktor bei gleichem dt, logarithmisch}
-% msd_ensemble_4000particles_log.pdf: 0x0 pixel, -2147483648dpi, 0.00x0.00 cm, bb=
- \centering
-\end{figure}
 
 \chapter{Reactions-Diffusion-Dynamics}
 \chapter{Status Quo \& Outlook}
-\chapter{Appendix}
-\subsection{Code:Gebrochen-rationale Brownische Bewegung}
+%\chapter{Appendix}
+%\subsection{Code:Gebrochen-rationale Brownische Bewegung}
 %\lstinputlisting[language=Python]{../simulation.py}
 
 \nocite{}

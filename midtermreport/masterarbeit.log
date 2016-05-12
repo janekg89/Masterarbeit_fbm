@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.10.30)  11 MAY 2016 21:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.10.30)  12 MAY 2016 12:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -692,7 +692,20 @@ Package: setspace 2011/12/19 v6.7a set line spacing
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2014/09/06 1.5e listings language file
 )
-(./masterarbeit.aux)
+(./masterarbeit.aux
+
+LaTeX Warning: Label `fig:test1' multiply defined.
+
+
+LaTeX Warning: Label `fig:test1@cref' multiply defined.
+
+
+LaTeX Warning: Label `fig:test2' multiply defined.
+
+
+LaTeX Warning: Label `fig:test2@cref' multiply defined.
+
+)
 \openout1 = `masterarbeit.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 76.
@@ -709,8 +722,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 76.
 LaTeX Font Info:    ... okay on input line 76.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 76.
 LaTeX Font Info:    ... okay on input line 76.
-
-(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
+ (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count122
 \scratchdimen=\dimen133
@@ -786,7 +798,13 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
  [2
 
-] (./masterarbeit.lof)
+] (./masterarbeit.lof
+Overfull \hbox (33.27438pt too wide) in paragraph at lines 10--10
+ [][] [][]\OT1/cmr/m/n/10.95 Comparison of Mean-Square-Displacements be-tween t
+ime-average, ensemble- 
+ []
+
+)
 \tf@lof=\write5
 \openout5 = `masterarbeit.lof'.
 
@@ -840,63 +858,143 @@ j \OT1/cmr/m/n/10.95 = (0\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 1\OML/cmm/m/i
 t/10.95 ; ::; n\OT1/cmr/m/n/10.95 )$. 
  []
 
-[11] <./data/profiling_length.png, id=194, 361.35pt x 289.08pt>
+[11] <./data/profiling_length.png, id=205, 361.35pt x 289.08pt>
 File: ./data/profiling_length.png Graphic file (type png)
 
 <use ./data/profiling_length.png>
 Package pdftex.def Info: ./data/profiling_length.png used on input line 309.
 (pdftex.def)             Requested size: 199.16931pt x 159.33412pt.
 
-<./data/profiling_particle.png, id=196, 361.35pt x 289.08pt>
+<./data/profiling_particle.png, id=207, 361.35pt x 289.08pt>
 File: ./data/profiling_particle.png Graphic file (type png)
 
 <use ./data/profiling_particle.png>
 Package pdftex.def Info: ./data/profiling_particle.png used on input line 316.
 (pdftex.def)             Requested size: 199.16931pt x 159.33412pt.
 
-<./data/rescaled.png, id=197, 722.7pt x 289.08pt>
+<./data/averages_comparison.png, id=208, 361.35pt x 289.08pt>
+File: ./data/averages_comparison.png Graphic file (type png)
+
+<use ./data/averages_comparison.png>
+Package pdftex.def Info: ./data/averages_comparison.png used on input line 327.
+
+(pdftex.def)             Requested size: 199.16931pt x 159.33412pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 329--329
+[][][]|\OT1/cmr/m/n/10.95 Com-par-i-son of Mean-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 329--329
+\OT1/cmr/m/n/10.95 Square-Displacements
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 329--329
+\OT1/cmr/m/n/10.95 be-tween time-average,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 329--329
+\OT1/cmr/m/n/10.95 ensemble-average
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 329--329
+\OT1/cmr/m/n/10.95 and time-ensemble-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 329--329
+\OT1/cmr/m/n/10.95 average(for $\OML/cmm/m/it/10.95 D \OT1/cmr/m/n/10.95 = 2$,
+ []
+
+<./data/dt_change.png, id=209, 361.35pt x 289.08pt>
+File: ./data/dt_change.png Graphic file (type png)
+ <use ./data/dt_change.png>
+Package pdftex.def Info: ./data/dt_change.png used on input line 334.
+(pdftex.def)             Requested size: 199.16931pt x 159.33412pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 336--336
+\OT1/cmr/m/n/10.95 av-er-aged Mean-Square-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 336--336
+\OT1/cmr/m/n/10.95 Displacements with
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./data/rescaled.png, id=210, 722.7pt x 289.08pt>
 File: ./data/rescaled.png Graphic file (type png)
  <use ./data/rescaled.png>
-Package pdftex.def Info: ./data/rescaled.png used on input line 326.
+Package pdftex.def Info: ./data/rescaled.png used on input line 343.
+(pdftex.def)             Requested size: 398.33864pt x 159.33412pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./data/alpha_change.png, id=211, 722.7pt x 289.08pt>
+File: ./data/alpha_change.png Graphic file (type png)
+
+<use ./data/alpha_change.png>
+Package pdftex.def Info: ./data/alpha_change.png used on input line 349.
+(pdftex.def)             Requested size: 398.33864pt x 159.33412pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./data/nongaussian.png, id=212, 722.7pt x 289.08pt>
+File: ./data/nongaussian.png Graphic file (type png)
+
+<use ./data/nongaussian.png>
+Package pdftex.def Info: ./data/nongaussian.png used on input line 355.
 (pdftex.def)             Requested size: 398.33864pt x 159.33412pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [12 <./data/profiling_length.png> <./data/profiling_particle.png>] [13 <./data/
-rescaled.png>]
+averages_comparison.png> <./data/dt_change.png> <./data/rescaled.png>] [14 <./d
+ata/alpha_change.png> <./data/nongaussian.png>]
 Chapter 3.
-[14
+[15
 
 ]
 Chapter 4.
-(./masterarbeit.bbl [15
+(./masterarbeit.bbl [16
 
 ])
-Overfull \hbox (27.06425pt too wide) in paragraph at lines 345--346
+Overfull \hbox (27.06425pt too wide) in paragraph at lines 374--375
 []$\OT1/cmtt/m/n/10.95 http : / / wwo . weizmann . ac . il / weizsites / mukame
 l / files / 2013 / 01 / Brownian _ Motion .
  []
 
 
 AED: lastpage setting LastPage
-[16
+[17
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 347.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 347.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 376.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 376.
  (./masterarbeit.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 347.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 347.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 376.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 376.
 Package rerunfilecheck Info: File `masterarbeit.out' has not changed.
-(rerunfilecheck)             Checksum: 636899738183BC31289547943A5442DB;452.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 347.
+(rerunfilecheck)             Checksum: A40E32793BFCE46889581BAD3B997BD5;452.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 376.
  ) 
 Here is how much of TeX's memory you used:
- 12552 strings out of 493105
- 199798 string characters out of 6137071
- 376377 words of memory out of 5000000
- 15750 multiletter control sequences out of 15000+600000
+ 12576 strings out of 493105
+ 200376 string characters out of 6137071
+ 377377 words of memory out of 5000000
+ 15766 multiletter control sequences out of 15000+600000
  15011 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,24n,59p,1603b,450s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -919,10 +1017,10 @@ ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on masterarbeit.pdf (19 pages, 556416 bytes).
+Output written on masterarbeit.pdf (20 pages, 1016623 bytes).
 PDF statistics:
- 313 PDF objects out of 1000 (max. 8388607)
- 263 compressed objects within 3 object streams
- 77 named destinations out of 1000 (max. 500000)
- 80 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 338 PDF objects out of 1000 (max. 8388607)
+ 279 compressed objects within 3 object streams
+ 81 named destinations out of 1000 (max. 500000)
+ 100 words of extra memory for PDF output out of 10000 (max. 10000000)
 
