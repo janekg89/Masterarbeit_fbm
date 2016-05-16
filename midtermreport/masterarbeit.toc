@@ -3,12 +3,17 @@
 \select@language {english}
 \select@language {ngerman}
 \select@language {english}
-\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {chapter}{\numberline {1}Motivation}{1}{chapter.1}
 \contentsline {chapter}{\numberline {2}Theory}{3}{chapter.2}
 \contentsline {section}{\numberline {2.1}Brownian Motion}{3}{section.2.1}
-\contentsline {section}{\numberline {2.2}Fractional Brownian Motion}{6}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Algorithm}{9}{subsection.2.2.1}
-\contentsline {subsubsection}{\nonumberline Analyse of Algorythm}{12}{section*.3}
-\contentsline {chapter}{\numberline {3}Reactions-Diffusion-Dynamics}{15}{chapter.3}
-\contentsline {chapter}{\numberline {4}Status Quo \& Outlook}{16}{chapter.4}
-\contentsline {chapter}{\nonumberline Bibliography}{17}{chapter*.9}
+\contentsline {section}{\numberline {2.2}Fractional Brownian Motion}{5}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Algorithm}{8}{subsection.2.2.1}
+\contentsline {subsubsection}{\nonumberline Analyse of Algorythm}{10}{section*.4}
+\contentsline {chapter}{\numberline {3}Reactions-Diffusion-Dynamics}{14}{chapter.3}
+\contentsline {chapter}{\numberline {4}Status Quo \& Outlook}{15}{chapter.4}
+\contentsline {chapter}{\numberline {5}Appendix}{16}{chapter.5}
+\contentsline {section}{\numberline {5.1}From Central Limit Theorem to Gaussian Distribution}{16}{section.5.1}
+\contentsline {section}{\numberline {5.2}From Gaussian Propagator to Gaussian distribution}{17}{section.5.2}
+\contentsline {section}{\numberline {5.3}Einstein Formula}{18}{section.5.3}
+\contentsline {section}{\numberline {5.4}Autocorrelation Function for fBm}{18}{section.5.4}
+\contentsline {chapter}{\nonumberline Bibliography}{20}{chapter*.10}

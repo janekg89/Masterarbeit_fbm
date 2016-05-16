@@ -9,7 +9,7 @@ Increments::Increments(int N, int particles) {
 void Increments::generateIncrements (double D ,double tau, double alpha)
 {
         int dimensions= 3;
-        int x = 1;
+        int x = 2;
         int Nextended =N*x;
 
         fftw_plan planforward, planbackward;

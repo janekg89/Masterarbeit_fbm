@@ -173,3 +173,21 @@ import revreaddy.build.Debug.revreaddy as rdy
 s =rdy.Sim()
 s.run(steps=10000, timestep=0.1)
 '''
+
+'''
+
+
+
+d=analyse_tool.Analyse(D=2.0,particles=2000,length=1000,alpha=0.5,dt=0.5,x=4)
+
+
+a=d.z()
+b=d.z_alternativ()
+plt.plot(np.real(a))
+plt.plot(np.real(b))
+plt.show()
+
+'''
+d=analyse_tool.Analyse(D=2.0,particles=2000,length=1000,alpha=0.5,dt=0.5,x=2)
+d.plotting()
+plt.show()

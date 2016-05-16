@@ -36,6 +36,13 @@ class Felix_Method():
         z=((((+1j*self.frq))**(1-self.alpha))*self.K_alpha*np.math.gamma(1+self.alpha))
         return z
 
+    def z_alternativ(self):
+        MSD=(self.t*self.dt)**(self.alpha)*self.K_alpha*2
+        # hier kommt die die zweite ableitung der MSD rein
+        d2MSD=self.alpha*(self.alpha-1)*(np.array(range(self.ki))*self.dt)**(self.alpha-2.)*self.K_alpha
+        z_omega=np.fft.fft(d2MSD[:])
+        return z_omega
+
     def compute_trajectory(self):
         """
         :param D: Diffusionskoeffizient
@@ -62,12 +69,13 @@ class Felix_Method():
             r_t[:,1:]=np.cumsum(a[:,0,0:self.n-1],axis=1)
             return r_t
         if self.version == "python":
+            sqrt2zreal=np.sqrt(self.z().real*2.)
             for particle in range(self.particles):
                 #r = np.random.RandomState(1234)
-                v_t=(np.random.normal(0,np.sqrt(self.dt),size=self.ki)) #todo mit matrix.shape können man eine zufällige verteilung von allen daten generieren
+                v_t=(np.random.normal(0,np.sqrt(self.dt),size=self.ki)) #todo mit matrix.shape könnte man eine zufällige verteilung von allen daten generieren
                 v_t=np.array(v_t)
                 v_frq=np.fft.fft(v_t)
-                v_ano_frq= np.sqrt(self.z().real*2.)*v_frq
+                v_ano_frq= sqrt2zreal*v_frq
                 v_ano_frq[0]=np.random.normal(0,np.sqrt(2.*self.K_alpha*(self.ki*self.dt)**self.alpha))
                 #v_ano_frq[self.n]=np.sqrt(self.z()[self.n].real*self.n*2)*v_t[self.ki-1]
                 #v_ano_frq[self.n-1]=np.sqrt(self.z()[self.n].real*self.n*2)*v_t[self.ki-1]
