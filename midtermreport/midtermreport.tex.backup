@@ -85,7 +85,7 @@
   \vspace{4\baselineskip}
   \begin{tabular}{|ll@{}}
     & \\[\baselineskip]
-    & \large Midtherm Report\\
+    & \large Midterm Report\\
     & \large Jan Grzegorzewski \\[\baselineskip]
     & \huge\textbf{Reaction-diffusion dynamics} \\
     & \huge\textbf{with fractional Brownian motion}\\[\baselineskip]
@@ -380,23 +380,18 @@ The described algorithm can be performed for every Cartesian component of the th
 \chapter{Reactions-Diffusion-Dynamics}
 \section{Theory}
 \subsection{Diffusion-controlled Reactions for Brownian Motion}
-Chemical reactions are omnipresent in biological systems. Reactions are composed of reactants and products. These reactants and products are atoms or molecules, which number change overtime during reaction. Studying chemical reactions often contains reaction kinetics. Thus, determining the rate of chemical process. Enzymatic reactions e.g. play an important role in biological systems to reduce rates of reactions. The rates of reactions in solutions are not only governed by intrinsic reaction rates, which were addressed e.g. by Kramer's escape problem for two reactants, but also on rates at which the chemical participants diffuse into close proximity. In a reaction of the following type: \ch{A + B <>[ $k^{+}_{\mathrm{d}}$ ][ $k^{-}_{\mathrm{d}}$ ] AB <> [ $k^{+}_{\mathrm{a}}$ ][ $k^{-}_{\mathrm{a}}$ ] C} the Kramer's escape problem deals with the $k^{\pm}_{\mathrm{a}}$, where Smoluchowski deals with $k^{\pm}_{\mathrm{d}}$ \newline In this context the thesis will concentrated on diffusion-limited reactions. A theoretical approach on how fast two particles come together in an dilute system of hard spheres moving independently with Brownian motion have been studied by Marian von Smoluchowski in 1916 \cite{Smoluchowski1} . This was the first study on diffusion-limited reaction rates. A constant rate $k^{+}$ can be written as:
+Chemical reactions are omnipresent in biological systems. Reactions are composed of reactants and products. These reactants and products are atoms or molecules with changing number overtime during reaction. Studying chemical reactions often contains reaction kinetics. Reaction kinetics is about rates of chemical process. Enzymatic reactions e.g. play an important role in biological systems to reduce rates of reactions. The rates of reactions in solutions are not only governed by intrinsic reaction rates, which were addressed e.g. by Kramer's escape problem for two reactants, but also on rates at which the chemical participants diffuse into close proximity. In a reaction of the following type: \ch{A + B <>[ $k^{+}_{\mathrm{d}}$ ][ $k^{-}_{\mathrm{d}}$ ] AB <> [ $k^{+}_{\mathrm{a}}$ ][ $k^{-}_{\mathrm{a}}$ ] C}. \newline The Kramer's escape problem deals with the rates on the right side  $k^{\pm}_{\mathrm{a}}$. Smoluchowski deals with the rates on the other side.$k^{\pm}_{\mathrm{d}}$. \newline  A theoretical approach on how fast two particles come together in an dilute system of hard spheres moving independently with Brownian motion have been studied by Marian von Smoluchowski in 1916 \cite{Smoluchowski1}. This was the first study on diffusion-limited reaction rates. A constant rate $k^{+}$ can be written as:
 \begin{align}
  k^{+}=4 \pi (D_1+D_2)(R_1+R_2)=4 \pi (D_1+D_2)\sigma 
 \end{align}
-with $\sigma = R_1+R_2$ the relative distance between the sphere centers. It is a direct result of the diffusion equation. The calculation can be found in the appendix \ref{bi-molecular}. One particular area of research with which the Smoluchowski relation has had significant impact in the last few decades is biology. This is unsurprising as a vast number of biomolecular systems involve dilute and minute diffusing molecular populations undergoing continuous reaction. Understanding how these biological systems operate is complicated and is in itself a whole field of research; systems biology. The Smoluchowski result has provided a very powerful tool for theoretical investigation of microscopic biochemical reaction-diffusion processes \cite{Flegg}. It was extended by P. Debye in 1942 to add intermolecular forces.\newline
-Especially in biological systems Brownian motion do not apply for all time-scales. As stated in the motivation these environments exhibit very often anomalous diffusion, which can be addressed by fBm.  This motivates a Smoluchowski approach to reactions but with fBm. 
+with $\sigma = R_1+R_2$ the relative distance between the sphere centers. It is a direct result of the diffusion equation. The calculation can be found in the appendix \ref{bi-molecular}. One particular area of research with which the Smoluchowski relation has had significant impact in the last few decades is biology. This is unsurprising as a vast number of biomolecular systems involve dilute and minute diffusing molecular populations undergoing continuous reaction. Understanding how these biological systems operate is complicated and is in itself a whole field of research; systems biology. The Smoluchowski result has provided a very powerful tool for theoretical investigation of microscopic biochemical reaction-diffusion processes \cite{Flegg}. It was extended by P. Debye in 1942 to add intermolecular forces. However,Especially in biological systems Brownian motion do not apply for all time-scales. As stated in the motivation these environments exhibit very often anomalous diffusion, which can be addressed by fBm. This motivates a Smoluchowski approach to reactions but with fBm. 
 \newline
 A related reaction type was studied by L. Michaelis and Miss Maud L. Menten in 1913 \cite{Johnson2011}. Also Known as Michaelis-Menten kinetics:   
-\ch{S + E <>[ $k_{\mathrm{1}}$ ][ $k'_{\mathrm{1}}$ ] E S <> [ $k_{\mathrm{2}}$ ] [ $k'_{\mathrm{2}}$ ]P + E}, with $k'_{\mathrm{2}}=0$. The assumption of reversibility can be considers as a good approximation if the concentration of the subtract is a lot larger then the concentration of the Product $[S]>>[P]$ or if the released energy is very large  $\Delta G << 0$ (Kramer's escape Problem). The assumption results in Michaelis-Menten equation:
+\ch{S + E <>[ $k_{\mathrm{1}}$ ][ $k'_{\mathrm{1}}$ ] E S <> [ $k_{\mathrm{2}}$ ] [ $k'_{\mathrm{2}}$ ]P + E}, with $k'_{\mathrm{2}}=0$. The assumption of irreversibility can be considers as a good approximation if the concentration of the subtract is a lot larger then the concentration of the Product $[S]\gg[P]$ or if the Gibbs free energy (released energy) is very large  $\Delta G \ll 0$ (Kramer's escape Problem). With a further quasi-steady-state approximation  ($k_{\mathrm{1}}[E][S]=k'_{\mathrm{1}}[ES]+k_{\mathrm{2}}[ES]$) the Michaelis-Menten equation result in:
 \begin{align}
- v_0= V_max \frac{[S]}{K_m+[S]}  \qquad \text{ with } \qquad \frac{k_1}{k_1'}
+ v= \frac{d[P]}{dt}=V_{max} \frac{[S]}{K_M+[S]}  \qquad \text{ with } \qquad K_M=\frac{k'_{\mathrm{1}}+k_{\mathrm{2}}}{k_{\mathrm{1}}}
 \end{align}
-
-
-The first step in the derivation applies the law of mass action, which is reliant on free diffusion. However, in the environment of a living cell where there is a high concentration of proteins, the cytoplasm often behaves more like a gel than a liquid, limiting molecular movements and altering reaction rates.\cite{Zhou2008}
-
-
+The derivation can be found in the Appendix \ref{Menten_der}. In the first step the relation $\frac{d[ES]}{dt}\propto [E][S]$ is assumed. It was derived in the calculation for kinetics of bi-molecular reaction in solutions with the assumption of normal diffusion in \cref{bi-molecular}. However, in the environment of a living cell where there is a high concentration of proteins, the cytoplasm often behaves more like a gel than a liquid, limiting molecular movements and altering reaction rates \cite{Zhou2008}.
 
 \begin{comment}
  Belousov-Zhabotinsky-Reaktion ?
@@ -404,11 +399,7 @@ The first step in the derivation applies the law of mass action, which is relian
  Two-component reaction–diffusion equations
 \end{comment}
 \subsection{Diffusion-controlled Reactions for Fractional Brownian Motion}
-smoluchowski(start Fick's second law for fBm)
-
-Menten ..?
-
-
+Is going to be part of further investigations.
 \section{Simulation}
 particle based Simulations, concentration based simulations,ReaDDy,
 
@@ -416,10 +407,7 @@ Simulation of Two models of Brownian motion:
 Simulations of Smoluchowski for Bm and fBm
 Simulation of Michealis-Menten for Bm and fBm
 maybe more
-
-\chapter{Outlook}
-
- but also to provide a Fractional Brownian Motion Integrator implemented into a \textbf{Rea}ction \textbf{D}iffusion \textbf{Dy}namics software (ReaDDy). ReaDDy being a particle-based \textbf{Rea}ction \textbf{D}iffusion \textbf{Dy}namics software is acting on a macromolecular level. (cite readdy paper)
+but also to provide a Fractional Brownian Motion Integrator implemented into a \textbf{Rea}ction \textbf{D}iffusion \textbf{Dy}namics software (ReaDDy). ReaDDy being a particle-based \textbf{Rea}ction \textbf{D}iffusion \textbf{Dy}namics software is acting on a macromolecular level. (cite readdy paper)
 
 \chapter{Appendix}
 \section{From Central Limit Theorem to Gaussian Distribution}\label{append:CLT}
@@ -462,7 +450,7 @@ The distribution of Y can be calculated via the inverse Fourier Transform:
 \end{align}
 $\rho(y)$ results in a Gaussian distribution.
 
-\section{From Gaussian Propagator to Gaussian distribution}\label{baystheorem}
+\section{From Gaussian Distribution to Gaussian Transition Probability}\label{baystheorem}
 The conditional distribution function to be in $x$ at time $t$ if visited position $y$ at time $s$   can be written due to Bayes' theorem as a transition probability from $y$ to $x$ in time $t-s$ multiplied with the probability to be in $y$ at time $s$:
 \begin{align}
  \rho_{t,s}(x,y)=T_{t-s}(x|y) \rho_s(y)
@@ -488,12 +476,12 @@ Fick's second law can be applied:
 \end{align}
 Assuming a reasonable assumption  $c(\pm \infty,t)=0$  and two times partial integration one can derive:
 \begin{align}
-&= \left[ \right]_{-\infty}^{\infty}-2 D \int_{-\infty}^{\infty} d\bm{r} \bm{r} \nabla c(\bm{r},t) \\ &= 2 D d \int_{-\infty}^{\infty} d\bm{r} c(\bm{r},t) =2dD
+&= -2 D \int_{-\infty}^{\infty} d\bm{r} \bm{r} \nabla c(\bm{r},t) \\ &= 2 D d \int_{-\infty}^{\infty} d\bm{r} c(\bm{r},t) =2dD
 \end{align}
-In previous equations partial integration  By integration the initial condition $\bm{r}(0) = 0$,  one gets the Einstein Formula: $\langle (\bm{r}(t)-\bm{r}(0))^2)\rangle= 2dDt$
-
+For the initial condition $\bm{r}(0) = 0$,  one gets the Einstein Formula: $\langle (\bm{r}(t)-\bm{r}(0))^2)\rangle= 2dDt$
+\begin{comment}
 check book zwanzig
-
+\end{comment}
 \section{Autocorrelation Function for fBm}\label{VACF}
 Subsequently, the VACF in the frequency domain for Fractional Brownian motion can be calculated. The MSD is $\delta r^{2}(t)= < \Delta R(t)>=2dK_{\alpha}t^{\alpha}$ with $K_{\alpha}$ being the generalized diffusion-coefficient:
 \begin{align*}
@@ -507,13 +495,69 @@ Partial integration:
  \begin{align*}
  A(t)=\frac{d}{dt}\overbrace{ \left [\frac{2d K_{\alpha}t^{\alpha-1}}{\alpha} \right ]}^{B(t)}=\frac{2d K_{\alpha}t^{\alpha-2}}{\alpha+(\alpha-1)}
 \end{align*}
+
 Partial integration and Tauber theorem:
+
 \begin{align*}
  \tilde{Z}(z) & \stackrel{par. integ.}{=} - \frac{1}{2 d} \left( \underbrace{\left [ e^{izt}\overbrace{  2dK_{\alpha}t^{\alpha}}^{=B(t)} \right]_{0}^{\infty}}_{\stackrel{\alpha < 1} {=} 0} - (iz)^2 \int_{0}^{\infty} d t e^{izt} \delta r^2 (t) \right) \\
   & = - \frac{z^2}{2 d}\int_{0}^{\infty} d t e^{izt} \delta r^2 (t)  \stackrel{\operatorname{Im}(z)> 0} {=}  K_{\alpha} \Gamma(1+\alpha)(i z)^{1-\alpha} 
 \end{align*}
 
 \section{Kinetics of the Bi-Molecular Chemical Reaction in Solution}\label{bi-molecular}
+The aim of this calculation is to derive the kinetics for the following reaction scheme: \ch{A + B <>[ $k^{+}_{\mathrm{d}}$ ][ $k^{-}_{\mathrm{d}}$ ] AB }\newline
+The derivation is calculated under the assumption of free diffusion of particle A and B with the diffusion constants $D_A$ and $D_B$ , respectively and without any interactions between them. 
+The system can be described by the Smoluchowski equation for a bi-molecular system in a solution:
+\begin{align}
+ \frac{\partial \rho_t(\bm{r}_A,\bm{r}_B)}{\partial t}=(D_A \nabla^{2}_{A}+D_B \nabla^{2}_{B}) \rho_t(\bm{r}_A,\bm{r}_B) \label{smolubi}
+\end{align}
+The complexity of the problem can be reduced by substituting the positions of the particles A and B with their relative distance $\bm{r}=\bm{r}_A-\bm{r}_B$. It is convenient to introduce even further substitutions:
+\begin{align}
+ D= D_A+D_B \qquad \qquad \bm{R}=\frac{D_B \bm{r}_A+ D_A \bm{r}_B}{D_A+D_B}
+\end{align}
+the Laplace operator in terms of new coordinates result in:
+\begin{align}
+\nabla^{2}_{A} = \left( \nabla_r+\frac{D_B}{D} \nabla_R \right)^2 \\
+\nabla^{2}_{B} = \left( \nabla_r+\frac{D_A}{D} \nabla_R \right)^2 
+\end{align}
+Inserting these in \cref{smolubi} one gets:
+\begin{align}
+ \frac{\partial \tilde{\rho}_t(\bm{r},\bm{R})}{\partial t}=\left(D \nabla^{2}_{r}+\frac{D_B D_A}{D_A+D_B}\nabla^{2}_{R}\right) \tilde{\rho}_t(\bm{r},\bm{R})
+\end{align}
+The equation is describing two independent diffusion processes, one in
+the coordinate $\bm{r}$ and one in the coordinate $\bm{R}$. The solution can be obtained by the product ansatz $\tilde{\rho}_t(\bm{r},\bm{R})=\rho_t(\bm{r})q_t(\bm{R})$. Integration over $\bm{R}$ results in:
+\begin{align}
+\frac{\partial \rho_t(\bm{r})}{\partial t}=D \nabla^{2}_{r} \rho_t(\bm{r}) +\frac{D_B D_A}{D_A+D_B} \nabla^{2}_{R} \rho_t(\bm{r}) \int_{\partial V} q_t(\bm{R}) d \bm{a}
+\end{align}
+The previous equation the stokes theorem was applied. The second term is zero due to conservation of probability. The problem is isotropic, hence $r=|\bm{r}|$ and $\nabla^{2}_{\bm{r}}=\left(\partial_r+\frac{2}{r}\right)\partial$. The equation reduce to one dimension:
+\begin{align}
+\frac{\partial \rho_t(r)}{\partial t}=-\left(\frac{\partial}{\partial_r}+\frac{2}{r} \right) j_t(r) \qquad \qquad j_t(r)=D \frac{\partial\rho_t(r)}{\partial_r}
+\end{align}
+The boundary conditions are set to be 
+\section{Michaelis-Menten Kinetics}\label{Menten_der}
+Michaelis-Menten kinetics are describing the following system:\newline
+\ch{S + E <>[ $k_{\mathrm{1}}$ ][ $k'_{\mathrm{1}}$ ] E S -> [ $k_{\mathrm{2}}$ ] P + E}.
+A range of differential equations can be formulated as a result of particle conservation and the assumption for a bi-molecular chemical reaction to be proportional to the product of the concentration. 
+\begin{align}
+\frac{d[P]}{dt} &= k_{\mathrm{2}} [ES] \\ \label{first}
+\frac{d[E]}{dt} &= k_{\mathrm{2}} [ES]+k'_{\mathrm{1}} [ES]-k'_{\mathrm{1}} [E][S]\\
+\frac{d[S]}{dt} &= k'_{\mathrm{1}} [ES]-k'_{\mathrm{1}} [E][S]\\
+\frac{d[ES]}{dt} &=  - k_{\mathrm{2}} [ES] -k'_{\mathrm{1}} [ES]+k'_{\mathrm{1}} [E][S]
+\end{align}
+With a quasi-steady-state approximation: $\frac{d[ES]}{dt}=0  \longrightarrow k_{\mathrm{1}}[E][S]=k'_{\mathrm{1}}[ES]+k_{\mathrm{2}}[ES]$. A Rearrangement of this equation results in the  Michaelis-Menten constant: $K_M=\frac{k'_{\mathrm{1}}+k_{\mathrm{2}}}{k_{\mathrm{1}}}=\frac{[E][S]}{[ES]}$. From the enzyme conservation law one gets:
+\begin{align}
+[E]=[E]_0 -[ES] \label{conservationenym}
+\end{align}
+After inserting \cref{conservationenym} into the quasi-steady-state approximation, one gets:
+\begin{align}
+ [ES]=\frac{[E]_0 [S]}{K_M+[S]}
+\end{align}
+Combining it with the first differential \cref{first} one gets the rate of Product production:
+\begin{align}
+ v= \frac{d[P]}{dt}= k_{\mathrm{2}} \frac{[E]_0 [S]}{K_M+[S]} = V_{max} \frac{[S]}{K_M+[S]}  
+\end{align}
+
+
+
 %\subsection{Code:Gebrochen-rationale Brownische Bewegung}
 %\lstinputlisting[language=Python]{../simulation.py}
 
