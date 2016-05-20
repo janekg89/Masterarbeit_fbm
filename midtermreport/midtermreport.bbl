@@ -32,6 +32,12 @@ Felix H{\"{o}}fling and Thomas Franosch.
 \newblock {Anomalous transport in the crowded world of biological cells}.
 \newblock {\em Reports on Progress in Physics}, 76(4):046602, apr 2013.
 
+\bibitem{WRCR:WRCR3676}
+J.~R.~M. Hosking.
+\newblock Modeling persistence in hydrological time series using fractional
+  differencing.
+\newblock {\em Water Resources Research}, 20(12):1898--1908, 1984.
+
 \bibitem{Johnson2011}
 Kenneth~A. Johnson and Roger~S. Goody.
 \newblock {The original Michaelis constant: Translation of the 1913

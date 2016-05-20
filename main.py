@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt # module for plotting "a la" matlab
 import simulation
 import timeit
 import analyse_tool
+import matplotlib.cm as cm
 import test_cython.genereatefracincrements as ginc
 
 import cProfile
@@ -33,10 +34,10 @@ def show_gaussian():
         b=c.nongaussian_parameter()
         gaussianparamter.append(b)
     gaussianparamter=np.array(gaussianparamter)
-    plt.errorbar(range(length+1), gaussianparamter.mean(axis=0), yerr=gaussianparamter.std(axis=0),errorevery=3,label="non-Gaussianparamter")
-    plt.xlabel('t', fontsize=14)
-    plt.ylabel('$\\alpha_2(t)$ non-Gaussian parameter', fontsize=14)
-    plt.legend(loc=3)
+    plt.errorbar(range(length+1), gaussianparamter.mean(axis=0), yerr=gaussianparamter.std(axis=0),errorevery=10,label="non-Gaussianparamter")
+    plt.xlabel('t', fontsize=10)
+    plt.ylabel('$\\alpha_2(t)$ non-Gaussian parameter', fontsize=10)
+    plt.legend(loc=3,fontsize='small')
     plt.savefig('midtermreport/data/nongaussian.png',dpi=300)
     plt.show()
 
@@ -46,17 +47,24 @@ def show_rescaled():
     length=1100
     steps=5
     shades=np.linspace(0,1,steps+1)
+    colors = iter(cm.rainbow(np.linspace(0, 1, 6)))
+    plt.figure(figsize=(6,3))
     c=analyse_tool.Analyse(D=2,particles=10000,length=length+1,alpha=0.5,dt=1,version="cpp")
+    analt=c.rescaled_analytical_distribution(1,5)
     for j in range(100,1100,1000/steps):
         colornum=1+colornum
         shade=shades[colornum]
         #d=c.rescaled_analytical_distribution(t=j,r_dis=50)
         h=c.rescaled_function(t=j,histpoints=35)
-        plt.loglog(h[0],h[1],color='%f' %(shade), label="rescaled function at $t=%d$" %(j))
+        plt.loglog(h[0],h[1],color=next(colors), label="rescaled function at $t=%d$" %(j))
         #plt.plot(d[0],d[1],color='%f' %(shade))
-    plt.xlabel('rescaled distance $ r_{res} $ ', fontsize=14)
-    plt.ylabel('rescaled distribution', fontsize=14)
-    plt.legend(loc=3)
+    plt.plot(analt[0],analt[1],"--", label="analytical rescaled function")
+    plt.xlabel('rescaled distance $ r_{res} $ ', fontsize=10)
+    plt.ylabel('rescaled distribution', fontsize=10)
+    plt.legend(loc=3, fontsize='small')
+    plt.xlim([0.06,5])
+    plt.ylim([0.0003,1])
+
     plt.savefig('midtermreport/data/rescaled.png',dpi=300)
     plt.show()
 
@@ -187,7 +195,40 @@ plt.plot(np.real(a))
 plt.plot(np.real(b))
 plt.show()
 
-'''
+
 d=analyse_tool.Analyse(D=2.0,particles=2000,length=1000,alpha=0.5,dt=0.5,x=2)
 d.plotting()
+plt.show()
+
+
+from scipy.stats import norm
+x=np.linspace(-5,5)
+a=norm.pdf(x)
+plt.plot(x,a)
+plt.tick_params(
+    axis='x',          # changes apply to the x-axis
+    which='both',      # both major and minor ticks are affected
+    bottom='off',      # ticks along the bottom edge are off
+    top='off',         # ticks along the top edge are off
+    labelbottom='off') # labels along the bottom edge are off
+plt.ylabel('$\\rho (y)$', fontsize=15)
+plt.xlabel('$y$', fontsize=15)
+plt.show()
+
+'''
+x=np.linspace(0,5)
+msd=x**0.5*2
+msd1=x*2
+
+plt.plot(x,msd1)
+plt.plot(x,msd)
+
+plt.tick_params(
+    axis='x',          # changes apply to the x-axis
+    which='both',      # both major and minor ticks are affected
+    bottom='off',      # ticks along the bottom edge are off
+    top='off',         # ticks along the top edge are off
+    labelbottom='off') # labels along the bottom edge are off
+plt.ylabel('$MSD$', fontsize=15)
+plt.xlabel('$t$', fontsize=15)
 plt.show()

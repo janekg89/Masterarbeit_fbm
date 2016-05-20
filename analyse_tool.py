@@ -73,8 +73,10 @@ class Analyse(simulation.Felix_Method):
         hist, hist_p = np.histogram(r_tt[t], histpoints, normed=True)
         hist_p=hist_p[1:]
         #r,dist=Analyse(self.D,self.particles,self.n,self.alpha).distribution_abs(t,histpoints)
-        res_r=hist_p*(2*self.D*t*self.dt)**(-self.alpha/2.)
-        res_dis=hist*res_r*np.sqrt(2*self.D*(t*self.dt)**self.alpha)
+        #res_r=hist_p*(2*self.D*t*self.dt)**(-self.alpha/2.)
+        res_r=hist_p*(2*self.D*(t*self.dt)**(self.alpha))**(-1./2.)
+
+        res_dis=hist*hist_p/2
 
         return res_r, res_dis
 
@@ -88,21 +90,21 @@ class Analyse(simulation.Felix_Method):
         distrib1=norm.pdf(r,0,np.sqrt(2*self.D*(t*self.dt)**self.alpha))
         return r, distrib, distrib1
 
-    def rescaled_analytical_distribution(self, t, r_dis= 30):
+    def rescaled_analytical_distribution(self, t, r_dis= 4):
         """
 
         :param t: point in time (return should be independed of t, but i left possiblitiy to also demonstrate that this is true)
         :param r_dis: the distance which want to be sampled. (not recommended to change)
         :return: analytical rescaled function ( fill in math)
         """
-        r=np.arange(0, r_dis, 0.01)
-        res_r=r*(2*self.D*t*self.dt)**(-self.alpha/2.)
-        res_dis=(res_r*np.exp(-res_r**2./2.))/np.sqrt(2.*np.pi)
+        r=np.arange(0.07, r_dis, 0.01)
+        #res_r=r*(2*self.D*t*self.dt)**(-self.alpha/2.)
+        res_dis=r*(np.exp(-r**2./2.))/(np.sqrt(2.*np.pi))
 
         #res_r, res_dis = Analyse(self.D,self.particles,self.n,self.alpha).analytical_distribution_of_particles(t,r_dis=r_res)
         #res_r = np.arange(-50, 50, 0.01)
         #res_dis= norm.pdf(res_r,0,np.sqrt(2*self.D))
-        return res_r, res_dis
+        return r, res_dis
 
     def msd_time(self,i=0):
         """

@@ -21,6 +21,8 @@
 \usepackage{caption,setspace}
 \usepackage{verbatim}
 \usepackage{chemmacros}
+\usepackage{wrapfig}
+\usepackage{sidecap}
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
@@ -74,6 +76,7 @@
 }
 \makeatother
 
+\textheight=610pt
 
 \begin{document}
 \frontmatter% title pages are not numbered but counted!
@@ -107,9 +110,7 @@
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 
 \chapter{Motivation}
-Anomalous diffusion can be observed in many different areas of nature in particular related to heterogeneous media like porous rocks, random resistor networks and crowded biological media with its prominent phenomena macro molecular crowding, confinement and macromolecular adsorption \cite{Minton2006}. These environments exhibit remarkable characteristics like anomalous diffusion with its most popular power-law behaviour of the Mean-Square-Displacement ($MSD\propto t^{\alpha}$) \cite{Hofling2013}, which is violating the Einstein formula $MSD=2 d D t$ and thereby the central limit theorem. Various theoretical models try to encounter the power-law behaviour of the MSD. These models have the main phenomenon, thus the power-law behaviour of the Mean-Square-Displacement in common, but differ in some other observables, due to different origins of the anomalous power-law behaviour.One of these models which account this phenomenon is fractional Brownian motion (fBm). It was first introduced as family of Gaussian random function by Mandelbrot and Van Ness in 1968 and motivated by examples in economics \cite{Mandelbrot1968}. In contrast to different models of anomalous diffusion fBm nature is plainly phenomenological in respect to the power-law behaviour of the MSD and thus perfectly qualifies as a starting point to study effects resulting from a power-law  MSD. \newline 
-This thesis is going to focus on fBm especially in respect to Reaction and Diffusion Dynamics.  Fick’s law is violated for diffusion in disordered media \cite{Havlin1987}, which is essential in the derivation of the famous equation of the rate for diffusion-controlled reaction processes $k=4 \pi D R_0$. Thus it is failing miserably in describing Reaction and Diffusion Dynamics while anomalous motion is present. The aim of the work is to bring diffusion-controlled reactions and fBm together for this purpose a fBm integrator will be implemented into a particle-based Reaction  Diffusion Dynamics software which is acting on a macromolecular level. It is coarse-graining molecules into spherical particles. Usually using Brownian or Lagevin motion as the integrator. A Fractional Brownian Motion Integrator may be an elegant way of adding an approximation due to a crowded environment. The phenomenon of anomalous motion can also be studied with conventional integrators by actually building a crowded environment e.g. by adding obstacles. Nevertheless, the fBm approach could save computational time since it is not necessary to simulated each particle  explicitly which builds up the crowded environment. Furthermore different studies show that heterogeneous environments have influences on particle segregation in the presents of reactions \cite{Berry2002}, which is an interesting phenomena of self-organization.\newline
-Having an Introduction set, chapter 2 deals with the theoretical foundation for fBm. Subsequently, due to computational reasons these theoretical elaborations need to be transferred into discrete space and finally casted into an algorithm. In the following some properties of the algorithm are studied. In Chapter 3, the theoretical foundation for reactions are going to be set. The final chapter 4 gives an outlook of the master thesis.  
+Anomalous diffusion can be observed in many different areas of nature in particular related to heterogeneous media like porous rocks, random resistor networks and crowded biological media with its prominent phenomena macro molecular crowding, confinement and macromolecular adsorption \cite{Minton2006}. These environments exhibit remarkable characteristics like anomalous diffusion with its most popular power-law behaviour of the Mean-Square-Displacement ($MSD\propto t^{\alpha}$) \cite{Hofling2013}, which is violating the Einstein formula $MSD=2 d D t$ and thereby the central limit theorem. Various theoretical models try to encounter the power-law behaviour of the MSD. These models have the main phenomenon, thus the power-law behaviour of the Mean-Square-Displacement in common, but differ in some other observables, due to different origins of the anomalous power-law behaviour.One of these models which account this phenomenon is fractional Brownian motion (fBm). It was first introduced as family of Gaussian random function by Mandelbrot and Van Ness in 1968 and motivated by examples in economics \cite{Mandelbrot1968}. In contrast to different models of anomalous diffusion fBm nature is plainly phenomenological in respect to the power-law behaviour of the MSD and thus perfectly qualifies as a starting point to study effects resulting from a power-law  MSD. \newline This thesis is going to focus on fBm especially in respect to Reaction and Diffusion Dynamics.  Fick’s law is violated for diffusion in disordered media \cite{Havlin1987}, which is essential in the derivation of the famous equation of the rate for diffusion-controlled reaction processes $k=4 \pi D R_0$. Thus it is failing miserably in describing Reaction and Diffusion Dynamics while anomalous motion is present. The aim of the work is to bring diffusion-controlled reactions and fBm together for this purpose a fBm integrator will be implemented into a particle-based Reaction  Diffusion Dynamics software which is acting on a macromolecular level. It is coarse-graining molecules into spherical particles. Usually using Brownian or Lagevin motion as the integrator. A Fractional Brownian Motion Integrator may be an elegant way of adding an approximation due to a crowded environment. The phenomenon of anomalous motion can also be studied with conventional integrators by actually building a crowded environment e.g. by adding obstacles. Nevertheless, the fBm approach could save computational time since it is not necessary to simulated each particle  explicitly which builds up the crowded environment. Furthermore different studies show that heterogeneous environments have influences on particle segregation in the presents of reactions \cite{Berry2002}, which is an interesting phenomena of self-organization.\newpage \noindent Having an Introduction set, chapter 2 deals with the theoretical foundation for fBm. Subsequently, due to computational reasons these theoretical elaborations need to be transferred into discrete space and finally casted into an algorithm. In the following some properties of the algorithm are studied. In Chapter 3, the theoretical foundation for reactions are going to be set. The final chapter 4 gives an outlook of the master thesis.  
 
 \chapter{Theory}
 \section{Basics}
@@ -160,7 +161,7 @@ P(\bm{r},t)= r^{-d} \mathcal{P}_{gauss}(\hat{\bm{r}})  \qquad \text{with} \qquad
 
 
 
-\section{Fractional Brownian Motion}
+\section{Fractional Brownian Motion}\label{sectionfrac}
 (at some point start comparing to the section properties of brownian motion)
 In this section the theoretical foundation for Fractional Brownian Motion will be set and related to standard Brownian Motion. \\
 In the previous section the MSD has been shown to be linear with time as a result of the central limit theorem. In normal liquids this behaviour can be be seen already at time scales higher than picosecends \cite{Hofling2013}. Nevertheless many experiments show that the MSD has a power law behaviour ( $\delta r ^2 (t) \propto t^{\alpha}$ for  $0 < \alpha < 1$ ). Thus the central limit theorem does not hold, not even for long time scales. It can be shown that persistent correlations of the increments are present. In soft matter, like polymers, subdiffusive behaviour is typically present in an time window but finally the linear MSD takes over. Fractional Brownian Motion instead examines the case that the central limit theorem is violated for all time scales. The basic feature of fBm's is that the "span of interdependence" between their increments can be said to be infinite\cite{Mandelbrot1968}\\
@@ -183,7 +184,7 @@ In the following some properties of fBm will be discussed:
 
 \item The propagator of fBm can be transformed into a scale free form. It is related to the scale free from of standard Brownian motion \cref{scalefreeform}:
 \begin{align}
-P(\bm{r},t)= r^{-d} \mathcal{P}_{gauss}(\hat{\bm{r}})  \qquad \text{with} \qquad \hat{\bm{r}} \propto \bm{r}^{- \frac{\alpha}{2}} \label{scalefreeformfrac}
+P(\bm{r},t)= \bm{r}^{-d} \mathcal{P}_{gauss}(\hat{\bm{r}})  \qquad \text{with} \qquad \hat{\bm{r}} = \frac{\bm{r}}{\sqrt{2 K_{\alpha} t^{\alpha}}} \label{scalefreeformfrac}
 \end{align}
 \item The van hove correlation function can be transformed via the spatial Fourier transform into its wave-number representation, which is called the self-intermediate scattering function. Again for isotropic systems one can write $|\bm{k}|=k$.
 \begin{align}
@@ -225,7 +226,7 @@ For a finit observation time T the Wiener-Khinchin theorem applies. But keep :
 \end{align}
 For white noise one gets: 
 \begin{align}
- \lim_{T\to\infty}\frac{1}{T}\langle \lvert  \tilde{\bm{\eta}}_{T}(\omega) \rvert  \rangle = 1
+ \lim_{T\to\infty}\frac{1}{T}\langle \lvert  \tilde{\bm{\eta}}_{T}(\omega) \rvert^2 \rangle = const.
 \end{align}
 Fractional correlations can be incorporated via its VACF:
 \begin{align}
@@ -237,7 +238,7 @@ Fractional correlations can be incorporated via its VACF:
 \end{align}
 
 \subsection{Algorithm}
-In the following an algorithm which generates fractional Brownian noise will be introduced. The algorithm is based on the Davis-Harte algorythm \cite{Craigmile2003}. The idea is to use the calculated VACF and thereby modify conventionally generated Gaussian random variables.  All the increments should be generated beforehand. With this concept it is more difficult to include forces. Nevertheless it is computationally favourable then computing each increment recursively considering also its history. This would be certainly necessary since all increments are defined to be more then just delta-correlated in time. For computational reasons the elaborations for fractional Brownian motion in the previous chapter on how to generate fractional Brownian increments have to be transformed into a discrete form, thereby the solution is no longer exact, which will be shown in the analyse part of the algorithm.   
+In the following an algorithm which generates fractional Brownian noise will be introduced. The algorithm is based on the Davis-Harte algorythm \cite{Craigmile2003}. The idea is to use the calculated VACF and thereby modify conventionally generated Gaussian random variables.  All the increments should be generated beforehand. With this concept it is more difficult to include forces. Nevertheless it is computationally favorable then computing each increment recursively considering also its history. This can be done by the exact algorithm of hosking \cite{WRCR:WRCR3676}. This would be certainly necessary since all increments are defined to be more then just delta-correlated in time. For computational reasons the elaborations for fractional Brownian motion in the previous chapter on how to generate fractional Brownian increments have to be transformed into a discrete form, thereby the solution is no longer exact, which will be shown in the analysis part of the algorithm.  
 \begin{align}
 \bm{\eta} (t) \longrightarrow \bm{\eta}_j(t)  \text{  with  } j=0,1,2,...,n  \text{  ,  } n= \text{amount of steps}
 \end{align}
@@ -245,7 +246,6 @@ For a n-steps long trajectory one can write:
 \begin{align}
  \Delta \bm{R}_n(t) =  \sum_{j=0}^n \bm{\eta}_j  \Delta t \label{eq:diskretdeltar}
 \end{align}
-
  The following algorithm is explained for one dimension and can be easily extended for more dimensions. The MSD then can be written as:
 \begin{align}
 < \Delta R_{j}(t)>=2K_{\alpha} (\Delta t j)^{\alpha}
@@ -285,24 +285,19 @@ $\Delta R $ is the distance between the starting point and the position of the p
 \begin{align}
  \tilde{\xi}_{l=o}(z) = \mathcal{N}(0,\sqrt{2 K_{\alpha} (M \Delta t)^\alpha})
 \end{align}
-\begin{figure}
-\centering
-\begin{minipage}{.5\textwidth}
+\begin{figure}[h]
   \centering
-  \includegraphics[width=\linewidth]{./data/nocorrectionmsd.png}
-  \captionsetup{width=0.9\linewidth}
-  \captionof{figure}{Ensemble MSD without the correction introduced in \cref{correction}  }
+  \includegraphics[width=0.6\textwidth]{./data/nocorrectionmsd.png}
+    \caption{Ensemble MSD without the correction introduced in \cref{correction}  }
   \label{fig:6}
-\end{minipage}%
-\begin{minipage}{.5\textwidth}
-  \centering
-  \includegraphics[width=\linewidth]{./data/withcorrection_nocutoff.png}
-  \captionsetup{width=0.9\linewidth}
-  \captionof{figure}{Ensemble MSD with correction introduced in \cref{correction}. The side of the red bar indicates the threshold for the remaining increments for $M=2n$ }
-  \label{fig:5}
-\end{minipage}
 \end{figure}
- This equation would be correct if we assumed fractional Brownian motion to be a Markovian process which certainly is not the cause. This is also the reason why M have been chosen to be bigger than n. The presumption is, that the impact of the approximation would be negligible with increasing distance to $\Delta R_{M}$ and negligible at $\Delta R_{n}$. The impact on the ensemble averaged MSD can seen in \cref{fig:5}. This can be thought of as a finite-time correction.
+This equation would be correct if we assumed fractional Brownian motion to be a Markovian process which certainly is not the cause. This is also the reason why M have been chosen to be bigger than n. The presumption is, that the impact of the approximation would be negligible with increasing distance to $\Delta R_{M}$ and negligible at $\Delta R_{n}$. The impact on the ensemble averaged MSD can seen in \cref{fig:5}. This can be thought of as a finite-time correction.
+\begin{figure}[h]
+  \centering
+    \includegraphics[width=0.6\textwidth]{./data/withcorrection_nocutoff.png}
+    \caption{Ensemble MSD with correction introduced in \cref{correction}. The side of the red bar indicates the threshold for the remaining increments for $M=2n$ }
+  \label{fig:5}
+\end{figure}
  %\item Laut dem Davies Harte Algorithmus wird außerdem das n-te Inkrement im Frequenzraum %umgeändert:
  %\begin{align}
  %\eta_{fbr_{g=n}} =\sqrt{Re(Z_g 2 n)} \mathcal{N}(0,1) 
@@ -315,68 +310,69 @@ $\Delta R $ is the distance between the starting point and the position of the p
 Only $n$ increments are taken into account $\xi_{j}$ for $j=(0,1,..,n)$.
 \end{enumerate}
 The described algorithm can be performed for every Cartesian component of the three dimensional fractional Brownian motion. The Cartesian component are not correlated.
-
 \subsubsection{Analysis of Algorithm}
-
-
-\begin{figure}[h]
-\centering
-\begin{minipage}{.5\textwidth}
+The algorithm is implemented in python and c++. For the c++ implementation a wrapper to python is added. Both algorithm have been analyzed by an analysis class. The c++ implementation. Is using FFTW for the Fast Fourier Transform and Mersenne-Twister (gsl\texttt{\textunderscore}rng\texttt{\textunderscore}mt19937) as the random number generator. The algorithm is intended to be integrate into a \textbf{Rea}ction \textbf{D}iffusion \textbf{Dy}namics package (ReaDDy). A new  c++ version of ReaDDy is currently developed. The algorithm is meant as an integrator for the particles additionally to normal Brownian motion and Langevin. The python implementation was developed beforehand and will no longer be implemented in further package but only serves as a reverence. Python uses the numpy.fft as the Fast Fourier Transform and also the Mersenne-Twister random number generator.\newline
+To get insight into the stochastic algorithm one has to study observables which are in general averaged values. The algorithm was designed to produce fBm. The most important quantity is the variance i.e. MSD. It can be calculated as the ensemble-, time- or time-ensemble-average. It is shown in \cref{fig:4}. Comparing time and ensemble averages is showing no violation of ergodicity. The tails of the time and ensemble-time averages are starting not to follow the theoretical values due to decreasing statistics. For the future averages only ensemble averages have been chosen. They are computationally cheaper. It can be already seen that the algorithm tends to be to result in an too small lag times MSD. This is caused by the finite amount of samples in the discrete Fourier transform until know reducing these effects is only possible by reducing the time step.
+\begin{figure}[h!]
   \centering
-  \includegraphics[width=\linewidth]{./data/averages_comparison.png}
-  \captionsetup{width=0.9\linewidth}
-  \captionof{figure}{Comparison of Mean-Square-Displacements between time-average, ensemble-average and time-ensemble-average(for $D=2$, $\alpha=0.5$, $\Delta t=1$). }
+  \includegraphics[width=\textwidth]{./data/averages_comparison.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{Comparison of Mean-Square-Displacements between time-average, ensemble-average and time-ensemble-average(for $D=2$, $\alpha=0.5$, $\Delta t=1$, in the ensemble average}
   \label{fig:4}
-\end{minipage}%
-\begin{minipage}{.5\textwidth}
+\end{figure}
+\newline \noindent The influence of the time step size is shown in \cref{fig:3}. The deviation from the expected value is linearly dependent on the amount of samples in the interval.
+\begin{figure}[h!]
   \centering
-  \includegraphics[width=\linewidth]{./data/dt_change.png}
-  \captionsetup{width=0.9\linewidth}
+  \includegraphics[width=\textwidth]{./data/dt_change.png}
+  \captionsetup{width=\linewidth}
   \captionof{figure}{Comparison of ensemble averaged Mean-Square-Displacements with different $\Delta t$(for $D=2$, $\alpha=0.5$). }
   \label{fig:3}
-\end{minipage}
-\end{figure}
-
-
-\begin{figure}[h]
-\includegraphics[width=\textwidth]{./data/rescaled.png}
-\caption{The scale free form of the Propagator at different times as introduced in \cref{scalefreeformfrac}. With $K_{\alpha}=2$, $\alpha=0.5 $, $N=10000$ , $\Delta t = 1$, $M=2n$.   }
- \centering
-\end{figure}
-
-\begin{figure}[h]
+\end{figure} 
+\noindent Another MSD influencing variable is the anomalous coefficient $\alpha$. The influence on the MSD is shown in \cref{alphachange}. In the limit of Brownian motion $\alpha=1$ the artifacts for small lag-times vanish. The downside are longer simulation times for the same time in the simulation.
+\begin{figure}[h!]
+\centering
 \includegraphics[width=\textwidth]{./data/alpha_change.png}
-\caption{Ensemble averaged MSD for different $\alpha$. With $K_{\alpha}=2$ , $N=2000$, $n=2000$ , $\Delta t = 1$, $M=2n$. }
- \centering
+\caption{Ensemble averaged MSD for different $\alpha$. With $K_{\alpha}=2$ , $N=2000$, $n=2000$ , $\Delta t = 1$, $M=2n$.}
+\label{alphachange}
 \end{figure}
-
-\begin{figure}[h]
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{./data/K_alpha_change.png}
+\caption{Ensemble averaged MSD for different $K_\alpha$. With $\alpha=0.5$ , $N=2000$, $n=2000$ , $\Delta t = 1$, $M=2n$.}
+\label{kalphachange}
+\end{figure}
+\noindent The generalized diffusion coefficient has also bin varied. The influence on the MSD can be seen in \cref{kalphachange}. The change of $K_{alpha}$ is not influencing the quality of the simulation.
+\begin{figure}[h!]
+\begin{minipage}{\textwidth}
+\centering
+\includegraphics[width=\textwidth]{./data/rescaled.png}
+\caption{The scale free form of the Propagator at different times as introduced in \cref{scalefreeformfrac}. With $K_{\alpha}=2$, $\alpha=0.5 $, $N=10000$ , $\Delta t = 1$, $M=2n$.  }
+\label{rescaledfigure}
+\end{minipage}
+\begin{minipage}{\textwidth}
+\centering
 \includegraphics[width=\textwidth]{./data/nongaussian.png}
 \caption{Non-Gaussian-Parameter (as introduced in \cref{nongaussian2}) With $K_{\alpha}=2$ , $N=5000$, $n=1001$ , $\Delta t = 1$, $M=2n$ averaged over $30$ non-Gaussian-Parameter with its variance displayed as an error bar.}
  \centering
+\end{minipage}
 \end{figure}
-
-
+\noindent As a property of self similarity a scale free version of the density distribution can be calculated \cref{sectionfrac} \cref{scalefreeformfrac}. The scale free density distribution is not depended on time but overlaps for all times. The algorithm is performing as predicted and computing a self-similar process. The scale free distribution computed for different times and shown in \cref{rescaledfigure} in comparison to the analytical result. 
 \begin{figure}[h]
-\centering
-\begin{minipage}{.5\textwidth}
   \centering
   \includegraphics[width=\linewidth]{./data/profiling_length.png}
   \captionsetup{width=0.9\linewidth}
-  \captionof{figure}{Profiling c++ and python code in respect to trajectory length $M$, $t = \mathcal{O}(M)$ }
+  \captionof{figure}{Profiling c++ and python code in respect to trajectory length $M$,for $N=1$, $t = \mathcal{O}(M log(M))$ }
   \label{fig:1}
-\end{minipage}%
-\begin{minipage}{.5\textwidth}
+\end{figure}
+\begin{figure}[h!]
   \centering
   \includegraphics[width=\linewidth]{./data/profiling_particle.png}
   \captionsetup{width=0.9\linewidth}
-  \captionof{figure}{Profiling c++ and python code in respect to trajectory number $N$, $t = \mathcal{O}(N)$}
+  \captionof{figure}{Profiling c++ and python code in respect to trajectory number $N$ for $M=100$ ,$t = \mathcal{O}(N log(N))$}
   \label{fig:2}
-\end{minipage}
 \end{figure}
-
-
-
+\noindent Finally also the non-Gaussian parameter has been analyzed. For a perfect Gaussian process it should be zero as it is shown in \cref{nongaussian2}. \newline
+Finally the code was profiled. FFT and FFTW should scale for large number as  $\mathcal{O}(M log(M))$,which seams to be the cause for this algorithm as one can see in \cref{fig:1}. The algorithm needs $t=3.148 sec$ for $N=10^6$. Further also the computational time(t)/amount trajectories (N) dependence was profiled as one can see in \cref{fig:2}.Again $t = \mathcal{O}(M log(M))$for large N.  
 \chapter{Reactions-Diffusion-Dynamics}
 \section{Theory}
 \subsection{Diffusion-controlled Reactions for Brownian Motion}
@@ -391,7 +387,7 @@ A related reaction type was studied by L. Michaelis and Miss Maud L. Menten in 1
 \begin{align}
  v= \frac{d[P]}{dt}=V_{max} \frac{[S]}{K_M+[S]}  \qquad \text{ with } \qquad K_M=\frac{k'_{\mathrm{1}}+k_{\mathrm{2}}}{k_{\mathrm{1}}}
 \end{align}
-The derivation can be found in the Appendix \ref{Menten_der}. In the first step the relation $\frac{d[ES]}{dt}\propto [E][S]$ is assumed. It was derived in the calculation for kinetics of bi-molecular reaction in solutions with the assumption of normal diffusion in \cref{bi-molecular}. However, in the environment of a living cell where there is a high concentration of proteins, the cytoplasm often behaves more like a gel than a liquid, limiting molecular movements and altering reaction rates \cite{Zhou2008}.
+The derivation can be found in the appendix \ref{Menten_der}. In the first step the relation $\frac{d[ES]}{dt}\propto [E][S]$ is assumed. It was derived in the calculation for kinetics of bi-molecular reaction in solutions with the assumption of normal diffusion in \cref{bi-molecular}. However, in the environment of a living cell where there is a high concentration of proteins, the cytoplasm often behaves more like a gel than a liquid, limiting molecular movements and altering reaction rates \cite{Zhou2008}.
 
 \begin{comment}
  Belousov-Zhabotinsky-Reaktion ?
@@ -401,7 +397,7 @@ The derivation can be found in the Appendix \ref{Menten_der}. In the first step 
 \subsection{Diffusion-controlled Reactions for Fractional Brownian Motion}
 Is going to be part of further investigations.
 \section{Simulation}
-particle based Simulations, concentration based simulations,ReaDDy,
+The particle based Simulations, concentration based simulations,ReaDDy,
 
 Simulation of Two models of Brownian motion:
 Simulations of Smoluchowski for Bm and fBm
@@ -506,7 +502,7 @@ Partial integration and Tauber theorem:
 \section{Kinetics of the Bi-Molecular Chemical Reaction in Solution}\label{bi-molecular}
 The aim of this calculation is to derive the kinetics for the following reaction scheme: \ch{A + B <>[ $k^{+}_{\mathrm{d}}$ ][ $k^{-}_{\mathrm{d}}$ ] AB }\newline
 The derivation is calculated under the assumption of free diffusion of particle A and B with the diffusion constants $D_A$ and $D_B$ , respectively and without any interactions between them. 
-The system can be described by the Smoluchowski equation for a bi-molecular system in a solution:
+The joint concentration field can be described by the Smoluchowski equation for a bi-molecular system in a solution:
 \begin{align}
  \frac{\partial \rho_t(\bm{r}_A,\bm{r}_B)}{\partial t}=(D_A \nabla^{2}_{A}+D_B \nabla^{2}_{B}) \rho_t(\bm{r}_A,\bm{r}_B) \label{smolubi}
 \end{align}
@@ -528,15 +524,34 @@ the coordinate $\bm{r}$ and one in the coordinate $\bm{R}$. The solution can be 
 \begin{align}
 \frac{\partial \rho_t(\bm{r})}{\partial t}=D \nabla^{2}_{r} \rho_t(\bm{r}) +\frac{D_B D_A}{D_A+D_B} \nabla^{2}_{R} \rho_t(\bm{r}) \int_{\partial V} q_t(\bm{R}) d \bm{a}
 \end{align}
-The previous equation the stokes theorem was applied. The second term is zero due to conservation of probability. The problem is isotropic, hence $r=|\bm{r}|$ and $\nabla^{2}_{\bm{r}}=\left(\partial_r+\frac{2}{r}\right)\partial$. The equation reduce to one dimension:
+In the previous equation the stokes theorem was applied. The second term is zero due to conservation of probability. The problem is isotropic, hence $r=|\bm{r}|$ and $\nabla^{2}_{\bm{r}}=\left(\partial_r+\frac{2}{r}\right)\partial$. The equation reduce to one dimension:
 \begin{align}
 \frac{\partial \rho_t(r)}{\partial t}=-\left(\frac{\partial}{\partial_r}+\frac{2}{r} \right) j_t(r) \qquad \qquad j_t(r)=D \frac{\partial\rho_t(r)}{\partial_r}
 \end{align}
-The boundary conditions are set to be 
+ The stationary distribution results in:
+\begin{align}
+ 0 &=-\left(\frac{\partial}{\partial_r}+\frac{2}{r} \right) j^{s}_t(r) \\
+ \frac{d j^{s}_t(r)}{j^{s}_t(r)}  &=- \frac{2}{r} dr\\
+ j^{s}_t(r)&=A r^{-2}\\
+ \rho^s(r)&=\rho^s(r_0)- \frac{\int_{r_0}^{r} j^{s}_t(r')dr'}{D}=\rho^s(r_0)+\frac{A}{D}\left(\frac{1}{r}-\frac{1}{r_0}\right)
+\end{align}
+Now assuming only a single B molecule being at the position $r=0$. Instantaneous reaction occur for $r\leq \sigma \Rightarrow \rho_t(r \leq \sigma)=0$. For $r \rightarrow \infty$ the distribution is than defined as the concentration of particle A $\rho_t(r \rightarrow \infty)=c_A$ and 
+the Solutions for $\rho^{s}(r)$ and $j^{s}_t(r)$ for the boundary conditions are:
+\begin{align}
+ \rho^{s}(r)=C_A \left(1-\frac{\sigma}{r}\right) \qquad j^{s}_t(r)&=-D \sigma C_A r^{-2}
+\end{align}
+The change of the concentration of $C_{AB}$ is then: 
+\begin{align}
+ \frac{d C_{AB} }{d}=4 \pi \sigma D C_A C_B
+\end{align}
+By formulating the problem in relative distance from particle A and B. It was also reasonable to keep particle B at its initial position. The results shows the relation between the product of the concentrations and the concentration change.In the derivation of Michealis-Menten kinetics this is an assumption. 
+
+
+
 \section{Michaelis-Menten Kinetics}\label{Menten_der}
 Michaelis-Menten kinetics are describing the following system:\newline
 \ch{S + E <>[ $k_{\mathrm{1}}$ ][ $k'_{\mathrm{1}}$ ] E S -> [ $k_{\mathrm{2}}$ ] P + E}.
-A range of differential equations can be formulated as a result of particle conservation and the assumption for a bi-molecular chemical reaction to be proportional to the product of the concentration. 
+A range of differential equations can be formulated as a result of particle conservation and the assumption for a bi-molecular chemical reaction to be proportional to the product of the reactants concentration. 
 \begin{align}
 \frac{d[P]}{dt} &= k_{\mathrm{2}} [ES] \\ \label{first}
 \frac{d[E]}{dt} &= k_{\mathrm{2}} [ES]+k'_{\mathrm{1}} [ES]-k'_{\mathrm{1}} [E][S]\\

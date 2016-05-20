@@ -7,45 +7,45 @@ Warning--empty journal in Flegg
 Warning--empty year in Flegg
 Warning--empty journal in Smoluchowski1
 Warning--empty year in Smoluchowski1
-You've used 11 entries,
+You've used 12 entries,
             2118 wiz_defined-function locations,
-            581 strings with 5757 characters,
-and the built_in function-call counts, 3327 in all, are:
-= -- 340
-> -- 112
+            590 strings with 5920 characters,
+and the built_in function-call counts, 3642 in all, are:
+= -- 374
+> -- 119
 < -- 1
-+ -- 45
-- -- 34
-* -- 236
-:= -- 558
-add.period$ -- 32
-call.type$ -- 11
-change.case$ -- 50
++ -- 48
+- -- 36
+* -- 260
+:= -- 609
+add.period$ -- 35
+call.type$ -- 12
+change.case$ -- 54
 chr.to.int$ -- 0
-cite$ -- 15
-duplicate$ -- 121
-empty$ -- 282
-format.name$ -- 34
-if$ -- 681
+cite$ -- 16
+duplicate$ -- 132
+empty$ -- 311
+format.name$ -- 36
+if$ -- 746
 int.to.chr$ -- 0
-int.to.str$ -- 11
-missing$ -- 10
-newline$ -- 57
-num.names$ -- 22
-pop$ -- 46
+int.to.str$ -- 12
+missing$ -- 11
+newline$ -- 62
+num.names$ -- 24
+pop$ -- 48
 preamble$ -- 1
-purify$ -- 39
+purify$ -- 42
 quote$ -- 0
-skip$ -- 84
+skip$ -- 91
 stack$ -- 0
-substring$ -- 273
-swap$ -- 14
+substring$ -- 309
+swap$ -- 15
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 44
+type$ -- 48
 warning$ -- 4
-while$ -- 40
-width$ -- 13
-write$ -- 116
+while$ -- 44
+width$ -- 14
+write$ -- 127
 (There were 4 warnings)

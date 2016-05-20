@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.10.30)  17 MAY 2016 22:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.10.30)  20 MAY 2016 15:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2030,7 +2030,24 @@ Normal \count register pool exhausted, switching to extended pool.
 . 
 . Defining command \chemsetup with sig. 'om' on line 4036.
 .................................................
-) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen337
+\WF@size=\dimen338
+\c@WF@wrappedlines=\count281
+\WF@box=\box73
+\WF@everypar=\toks40
+Package: wrapfig 2003/01/31  v 3.6
+)
+(/usr/share/texlive/texmf-dist/tex/latex/sidecap/sidecap.sty
+Package: sidecap 2003/06/06 v1.6f SideCap Package (RN/HjG)
+\SC@BOXWD=\dimen339
+\SC@CAPWD=\dimen340
+\SC@tempdima=\dimen341
+\SC@tempdimb=\dimen342
+\c@SC@C=\count282
+\SC@BOX=\box74
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2014/09/06 1.5e listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
@@ -2038,40 +2055,40 @@ Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 ) (./midtermreport.aux)
 \openout1 = `midtermreport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 78.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 78.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 81.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 81.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    ... okay on input line 81.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count281
-\scratchdimen=\dimen337
-\scratchbox=\box73
-\nofMPsegments=\count282
-\nofMParguments=\count283
-\everyMPshowfont=\toks40
-\MPscratchCnt=\count284
-\MPscratchDim=\dimen338
-\MPnumerator=\count285
-\makeMPintoPDFobject=\count286
-\everyMPtoPDFconversion=\toks41
+\scratchcounter=\count283
+\scratchdimen=\dimen343
+\scratchbox=\box75
+\nofMPsegments=\count284
+\nofMParguments=\count285
+\everyMPshowfont=\toks41
+\MPscratchCnt=\count286
+\MPscratchDim=\dimen344
+\MPnumerator=\count287
+\makeMPintoPDFobject=\count288
+\everyMPtoPDFconversion=\toks42
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -2093,10 +2110,10 @@ Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             or
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             install/macros/latex/contrib/pageslts.tds.zip
-(lastpage)             ! on input line 78.
-\c@lstlisting=\count287
-\AtBeginShipoutBox=\box74
-Package hyperref Info: Link coloring OFF on input line 78.
+(lastpage)             ! on input line 81.
+\c@lstlisting=\count289
+\AtBeginShipoutBox=\box76
+Package hyperref Info: Link coloring OFF on input line 81.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -2104,17 +2121,19 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count288
+\c@section@level=\count290
 )
-LaTeX Info: Redefining \ref on input line 78.
-LaTeX Info: Redefining \pageref on input line 78.
-LaTeX Info: Redefining \nameref on input line 78.
+LaTeX Info: Redefining \ref on input line 81.
+LaTeX Info: Redefining \pageref on input line 81.
+LaTeX Info: Redefining \nameref on input line 81.
 
 (./midtermreport.out) (./midtermreport.out)
 \@outlinefile=\write4
 \openout4 = `midtermreport.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: sidecap package is loaded.
+Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
 (/usr/share/texlive/texmf-dist/tex/latex/translations/translations-basic-dictio
@@ -2130,18 +2149,42 @@ Dictionary: translator-basic-dictionary, Language: English
 File: siunitx-abbreviations.cfg 2014/10/01 v2.6c siunitx: Abbreviated units
 )
 ABD: EveryShipout initializing macros
-\c__siunitx_mathsf_int=\count289
-LaTeX Font Info:    Try loading font information for U+msa on input line 78.
+(/usr/share/texlive/texmf-dist/tex/latex/ms/ragged2e.sty
+Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
+
+(/usr/share/texlive/texmf-dist/tex/latex/ms/everysel.sty
+Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
+
+ABD: EverySelectfont initializing macros
+LaTeX Info: Redefining \selectfont on input line 126.
+)
+\CenteringLeftskip=\skip80
+\RaggedLeftLeftskip=\skip81
+\RaggedRightLeftskip=\skip82
+\CenteringRightskip=\skip83
+\RaggedLeftRightskip=\skip84
+\RaggedRightRightskip=\skip85
+\CenteringParfillskip=\skip86
+\RaggedLeftParfillskip=\skip87
+\RaggedRightParfillskip=\skip88
+\JustifyingParfillskip=\skip89
+\CenteringParindent=\skip90
+\RaggedLeftParindent=\skip91
+\RaggedRightParindent=\skip92
+\JustifyingParindent=\skip93
+)
+\c__siunitx_mathsf_int=\count291
+LaTeX Font Info:    Try loading font information for U+msa on input line 81.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 78.
+LaTeX Font Info:    Try loading font information for U+msb on input line 81.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-\c__siunitx_mathtt_int=\count290
+\c__siunitx_mathtt_int=\count292
  [1
 
 
@@ -2167,7 +2210,7 @@ ime-average, ensemble-
 
 ]
 No file midtermreport.nls.
-\c@mydef=\count291
+\c@mydef=\count293
 Chapter 1.
 
 Class scrbook Warning: \float@addtolists detected!
@@ -2193,161 +2236,115 @@ Chapter 2.
 [3
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 134--135
+Underfull \hbox (badness 10000) in paragraph at lines 135--136
 
  []
 
 [4]
-Overfull \hbox (14.41754pt too wide) in paragraph at lines 168--169
+Overfull \hbox (14.41754pt too wide) in paragraph at lines 169--170
 []\OT1/cmr/m/it/10.95 Just like stan-dard Brow-n-ian mo-tion, fBm is a Gaus-sia
 n pro-cess $\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 X[]\OMS/cmsy/m/n/10.95 g[]
  \OT1/cmr/m/n/10.95 :
  []
 
 [5]
-Overfull \hbox (18.79596pt too wide) in paragraph at lines 188--189
+Overfull \hbox (18.79596pt too wide) in paragraph at lines 189--190
 \OT1/cmr/m/n/10.95 trans-form into its wave-number rep-re-sen-ta-tion, which is
  called the self-intermediate
  []
 
-[6] [7] [8] [9] <./data/nocorrectionmsd.png, id=282, 361.35pt x 289.08pt>
+[6] [7] [8] <./data/nocorrectionmsd.png, id=286, 361.35pt x 289.08pt>
 File: ./data/nocorrectionmsd.png Graphic file (type png)
 
 <use ./data/nocorrectionmsd.png>
-Package pdftex.def Info: ./data/nocorrectionmsd.png used on input line 292.
-(pdftex.def)             Requested size: 199.16931pt x 159.33412pt.
+Package pdftex.def Info: ./data/nocorrectionmsd.png used on input line 290.
+(pdftex.def)             Requested size: 239.0056pt x 191.2036pt.
 
-Underfull \hbox (badness 1810) in paragraph at lines 294--294
-[][][]|\OT1/cmr/m/n/10.95 En-sem-ble MSD with-out
- []
-
-<./data/withcorrection_nocutoff.png, id=286, 361.35pt x 289.08pt>
+<./data/withcorrection_nocutoff.png, id=291, 361.35pt x 289.08pt>
 File: ./data/withcorrection_nocutoff.png Graphic file (type png)
 
 <use ./data/withcorrection_nocutoff.png>
 Package pdftex.def Info: ./data/withcorrection_nocutoff.png used on input line 
-299.
-(pdftex.def)             Requested size: 199.16931pt x 159.33412pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 301--301
-[][][]|\OT1/cmr/m/n/10.95 En-sem-ble MSD with
- []
+297.
+(pdftex.def)             Requested size: 239.0056pt x 191.2036pt.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--301
-\OT1/cmr/m/n/10.95 cor-rec-tion in-tro-duced
- []
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 301--301
-\OT1/cmr/m/n/10.95 the thresh-old for the
- []
-
-<./data/averages_comparison.png, id=290, 361.35pt x 289.08pt>
+[9 <./data/nocorrectionmsd.png>]
+<./data/averages_comparison.png, id=305, 433.62pt x 216.81pt>
 File: ./data/averages_comparison.png Graphic file (type png)
 
 <use ./data/averages_comparison.png>
-Package pdftex.def Info: ./data/averages_comparison.png used on input line 326.
+Package pdftex.def Info: ./data/averages_comparison.png used on input line 318.
 
-(pdftex.def)             Requested size: 199.16931pt x 159.33412pt.
+(pdftex.def)             Requested size: 398.33864pt x 199.1798pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 328--328
-[][][]|\OT1/cmr/m/n/10.95 Com-par-i-son of Mean-
+Underfull \hbox (badness 4217) in paragraph at lines 320--320
+[][][]|\OT1/cmr/m/n/10.95 Com-par-i-son of Mean-Square-Displacements be-tween t
+ime-average,
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 328--328
-\OT1/cmr/m/n/10.95 Square-Displacements
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 328--328
-\OT1/cmr/m/n/10.95 be-tween time-average,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 328--328
-\OT1/cmr/m/n/10.95 ensemble-average
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 328--328
-\OT1/cmr/m/n/10.95 and time-ensemble-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 328--328
-\OT1/cmr/m/n/10.95 average(for $\OML/cmm/m/it/10.95 D \OT1/cmr/m/n/10.95 = 2$,
- []
-
-<./data/dt_change.png, id=291, 361.35pt x 289.08pt>
+<./data/dt_change.png, id=307, 433.62pt x 216.81pt>
 File: ./data/dt_change.png Graphic file (type png)
  <use ./data/dt_change.png>
-Package pdftex.def Info: ./data/dt_change.png used on input line 333.
-(pdftex.def)             Requested size: 199.16931pt x 159.33412pt.
+Package pdftex.def Info: ./data/dt_change.png used on input line 326.
+(pdftex.def)             Requested size: 398.33864pt x 199.1798pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 335--335
-\OT1/cmr/m/n/10.95 av-er-aged Mean-Square-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 335--335
-\OT1/cmr/m/n/10.95 Displacements with
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<./data/rescaled.png, id=292, 722.7pt x 289.08pt>
-File: ./data/rescaled.png Graphic file (type png)
- <use ./data/rescaled.png>
-Package pdftex.def Info: ./data/rescaled.png used on input line 342.
-(pdftex.def)             Requested size: 398.33864pt x 159.33412pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<./data/alpha_change.png, id=295, 722.7pt x 289.08pt>
+<./data/alpha_change.png, id=309, 433.62pt x 216.81pt>
 File: ./data/alpha_change.png Graphic file (type png)
 
 <use ./data/alpha_change.png>
-Package pdftex.def Info: ./data/alpha_change.png used on input line 348.
-(pdftex.def)             Requested size: 398.33864pt x 159.33412pt.
+Package pdftex.def Info: ./data/alpha_change.png used on input line 334.
+(pdftex.def)             Requested size: 398.33864pt x 199.1798pt.
 
+<./data/K_alpha_change.png, id=310, 433.62pt x 216.81pt>
+File: ./data/K_alpha_change.png Graphic file (type png)
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+<use ./data/K_alpha_change.png>
+Package pdftex.def Info: ./data/K_alpha_change.png used on input line 340.
+(pdftex.def)             Requested size: 398.33864pt x 199.1798pt.
 
-<./data/nongaussian.png, id=296, 722.7pt x 289.08pt>
+<./data/rescaled.png, id=312, 433.62pt x 216.81pt>
+File: ./data/rescaled.png Graphic file (type png)
+ <use ./data/rescaled.png>
+Package pdftex.def Info: ./data/rescaled.png used on input line 348.
+(pdftex.def)             Requested size: 398.33864pt x 199.1798pt.
+
+<./data/nongaussian.png, id=315, 433.62pt x 216.81pt>
 File: ./data/nongaussian.png Graphic file (type png)
 
 <use ./data/nongaussian.png>
 Package pdftex.def Info: ./data/nongaussian.png used on input line 354.
-(pdftex.def)             Requested size: 398.33864pt x 159.33412pt.
+(pdftex.def)             Requested size: 398.33864pt x 199.1798pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<./data/profiling_length.png, id=299, 361.35pt x 289.08pt>
+<./data/profiling_length.png, id=321, 433.62pt x 216.81pt>
 File: ./data/profiling_length.png Graphic file (type png)
 
 <use ./data/profiling_length.png>
-Package pdftex.def Info: ./data/profiling_length.png used on input line 364.
-(pdftex.def)             Requested size: 199.16931pt x 159.33412pt.
+Package pdftex.def Info: ./data/profiling_length.png used on input line 362.
+(pdftex.def)             Requested size: 398.33864pt x 199.1798pt.
 
-<./data/profiling_particle.png, id=300, 361.35pt x 289.08pt>
+<./data/profiling_particle.png, id=322, 433.62pt x 216.81pt>
 File: ./data/profiling_particle.png Graphic file (type png)
 
 <use ./data/profiling_particle.png>
-Package pdftex.def Info: ./data/profiling_particle.png used on input line 371.
-(pdftex.def)             Requested size: 199.16931pt x 159.33412pt.
+Package pdftex.def Info: ./data/profiling_particle.png used on input line 369.
+(pdftex.def)             Requested size: 398.33864pt x 199.1798pt.
+ [10 <./data/withcorrection_nocutoff.png>]
+[11 <./data/averages_comparison.png> <./data/dt_change.png>]
 
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[12 <./data/alpha_change.png> <./data/K_alpha_change.png>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[10] [11 <./data/nocorrectionmsd.png> <./data/withcorrection_nocutoff.png>]
-[12 <./data/averages_comparison.png> <./data/dt_change.png> <./data/rescaled.pn
-g>] [13 <./data/alpha_change.png> <./data/nongaussian.png>] [14 <./data/profili
-ng_length.png> <./data/profiling_particle.png>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[13 <./data/rescaled.png> <./data/nongaussian.png>] [14 <./data/profiling_lengt
+h.png> <./data/profiling_particle.png>]
 Chapter 3.
 [15
 
@@ -2355,34 +2352,34 @@ Chapter 3.
 Chapter 4.
 [17
 
-] [18] [19] [20] [21] (./midtermreport.bbl [22] [23
-
-]
-Underfull \hbox (badness 1584) in paragraph at lines 54--56
+] [18] [19] [20] [21] (./midtermreport.bbl [22]
+Underfull \hbox (badness 1584) in paragraph at lines 60--62
 []\OT1/cmr/m/n/10.95 Versuch einer math-e-ma-tis-chen The-o-rie der Koag-u-la-t
 ion-sk-inetik kol-loi-der
  []
 
-) 
+[23
+
+]) 
 AED: lastpage setting LastPage
 [24]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 569.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 569.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 585.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 585.
  (./midtermreport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 569.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 569.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 585.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 585.
 Package rerunfilecheck Info: File `midtermreport.out' has not changed.
-(rerunfilecheck)             Checksum: 3B497C6F4CBA5CBC5A1F0944402F49B5;1342.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 569.
+(rerunfilecheck)             Checksum: 1363BBAEF0E54BEE25770D16F69C6029;1342.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 585.
  ) 
 Here is how much of TeX's memory you used:
- 36897 strings out of 493105
- 758273 string characters out of 6137071
- 843117 words of memory out of 5000000
- 39664 multiletter control sequences out of 15000+600000
+ 37149 strings out of 493105
+ 762371 string characters out of 6137071
+ 846900 words of memory out of 5000000
+ 39891 multiletter control sequences out of 15000+600000
  21256 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,24n,90p,10393b,942s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 72i,24n,90p,10378b,942s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dis
@@ -2406,10 +2403,10 @@ blic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb>
 
-Output written on midtermreport.pdf (27 pages, 1192351 bytes).
+Output written on midtermreport.pdf (27 pages, 1147488 bytes).
 PDF statistics:
- 549 PDF objects out of 1000 (max. 8388607)
- 470 compressed objects within 5 object streams
- 140 named destinations out of 1000 (max. 500000)
- 210 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 577 PDF objects out of 1000 (max. 8388607)
+ 496 compressed objects within 5 object streams
+ 150 named destinations out of 1000 (max. 500000)
+ 215 words of extra memory for PDF output out of 10000 (max. 10000000)
 
