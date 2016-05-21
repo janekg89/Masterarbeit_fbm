@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.10.30)  20 MAY 2016 15:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.10.30)  21 MAY 2016 23:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -644,6 +644,36 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip52
 )
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+LaTeX Info: Redefining \color on input line 702.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 2014/04/23 v3.0j Driver-dependant file (DPC,SPQR)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/svgnam.def
+File: svgnam.def 2007/01/21 v2.11 Predefined colors according to SVG 1.1 (UK)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/x11nam.def
+File: x11nam.def 2007/01/21 v2.11 Predefined colors according to Unix/X11 (UK)
+))
+Package hyperref Info: Option `colorlinks' set `true' on input line 22.
+Package hyperref Info: Option `breaklinks' set `true' on input line 22.
+
 (/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty
 Package: bm 2014/10/28 v1.1c Bold Symbol Support (DPC/FMi)
 \symboldoperators=\mathgroup6
@@ -872,25 +902,7 @@ ex
 \cnltx@tmpa@length=\skip59
 \cnltx@tmpb@length=\skip60
 \cnltx@tmpc@length=\skip61
- (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
-
-(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
-File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
-)
-Package xcolor Info: Driver file: pdftex.def on input line 225.
-LaTeX Info: Redefining \color on input line 702.
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
-Package xcolor Info: Model `RGB' extended on input line 1353.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
-)))
-(/usr/share/texlive/texmf-dist/tex/latex/l3packages/xfrac/xfrac.sty
+)) (/usr/share/texlive/texmf-dist/tex/latex/l3packages/xfrac/xfrac.sty
 (/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
@@ -2055,26 +2067,26 @@ Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 ) (./midtermreport.aux)
 \openout1 = `midtermreport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 81.
-LaTeX Font Info:    ... okay on input line 81.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 81.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 81.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 87.
+LaTeX Font Info:    ... okay on input line 87.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 87.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 87.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    ... okay on input line 87.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -2110,10 +2122,10 @@ Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             or
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             install/macros/latex/contrib/pageslts.tds.zip
-(lastpage)             ! on input line 81.
+(lastpage)             ! on input line 87.
 \c@lstlisting=\count289
 \AtBeginShipoutBox=\box76
-Package hyperref Info: Link coloring OFF on input line 81.
+Package hyperref Info: Link coloring ON on input line 87.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -2123,9 +2135,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count290
 )
-LaTeX Info: Redefining \ref on input line 81.
-LaTeX Info: Redefining \pageref on input line 81.
-LaTeX Info: Redefining \nameref on input line 81.
+LaTeX Info: Redefining \ref on input line 87.
+LaTeX Info: Redefining \pageref on input line 87.
+LaTeX Info: Redefining \nameref on input line 87.
 
 (./midtermreport.out) (./midtermreport.out)
 \@outlinefile=\write4
@@ -2174,12 +2186,12 @@ LaTeX Info: Redefining \selectfont on input line 126.
 \JustifyingParindent=\skip93
 )
 \c__siunitx_mathsf_int=\count291
-LaTeX Font Info:    Try loading font information for U+msa on input line 81.
+LaTeX Font Info:    Try loading font information for U+msa on input line 87.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 81.
+LaTeX Font Info:    Try loading font information for U+msb on input line 87.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -2198,8 +2210,14 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ]
 (./midtermreport.lof
 Overfull \hbox (33.27438pt too wide) in paragraph at lines 10--10
- [][] [][]\OT1/cmr/m/n/10.95 Comparison of Mean-Square-Displacements be-tween t
-ime-average, ensemble- 
+ [][] [][][]\OT1/cmr/m/n/10.95 Comparison of Mean-Square-Displacements be-tween
+ time-average, ensemble- 
+ []
+
+
+Overfull \hbox (0.12721pt too wide) in paragraph at lines 19--19
+ \OT1/cmr/m/n/10.95 10[]\OML/cmm/m/it/10.95 nm$\OT1/cmr/m/n/10.95 ,reaction dis
+-tance $= 3$,intrinsic re-ac-tion rate$= 10[]$, timesteps$= 
  []
 
 )
@@ -2236,100 +2254,100 @@ Chapter 2.
 [3
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 135--136
+Underfull \hbox (badness 10000) in paragraph at lines 141--142
 
  []
 
 [4]
-Overfull \hbox (14.41754pt too wide) in paragraph at lines 169--170
+Overfull \hbox (14.41754pt too wide) in paragraph at lines 174--175
 []\OT1/cmr/m/it/10.95 Just like stan-dard Brow-n-ian mo-tion, fBm is a Gaus-sia
 n pro-cess $\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 X[]\OMS/cmsy/m/n/10.95 g[]
  \OT1/cmr/m/n/10.95 :
  []
 
 [5]
-Overfull \hbox (18.79596pt too wide) in paragraph at lines 189--190
+Overfull \hbox (18.79596pt too wide) in paragraph at lines 194--195
 \OT1/cmr/m/n/10.95 trans-form into its wave-number rep-re-sen-ta-tion, which is
  called the self-intermediate
  []
 
-[6] [7] [8] <./data/nocorrectionmsd.png, id=286, 361.35pt x 289.08pt>
+[6] [7] [8] <./data/nocorrectionmsd.png, id=289, 361.35pt x 289.08pt>
 File: ./data/nocorrectionmsd.png Graphic file (type png)
 
 <use ./data/nocorrectionmsd.png>
-Package pdftex.def Info: ./data/nocorrectionmsd.png used on input line 290.
+Package pdftex.def Info: ./data/nocorrectionmsd.png used on input line 295.
 (pdftex.def)             Requested size: 239.0056pt x 191.2036pt.
 
-<./data/withcorrection_nocutoff.png, id=291, 361.35pt x 289.08pt>
+<./data/withcorrection_nocutoff.png, id=294, 361.35pt x 289.08pt>
 File: ./data/withcorrection_nocutoff.png Graphic file (type png)
 
 <use ./data/withcorrection_nocutoff.png>
 Package pdftex.def Info: ./data/withcorrection_nocutoff.png used on input line 
-297.
+302.
 (pdftex.def)             Requested size: 239.0056pt x 191.2036pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [9 <./data/nocorrectionmsd.png>]
-<./data/averages_comparison.png, id=305, 433.62pt x 216.81pt>
+<./data/averages_comparison.png, id=308, 433.62pt x 216.81pt>
 File: ./data/averages_comparison.png Graphic file (type png)
 
 <use ./data/averages_comparison.png>
-Package pdftex.def Info: ./data/averages_comparison.png used on input line 318.
+Package pdftex.def Info: ./data/averages_comparison.png used on input line 323.
 
 (pdftex.def)             Requested size: 398.33864pt x 199.1798pt.
 
-Underfull \hbox (badness 4217) in paragraph at lines 320--320
+Underfull \hbox (badness 4217) in paragraph at lines 325--325
 [][][]|\OT1/cmr/m/n/10.95 Com-par-i-son of Mean-Square-Displacements be-tween t
 ime-average,
  []
 
-<./data/dt_change.png, id=307, 433.62pt x 216.81pt>
+<./data/dt_change.png, id=310, 433.62pt x 216.81pt>
 File: ./data/dt_change.png Graphic file (type png)
  <use ./data/dt_change.png>
-Package pdftex.def Info: ./data/dt_change.png used on input line 326.
+Package pdftex.def Info: ./data/dt_change.png used on input line 331.
 (pdftex.def)             Requested size: 398.33864pt x 199.1798pt.
 
-<./data/alpha_change.png, id=309, 433.62pt x 216.81pt>
+<./data/alpha_change.png, id=312, 433.62pt x 216.81pt>
 File: ./data/alpha_change.png Graphic file (type png)
 
 <use ./data/alpha_change.png>
-Package pdftex.def Info: ./data/alpha_change.png used on input line 334.
+Package pdftex.def Info: ./data/alpha_change.png used on input line 339.
 (pdftex.def)             Requested size: 398.33864pt x 199.1798pt.
 
-<./data/K_alpha_change.png, id=310, 433.62pt x 216.81pt>
+<./data/K_alpha_change.png, id=313, 433.62pt x 216.81pt>
 File: ./data/K_alpha_change.png Graphic file (type png)
 
 <use ./data/K_alpha_change.png>
-Package pdftex.def Info: ./data/K_alpha_change.png used on input line 340.
+Package pdftex.def Info: ./data/K_alpha_change.png used on input line 345.
 (pdftex.def)             Requested size: 398.33864pt x 199.1798pt.
 
-<./data/rescaled.png, id=312, 433.62pt x 216.81pt>
+<./data/rescaled.png, id=315, 433.62pt x 216.81pt>
 File: ./data/rescaled.png Graphic file (type png)
  <use ./data/rescaled.png>
-Package pdftex.def Info: ./data/rescaled.png used on input line 348.
+Package pdftex.def Info: ./data/rescaled.png used on input line 353.
 (pdftex.def)             Requested size: 398.33864pt x 199.1798pt.
 
-<./data/nongaussian.png, id=315, 433.62pt x 216.81pt>
+<./data/nongaussian.png, id=318, 433.62pt x 216.81pt>
 File: ./data/nongaussian.png Graphic file (type png)
 
 <use ./data/nongaussian.png>
-Package pdftex.def Info: ./data/nongaussian.png used on input line 354.
+Package pdftex.def Info: ./data/nongaussian.png used on input line 359.
 (pdftex.def)             Requested size: 398.33864pt x 199.1798pt.
 
-<./data/profiling_length.png, id=321, 433.62pt x 216.81pt>
+<./data/profiling_length.png, id=324, 433.62pt x 216.81pt>
 File: ./data/profiling_length.png Graphic file (type png)
 
 <use ./data/profiling_length.png>
-Package pdftex.def Info: ./data/profiling_length.png used on input line 362.
+Package pdftex.def Info: ./data/profiling_length.png used on input line 367.
 (pdftex.def)             Requested size: 398.33864pt x 199.1798pt.
 
-<./data/profiling_particle.png, id=322, 433.62pt x 216.81pt>
+<./data/profiling_particle.png, id=325, 433.62pt x 216.81pt>
 File: ./data/profiling_particle.png Graphic file (type png)
 
 <use ./data/profiling_particle.png>
-Package pdftex.def Info: ./data/profiling_particle.png used on input line 369.
+Package pdftex.def Info: ./data/profiling_particle.png used on input line 374.
 (pdftex.def)             Requested size: 398.33864pt x 199.1798pt.
  [10 <./data/withcorrection_nocutoff.png>]
 [11 <./data/averages_comparison.png> <./data/dt_change.png>]
@@ -2348,35 +2366,41 @@ h.png> <./data/profiling_particle.png>]
 Chapter 3.
 [15
 
-] [16]
-Chapter 4.
-[17
+] [16] <./data/besta.png, id=396, 578.16pt x 433.62pt>
+File: ./data/besta.png Graphic file (type png)
 
-] [18] [19] [20] [21] (./midtermreport.bbl [22]
-Underfull \hbox (badness 1584) in paragraph at lines 60--62
+<use ./data/besta.png>
+Package pdftex.def Info: ./data/besta.png used on input line 416.
+(pdftex.def)             Requested size: 398.33864pt x 298.75482pt.
+ [17 <./data/besta.png>] [18]
+Chapter 4.
+[19
+
+] [20] [21] [22] [23] (./midtermreport.bbl [24] [25
+
+]
+Underfull \hbox (badness 1584) in paragraph at lines 65--67
 []\OT1/cmr/m/n/10.95 Versuch einer math-e-ma-tis-chen The-o-rie der Koag-u-la-t
 ion-sk-inetik kol-loi-der
  []
 
-[23
-
-]) 
+) 
 AED: lastpage setting LastPage
-[24]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 585.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 585.
+[26]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 600.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 600.
  (./midtermreport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 585.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 585.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 600.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 600.
 Package rerunfilecheck Info: File `midtermreport.out' has not changed.
-(rerunfilecheck)             Checksum: 1363BBAEF0E54BEE25770D16F69C6029;1342.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 585.
+(rerunfilecheck)             Checksum: 9D43E4F34CD375050FB429815416791A;1239.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 600.
  ) 
 Here is how much of TeX's memory you used:
- 37149 strings out of 493105
- 762371 string characters out of 6137071
- 846900 words of memory out of 5000000
- 39891 multiletter control sequences out of 15000+600000
+ 37691 strings out of 493105
+ 771492 string characters out of 6137071
+ 879118 words of memory out of 5000000
+ 40416 multiletter control sequences out of 15000+600000
  21256 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,24n,90p,10378b,942s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2403,10 +2427,10 @@ blic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb>
 
-Output written on midtermreport.pdf (27 pages, 1147488 bytes).
+Output written on midtermreport.pdf (29 pages, 1202917 bytes).
 PDF statistics:
- 577 PDF objects out of 1000 (max. 8388607)
- 496 compressed objects within 5 object streams
- 150 named destinations out of 1000 (max. 500000)
- 215 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 604 PDF objects out of 1000 (max. 8388607)
+ 517 compressed objects within 6 object streams
+ 157 named destinations out of 1000 (max. 500000)
+ 212 words of extra memory for PDF output out of 10000 (max. 10000000)
 
