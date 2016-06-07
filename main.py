@@ -7,6 +7,7 @@ import timeit
 import analyse_tool
 import matplotlib.cm as cm
 import test_cython.genereatefracincrements as ginc
+import lown_cython.genereatefracincrements as ginc1
 
 import cProfile
 import pstats
@@ -194,11 +195,22 @@ b=d.z_alternativ()
 plt.plot(np.real(a))
 plt.plot(np.real(b))
 plt.show()
+'''
 
-
-d=analyse_tool.Analyse(D=2.0,particles=2000,length=1000,alpha=0.5,dt=0.5,x=2)
+d=analyse_tool.Analyse(D=4.0,particles=2000,length=1000,alpha=0.6,dt=0.1,x=2,version="lowencpp")
 d.plotting()
 plt.show()
+
+'''
+inc1 = ginc1.pyIncrements(d.n,d.particles)
+inc1.generateIncrements1(d.D, d.dt, d.alpha)
+a = inc1.returnIncrements()
+b= a[0][0][:]
+
+
+plt.plot(b)
+plt.show()
+
 
 
 from scipy.stats import norm
@@ -215,7 +227,7 @@ plt.ylabel('$\\rho (y)$', fontsize=15)
 plt.xlabel('$y$', fontsize=15)
 plt.show()
 
-'''
+
 x=np.linspace(0,5)
 msd=x**0.5*2
 msd1=x*2
@@ -232,3 +244,5 @@ plt.tick_params(
 plt.ylabel('$MSD$', fontsize=15)
 plt.xlabel('$t$', fontsize=15)
 plt.show()
+
+'''
