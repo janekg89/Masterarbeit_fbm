@@ -5,6 +5,15 @@ Increments1::Increments1(int N, int particles) {
     this->particles = particles;
     increments.resize(boost::extents[this->particles][3][this->N]);
 }
+/*
+namespace janek {
+    boost::multi_array<double,2> generateIncrements(args, Random * random) {
+
+        // random->normal();
+        // random->uniform();
+    }
+}
+*/
 
 void Increments1::generateIncrements1 (double D ,double tau, double alpha)
 {
@@ -22,42 +31,50 @@ void Increments1::generateIncrements1 (double D ,double tau, double alpha)
         planforward = fftw_plan_dft_1d(Nextended, reinterpret_cast<fftw_complex*>(in), reinterpret_cast<fftw_complex*>(out),FFTW_FORWARD, FFTW_ESTIMATE);
         planbackward = fftw_plan_dft_1d(Nextended, reinterpret_cast<fftw_complex*>(innew), reinterpret_cast<fftw_complex*>(outnew),FFTW_BACKWARD, FFTW_ESTIMATE );
 
-
-
         gsl_rng * r;
         const gsl_rng_type * T;
         gsl_rng_env_setup();
-        T = gsl_rng_default;
+        T = gsl_rng_ranlxs0;
         r = gsl_rng_alloc (T);
+        gsl_rng_set(r, 0);
         std::complex <double> icomplex (0,1);
-        double factor= sqrt(N*4.*D* std::pow((double) N ,alpha));
-        int i;
-        int ipart;
-        int idim;
-        for(i = 0; i <= Nextended; ++i)
+        double factor= sqrt(D* std::pow((double) N ,alpha)/(N));
+        for(int ii = 0; ii < Nextended; ++ii)
         {
-                    if(i<=N)
+                    if(ii<=N)
                     {
-                     in[i] =  std::pow(tau,alpha)*( 1- std::pow((double) i/N,alpha))/2;
+                     in[ii] =  std::pow(tau,alpha)*( 1- std::pow((double) ii/N,alpha))/2;
                     }
 
-                    if(i>N)
+                    if(ii>N)
                     {
-                     in[i] = in[2*N-i];
+                     in[ii] = in[2*N-(ii)];
                     }
-                    //in[i] = gsl_ran_gaussian(r, sigma);
         }
-       fftw_execute(planforward);
-
-       in[0]= std::complex <double> (0,0);
-
-       for (ipart=0; ipart < particles; ++ipart)
+        /*
+        for (ipart=0; ipart < particles; ++ipart)
        {
             for (idim=0; idim < dimensions; ++idim)
                 {
                 //std::cout << idim;
                 for(i = 0; i < Nextended; ++i)
 
+                    {
+                    increments[ipart][idim][i]=in[i].real();
+                    }
+                }
+       }
+       */
+       fftw_execute(planforward);
+
+       innew[0]= std::complex <double> (0,0);
+
+       for (int ipart=0; ipart < particles; ++ipart)
+       {
+            for (int idim=0; idim < dimensions; ++idim)
+                {
+                //std::cout << idim;
+                for(int i = 0; i < Nextended; ++i)
                 {
                     if( i>0  and  i<N)
                     {
@@ -66,18 +83,15 @@ void Increments1::generateIncrements1 (double D ,double tau, double alpha)
 
                     if(i>=N)
                     {
-                        innew[i] = std::conj(in[2*N-i]);
+                        innew[i] = std::conj(innew[2*N-i]);
                     }
-
                 }
                 fftw_execute(planbackward);
 
-                for(i=0; i < N; i++)
-                {
-                    increments[ipart][idim][i]=(outnew[i].real()-outnew[i+1].real())*factor;
-                    //increments[ipart][idim][i]=i+ipart+idim;
-                    //std::cout << ipart <<"," <<  idim <<","<< i << "__";
-                }
+                 for(int i=0; i < N; i++)
+                 {
+                    increments[ipart][idim][i]=(-outnew[i].real()+outnew[i+1].real())*factor;
+                 }
 
             }
        }

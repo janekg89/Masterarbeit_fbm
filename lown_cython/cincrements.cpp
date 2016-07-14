@@ -480,7 +480,7 @@ static const char *__pyx_filename;
 
 
 static const char *__pyx_f[] = {
-  "lown-cython/cincrements.pyx",
+  "lown_cython/cincrements.pyx",
   "__init__.pxd",
   "type.pxd",
 };
