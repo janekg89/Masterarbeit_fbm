@@ -11,6 +11,7 @@ import lown_cython.genereatefracincrements as ginc1
 
 class Felix_Method():
 
+
     def __init__(self, D, particles,length,alpha,dt,x=2, version="python"):
         self.D=D
         self.K_alpha=D

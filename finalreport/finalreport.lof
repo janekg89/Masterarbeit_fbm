@@ -1,0 +1,26 @@
+\select@language {english}
+\select@language {english}
+\select@language {english}
+\select@language {ngerman}
+\select@language {english}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Ensemble MSD without the correction introduced in \cref {correction} \relax }}{9}{figure.caption.3}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Ensemble MSD with correction introduced in \cref {correction}. The side of the red bar indicates the threshold for the remaining increments for $M=2n$ \relax }}{10}{figure.caption.4}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Comparison of Mean-Square-Displacements between time-average, ensemble-average and time-ensemble-average for $D=2$, $\alpha =0.5$, $\Delta t=1$. For the time ensemble average only 10 trajectories have been taken.\relax }}{11}{figure.caption.6}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Comparison of ensemble averaged Mean-Square-Displacements with different $\Delta t$ for $D=2$, $\alpha =0.5$. \relax }}{11}{figure.caption.7}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Ensemble averaged MSD for different $\alpha $ with $K_{\alpha }=2$ , $N=2000$, $n=2000$ , $\Delta t = 1$, $M=2n$.\relax }}{12}{figure.caption.8}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Ensemble averaged MSD for different $K_\alpha $. with $\alpha =0.5$ , $N=2000$, $n=2000$ , $\Delta t = 1$, $M=2n$.\relax }}{12}{figure.caption.9}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces The scale free form of the Propagator at different times as introduced in \cref {scalefreeformfrac}. With $K_{\alpha }=2$, $\alpha =0.5 $, $N=10000$ , $\Delta t = 1$, $M=2n$. \relax }}{13}{figure.caption.10}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Non-Gaussian-Parameter (as introduced in \cref {nongaussian2}) With $K_{\alpha }=2$ , $N=5000$, $n=1001$ , $\Delta t = 1$, $M=2n$ averaged over $30$ non-Gaussian-Parameter with its variance displayed as an error bar.\relax }}{13}{figure.caption.10}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Profiling c++ and python code in respect to trajectory length $M$,for $N=1$, $t = \mathcal {O}(M log(M))$ \relax }}{14}{figure.caption.11}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Profiling c++ and python code in respect to trajectory number $N$ for $M=1000$ ,$t = \mathcal {O}(N log(N))$\relax }}{14}{figure.caption.12}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Substrate particle number $S(t)$ for different Diffusion constants $D$ of the enzyme and substrate. With fitted theoretical curves from equation \cref {substratetheo}. The input parameters for RevReaDDy are: box size$=10^3nm$,reaction distance $=3$,intrinsic reaction rate$=10^{25}$, timesteps$=1000$,$S(0)=300$.\relax }}{17}{figure.caption.13}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Ensemble MSD of a RevReaDDy simulation with 1500 particles of one type with Diffusion constant = 3, no reactions, boxsize = 20, and a fractional Diffusion integrator with anomalous coefficient = 0.5, dt= 0.01 \relax }}{20}{figure.caption.14}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Radial Distribution of a RevReaDDy simulation with 1500 particles of one type with Diffusion constant = 3, no reactions, boxsize = 20, and a fractional Diffusion integrator with anomalous coefficient = 0.5,dt=1.0 \relax }}{21}{figure.caption.15}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces number of a RevReaDDy simulation of brownian motion vs fractional brownian motion with $\alpha =0.5$ with 500 particles of one type with Diffusion constant = 0.2, a pseudo enzymatic reatcion s+e=p+e ,reaction dsitance = 2.0,reactionrate forward 0.5, reaction rate backward= 0.1, boxsize = 30, dt=1.0, avraged over 10 runs, 16384 timesteps\relax }}{22}{figure.caption.16}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces number of forward reactions in a RevReaDDy simulation of brownian motion vs fractional brownian motion with $\alpha =0.5$ with 500 particles of one type with Diffusion constant = 0.2, a pseudo enzymatic reatcion s+e=p+e ,reaction dsitance = 2.0,reactionrate forward 0.5, reaction rate backward= 0.1, boxsize = 30, dt=1.0, avraged over 5 runs,4096 timesteps\relax }}{23}{figure.caption.17}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces snapshot substrate blue, product red, in a RevReaDDy simulation of brownian motion vs fractional brownian motion with $\alpha =0.5$ with 500 particles of one type with Diffusion constant = 0.2, a pseudo enzymatic reatcion s+e=p+e ,reaction dsitance = 2.0,reactionrate forward 0.5, reaction rate backward= 0.1, boxsize = 30, dt=1.0, avraged over 5 runs,4096 timesteps\relax }}{24}{figure.caption.18}
+\addvspace {10\p@ }

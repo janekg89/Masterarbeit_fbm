@@ -1,0 +1,41 @@
+\begin{thebibliography}{1}
+
+\bibitem{Berry2002}
+Hugues Berry.
+\newblock {Monte carlo simulations of enzyme reactions in two dimensions:
+  fractal kinetics and spatial segregation.}
+\newblock {\em Biophysical journal}, 83(4):1891--1901, 2002.
+
+\bibitem{Craigmile2003}
+Peter~F. Craigmile.
+\newblock {Simulating a class of stationary Gaussian processes using the
+  Davies-Harte algorithm, with application to long memory processes}.
+\newblock {\em Journal of Time Series Analysis}, 24(5):505--511, 2003.
+
+\bibitem{LectureFelix}
+H{\"{o}}fling Felix.
+\newblock Stochastic processes and correlation functions.
+\newblock University Lecture, 2016.
+
+\bibitem{Havlin1987}
+S~Havlin and D~Ben Avraham.
+\newblock {Diffusion in Disordered Media}.
+\newblock {\em Advances in Physics}, 36:695--798, 1987.
+
+\bibitem{Hofling2013}
+Felix H{\"{o}}fling and Thomas Franosch.
+\newblock {Anomalous transport in the crowded world of biological cells}.
+\newblock {\em Reports on Progress in Physics}, 76(4):046602, apr 2013.
+
+\bibitem{Mandelbrot1968}
+Benoit~B. Mandelbrot and John~W. {Van Ness}.
+\newblock {Fractional Brownian Motions, Fractional Noises and Applications}.
+\newblock {\em SIAM Review}, 10(4):422--437, oct 1968.
+
+\bibitem{Minton2006}
+Allen~P Minton.
+\newblock {How can biochemical reactions within cells differ from those in test
+  tubes?}
+\newblock {\em Journal of cell science}, 119(Pt 14):2863--9, 2006.
+
+\end{thebibliography}

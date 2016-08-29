@@ -1,0 +1,74 @@
+\begin{thebibliography}{10}
+
+\bibitem{Berry2002}
+Hugues Berry.
+\newblock {Monte carlo simulations of enzyme reactions in two dimensions:
+  fractal kinetics and spatial segregation.}
+\newblock {\em Biophysical journal}, 83(4):1891--1901, 2002.
+
+\bibitem{Craigmile2003}
+Peter~F. Craigmile.
+\newblock {Simulating a class of stationary Gaussian processes using the
+  Davies-Harte algorithm, with application to long memory processes}.
+\newblock {\em Journal of Time Series Analysis}, 24(5):505--511, 2003.
+
+\bibitem{LectureFelix}
+H{\"{o}}fling Felix.
+\newblock Stochastic processes and correlation functions.
+\newblock University Lecture, 2016.
+
+\bibitem{Flegg}
+Mark~B Flegg.
+\newblock {Smoluchowski reaction kinetics for reactions of any order}.
+\newblock pages 1--30.
+
+\bibitem{Havlin1987}
+S~Havlin and D~Ben Avraham.
+\newblock {Diffusion in Disordered Media}.
+\newblock {\em Advances in Physics}, 36:695--798, 1987.
+
+\bibitem{Hofling2013}
+Felix H{\"{o}}fling and Thomas Franosch.
+\newblock {Anomalous transport in the crowded world of biological cells}.
+\newblock {\em Reports on Progress in Physics}, 76(4):046602, apr 2013.
+
+\bibitem{WRCR:WRCR3676}
+J.~R.~M. Hosking.
+\newblock Modeling persistence in hydrological time series using fractional
+  differencing.
+\newblock {\em Water Resources Research}, 20(12):1898--1908, 1984.
+
+\bibitem{Johnson2011}
+Kenneth~A. Johnson and Roger~S. Goody.
+\newblock {The original Michaelis constant: Translation of the 1913
+  Michaelis-Menten Paper}.
+\newblock {\em Biochemistry}, 50(39):8264--8269, 2011.
+
+\bibitem{Mandelbrot1968}
+Benoit~B. Mandelbrot and John~W. {Van Ness}.
+\newblock {Fractional Brownian Motions, Fractional Noises and Applications}.
+\newblock {\em SIAM Review}, 10(4):422--437, oct 1968.
+
+\bibitem{Minton2006}
+Allen~P Minton.
+\newblock {How can biochemical reactions within cells differ from those in test
+  tubes?}
+\newblock {\em Journal of cell science}, 119(Pt 14):2863--9, 2006.
+
+\bibitem{Johannesschoneberg2014}
+Johannes sch{\"{o}}neberg.
+\newblock {\em {REACTION-DIFFUSION DYNAMICS IN BIOLOGICAL SYSTEMS}}.
+\newblock PhD thesis, 2014.
+
+\bibitem{Smoluchowski1}
+M.~v. Smoluchowski.
+\newblock {Versuch einer mathematischen Theorie der Koagulationskinetik
+  kolloider L{\"{o}}sungen}.
+
+\bibitem{Zhou2008}
+Huan-Xiang Zhou, Germ{\'{a}}n Rivas, and Allen~P Minton.
+\newblock {Macromolecular crowding and confinement: biochemical, biophysical,
+  and potential physiological consequences.}
+\newblock {\em Annual review of biophysics}, 37:375--97, 2008.
+
+\end{thebibliography}
