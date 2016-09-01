@@ -290,7 +290,7 @@ class RevreaDDy_analyse():
         sim.show_world()
         sim.delete_all_observables()
         numbers_a_name = "revdata/" + self.stamp() + "numberreaction_a.h5"
-        sim.new_reaction_counter(1, numbers_a_name)
+        sim.new_reaction_counter(1, numbers_a_name,"E+S<->E+S")
         sim.run(self.length)
         sim.write_observables_to_file()
         sim.delete_all_observables()
@@ -324,7 +324,7 @@ class RevreaDDy_analyse():
         sim.show_world()
         sim.delete_all_observables()
         numbers_a_name = "revdata/" + self.stamp() + "numberreaction_a.h5"
-        sim.new_reaction_counter(1, numbers_a_name)
+        sim.new_reaction_counter(1, numbers_a_name,"E+S<->E+S")
         sim.run(self.length)
         sim.write_observables_to_file()
         sim.delete_all_observables()
@@ -369,7 +369,8 @@ class RevreaDDy_analyse():
                 result2.append(pos)
         return  np.array(result),np.array(result2)
 
-Rev = RevreaDDy_analyse(30, 0.2, 0.2, 0.2, 2.0, 0.5, 16384/2, 500,0.5)
+Rev = RevreaDDy_analyse(30, 0.2, 0.2, 0.2, 2.0, 0.5, 16384/4, 500,0.5)
+
 
 
 
@@ -444,11 +445,11 @@ with open('revdata/myfile.xyz','w') as f:
 
 change alpha
 """
+colors = iter(cm.rainbow(np.linspace(0, 1, 20)))
+
 for iii in [0.5,0.6,0.7,0.8,0.9]:
     Rev.alpha=iii
-    colors = iter(cm.rainbow(np.linspace(0, 1, 4)))
     colornow = next(colors)
-    falist = []
     fclist = []
     faflist = []
     names_a=[]
@@ -457,24 +458,29 @@ for iii in [0.5,0.6,0.7,0.8,0.9]:
     names_bf=[]
     for ii in range(2):
         print ii
-        numbers_a_name = Rev.simulationreactionamount()  # ,fc
         numbers_a_namef, particles= Rev.simulationreactionamountfrac()  # ,fc
-        names_a.append(numbers_a_name)
         names_af.append(numbers_a_namef)
     for i in range(2):
-        fa = h5.File(names_a[i], 'r')
         faf = h5.File(names_af[i], 'r')
-        falist.append(fa['forwardCounter'][:])
         faflist.append(faf['forwardCounter'][:])
-    falist = np.array(falist)
     faflist = np.array(faflist)
-    reacnum = falist.mean(axis=0)
     reacnumf = faflist.mean(axis=0)
-    plt.plot(faf['times'],reacnumf, color=colornow, label="$alpha$=$%.2f$ fractional" % (iii))
-    plt.plot(fa['times'], reacnum, color=next(colors), marker="--",label="$alpha$=$%.2f$ brownian" % (iii))
+    plt.plot(faf['times'],reacnumf, color= next(colors), label="$alpha$=$%.2f$ fractional" % (iii))
     plt.ylabel('Number of forward reactions', fontsize=10)
     plt.xlabel('t in ns', fontsize=10)
     plt.legend()
+names_a=[]
+falist = []
+for ii in range(2):
+        print ii
+        numbers_a_name = Rev.simulationreactionamount()  # ,fc
+        names_a.append(numbers_a_name)
+for i in range(2):
+        fa = h5.File(names_a[i], 'r')
+        falist.append(fa['forwardCounter'][:])
+falist = np.array(falist)
+reacnum = falist.mean(axis=0)
+plt.plot(fa['times'], reacnum, color=next(colors),label="$alpha$=$%.2f$ brownian" % (iii))
 plt.show()
 """
 ----------------------------------
