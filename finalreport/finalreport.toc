@@ -18,11 +18,11 @@
 \contentsline {section}{\numberline {4.1}to do}{19}{section.4.1}
 \contentsline {section}{\numberline {4.2}results no reactions}{20}{section.4.2}
 \contentsline {section}{\numberline {4.3}results with reactions}{20}{section.4.3}
-\contentsline {chapter}{\numberline {5}Appendix}{25}{chapter.5}
-\contentsline {section}{\numberline {5.1}From Central Limit Theorem to Gaussian Distribution}{25}{section.5.1}
-\contentsline {section}{\numberline {5.2}From Gaussian Distribution to Gaussian Transition Probability}{26}{section.5.2}
-\contentsline {section}{\numberline {5.3}Einstein Formula}{26}{section.5.3}
-\contentsline {section}{\numberline {5.4}Autocorrelation Function for fBm}{27}{section.5.4}
-\contentsline {section}{\numberline {5.5}Kinetics of the Bi-Molecular Chemical Reaction in Solution}{28}{section.5.5}
-\contentsline {section}{\numberline {5.6}Michaelis-Menten Kinetics}{29}{section.5.6}
-\contentsline {chapter}{\nonumberline Bibliography}{31}{chapter*.19}
+\contentsline {chapter}{\numberline {5}Appendix}{28}{chapter.5}
+\contentsline {section}{\numberline {5.1}From Central Limit Theorem to Gaussian Distribution}{28}{section.5.1}
+\contentsline {section}{\numberline {5.2}From Gaussian Distribution to Gaussian Transition Probability}{29}{section.5.2}
+\contentsline {section}{\numberline {5.3}Einstein Formula}{29}{section.5.3}
+\contentsline {section}{\numberline {5.4}Autocorrelation Function for fBm}{30}{section.5.4}
+\contentsline {section}{\numberline {5.5}Kinetics of the Bi-Molecular Chemical Reaction in Solution}{31}{section.5.5}
+\contentsline {section}{\numberline {5.6}Michaelis-Menten Kinetics}{32}{section.5.6}
+\contentsline {chapter}{\nonumberline Bibliography}{34}{chapter*.22}

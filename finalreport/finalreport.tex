@@ -481,7 +481,7 @@ Complex bildung möglich machen nach Michaelis Menden. -> da reaction number int
   \centering
   \includegraphics[width=\textwidth]{./data/fractionalvsbroanianreactionrate-numbersubstrate-boxcsize30-diffconst0p2reactiondistance2-frate0p5-brate0p1-500particles.png}
   \captionsetup{width=\linewidth}
-  \captionof{figure}{number of a RevReaDDy simulation of brownian motion vs fractional brownian motion with $\alpha=0.5$ with 500 particles of one type with Diffusion constant = 0.2, a pseudo enzymatic reatcion s+e=p+e ,reaction dsitance = 2.0,reactionrate forward 0.5, reaction rate backward= 0.1, boxsize = 30,  dt=1.0, avraged over 10 runs, 16384 timesteps}
+  \captionof{figure}{number of substrates in a RevReaDDy simulation of brownian motion vs fractional brownian motion with $\alpha=0.5$ with 500 particles of one type with Diffusion constant = 0.2, a pseudo enzymatic reatcion s+e=p+e ,reaction dsitance = 2.0,reactionrate forward 0.5, reaction rate backward= 0.1, boxsize = 30,  dt=1.0, avraged over 10 runs, 16384 timesteps}
   \label{fig:fractionalrevreaddy1}
 \end{figure}
 
@@ -498,9 +498,33 @@ Complex bildung möglich machen nach Michaelis Menden. -> da reaction number int
   \includegraphics[width=\textwidth]{./data/bildsubstraeblauproductrot.png}
   \captionsetup{width=\linewidth}
   \captionof{figure}{snapshot substrate blue, product red, in a RevReaDDy simulation of brownian motion vs fractional brownian motion with $\alpha=0.5$ with 500 particles of one type with Diffusion constant = 0.2, a pseudo enzymatic reatcion s+e=p+e ,reaction dsitance = 2.0,reactionrate forward 0.5, reaction rate backward= 0.1, boxsize = 30,  dt=1.0, avraged over 5 runs,4096 timesteps}
-  \label{fig:forward reaction}
+  \label{fig:forward reaction2}
 \end{figure}
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{./data/changealpha.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{number of forward reactions in a RevReaDDy simulation of brownian motion vs fractional brownian motion with differnet $\alpha$ with 500 particles of one type with Diffusion constant = 0.2, a pseudo enzymatic reatcion s+e=p+e ,reaction dsitance = 2.0,reactionrate forward 0.5, reaction rate backward= 0.1, boxsize = 30,  dt=1.0, avraged over 2 runs,4096 timestep}
+  \label{fig:forward reaction1}
+\end{figure} 
+
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{./data/michaelismenten_brownian.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{RevReaDDy simulation of brownian motion  with 400 substrate and 150 enyyme  of one type with Diffusion constant = 0.2,  s+e=c=p+e ,reaction dsitance = 0.3, first reactionrate forward 50,0, reaction rate backward= 0.2, second reactionrate forward 0,second reaction rate backward= 0.1, boxsize = 10,  dt=0.01, 8000 timesteps}
+  \label{fig:amount of particles michaelis menten brownian}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{./data/michaelismenten_fractionalbrownian.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{RevReaDDy simulation of fractional brownian motion with alpha 0.5 with 400 substrate and 150 enyyme  of one type with Diffusion constant = 0.2,  s+e=c=p+e ,reaction dsitance = 0.3, first reactionrate forward 50,0, reaction rate backward= 0.2, second reactionrate forward 0,second reaction rate backward= 0.1, boxsize = 10,  dt=0.01, 8000 timesteps}
+  \label{fig:amount of particles michaelis menten fractional}
+\end{figure}
 
 \chapter{Appendix}
 \section{From Central Limit Theorem to Gaussian Distribution}\label{append:CLT}
