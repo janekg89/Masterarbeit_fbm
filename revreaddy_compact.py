@@ -20,9 +20,9 @@ logging.basicConfig(
 )
 
 
-class RevreaDDy_analyse():
-    def __init__(self, boxsize, Diffusion_E, Diffusion_S, Diffusion_P, reactiondistance, intrinsikreaction, length,
-                 particles,alpha):
+class RevreaDDy_compact():
+    def __init__(self, boxsize, Diffusion_S, Diffusion_P, reactiondistance, intrinsikreaction, length, particles, alpha,
+                 Diffusion_E):
         self.boxsize = boxsize
         self.Diffusion_E = Diffusion_E
         self.Diffusion_S = Diffusion_S
@@ -369,7 +369,7 @@ class RevreaDDy_analyse():
                 result2.append(pos)
         return  np.array(result),np.array(result2)
 
-Rev = RevreaDDy_analyse(30, 0.2, 0.2, 0.2, 2.0, 0.5, 16384/4, 500,0.5)
+Rev = RevreaDDy_compact(30, 0.2, 0.2, 2.0, 0.5, 16384 / 4, 500, 0.5, 0.2)
 
 
 
