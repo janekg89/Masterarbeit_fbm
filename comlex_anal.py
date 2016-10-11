@@ -116,14 +116,21 @@ class Analy_Complex(complex_sim.Sim_Complex):
                 #print self.timestep
                 particle_number_c_mean=particle_number_c.mean(axis=0)
                 linestyle='-'
+                marker=""
+                markersize=0.5
+                every=1
+                color="y"
                 if self.alpha==0.5:
+                    color="b"
                     linestyle='--'
+                    marker=""
+                    #markersize=1.0
 
-                plt.plot(t, particle_number_c_mean,linestyle=linestyle,label="complex") #of complex
+                #plt.plot(t, particle_number_c_mean,marker=marker,linestyle=linestyle,color=color,markevery=every ,label="complex") #of complex
 
                 particle_number_s=np.array(particle_number_s)
                 particle_number_s_mean=particle_number_s.mean(axis=0)
-                plt.plot(t, particle_number_s_mean/(self.particles*1.0),label="substrate") #of substrate
+                plt.plot(t, particle_number_s_mean/(self.particles*1.0),linestyle=linestyle,color="r" ,marker=marker,markevery=every, label="substrate") #of substrate
 
                 particle_number_p=np.array(particle_number_p)
                 particle_number_p_mean=particle_number_p.mean(axis=0)
@@ -138,6 +145,7 @@ class Analy_Complex(complex_sim.Sim_Complex):
                     kminus=self.micro_reactionrate_backward
                     #t= np.linspace(0,self.length*self.timestep,10000)
                     S_t=((kminus+kcomplex)/kplus)*lambertw((S_0/((kminus+kcomplex)/kplus))*np.exp((-kcomplex*E_0*t+S_0)/((kminus+kcomplex)/kplus)))
+                    #S_t=((kminus+kcomplex)/(kplus*(t*0.05)**(np.log(self.alpha)/np.pi)))*lambertw((S_0/((kminus+kcomplex)/(kplus*(t*0.05)**(np.log(self.alpha)/np.pi))))*np.exp((-kcomplex*E_0*t+S_0)/((kminus+kcomplex)/(kplus*(t*0.05)**(np.log(self.alpha)/np.pi)))))
                     return S_t.real
                 def es_t_modell(t,kplus,kminus,kcomplex):
                     #kminus=1
@@ -168,10 +176,14 @@ class Analy_Complex(complex_sim.Sim_Complex):
 
 
                 print best_vals[0],best_vals1[0],best_vals2[0]
+                #print covar1[1]
 
 
 
 
+
+                self.k_all=[best_vals[0],best_vals1[0],best_vals2[0]]
+                self.var_all=[covar[0],covar1[0],covar2[0]]
 
                 #self.k_plus=(best_vals2[0]+best_vals[0]+best_vals1[0])/3.0
                 self.k_plus=best_vals1[0]
@@ -232,7 +244,7 @@ class Analy_Complex(complex_sim.Sim_Complex):
                 #plt.plot(t,substrate,label="coulomb")
 
 
-                plt.plot(t, particle_number_p_mean/(self.particles*1.0),linestyle=linestyle,label=" product " ) # of product
+                #plt.plot(t, particle_number_p_mean/(self.particles*1.0),linestyle=linestyle,color="g"  ,marker=marker,markevery=every,label=" product " ) # of product
 
                 #plt.plot(t, particle_number_s_mean/boxsize**3,linestyle=linestyle,label=" michaelis " )
 
@@ -264,47 +276,70 @@ class Analy_Complex(complex_sim.Sim_Complex):
                     if  file.endswith("radialS.h5"):
                         numberfile=file[:-10]+"number_s.h5"
                         fn = h5.File(self.path+numberfile, "r")
+
+                        numberfile1=file[:-10]+"number_p.h5"
+                        fn1 = h5.File(self.path+numberfile1, "r")
+                        particle_number_p.append(fn1["particleNumbers"][-1])
                         #print numberfile
 
                         f = h5.File(self.path+file, "r")
                         bins = f['bins'][:]
                         bincenters = f['binCenters'][:]
-                        if not fn["particleNumbers"][-1]==0:
+
+                        if not bins.sum()==0:
+                            #print fn["particleNumbers"][-1]
                             radial_s.append(bins)
-                            particle_number_s.append(fn["particleNumbers"][-1])
+                            #radial_s.append(bins/bins.sum())
+                        particle_number_s.append(fn["particleNumbers"][-1])
+                        #else:
+
+                            #print bins.sum()
 
                         f.close()
                         fn.close()
+                        fn1.close()
                     elif  file.endswith("radialP.h5"):
-                        numberfile=file[:-10]+"number_p.h5"
-                        fn = h5.File(self.path+numberfile, "r")
-
-
                         f = h5.File(self.path+file, "r")
                         #print f.keys()
                         bins = f['bins'][:]
+                        #print bins.sum()
                         bincenters = f['binCenters'][:]
                         #print bincenters
-                        if not fn["particleNumbers"][-1]==0:
-                            particle_number_p.append(fn["particleNumbers"][-1])
+                        if not bins.sum()==0:
+                            #print fn["particleNumbers"][-1]
+                            #radial_p.append(bins/bins.sum())
                             radial_p.append(bins)
+                        #else:
+                            #print bins.sum()
                         f.close()
-                        fn.close()
+
+
 
                 particle_number_s=np.array(particle_number_s)
                 particle_number_p=np.array(particle_number_p)
+                #if (particle_number_s+particle_number_p).any() is not 20:
+                #    print particle_number_s+particle_number_p
 
 
-
-
-
+                #print particle_number_s+particle_number_p
                 radial_s=np.array(radial_s)
+                #print radial_s.mean(axis=0).shape
+                plt.plot(bincenters,(radial_s.mean(axis=0)*30.0)/radial_s.mean(axis=0).sum())
+                radial_p=np.array(radial_p)
+
+                plt.plot(bincenters,(radial_p.mean(axis=0)*30.0)/radial_p.mean(axis=0).sum(),linestyle="--")
+                #radial_s_norm=(radial_s*1.0)/(particle_number_s[:, None])
+                #print particle_number_s[:, None].min()
+                #print radial_s_norm.max()
+                #print radial_s.max(axis=1)
+                #print np.where(radial_s == radial_s.max())
+
+                #print radial_s.sum(axis=1)
 
 
-                radial_s_norm=(radial_s*1.0)/(particle_number_s[:, None])
                 #radial_s_norm=(radial_s*1.0)/(self.particles*1.0)
                 #print radial_s_norm.shape
-                radial_s_norm_mean=radial_s_norm.mean(axis=0)
+                #radial_s_norm_mean=radial_s_norm.mean(axis=0)
                 #print radial_s_norm_mean.shape
 
 
@@ -318,49 +353,80 @@ class Analy_Complex(complex_sim.Sim_Complex):
 
 
 
-                radialfunction_s = ((self.boxsize**3)*radial_s_norm_mean)/((self.boxsize/2.0-self.reactiondistance)/(50.0)*8*np.pi)# 8 because of checking for radial distribution next to complex and substrate
-                if len(radial_s) > 0:
-                    plt.plot(bincenters,radialfunction_s ,label="substrate")
+                #radialfunction_s = ((self.boxsize**3)*radial_s_norm_mean)/((self.boxsize/2.0-self.reactiondistance)/(50.0)*8*np.pi)# 8 because of checking for radial distribution next to complex and substrate
+                #if len(radial_s) > 0:
+                    #plt.plot(bincenters,radialfunction_s ,linestyle=linestyle,label="substrate")
 
-                radial_p=np.array(radial_p)
-                radial_p_norm=radial_p/(particle_number_p[:, None])
-                radial_p_norm_mean=radial_p_norm.mean(axis=0)
+
+                #radial_p_norm=radial_p/(particle_number_p[:, None])
+                #radial_p_norm_mean=radial_p_norm.mean(axis=0)
 
 
 
                 #radial_p_mean=radial_p.mean(axis=0)
 
-                radialfunction_p = (self.boxsize**3*radial_p_norm_mean)/((self.boxsize/2.0-self.reactiondistance)/(50.0)*8*np.pi) # 8 because of checking for radial distribution next to complex and substrate
-                if len(radial_p) > 0:
-                    plt.plot(bincenters, radialfunction_p,linestyle=linestyle,label="product")
+                #radialfunction_p = (self.boxsize**3*radial_p_norm_mean)/((self.boxsize/2.0-self.reactiondistance)/(50.0)*8*np.pi) # 8 because of checking for radial distribution next to complex and substrate
+                #if len(radial_p) > 0:
+                    #plt.plot(bincenters, radialfunction_p,linestyle=linestyle,label="product")
 
             elif ii=="MSD":
                 msd_s=[]
+
                 for file in os.listdir(self.path):
                     if  file.endswith("msd.h5"):
                         f = h5.File(self.path+file, "r")
                         msd = f['meanSquaredDisplacements'][:]
                         t = f['times'][:]
-                        msd_s.append(msd)
+                        if len(msd)-1 == self.length:
+                            msd_s.append(np.array(msd))
+
                         f.close()
                 msd_s=np.array(msd_s)
                 msd_s_mean=msd_s.mean(axis=0)
-                plt.plot(t,msd_s_mean,label="substrate")
+                plt.plot(t[1:],msd_s_mean[1:],label="substrate")
+
+                self.time=t
 
 
             elif ii=="reaction":
                 reaction1_f=[]
                 reaction1_b=[]
                 reaction2_b=[]
+                S_particle=[]
+                ES_particle=[]
+
                 for file in os.listdir(self.path):
                     if  file.endswith("reac_num_S_and_E_to_C.h5"):
+                        numberfile=file[:-24]+"number_s.h5"
+
+                        fn = h5.File(self.path+numberfile, "r")
+                        particles_s = fn['particleNumbers'][:]
+
+                        numberfile1=file[:-24]+"number_c.h5"
+
+                        fc = h5.File(self.path+numberfile1, "r")
+                        particles_c = fc['particleNumbers'][:]
+
+                        S_particle.append(particles_s)
+                        ES_particle.append(particles_c)
+
+                        #print np.min(S_concentration)
+
+
                         f = h5.File(self.path+file, "r")
                         reaction_f = f['forwardCounter'][:]
                         reaction_b=f['backwardCounter'][:]
                         reaction1_b.append(np.float64(reaction_b))
-                        reaction1_f.append(np.float64(reaction_f))
+
+
+
+
+
+                        reaction1_f.append(reaction_f)
                         t = f['times'][:]
                         f.close()
+                        fn.close()
+                        fc.close()
 
 
                     elif  file.endswith('reac_num_S_and_P_to_C.h5'):
@@ -369,24 +435,217 @@ class Analy_Complex(complex_sim.Sim_Complex):
                         t = f['times'][:]
                         reaction2_b.append(np.float64(reaction_b))
                         f.close()
+
+
                 reaction2_b=np.array(reaction2_b)
                 reaction2_b_mean=reaction2_b.mean(axis=0)
                 reaction1_b=np.array(reaction1_b)
                 reaction1_b_mean=reaction1_b.mean(axis=0)
                 reaction1_f=np.array(reaction1_f)
                 reaction1_f_mean=reaction1_f.mean(axis=0)
+
+
+
+                S_particle=np.array(S_particle)
+                #print S_particle.shape
+                S_particle_mean=S_particle.mean(axis=0)
+                #print S_particle_mean.shape
+
+
+
+
+                ES_particle=np.array(ES_particle)
+                ES_particle_mean=ES_particle.mean(axis=0)
+
+
+
+
+
+
+
+                c_s=(S_particle_mean*1.0)/(1.0*self.boxsize**3)
+                c_es=(ES_particle_mean*1.0)/(1.0*self.boxsize**3)
+
+                #plt.plot(t,reaction1_b_mean/c_es)
+                integral_of_kplus=(reaction1_f_mean*self.boxsize**3)/(c_s*c_es)
+                #print t[-1]
+               # print (reaction1_b_mean/c_es)[-1]/t[-1]
+                #print c_es
+
+
+                #plt.plot(t,reaction1_f_mean,linestyle="--",label=self.micro_reactionrate_backward)
+                #plt.plot(t,reaction2_b_mean,label=self.micro_reactionrate_backward)
+
+                #plt.plot(t,S_particle_mean,label=self.micro_reactionrate_backward)
+                #plt.plot(t,reaction1_b_mean+reaction2_b_mean)
+
+
+
+                def es_t_modell(t,kplus,kminus,kcomplex):
+                    #kminus=1
+                    kcomplex=self.micro_reactionrate_complex
+                    kminus=self.micro_reactionrate_backward
+                    S_0=(self.particles*1.0)/(self.boxsize**3)
+                    E_0=1.0/(self.boxsize**3)
+                    #t= np.linspace(0,self.length*self.timestep,10000)
+                    S_t=((kminus+kcomplex)/kplus)*lambertw((S_0/((kminus+kcomplex)/kplus))*np.exp((-kminus*E_0*t+S_0)/((kminus+kcomplex)/kplus)))
+                    ES_t=((E_0*S_t.real)/(((kminus+kcomplex)/kplus)+S_t.real))*(1-np.exp(-(((kminus+kcomplex)/kplus)+S_t.real)*kplus*t))
+
+                    return ES_t
+                best_vals, covar= curve_fit(es_t_modell,t,(ES_particle_mean*1.0)/(1.0*self.boxsize**3))
+
+                ES_model=es_t_modell(t,best_vals[0],1,1)
+
+
+
+                #plt.plot(t, (reaction1_f_mean*self.boxsize**3)/(S_particle_mean*ES_particle_mean))
+
+                k1=np.diff(reaction1_f_mean)/(S_particle_mean[1:]*ES_model[1:])
+
+                plt.plot(t[1:],k1)
+
+                def k1_mean(k1,step):
+                    i=0
+                    index_old=0
+                    t_neu=[]
+                    t_increment=((step+1)/2)
+                    k1_neu=[]
+                    while i<self.length/step:
+                        index=index_old+step
+                        k1_neu.append(k1[index_old:index].mean())
+                        t_neu.append(t_increment)
+                        t_increment=t_increment+step
+                        index_old=index
+                        i=i+1
+                    return np.array(t_neu), np.array(k1_neu)
+
+                t_index,k1neu=k1_mean(k1,21)
+
+
+                plt.plot(t[t_index],k1neu)
+                t_index,k1neu=k1_mean(k1,101)
+                plt.plot(t[t_index],k1neu)
+
+
+                #plt.plot(t, (self.boxsize**3)/(ES_particle_mean))
+                #plt.plot(t, 1.0/(ES_model))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                """
+                k_mean=[]
+                print ES_particle.shape
+                for i in range(len(ES_particle[0,:])):
+                    iterator=0
+                    k_sum=0
+                    for ii in range(len(ES_particle[:,0])):
+
+                        if ES_particle[ii,i]==0:
+                            k_sum=k_sum+((reaction1_f[ii,i]*self.boxsize**3)/(S_particle[ii,i]))
+                            iterator=iterator+1
+                    k_mean.append(k_sum/iterator)
+
+                k_mean=np.array(k_mean)
+
+                def kplus_modell(t,kplus,a):
+                    a=0
+                    return (a+t*kplus)*ES_particle.mean()
+
+
+                best_vals, covar= curve_fit(kplus_modell,t,k_mean*1.0)
+
+                print best_vals,covar
+
+
+
+                #plt.plot(t,k_mean*ES_particle.mean())
+                #plt.plot(t,ES_particle.mean()*kplus_modell(t,best_vals[0],best_vals[1]))
+
+
+                #ES_particle_mean=ES_particle.mean(axis=0)
+
+
+                #plt.plot(np.diff((reaction1_f_mean*self.boxsize**3)/(S_particle_mean*ES_particle_mean))*20)
+
+
+
+
+                assert (len(reaction1_f_mean)!=0),"eather no simulation or simulation observable was not ;all;!"
+
+
+                def kplus_modell(t,kplus,a):
+                    a=0
+                    return a+t*kplus
+
+
+                #best_vals, covar= curve_fit(kplus_modell,t,reaction1_f_mean*1.0)
+
+                #print best_vals,covar
+
+
+
+
+                '''
+                for i in range(int(self.length*self.timestep)):
+
+
+                    index=i*20
+                    print index
+                    reaction1_f_new.append(reaction1_f[:,index+1]-reaction1_f[:,index])
+
+
+                reaction1_f_new=(np.diff(np.array(reaction1_f_new),axis=1)).mean(axis=1)
+                '''
+
+                #plt .plot(t[1:],reaction1_f_mean)
+               # plt.plot(t,kplus_modell(t,best_vals[0],best_vals[1]))
+
+                '''
+                reaction1_f_mean=reaction1_f.mean(axis=0)
+                newreactiondiff=[]
+                indexold=0
+                print int(self.timestep*self.length)
+                for i in range(int(self.timestep*self.length)):
+                    index=int(i/self.timestep)
+                    #print index
+                    newreactiondiff.append(-reaction1_f[:,indexold]+reaction1_f[:,index])
+                    indexold=index
+
+                #reaction1diff_f_mean=
+
+                #plt.plot(range(int(self.timestep*self.length)),np.array(newreactiondiff).mean(axis=1))
                 #print reaction1_f_mean
+                '''
                 linestyle='-'
                 if self.alpha==0.5:
                     linestyle='--'
-                K=(reaction2_b_mean+reaction1_b_mean)/reaction1_f_mean
-                #plt.plot(t[:],reaction1_f_mean,linestyle=linestyle,label="forward_1 a=%.2f " %self.alpha)
+                #K=(reaction2_b_mean+reaction1_b_mean)/reaction1_f_mean
+
+                #plt.plot(t,reaction1_f_mean/self.timestep,linestyle=linestyle,label="forward_1 a=%.2f " %self.alpha)
                 #plt.plot(t[:],reaction1_b_mean,linestyle=linestyle,label="backward_1 a=%.2f " %self.alpha)
-                plt.plot(t[:],reaction2_b_mean,linestyle=linestyle,label="backward_2 a=%.2f " %self.alpha)
+                #plt.plot(t[:],reaction2_b_mean,linestyle=linestyle,label="backward_2 a=%.2f " %self.alpha)
                 #plt.plot(t[:],K,linestyle=linestyle,label="Michaelis Konstante")
-                plt.plot(t[:],reaction1_f_mean/reaction1_b_mean,linestyle=linestyle,label="ratio forwad backward a=%.2f " %self.alpha) #ratio forward backward
+                #plt.plot(t[:],reaction1_f_mean/reaction1_b_mean,linestyle=linestyle,label="ratio forwad backward a=%.2f " %self.alpha) #ratio forward backward
 
-
+                """
 
             elif ii=="Lineweaver-Burk-Diagramm":
                 reaction2_b=[]
