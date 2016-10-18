@@ -51,6 +51,8 @@ class Sim_Complex():
         self.observables={}
         self.timestep=timestep
         self.path=self.path()
+        self.radial_time_range=np.arange(1000,10000,100)
+
 
     def info(self):
         name='Info'+'.txt'
@@ -147,31 +149,62 @@ class Sim_Complex():
             if ii == "all":
                 combistamp=self.stamp()
 
-                msd=self.path + combistamp + "msd.h5"
+
+                msd=self.path+"msd/" + combistamp + "msd.h5"
+                if not os.path.exists(self.path+"msd/"):
+                    os.makedirs(self.path+"msd/")
                 sim.new_mean_squared_displacement(1,msd,0)
 
-                S_and_E_to_C=self.path + combistamp + "reac_num_S_and_E_to_C.h5"
-                P_and_E_to_C=self.path + combistamp + "reac_num_S_and_P_to_C.h5"
-
+                S_and_E_to_C=self.path+"reaction1/" + combistamp + "reac_num_S_and_E_to_C.h5"
+                P_and_E_to_C=self.path+"reaction2/" + combistamp + "reac_num_S_and_P_to_C.h5"
+                if not os.path.exists(self.path+"reaction1/"):
+                    os.makedirs(self.path+"reaction1/")
+                if not os.path.exists(self.path+"reaction2/"):
+                    os.makedirs(self.path+"reaction2/")
                 sim.new_reaction_counter(1,S_and_E_to_C,"S+E<->C")
                 sim.new_reaction_counter(1,P_and_E_to_C,"P+E<-C")
 
-                radial_S = self.path + combistamp + "radialS.h5"
-                radial_P = self.path + combistamp + "radialP.h5"
-                sim.new_radial_distribution(self.length, radial_S, np.arange(0, (self.boxsize*1.0)/2, ((self.boxsize*1.0)/(2.0*30.0) )), np.array([[0,2],[0,3]]))
-                sim.new_radial_distribution(self.length, radial_P, np.arange(0, (self.boxsize*1.0)/2, ((self.boxsize*1.0)/(2.0*30.0) )), np.array([[1, 2],[1,3]]))
+                radial_S = self.path+"radialS/" + combistamp + "radialS.h5"
+                radial_P = self.path+"radialP/" + combistamp + "radialP.h5"
+
+                radial_SP=self.path+"radialSP/" + combistamp + "radialSP.h5"
+                if not os.path.exists(self.path+"radialS/"):
+                    os.makedirs(self.path+"radialS/")
+                if not os.path.exists(self.path+"radialP/"):
+                    os.makedirs(self.path+"radialP/")
+                if not os.path.exists(self.path+"radialSP/"):
+                    os.makedirs(self.path+"radialSP/")
 
 
-                number_S=self.path + combistamp + "number_s.h5"
-                number_P=self.path + combistamp + "number_p.h5"
-                number_C=self.path + combistamp + "number_c.h5"
+
+                #sim.new_radial_distribution(np.arange(1000,10000,100), radial_S, np.arange(0, (self.boxsize*1.0)/2, ((self.boxsize*1.0)/(2.0*50.0) )), np.array([[0,2],[0,3]]))
+                #sim.new_radial_distribution(np.arange(1000,10000,100), radial_P, np.arange(0, (self.boxsize*1.0)/2, ((self.boxsize*1.0)/(2.0*50.0) )), np.array([[1, 2],[1,3]]))
+                sim.new_radial_distribution(self.radial_time_range, radial_SP, np.arange(0, (self.boxsize*1.0)/2, ((self.boxsize*1.0)/(2.0*50.0) )), np.array([[0,1]]))
+
+
+
+                sim.new_radial_distribution(self.radial_time_range,radial_S, np.arange(0, (self.boxsize*1.0)/2, ((self.boxsize*1.0)/(2.0*50.0))), np.array([[0,2],[0,3]]))
+                sim.new_radial_distribution(self.radial_time_range,radial_P, np.arange(0, (self.boxsize*1.0)/2, ((self.boxsize*1.0)/(2.0*50.0))), np.array([[1, 2],[1,3]]))
+
+
+
+                number_S=self.path +"number_S/"+ combistamp + "number_s.h5"
+                number_P=self.path +"number_P/"+ combistamp + "number_p.h5"
+                number_C=self.path +"number_C/"+ combistamp + "number_c.h5"
+                if not os.path.exists(self.path+"number_S/"):
+                    os.makedirs(self.path+"number_S/")
+                if not os.path.exists(self.path+"number_P/"):
+                    os.makedirs(self.path+"number_P/")
+                if not os.path.exists(self.path+"number_C/"):
+                    os.makedirs(self.path+"number_C/")
+
 
                 sim.new_particle_numbers(1,number_S,0)
                 sim.new_particle_numbers(1,number_P,1)
                 sim.new_particle_numbers(1,number_C,3)
 
             elif  ii == "MSD":
-                msd=self.path + self.stamp() + "msd.h5"
+                msd=self.path+"MSD/" + self.stamp() + "msd.h5"
                 sim.new_mean_squared_displacement(1,msd,0)
 
             elif ii == "radial":
@@ -193,12 +226,13 @@ class Sim_Complex():
                 number_S=self.path + combistamp + "number_s.h5"
                 number_P=self.path + combistamp + "number_p.h5"
                 number_C=self.path + combistamp + "number_c.h5"
+                radial_SP=self.path + combistamp + "radialSP.h5"
                 sim.new_particle_numbers(1,number_S,0)
                 sim.new_particle_numbers(1,number_P,1)
                 sim.new_particle_numbers(1,number_C,3)
-                sim.new_radial_distribution(self.length, radial_S, np.arange(0, self.boxsize/2, (self.boxsize/(2.0*30.0) )), np.array([[0,2],[0,3]]))
-                sim.new_radial_distribution(self.length, radial_P, np.arange(0, self.boxsize/2, (self.boxsize/(2.0*30.0) )), np.array([[1, 2],[1,3]]))
-                #sim.new_radial_distribution(self.length, radial_S,r_radial, np.array([[2,0],[3,0]]))
+                sim.new_radial_distribution(np.arange(1000,10000,100), radial_S, np.arange(0, self.boxsize/2, (self.boxsize/(2.0*50.0) )), np.array([[0,2],[0,3]]))
+                sim.new_radial_distribution(np.arange(1000,10000,100), radial_P, np.arange(0, self.boxsize/2, (self.boxsize/(2.0*50.0) )), np.array([[1, 2],[1,3]]))
+                sim.new_radial_distribution(np.arange(1000,10000,100), radial_SP, self.boxsize/2, np.arange(0, self.boxsize/2, (self.boxsize/(2.0*50.0) )), np.array([0,1]))
                 #sim.new_radial_distribution(self.length, radial_P,r_radial, np.array([[2, 1],[3,1]]))
 
             elif ii == "number_of_particle":

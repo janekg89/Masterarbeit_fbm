@@ -13,7 +13,7 @@ alpha=0.5
 lambda_plus=1.0
 lambda_c=1.0
 lambda_minus=1.0
-length=2**11
+length=2**10
 
 
 for ii in [0.06,0.11,0.81,1.41]:
@@ -28,11 +28,12 @@ for ii in [0.06,0.11,0.81,1.41]:
     #    print index1
     #    complex.run()
 
-    complex1=complex_sim.Sim_Complex(D,R,lambda_plus,lambda_minus,lambda_c,1.0,length,boxsize,particlenumber,0.05)
-    complex1.observables=["number_of_particle","radial","reaction","MSD"]
-    #for index2 in range(400):
-     #   print index2
-     #   complex1.run()
+
+    for index2 in range(400):
+        complex1=complex_sim.Sim_Complex(D,R,lambda_plus,lambda_minus,lambda_c,1.0,length,boxsize,particlenumber,0.05)
+        complex1.observables=["all"]
+        print index2
+        complex1.run()
 
 
 for ii in [0.06,0.11,0.81,1.41]:
@@ -86,8 +87,8 @@ for ii in [0.06,0.11,0.81,1.41]:
 ######
 
 
-plt.ylabel('$ \\frac{N}{N_{max}} $',fontsize=10)
-plt.xlabel('t in $\\Gamma$',fontsize=10)
+plt.ylabel('scaled concentration',fontsize=10)
+plt.xlabel('scaled time',fontsize=10)
 
 
 

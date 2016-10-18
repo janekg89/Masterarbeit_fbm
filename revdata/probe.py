@@ -21,19 +21,13 @@ def func(self,params, X, Y):
                         chi2 = chi2 + (Y[n] - y)**2
 
 '''
-r=np.linspace(0,3.5)
-v=7**3/50
-dr=-r+(r**3+((v*3)/(4*np.pi)))**(1.0/3.0)
-plt.plot(dr,r)
-plt.show()
+alpha=[1.0,0.9,0.8,0.7,0.6,0.5]
+alpha=np.array(alpha)
+h=[0.0,0.013,0.033,0.06,0.097,0.22]
+k_0=[1.0,]
+print (np.log(h[5])-0)/(-0.5)
 
-r_momentan=1
-r_radial=[r_momentan]
-for _ in range(30):
-    dr=-r_momentan+(r_momentan**3+((v*3)/(4*np.pi)))**(1.0/3.0)
-    r_momentan=r_momentan+dr
-    r_radial.append(r_momentan)
-
-plt.plot(r_radial,linestyle=" ",marker="+")
+plt.plot(h)
+plt.plot(-0.05*np.exp(1)+0.05*np.exp(1/alpha))
 plt.show()
 
