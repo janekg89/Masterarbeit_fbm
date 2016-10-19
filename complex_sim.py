@@ -51,7 +51,7 @@ class Sim_Complex():
         self.observables={}
         self.timestep=timestep
         self.path=self.path()
-        self.radial_time_range=np.arange(1000,10000,100)
+        self.radial_time_range=np.arange(100,2**14,1)
 
 
     def info(self):
@@ -184,7 +184,7 @@ class Sim_Complex():
 
 
                 sim.new_radial_distribution(self.radial_time_range,radial_S, np.arange(0, (self.boxsize*1.0)/2, ((self.boxsize*1.0)/(2.0*50.0))), np.array([[0,2],[0,3]]))
-                sim.new_radial_distribution(self.radial_time_range,radial_P, np.arange(0, (self.boxsize*1.0)/2, ((self.boxsize*1.0)/(2.0*50.0))), np.array([[1, 2],[1,3]]))
+                sim.new_radial_distribution(np.array([1000,1020]),radial_P, np.arange(0, (self.boxsize*1.0)/2, ((self.boxsize*1.0)/(2.0*50.0))), np.array([[1, 2],[1,3]]))
 
 
 
@@ -232,7 +232,7 @@ class Sim_Complex():
                 sim.new_particle_numbers(1,number_C,3)
                 sim.new_radial_distribution(np.arange(1000,10000,100), radial_S, np.arange(0, self.boxsize/2, (self.boxsize/(2.0*50.0) )), np.array([[0,2],[0,3]]))
                 sim.new_radial_distribution(np.arange(1000,10000,100), radial_P, np.arange(0, self.boxsize/2, (self.boxsize/(2.0*50.0) )), np.array([[1, 2],[1,3]]))
-                sim.new_radial_distribution(np.arange(1000,10000,100), radial_SP, self.boxsize/2, np.arange(0, self.boxsize/2, (self.boxsize/(2.0*50.0) )), np.array([0,1]))
+                sim.new_radial_distribution(np.arange(1000,10000,100), radial_SP, np.arange(0, self.boxsize/2, (self.boxsize/(2.0*50.0) )), np.array([0,1]))
                 #sim.new_radial_distribution(self.length, radial_P,r_radial, np.array([[2, 1],[3,1]]))
 
             elif ii == "number_of_particle":

@@ -13,7 +13,7 @@ import complex_sim
 from sklearn import datasets, linear_model
 from scipy.optimize import curve_fit
 from scipy.special import lambertw
-
+from scipy import stats
 
 
 import revreaddy as rdy
@@ -309,7 +309,7 @@ class Analy_Complex(complex_sim.Sim_Complex):
 
 
                 linestyle='-'
-                marker=""
+                marker="+"
                 markersize=0.5
                 every=1
                 color="y"
@@ -330,7 +330,7 @@ class Analy_Complex(complex_sim.Sim_Complex):
                     kminus=self.micro_reactionrate_backward
                     S_0=(self.particles*1.0)/(self.boxsize**3)
                     E_0=1.0/(self.boxsize**3)
-                    S_t=((kminus+kcomplex)/kplus)*lambertw((S_0/((kminus+kcomplex)/kplus))*np.exp((-kminus*E_0*t+S_0)/((kminus+kcomplex)/kplus)))
+                    S_t=((kminus+kcomplex)/kplus)*lambertw((S_0/((kminus+kcomplex)/kplus))*np.exp((-kcomplex*E_0*t+S_0)/((kminus+kcomplex)/kplus)))
                     ES_t=((E_0*S_t.real)/(((kminus+kcomplex)/kplus)+S_t.real))*(1-np.exp(-(((kminus+kcomplex)/kplus)+S_t.real)*kplus*t))
                     return ES_t
 
@@ -339,20 +339,21 @@ class Analy_Complex(complex_sim.Sim_Complex):
                     kminus=self.micro_reactionrate_backward
                     S_0=(self.particles*1.0)/(self.boxsize**3)
                     E_0=1.0/(self.boxsize**3)
-                    S_t=((kminus+kcomplex)/kplus)*lambertw((S_0/((kminus+kcomplex)/kplus))*np.exp((-kminus*E_0*t+S_0)/((kminus+kcomplex)/kplus)))
+                    S_t=((kminus+kcomplex)/kplus)*lambertw((S_0/((kminus+kcomplex)/kplus))*np.exp((-kcomplex*E_0*t+S_0)/((kminus+kcomplex)/kplus)))
                     ES_t=((E_0*S_t.real)/(((kminus+kcomplex)/kplus)+S_t.real))*(1-np.exp(-(((kminus+kcomplex)/kplus)+S_t.real)*kplus*t))
                     P_t=S_0-S_t.real-ES_t
                     return P_t
 
 
 
-                #best_vals2, covar2= curve_fit(p_t_modell,t,(particle_number_p_mean*1.0)/(1.0*self.boxsize**3))
+                best_vals2, covar2= curve_fit(p_t_modell,t,(particle_number_p_mean*1.0)/(1.0*self.boxsize**3))
                 best_vals1, covar1= curve_fit(s_t_modell,t,(particle_number_s_mean*1.0)/(1.0*self.boxsize**3))
-                #best_vals, covar= curve_fit(es_t_modell,t,(particle_number_c_mean*1.0)/(1.0*self.boxsize**3))
+                best_vals, covar= curve_fit(es_t_modell,t,(particle_number_c_mean*1.0)/(1.0*self.boxsize**3))
 
                 #self.k_all=[best_vals[0],best_vals1[0],best_vals2[0]]
                 #self.var_all=[covar[0],covar1[0],covar2[0]]
                 self.k_plus=best_vals1[0]
+                print best_vals[0],best_vals1[0],best_vals2[0]
                 #self.k_minus=self.micro_reactionrate_backward
                 #self.k_complex=self.micro_reactionrate_complex
 
@@ -419,7 +420,7 @@ class Analy_Complex(complex_sim.Sim_Complex):
                     kminus=self.micro_reactionrate_backward
                     S_0=(self.particles*1.0)/(self.boxsize**3)
                     E_0=1.0/(self.boxsize**3)
-                    S_t=((kminus+kcomplex)/kplus)*lambertw((S_0/((kminus+kcomplex)/kplus))*np.exp((-kminus*E_0*t+S_0)/((kminus+kcomplex)/kplus)))
+                    S_t=((kminus+kcomplex)/kplus)*lambertw((S_0/((kminus+kcomplex)/kplus))*np.exp((-kcomplex*E_0*t+S_0)/((kminus+kcomplex)/kplus)))
                     ES_t=((E_0*S_t.real)/(((kminus+kcomplex)/kplus)+S_t.real))*(1-np.exp(-(((kminus+kcomplex)/kplus)+S_t.real)*kplus*t))
                     P_t=S_0-S_t.real-ES_t
                     return P_t
@@ -442,9 +443,9 @@ class Analy_Complex(complex_sim.Sim_Complex):
 
                 marker="+"
                 if show_plot is "on":
-                    plt.plot(t, particle_number_c_mean,marker=marker,linestyle=linestyle,color=color,markevery=every ,label="complex") #of complex
-                    plt.plot(t, particle_number_s_mean/(self.particles*1.0),linestyle=linestyle,color="r" , label="substrate") #of substrate
-                    plt.plot(t, particle_number_p_mean/(self.particles*1.0),linestyle=linestyle,color="g"  ,label=" product " ) # of product
+                    plt.loglog(t[1:], particle_number_c_mean[1:],marker=marker,linestyle="",color=color,markevery=np.logspace(0,np.log10(len(range(2**14))),60).astype('int')[2:] ,label="complex") #of complex
+                    plt.plot(t[1:], particle_number_s_mean[1:]/(self.particles*1.0),linestyle=linestyle,color="r" , label="substrate") #of substrate
+                    plt.plot(t[1:], particle_number_p_mean[1:]/(self.particles*1.0),linestyle=linestyle,color="g"  ,label=" product " ) # of product
 
                     #plt.plot(tneu,p_t_modell(tneu,k1_fit(tneu,h_best),1.0,1.0)/S_0,color=color )
                     #plt.plot(tneu,s_t_modell(tneu,k1_fit(tneu,h_best),1.0,1.0)/S_0,color="r" )
@@ -453,6 +454,8 @@ class Analy_Complex(complex_sim.Sim_Complex):
 
                     plt.plot(tneu,p_t_modell_alpha(tneu, 1.0,1.0,1.0)/S_0,color="g",linestyle="--" )
                     plt.plot(tneu,s_t_modell_alpha(tneu,1.0,1.0,1.0)/S_0,color="r",linestyle="--" )
+                    plt.plot(tneu,es_t_modell(tneu,self.k_plus,self.micro_reactionrate_backward,self.micro_reactionrate_complex)*self.boxsize**3,color=color,linestyle="--" )
+
 
 
 
@@ -489,9 +492,9 @@ class Analy_Complex(complex_sim.Sim_Complex):
                 radial_s=np.array(radial_s)
                 radial_p=np.array(radial_p)
                 radial_sp=np.array(radial_sp)
-                plt.errorbar(bincenters,radial_s.mean(axis=0)*self.boxsize**3/len(self.radial_time_range),radial_s.std(axis=0)*self.boxsize**3/self.length,label="substrate")
-                plt.errorbar(bincenters,radial_p.mean(axis=0)*self.boxsize**3/len(self.radial_time_range),radial_p.std(axis=0)*self.boxsize**3/self.length)
-                plt.errorbar(bincenters,radial_sp.mean(axis=0)*self.boxsize**3/len(self.radial_time_range),radial_sp.std(axis=0)*self.boxsize**3/self.length)
+                plt.errorbar(bincenters,radial_s.mean(axis=0)*self.boxsize**3/len(self.radial_time_range),stats.sem(radial_s,axis=0)*self.boxsize**3/len(self.radial_time_range),label="substrate")
+                #plt.errorbar(bincenters,radial_p.mean(axis=0)*self.boxsize**3/2,radial_p.std(axis=0)*self.boxsize**3)
+                #plt.errorbar(bincenters,radial_sp.mean(axis=0)*self.boxsize**3/len(self.radial_time_range),radial_sp.std(axis=0)*self.boxsize**3)
 
 
                 def radial_erban(bincenters,radial_dist):
@@ -505,7 +508,7 @@ class Analy_Complex(complex_sim.Sim_Complex):
                             return i
 
 
-                plt.plot(bincenters[index_cut():],radial_erban(bincenters,1.20*radial_s.mean(axis=0)*self.boxsize**3/len(self.radial_time_range))[index_cut():],linestyle="--")
+                plt.plot(bincenters[index_cut():],radial_erban(bincenters,1.042*radial_s.mean(axis=0)*self.boxsize**3/len(self.radial_time_range))[index_cut():],linestyle="--", label="Erban-Chapman")
 
 
 
@@ -516,7 +519,7 @@ class Analy_Complex(complex_sim.Sim_Complex):
                     return ((2*a_3)/bincenters)*np.sinh(bincenters*np.sqrt(self.micro_reactionrate_forward/self.Diffusion))
 
 
-                plt.plot(bincenters[:index_cut()+1],radial_erban_inside(bincenters,1.20*radial_s.mean(axis=0)*self.boxsize**3/len(self.radial_time_range))[:index_cut()+1],linestyle="--")
+                plt.plot(bincenters[:index_cut()+1],radial_erban_inside(bincenters,1.042*radial_s.mean(axis=0)*self.boxsize**3/len(self.radial_time_range))[:index_cut()+1],linestyle="--")
 
 
                 def fit_radial_ouside(a1,a2,bincenters):
@@ -920,7 +923,7 @@ class Analy_Complex(complex_sim.Sim_Complex):
                         i=i+1
                     return np.array(t_neu), np.array(k1_neu)
 
-                t_index,k1neu=makemean(k1,201)
+                t_index,k1neu=makemean(k1,101)
                 tneu=t[t_index]
 
                 def k1_fit(t,h,k_0):
@@ -932,8 +935,10 @@ class Analy_Complex(complex_sim.Sim_Complex):
                 h_best, covar_h= curve_fit(k1_fit,tneu,k1neu*20)
 
 
-                plt.plot(t[t_index],k1neu*20,label=self.alpha)
-                plt.plot(tneu,k1_fit(tneu,h_best[0],h_best[1]),linestyle="--")
+                plt.plot(t[t_index],k1neu*20,label="$k_1(t)$")
+                plt.plot(tneu,k1_fit(tneu,h_best[0],h_best[1]),linestyle="--",label="Mean")
+                plt.plot(tneu,np.ones(len(tneu))*self.k_plus,linestyle="--",label="Fit $c_s(t)$")
+
 
 
 
