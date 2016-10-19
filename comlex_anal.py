@@ -581,7 +581,7 @@ class Analy_Complex(complex_sim.Sim_Complex):
                         f.close()
                 msd_s=np.array(msd_s)
                 msd_s_mean=msd_s.mean(axis=0)
-                plt.plot(t[1:],msd_s_mean[1:],label="substrate")
+                plt.plot(t[1:],msd_s_mean[1:],label="alpha = %.2f" %self.alpha)
 
                 self.time=t
 
@@ -935,9 +935,9 @@ class Analy_Complex(complex_sim.Sim_Complex):
                 h_best, covar_h= curve_fit(k1_fit,tneu,k1neu*20)
 
 
-                plt.plot(t[t_index],k1neu*20,label="$k_1(t)$")
-                plt.plot(tneu,k1_fit(tneu,h_best[0],h_best[1]),linestyle="--",label="Mean")
-                plt.plot(tneu,np.ones(len(tneu))*self.k_plus,linestyle="--",label="Fit $c_s(t)$")
+                plt.plot(t[t_index],k1neu*20,label="$\\alpha=%.2f$"%self.alpha)
+                plt.plot(tneu,k1_fit(tneu,h_best[0],h_best[1]),linestyle="--")
+                #plt.plot(tneu,np.ones(len(tneu))*self.k_plus,linestyle="--",label="Fit $c_s(t)$")
 
 
 

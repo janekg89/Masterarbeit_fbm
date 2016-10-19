@@ -114,7 +114,7 @@ def show_k1_better(D,R,lambda_plus,lambda_minus,lambda_c,alpha,length,boxsize,pa
         complexb.show_observable()
         k_erban=4.0*np.pi*complexb.Diffusion*(complexb.reactiondistance-(np.sqrt(complexb.Diffusion/(complexb.micro_reactionrate_forward))*np.tanh(complexb.reactiondistance*np.sqrt((complexb.micro_reactionrate_forward)/complexb.Diffusion))))
         print "erban chapmann:k1=",k_erban
-        plt.plot(range(2**14/20),np.ones(2**14/20)*k_erban,linestyle="--",label="Erban Chapmann")
+        #plt.plot(range(2**14/20),np.ones(2**14/20)*k_erban,linestyle="--",label="Erban Chapmann")
         k_1=complexb.k_plus
         print "fitted k1",k_1
 
@@ -136,7 +136,7 @@ def show_MSD(D,R,lambda_plus,lambda_minus,lambda_c,alpha,length,boxsize,particle
         complexb=comlex_anal.Analy_Complex(D,R,lambda_plus,lambda_minus,lambda_c,alpha,length,boxsize,particlenumber,tau)
         complexb.observables=["MSD"]
         complexb.show_observable()
-        plt.plot(complexb.time[1:],6*((complexb.time[1:])**complexb.alpha)*complexb.Diffusion,linestyle="--", label="analytical")
+        plt.plot(complexb.time[1:],6*((complexb.time[1:])**complexb.alpha)*complexb.Diffusion,linestyle="--")
 
 """
 for lambda_minus in [0.0]:
@@ -162,13 +162,51 @@ plt.savefig('./finalreport/data/chapman-limit-concentrations1_k1',dpi=300)
 plt.show()
 
 
-"""
+
 for boxsize in [8.0]:
     lambda_minus=0.0
     lambda_plus=0.1
     show_radial(D,R,lambda_plus,lambda_minus,lambda_c,alpha,length,boxsize,particlenumber,tau)
-plt.ylabel('$r(t)$', fontsize=12)
-plt.xlabel('scaled time', fontsize=10)
+plt.ylabel('$g(r)$', fontsize=12)
+plt.xlabel('r', fontsize=10)
 plt.legend(loc=3,fontsize='small')
 plt.savefig('./finalreport/data/chapman-limit-radial',dpi=300)
+plt.show()
+
+
+for alpha in [1.0,0.9,0.8,0.7,0.6,0.5]:
+    if alpha==1:
+        a=show_particle_alpha(D,R,lambda_plus,lambda_minus,lambda_c,alpha,length,boxsize,particlenumber,tau,0)
+    else:
+        show_particle_alpha(D,R,lambda_plus,lambda_minus,lambda_c,alpha,length,boxsize,particlenumber,tau,a)
+plt.ylabel('scaled concentrations', fontsize=10)
+plt.xlabel('scaled time', fontsize=10)
+plt.legend(loc=3,fontsize='small')
+#plt.savefig('./finalreport/data/chapman-limit-radial',dpi=300)
+plt.show()
+
+for alpha in [1.0,0.9,0.8,0.7,0.6]:
+       show_MSD(D,R,lambda_plus,lambda_minus,lambda_c,alpha,length,boxsize,particlenumber,tau)
+
+plt.ylabel('MSD(t)', fontsize=10)
+plt.xlabel('scaled time', fontsize=10)
+plt.legend(loc=2,fontsize='small')
+#plt.savefig('./finalreport/data/chapman-limit-radial',dpi=300)
+plt.show()
+
+
+for alpha in [1.0,0.8,0.7,0.6]:
+    show_radial(D,R,lambda_plus,lambda_minus,lambda_c,alpha,length,boxsize,particlenumber,tau)
+plt.ylabel('$g(r)$', fontsize=12)
+plt.xlabel('r', fontsize=10)
+plt.legend(loc=3,fontsize='small')
+#plt.savefig('./finalreport/data/chapman-limit-radial_alpha',dpi=300)
+plt.show()
+"""
+for alpha in [1.0,0.9,0.8,0.7,0.6,0.5]:
+    show_k1_better(D,R,lambda_plus,lambda_minus,lambda_c,alpha,length,boxsize,particlenumber,tau)
+plt.ylabel('$k_+(t)$', fontsize=12)
+plt.xlabel('t', fontsize=10)
+plt.legend(loc=3,fontsize='small')
+#plt.savefig('./finalreport/data/chapman-limit-radial_alpha',dpi=300)
 plt.show()
