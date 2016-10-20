@@ -440,7 +440,8 @@ Fractal Kinetics and Spatial Segregation Hugeues Berry
  \item understand fractional brownian motion algorythm
  \item new variable: Segragation of reactants: Q=... \cite{Hellmann2011}
  \item question reactionrate: if reactance in close proximity (reaction distance) then with propability of reaction rate per 1 timeunit(seconds)?
-\end{itemize}
+ \item vermutung: fehler bei dem ersten inkrement bei der berechnung des MSD. 
+ \end{itemize}
 
 bis morgen:
 1. Fractional ergebnisse von oben nachstellen.
@@ -525,6 +526,123 @@ Complex bildung möglich machen nach Michaelis Menden. -> da reaction number int
   \captionof{figure}{RevReaDDy simulation of fractional brownian motion with alpha 0.5 with 400 substrate and 150 enyyme  of one type with Diffusion constant = 0.2,  s+e=c=p+e ,reaction dsitance = 0.3, first reactionrate forward 50,0, reaction rate backward= 0.2, second reactionrate forward 0,second reaction rate backward= 0.1, boxsize = 10,  dt=0.01, 8000 timesteps}
   \label{fig:amount of particles michaelis menten fractional}
 \end{figure}
+
+\section{new stuff}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{./data/partnum_50_a_0p5_lambda0p8xlog.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{ alpha0.5}
+  \label{fig:kineticsreactionkonstatvariationlog}
+\end{figure}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{./data/radialpartnum_50_a_0p5_labda0p8.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{radialdistributionfunction}
+  \label{fig:radialabc}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{./data/shortsimulations_time_differentreactionstime.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{ variation of reaction konstant}
+  \label{fig:kineticsreactionkonstatvariation}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{./data/shortsimulations_time_differentreactionstime_rightstartingposition.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{ variation of reaction konstant 0.06,0.11,0.81,1.41, partnum=200}
+  \label{fig:kineticsreactionkonstatvariationpositionright}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{./data/kinectics_longtrajectory_alpha0p5und1p0.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{ variation of alpha}
+  \label{fig:alphavariation}
+\end{figure}
+
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{./data/kinectics_longtrajectory_alpha0p5und1p0xlog.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{ variation of alpha}
+  \label{fig:alphavariationlog}
+\end{figure}
+
+\chapter{Reaction an Diffusion}
+Was für Simulationsarten gibt es für reactions und Diffusions Systeme. 
+Vielleicht etwas zur konfergenz
+\section{Particle Based Reaction and Diffusion Simulations}
+\section{Enzymatic Reaction}
+\section{Michaelis Menten Sceme}
+\subsection{RevReaDDy implementation of Michaelis Menten}
+\subsection{Quasi Equlibrium Aproximation}
+Gültigkeit. Vielleicht Vergeleich zur Nummerischen Lösung 
+\subsection{Quasi Stationary Approximation }
+Gültigkeit. Vielleicht Vergeleich zur Nummerischen Lösung 
+\subsection{Diffusion Limit}
+no blocking of Complex
+\subsubsection{Search Problem}
+
+
+\subsubsection{Erban Chapmann limit}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{./data/erban-chapman-limit-concentrations1.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{ Erban Chapmann Concentrations}
+  \label{fig:diffusion_limit-Erban-Chapmann}
+\end{figure}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{./data/chapman-limit-concentrations1_k1.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{ Erban Chapmann $k1$}
+  \label{fig:diffusion_limit-Erban-Chapmann_k1}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{./data/chapman-limit-radial.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{ Erban Chapmann radial distribution}
+  \label{fig:diffusion_limit-Erban-Chapmann_radial}
+\end{figure}
+\newpage
+\subsection{Reaction Limit}
+
+\section{Michealis Menten Sceme with Fractional Brownian Motion}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{./data/differentalphamsdrevreaddy.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{ different alpha}
+  \label{fig:differentalpharevreaddymsd}
+\end{figure}
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{./data/k1_fordifferentalpha_withfit.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{$k1(t)$ for differnt $\alpha$ with fitted h}
+  \label{fig:k1differentalphawithfit}
+\end{figure}
+
+
+thesis: $k1(t)\propto t^{-h}$
+\subsection{Diffusion Limit}
+\subsection{Search Problem}
+$\alpha(h)$
+\subsection{Spatial Segragation of Enzyme and Product}
+
+
 
 \chapter{Appendix}
 \section{From Central Limit Theorem to Gaussian Distribution}\label{append:CLT}
