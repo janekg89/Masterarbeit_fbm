@@ -420,161 +420,6 @@ This setup has been simulated with only one enzyme. The time dependent particle 
 \end{figure}
 \newline \noindent In the second half of the master thesis fBm is going to be integrated in RevReaDDy. Similar simulations with fBm are going to be studied and related to Brownian motion. Spatial distributions of the reactants are going to be studied. The algorithm for fBm uses his velocity autocorrelation function. In principle it should be possible to integrate also different VACFs. The fBm integrator would result in an more general integrator, which could be used to model environments from real experiments. Including the VACF in the integrator may be an elegant way of adding an approximation due to the experimental environment. 
 
-\chapter{Working  fractional motion integrator in RevReaDDy}
-\section{to do}
-\begin{itemize}
- \item read Monte Carlo Simulations of Enzyme Reactions in Two Dimensions:
-Fractal Kinetics and Spatial Segregation Hugeues Berry
- \item read Anomalous reaction kinetics and domain formation on crowded membranes
- \item read Enhancing phosphorylation cascades by anomalous diffusion
- \item new variable: amount of reaction -> to get reaction rates.
- \item target search problem: reaction rate forward $= \infty$ reaction rate backward $=0$. Als vergleich zu den Berechnungen im Midtermreport
- \item reaction rates start with 1. enzyme and a density od substrates
- \item Interesting variables: reaction effective rates (forward, backward?), Amount of Partciles over time, radial distribution, probability density?,
- \item profiling
- \item make complex building possible
- \item find out reasonable parameters
- \item memory problem with long simulations solved
- \item write analysis class solved 
- \item problem: unique id und typeid ändern sich nicht in der Observable Trajectory warum?
- \item understand fractional brownian motion algorythm
- \item new variable: Segragation of reactants: Q=... \cite{Hellmann2011}
- \item question reactionrate: if reactance in close proximity (reaction distance) then with propability of reaction rate per 1 timeunit(seconds)?
- \item vermutung: fehler bei dem ersten inkrement bei der berechnung des MSD. 
- \end{itemize}
-
-bis morgen:
-1. Fractional ergebnisse von oben nachstellen.
-2. erklären wei envirment gebildet wird.
-erklären was bisher möglich ist:
-enzymatic reaction
-Observablen:
-position,
-radial distribution,
-Number of particles,
-reaction number of enzymatic,
-mit beispielen
-3. Die Ergebnisse vom Paper nachstellen welches nur  fusion beinhaltet.
-
--------------
-algorythmus verstehen
-neue Variable: segragation
-Complex bildung möglich machen nach Michaelis Menden. -> da reaction number integrieren
-
-
-\section{results no reactions}
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=\textwidth]{./data/fractionalmsdrecreaddy.png}
-  \captionsetup{width=\linewidth}
-  \captionof{figure}{Ensemble MSD of a RevReaDDy simulation with 1500 particles of one type with Diffusion constant = 3, no reactions, boxsize = 20, and a fractional Diffusion integrator with anomalous coefficient = 0.5, dt= 0.01 }
-  \label{fig:fractionalrevreaddy}
-\end{figure}
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=\textwidth]{./data/fractionalradialdistributionrevreaddy.png}
-  \captionsetup{width=\linewidth}
-  \captionof{figure}{Radial Distribution of a RevReaDDy simulation with 1500 particles of one type with Diffusion constant = 3, no reactions, boxsize = 20, and a fractional Diffusion integrator with anomalous coefficient = 0.5,dt=1.0 }
-  \label{fig:fractionalrevreaddyradial}
-\end{figure}
-\section{results with reactions}
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=\textwidth]{./data/fractionalvsbroanianreactionrate-numbersubstrate-boxcsize30-diffconst0p2reactiondistance2-frate0p5-brate0p1-500particles.png}
-  \captionsetup{width=\linewidth}
-  \captionof{figure}{number of substrates in a RevReaDDy simulation of brownian motion vs fractional brownian motion with $\alpha=0.5$ with 500 particles of one type with Diffusion constant = 0.2, a pseudo enzymatic reatcion s+e=p+e ,reaction dsitance = 2.0,reactionrate forward 0.5, reaction rate backward= 0.1, boxsize = 30,  dt=1.0, avraged over 10 runs, 16384 timesteps}
-  \label{fig:fractionalrevreaddy1}
-\end{figure}
-
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=\textwidth]{./data/reactionrateforward.png}
-  \captionsetup{width=\linewidth}
-  \captionof{figure}{number of forward reactions in a RevReaDDy simulation of brownian motion vs fractional brownian motion with $\alpha=0.5$ with 500 particles of one type with Diffusion constant = 0.2, a pseudo enzymatic reatcion s+e=p+e ,reaction dsitance = 2.0,reactionrate forward 0.5, reaction rate backward= 0.1, boxsize = 30,  dt=1.0, avraged over 5 runs,4096 timesteps}
-  \label{fig:forward reaction}
-\end{figure}
-
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=\textwidth]{./data/bildsubstraeblauproductrot.png}
-  \captionsetup{width=\linewidth}
-  \captionof{figure}{snapshot substrate blue, product red, in a RevReaDDy simulation of brownian motion vs fractional brownian motion with $\alpha=0.5$ with 500 particles of one type with Diffusion constant = 0.2, a pseudo enzymatic reatcion s+e=p+e ,reaction dsitance = 2.0,reactionrate forward 0.5, reaction rate backward= 0.1, boxsize = 30,  dt=1.0, avraged over 5 runs,4096 timesteps}
-  \label{fig:forward reaction2}
-\end{figure}
-
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=\textwidth]{./data/changealpha.png}
-  \captionsetup{width=\linewidth}
-  \captionof{figure}{number of forward reactions in a RevReaDDy simulation of brownian motion vs fractional brownian motion with differnet $\alpha$ with 500 particles of one type with Diffusion constant = 0.2, a pseudo enzymatic reatcion s+e=p+e ,reaction dsitance = 2.0,reactionrate forward 0.5, reaction rate backward= 0.1, boxsize = 30,  dt=1.0, avraged over 2 runs,4096 timestep}
-  \label{fig:forward reaction1}
-\end{figure} 
-
-
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=\textwidth]{./data/michaelismenten_brownian.png}
-  \captionsetup{width=\linewidth}
-  \captionof{figure}{RevReaDDy simulation of brownian motion  with 400 substrate and 150 enyyme  of one type with Diffusion constant = 0.2,  s+e=c=p+e ,reaction dsitance = 0.3, first reactionrate forward 50,0, reaction rate backward= 0.2, second reactionrate forward 0,second reaction rate backward= 0.1, boxsize = 10,  dt=0.01, 8000 timesteps}
-  \label{fig:amount of particles michaelis menten brownian}
-\end{figure}
-
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=\textwidth]{./data/michaelismenten_fractionalbrownian.png}
-  \captionsetup{width=\linewidth}
-  \captionof{figure}{RevReaDDy simulation of fractional brownian motion with alpha 0.5 with 400 substrate and 150 enyyme  of one type with Diffusion constant = 0.2,  s+e=c=p+e ,reaction dsitance = 0.3, first reactionrate forward 50,0, reaction rate backward= 0.2, second reactionrate forward 0,second reaction rate backward= 0.1, boxsize = 10,  dt=0.01, 8000 timesteps}
-  \label{fig:amount of particles michaelis menten fractional}
-\end{figure}
-
-\section{new stuff}
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=\textwidth]{./data/partnum_50_a_0p5_lambda0p8xlog.png}
-  \captionsetup{width=\linewidth}
-  \captionof{figure}{ alpha0.5}
-  \label{fig:kineticsreactionkonstatvariationlog}
-\end{figure}
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=\textwidth]{./data/radialpartnum_50_a_0p5_labda0p8.png}
-  \captionsetup{width=\linewidth}
-  \captionof{figure}{radialdistributionfunction}
-  \label{fig:radialabc}
-\end{figure}
-
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=\textwidth]{./data/shortsimulations_time_differentreactionstime.png}
-  \captionsetup{width=\linewidth}
-  \captionof{figure}{ variation of reaction konstant}
-  \label{fig:kineticsreactionkonstatvariation}
-\end{figure}
-
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=\textwidth]{./data/shortsimulations_time_differentreactionstime_rightstartingposition.png}
-  \captionsetup{width=\linewidth}
-  \captionof{figure}{ variation of reaction konstant 0.06,0.11,0.81,1.41, partnum=200}
-  \label{fig:kineticsreactionkonstatvariationpositionright}
-\end{figure}
-
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=\textwidth]{./data/kinectics_longtrajectory_alpha0p5und1p0.png}
-  \captionsetup{width=\linewidth}
-  \captionof{figure}{ variation of alpha}
-  \label{fig:alphavariation}
-\end{figure}
-
-
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=\textwidth]{./data/kinectics_longtrajectory_alpha0p5und1p0xlog.png}
-  \captionsetup{width=\linewidth}
-  \captionof{figure}{ variation of alpha}
-  \label{fig:alphavariationlog}
-\end{figure}
 
 \chapter{Reaction an Diffusion}
 Was für Simulationsarten gibt es für reactions und Diffusions Systeme. 
@@ -610,13 +455,20 @@ no blocking of Complex
 
 \begin{figure}[h!]
   \centering
+  \includegraphics[width=\textwidth]{./data/microrate_complex_radial_erban.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{ Radial distribution for differnt $k_{c}$ }
+  \label{fig:microrate_complex_radial_erban}
+\end{figure}
+\newpage
+\subsection{Reaction Limit}
+\begin{figure}[h!]
+  \centering
   \includegraphics[width=\textwidth]{./data/chapman-limit-radial.png}
   \captionsetup{width=\linewidth}
   \captionof{figure}{ Erban Chapmann radial distribution}
   \label{fig:diffusion_limit-Erban-Chapmann_radial}
 \end{figure}
-\newpage
-\subsection{Reaction Limit}
 
 \section{Michealis Menten Sceme with Fractional Brownian Motion}
 \begin{figure}[h!]
