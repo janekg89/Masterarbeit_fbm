@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/dev/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: midtermreport.aux
+The style file: plain.bst
+Database file #1: literatur.bib
+Warning--empty journal in Flegg
+Warning--empty year in Flegg
+Warning--empty school in Johannesschoneberg2014
+Warning--empty journal in Smoluchowski1
+Warning--empty year in Smoluchowski1
+You've used 13 entries,
+            2118 wiz_defined-function locations,
+            596 strings with 6047 characters,
+and the built_in function-call counts, 3840 in all, are:
+= -- 394
+> -- 126
+< -- 1
++ -- 51
+- -- 38
+* -- 271
+:= -- 648
+add.period$ -- 38
+call.type$ -- 13
+change.case$ -- 57
+chr.to.int$ -- 0
+cite$ -- 18
+duplicate$ -- 141
+empty$ -- 325
+format.name$ -- 38
+if$ -- 783
+int.to.chr$ -- 0
+int.to.str$ -- 13
+missing$ -- 11
+newline$ -- 67
+num.names$ -- 26
+pop$ -- 52
+preamble$ -- 1
+purify$ -- 45
+quote$ -- 0
+skip$ -- 97
+stack$ -- 0
+substring$ -- 314
+swap$ -- 16
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 52
+warning$ -- 5
+while$ -- 46
+width$ -- 15
+write$ -- 137
+(There were 5 warnings)
