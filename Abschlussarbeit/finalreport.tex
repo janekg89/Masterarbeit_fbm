@@ -294,9 +294,12 @@ Fractional correlations can be incorporated via its VACF:
 \end{align}
 
 \subsection{Algorithm}
-Three algorithm have been implemented. 
+Three algorithms have been implemented. 
 1. Hosking 2, Modification of Davis-Harte 3. Lowen arlgorythm. In the following all three are going to be inroduced and analysied in terms of accuacy and speed. 
 \subsubsection{Hosking}
+
+
+
 $L^2$
 \subsubsection{Modified Davis-Harte}
 In the following an algorithm, which generates fractional Brownian noise will be introduced. The algorithm is based on the Davis-Harte algorithm \cite{Craigmile2003}. The idea is to use the calculated VACF and thereby modify conventionally generated Gaussian random variables. All the increments should be generated beforehand. With this concept, it is more difficult to include forces. Nevertheless, it is computationally favourable than computing each increment recursively considering also its history. This can be done by the exact algorithm of hosking \cite{WRCR:WRCR3676}. This would be certainly necessary since all increments are defined to be more than just delta-correlated in time. For computational reasons the elaborations for fractional Brownian motion in the previous chapter on how to generate fractional Brownian increments have to be transformed into a discrete form, thereby the solution is no longer exact, which will be shown in the analysis part of the algorithm.  
@@ -372,7 +375,39 @@ Only $n$ increments are taken into account $\xi_{j}$ for $j=(0,1,..,n)$.
 \end{enumerate}
 The described algorithm can be performed for every Cartesian component of the three dimensional fractional Brownian motion. The Cartesian component are not correlated.
 \subsubsection{Lowen}
-The algorthm which had been used in the pervious elaborations had down draws in terms of convergence close to 0 and close to the overall simulation time. These problems have been overcome by the algorthm of Steven B. Lowen \cite{Lowen1999}.
+The algorithm which had been used in the pervious elaborations had down draws in terms of convergence close to 0 and close to the overall simulation time. These problems have been overcome by the algorithm of Steven B. Lowen \cite{Lowen1999}. The Lowen algorithm is both fast  $ (\mathcal{O}(NlogN))$ and exact. The algorithm goes as follows:
+\begin{enumerate}
+ \item Compute a periodic autocovariance function of $R_{\xi}(n)$ of a stochastic process $\xi(n)$:
+ \begin{align}
+  R_{\xi}(n)=
+  \begin{cases}
+   \frac{\Delta t^{\alpha}}{2}\left[1-\left(\frac{n}{N}\right)^{\alpha} \right]  & \text{ for    } 0 \leq n \leq N \\
+   R_{\xi}(2N-n)  & \text{ for    } N \leq n \leq 2N 
+  \end{cases}
+ \end{align}
+ \item Transform the autocovariance function via FFT. The result is called the spectral density of the stochastic process $\xi(n)$:
+  \begin{align}
+   S_{\xi}(k)= FFT(R_{\xi}(n))
+  \end{align}
+ \item Calculate $\tilde\xi(k)$ the inverse Fourier transform of stochastic process $\xi(n)$:
+ \begin{align}
+  \tilde\xi(k)=
+  \begin{cases}
+     0  & \text{ for    } k=0 \\    
+     exp(i \theta) \eta \sqrt{S_{\xi}(k)}  & \text{ for    } 0 \leq k \leq N \\
+     \eta \sqrt{S_{\xi}(k)}  & \text{ for    } k = N \\
+     \tilde\xi^{*}(2N-k) & \text{ for    } N \leq k \leq 2N 
+  \end{cases}
+ \end{align}
+ $\tilde\xi^{*}$ denotes the complex conjugate of $\tilde\xi$. $\theta$ is a random variable uniformly distributed  in $(0,2\pi]$  
+ \item Perform the inverse Fourier transform on $\tilde\xi(k)$ and use the first half of the resulting sochastic process $\xi(n)$ multiplied by a factor:
+ \begin{align}
+  \xi(n)&=FFT^{-1}(\tilde\xi(k)) \\
+  B^{\alpha}_n&= \xi(n)  \qquad \qquad \qquad \qquad \text{for    } 0 \leq n \leq N
+ \end{align}
+\end{enumerate}
+
+
 
 
 

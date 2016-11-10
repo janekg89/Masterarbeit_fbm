@@ -183,7 +183,7 @@ From the mean and the covariance the mean square diplacement can be derived as:
 \begin{align}
  \langle (B^{\alpha}_{t}-B^{\alpha}_{s})^2 \rangle = (s-t)^\alpha \sigma^2
 \end{align}
-Lets define another connected random variable the continous-time fractional Gaussian noise (ctfGn)  for the meaning of $\sigma$.
+Lets define another connected random variable the continous-time fractional Gaussian noise (ctfGn)  for the meaning of the variance$\sigma$.
 \begin{mydef}
 ctfGn is a continous-time Gaussian process $\{X^{\alpha}_t\}_{t\geq0}: \Omega \rightarrow \mathbb{R}^d$ with $\langle X^{\alpha}_t \rangle=0$ and variance $Var[X^{\alpha}_t]= \langle (X^{\alpha}_t)^2 \rangle=\sigma^2$. Defined as the derivative of $B{\alpha}_t$:
 \begin{align}
@@ -219,19 +219,17 @@ and with stationarity:
  Cov[X^{\alpha}_0,X^{\alpha}_m]=\frac{\sigma^2}{2}[(n-1)^{\alpha}-2n^{\alpha}+(n+1)^{\alpha}]
 \end{align}
 
+For further properties \cite{qian2003fractional} can be recommended.
+To bring a connection to th pysical diffusion the variance of fGn to be written as: 
 
-
-
-
-
-check more from \cite{qian2003fractional}
-
-
-In terms of anomal diffusion fBm's variance can be written as:
 \begin{align}
-\delta r^{2}(t)= < \Delta R(t)>=2dK_{\alpha}t^{\alpha}
+\sigma^2=2dK_{\alpha}
 \end{align}
-with $K_{\alpha}>0$  being the generalized diffusion coefficient.
+and the Mean square displacemnt as:
+\begin{align}
+\delta r^{2}(t)= < \Delta R(t)>=2dK_{\alpha} t^{\alpha}
+\end{align}
+with $K_{\alpha}>0$  being the generalized diffusion coefficient, which can not be written as the diffsuion constant because of different units.
 \newline
 In the following some properties of fBm will be discussed:
 \begin{itemize}
@@ -296,9 +294,12 @@ Fractional correlations can be incorporated via its VACF:
 \end{align}
 
 \subsection{Algorithm}
-Three algorithm have been implemented. 
-1. Hosking 2, Modification of Davis-Harte 3. Lowen arlgorythm. In the following all three are going to be inroduced and analysied in terms of accuacy and speed.
+Three algorithms have been implemented. 
+1. Hosking 2, Modification of Davis-Harte 3. Lowen arlgorythm. In the following all three are going to be inroduced and analysied in terms of accuacy and speed. 
 \subsubsection{Hosking}
+
+
+
 $L^2$
 \subsubsection{Modified Davis-Harte}
 In the following an algorithm, which generates fractional Brownian noise will be introduced. The algorithm is based on the Davis-Harte algorithm \cite{Craigmile2003}. The idea is to use the calculated VACF and thereby modify conventionally generated Gaussian random variables. All the increments should be generated beforehand. With this concept, it is more difficult to include forces. Nevertheless, it is computationally favourable than computing each increment recursively considering also its history. This can be done by the exact algorithm of hosking \cite{WRCR:WRCR3676}. This would be certainly necessary since all increments are defined to be more than just delta-correlated in time. For computational reasons the elaborations for fractional Brownian motion in the previous chapter on how to generate fractional Brownian increments have to be transformed into a discrete form, thereby the solution is no longer exact, which will be shown in the analysis part of the algorithm.  
@@ -374,7 +375,39 @@ Only $n$ increments are taken into account $\xi_{j}$ for $j=(0,1,..,n)$.
 \end{enumerate}
 The described algorithm can be performed for every Cartesian component of the three dimensional fractional Brownian motion. The Cartesian component are not correlated.
 \subsubsection{Lowen}
-The algorthm which had been used in the pervious elaborations had down draws in terms of convergence close to 0 and close to the overall simulation time. These problems have been overcome by the algorthm of Steven B. Lowen \cite{Lowen1999}.
+The algorithm which had been used in the pervious elaborations had down draws in terms of convergence close to 0 and close to the overall simulation time. These problems have been overcome by the algorithm of Steven B. Lowen \cite{Lowen1999}. The Lowen algorithm is both fast  $ (\mathcal{O}(NlogN))$ and exact. The algorithm goes as follows:
+\begin{enumerate}
+ \item Compute a periodic autocovariance function of $R_{\xi}(n)$ of a stochastic process $\xi(n)$:
+ \begin{align}
+  R_{\xi}(n)=
+  \begin{cases}
+   \frac{\Delta t^{\alpha}}{2}\left[1-\left(\frac{n}{N}\right)^{\alpha} \right]  & \text{ for    } 0 \leq n \leq N \\
+   R_{\xi}(2N-n)  & \text{ for    } N \leq n \leq 2N 
+  \end{cases}
+ \end{align}
+ \item Transform the autocovariance function via FFT. The result is called the spectral density of the stochastic process $\xi(n)$:
+  \begin{align}
+   S_{\xi}(k)= FFT(R_{\xi}(n))
+  \end{align}
+ \item Calculate $\tilde\xi(k)$ the inverse Fourier transform of stochastic process $\xi(n)$:
+ \begin{align}
+  \tilde\xi(k)=
+  \begin{cases}
+     0  & \text{ for    } k=0 \\    
+     exp(i \theta) \eta \sqrt{S_{\xi}(k)}  & \text{ for    } 0 \leq k \leq N \\
+     \eta \sqrt{S_{\xi}(k)}  & \text{ for    } k = N \\
+     \tilde\xi^{*}(2N-k) & \text{ for    } N \leq k \leq 2N 
+  \end{cases}
+ \end{align}
+ $\tilde\xi^{*}$ denotes the complex conjugate of $\tilde\xi$. $\theta$ is a uniform random variable in the range  
+ \item Perform the inverse Fourier transform on $\tilde\xi(k)$ and use the first half of the resulting sochastic process $\xi(n)$ multiplied by a factor:
+ \begin{align}
+  \xi(n)&=FFT^{-1}(\tilde\xi(k)) \\
+  B^{\alpha}_n&= \xi(n)  \qquad \qquad \qquad \qquad \text{for    } 0 \leq n \leq N
+ \end{align}
+\end{enumerate}
+
+
 
 
 
