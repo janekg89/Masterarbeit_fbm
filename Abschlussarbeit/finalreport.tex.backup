@@ -114,12 +114,12 @@
 
 \newtheorem{mydef}{Definition}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
-\chapter*{Introduction}
+\chapter*{Motivation}
 Anomalous diffusion can be observed in many different areas of nature, in particular, related to heterogeneous media like porous rocks, random resistor networks and crowded biological media with its prominent phenomena macromolecular crowding, confinement and macromolecular adsorption \cite{Minton2006}. These environments exhibit remarkable characteristics like anomalous diffusion with its most popular power-law behaviour of the Mean-Square-Displacement ($MSD\propto t^{\alpha}$) \cite{Hofling2013}, which is violating the Einstein formula $MSD=2 d D t$ and thereby the central limit theorem. Various theoretical models try to encounter anomalous diffusion. One of these models is fractional Brownian motion (fBm).It is modelling stochastic processes with strong corelations. FBm was first introduced as family of Gaussian random function by Mandelbrot and Van Ness in 1968 and motivated by examples in economics \cite{Mandelbrot1968}. In contrast to different models of anomalous diffusion, the fBm approach is plainly phenomenological defined by a power-law of the MSD and thus perfectly qualifies as a starting point to study effects resulting from a power-law MSD. \newline This thesis focuses on the impact of fBm on enzymatic reactions. Pionier work by Leonor Michaelis and Maud Menten \cite{michaelis1913kinetik} simplified the enzymatic reaction sceme for a concentration based model. As one of the best known and important models of enzyme kinetecs it is of great intereset to study effects on Michaelis-Menten like reactions by fBm. For this purpose a particle based simulation with a fBm integrator of the Michaelis-Menten like reactions was set up. Spatial and temporal effects induced by fBm are studied. 
 \newline The thesis is organized in three chapters: 1. Fractional Brownian Motion ,2. Particle Based Reaction Diffusion and 3. An Enzyme Reaction With Fractional Brownian Motion. The first chapter sets up theoretical fondations for fBm. Subsequently,fBm generating algorithms are studied. The second chapter deales with models describing reactions in general but focuses on particle based reaction and diffusion. A particle based Reaction and Diffusion software RevReaDDy is introduced.  Chapter 4 focuses more specifically on enzyme reactions. Followed by a enzymatic simulatiom model set up with RevReaDDy. Finally results from the simulation are discused and related to exisiting literature.
 \chapter{Fractional Brownian Motion}
 \section{Introduciton}
-Brownian motion is a mathematical model for stochastic processes. It could be applied to finance, biology, physics and many more because of no or only week correlations of the underlieng processes.   
+Wiener process is a continous-time stochastic processes. It is applied to finance, biology, physics and many more because of no or only week correlations of the underlying processes. Brownian motion is the random motion of particles suspended in a fluid, which is modeled by a wiener process.   
 Fractional Brownian Motion is a more general family of Gaussian random function then standard Brownian motion with long-range correlations as its defining property. The main objective of this chapter is to explore the theoretical foundation for Fractional Brownian Motion starting with Brownian motion in the following section. 
 \section{Brownian Motion}
 Standard Brownian Motion is a very important and good studied stochastic process. It describes the erratic motion of mesoscopic particles, which first were documented by Jan Ingenhousz in 1785, in particular for coal dust on the surface of alcohol\cite{Hofling2013}. Later on, in 1827 Robert Brown observed the erratic motion of pollen grains. Brownian Motion has a Gaussian propagator, which has its origin in the Central Limit Theorem (CLT) for a sum of independent and identically distributed random variables.
@@ -133,54 +133,99 @@ This scenario in which a random variable is defined by the sum of another can be
 \begin{align}
  \rho(y) =\frac{1}{\sqrt{2 \pi} \sigma } e^{-\frac{y^2}{2 \sigma^2}}
 \end{align}
-A calculation of this very interesting result can be found in the appendix \ref{append:CLT}.    Microscopic processes, which result in independent random position changes of a particle and add up over time, thus have a Gaussian distribution function for the overall change in position. \newline With  Bayes' theorem and an initial delta-distribution one can show that transition probability $T_{t}(y|0) = \rho_{t}(y)$ is equivalent to the particle density distribution. One can find the calculation in the appendix \ref{baystheorem}. The above-mentioned elaborations motivate the reason for a process with a Gaussian transition probability. A processes with Gaussian distributed transition probability and uncorrelated increments is called standard Brownian motion
+A calculation of this very interesting result can be found in the appendix \ref{append:CLT}.    Microscopic processes, which result in independent random position changes of a particle and add up over time, thus have a Gaussian distribution function for the overall change in position. Therefore a random walk converges toward the Wiener process \newline With  Bayes' theorem and an initial delta-distribution one can show that transition probability $T_{t}(y|0) = \rho_{t}(y)$ is equivalent to the particle density distribution. One can find the calculation in the appendix \ref{baystheorem}. The above-mentioned elaborations motivate the reason for a process with a Gaussian transition probability. A processes with Gaussian distributed transition probability and uncorrelated increments is called Wiener process (Standard Brownian motion).
 \begin{mydef}
-Standard Brownian motion is a stochastic process $ \{ W_t \}_{t\geq0}: \Omega \rightarrow \mathbb{R}^d$ with $ W_t(\omega)$ being the position of a particle with $\omega \in \Omega$ at time $t \in T$ in the observation time $T =[0, \infty)$. It has a fixed $x \in \mathbb{R}^d$ as its origin. The transition probabilities are \cite{LectureFelix}: 
+Brownian motion described by the Wiener process is a stochastic process $ \{ W_t \}_{t\geq0}: \Omega \rightarrow \mathbb{R}^d$ with $ W_t(\omega)$ being the position of a particle with $\omega \in \Omega$ at time $t \in T$ in the observation time $T =[0, \infty)$. It has a fixed $x \in \mathbb{R}^d$ as its origin. The transition probabilities are \cite{LectureFelix}: 
 \begin{align}
-T_{t}(y|x) & := (2 \pi t)^{- \frac{d}{2}} e^{- \frac{||x-y||^2}{2 t}} \text{for } y \in \mathbb{R}^d, t>0 \\ \nonumber
+T_{t}(y|x) & := (2 \pi t)^{- \frac{d}{2}} exp \left(- \frac{||x-y||^2}{2 t}\right) \text{ for } y \in \mathbb{R}^d, t>0 \\ \nonumber
 T_{0}(y|x) & = \delta(x-y) 
 \end{align}
 \end{mydef}
-Its basic properties are:\\
-\begin{itemize} \label{bscaling}
-\item Brownian motion is a Gaussian process with mean $E^x[W_t]=x$, $W_o=x$.
-Since $ E^x[(W_{t_i}-W_{t_{i-1}})(W_{t_j}-W_{t_{j-1}})]=0 $  all its increments $\{W_{t_1},W_{t_2}-W_{t_1},...,W_{t_k}-W_{k-1}\}$ are independent.
-
-\item Brownian motion has stationary increments since ${W_{t-h}-W_{h}}$ has the same distribution for all $h>0$.
-
-\item  Brownian scaling $\{\hat{W}_t := \frac{1}{c} W_{c^2 t} \}_{t\geq0}$ if $\{W_t\}_{t \geq 0}$  is also a Brownian motion. Therefore Brownian motion has self-similar and fractal paths. 
-\end{itemize}
-Now introducing Fick's second law of diffusion. It predicts how diffusion causes the concentration to change over time:
+The Wiener process is a Gaussian process with mean $\langle W_t \rangle_y=x$ and position of the particle is $W_o=x$ at $t=0$. Its variance is $\langle W^2_t \rangle_y= t$. It has a property called Brownian scaling $\{\hat{W}_t := \frac{1}{c} W_{c^2 t} \}_{t\geq0}$ if $\{W_t\}_{t \geq 0}$.A Wiener process has self-similar and fractal paths as a result from brownian scaling.\newline 
+A Wiener process is a purely mathematical model with missing connection to the strength of diffusion of a particle. Fick's empirical second law how diffusion causes the concentration to change over time:
 \begin{align}
  \frac{\partial}{\partial t} c(\bm{r},t) = - \nabla J (\bm{r},t) = D  \Delta c(\bm{r},t) \qquad \text{ with } \qquad \Delta= \nabla^2  \label{eq:ficks}
 \end{align}
-With Fick's first law $J(\bm{r},t)=- \nabla c(\bm{r},t)$ and $D$ being the flux of particles and the diffusion coefficient, respectively. Fick's first law is a result from the linear response theory. Fick's second law can be derived from the continuity equation and Fick's first law. The Concentration $c(\bm{r},t)$ can be interpreted as a probability distribution, if properly normalized  $\int d\bm{r} c(\bm{r},t)=1$. For further calculation the mathematical description of a transition probability of Brownian motion will be replaced with a more physical description of a propagator:
+With Fick's first law $J(\bm{r},t)=- \nabla c(\bm{r},t)$ and $D$ being the flux of particles and the diffusion coefficient, respectively. Fick's first law is a result from the linear response theory. Fick's second law can be derived from the continuity equation and Fick's first law. The Concentration $c(\bm{r},t)$ can be interpreted as a probability distribution, if properly normalized  $\int d\bm{r} c(\bm{r},t)=1$. The transition probability of the Wiener process build the fundation for a more physical description of a propagator:
 \begin{align}
- P(\bm{r},t)=  \left(\frac{2 \pi \delta \bm{r}^2(t)}{d}\right)^{- \frac{d}{2}} e^{- \frac{\bm{r}^2 d}{2 \delta \bm{r}^2(t)}} \label{propagator}
+ P(\bm{r},t)=  \left(\frac{2 \pi \delta \bm{r}^2(t)}{d}\right)^{- \frac{d}{2}} exp \left(- \frac{\bm{r}^2 d}{2 \delta \bm{r}^2(t)} \right) \label{propagator}
 \end{align}
 One can show that the propagator is solving \cref{eq:ficks} with $\delta \bm{r}^2(t)=2dDt$ and the meaningful initial condition of vanishing concentration at boundaries: 
 \begin{align}
 c(\pm \infty,t)=0
 \end{align}
 The calculation can be found in the appendix \ref{einsteinrealtionappendix}.
-For further references, a scale-free form of the Gaussian propagator will be introduced. It is a more intuitive consequence of Brownian scaling.
+Brownian scaling applies as a property also to the propagator of Brownian motion.
+There is a scale-free form of the Gaussian propagator as a more intuitive consequence of Brownian scaling. 
 \begin{align}
 P(\bm{r},t)= r^{-d} \mathcal{P}_{gauss}(\hat{\bm{r}})  \qquad \text{with} \qquad \hat{\bm{r}} = \frac{\bm{r}}{\sqrt{2Dt}} \label{scalefreeform}
 \end{align}
 
 
 
+
+
+% Now some stuff from \cite{Timmer1995}
+% and its autocorrelation
+% \begin{align}
+% VACF&=\langle (W_{t_i}-W_{t_{i-1}})(W_{t_j}-W_{t_{j-1}}) \rangle_x \\
+% &=\lim\limits_{n \rightarrow \infty}\frac{1}{N}\sum_{t=1}^{N-(t_i-t_j)}(W_{t_i}-W_{t_{i-1}})(W_{t_j}-W_{t_{j-1}}) =
+% \end{align}
+
+
 \section{Fractional Brownian Motion}\label{sectionfrac}
-In this section the theoretical foundation for fractional Brownian motion will be set and related to standard Brownian Motion. \\
-In the previous section the MSD has been shown to be linear with time as a result of the central limit theorem. In normal liquids this behaviour can be seen already at time scales higher than picoseconds \cite{Hofling2013}. Nevertheless, many experiments show that the MSD has a power law behaviour ( $\delta r ^2 (t) \propto t^{\alpha}$ for  $0 < \alpha < 1$ ). Thus, the central limit theorem does not hold, not even for long time scales. It can be shown that persistent correlations of the increments are present. In soft matter, like polymers,a subdiffusive behaviour is typically present in a time window but finally the linear MSD takes over. Fractional Brownian motion instead examines the case that the central limit theorem is violated for all time scales. The basic feature of fBm's is that the "span of interdependence" between their increments can be said to be infinite \cite{Mandelbrot1968}\\
+In this section the theoretical foundation for continious-time and discrete-time Fractional Brownian Motion will be set. \\
+In the previous section the MSD has been shown to be linear with time as a result of the central limit theorem. In normal liquids this behaviour can be seen already at time scales higher than picoseconds \cite{Hofling2013}. Nevertheless, many experiments show that the MSD has a power law behaviour ( $\delta r ^2 (t) \propto t^{\alpha}$ for  $0 < \alpha < 1$ ). Thus, the central limit theorem does not hold, not even for long time scales. It can be shown that persistent correlations of the increments are present. In soft matter, like polymers, a subdiffusive behaviour is typically present in a time window but finally the linear MSD takes over. Fractional Brownian motion instead examines the case that the central limit theorem is violated for all time scales. The basic feature of fBm's is that the "span of interdependence" between their increments can be said to be infinite \cite{Mandelbrot1968}\\
 \begin{mydef}
-Just like standard Brownian motion, fBm is a Gaussian process $\{X_t\}_{t\geq0}: \Omega \rightarrow \mathbb{R}^d$. Therefore it is fully specified by its mean $E[X_t]=0$ and its (co)variance function $Cov[X_t,X_s]\stackrel{stationary} {=}C(X_{t-s},X_0)=E[\delta X_{t-s}^* X_{0}]\propto t^\alpha$ . 
+Just like the Wiener process, continous-time Fractional Brownian motion (ctfBm) is a continous-time Gaussian process $\{B^{\alpha}_t\}_{t\geq0}: \Omega \rightarrow \mathbb{R}^d$. Therefore it is fully specified by its mean $\langle B_t \rangle=0$ and its (co)variance function $Cov[B^{\alpha}_t,B^{\alpha}_s]=\frac{\sigma}{2}[t^{\alpha}-2(s-t)^{\alpha}+s^{\alpha}]$
 \end{mydef}
-In contrast to the covariance function of white noise:
+From the mean and the covariance the mean square diplacement can be derived as: 
 \begin{align}
- Cov[X_t,X_s]=\sigma^2 \delta(t-s)
+ \langle (B^{\alpha}_{t}-B^{\alpha}_{s})^2 \rangle = (s-t)^\alpha \sigma^2
 \end{align}
+Lets define another connected random variable the continous-time fractional Gaussian noise (ctfGn)  for the meaning of $\sigma$.
+\begin{mydef}
+ctfGn is a continous-time Gaussian process $\{X^{\alpha}_t\}_{t\geq0}: \Omega \rightarrow \mathbb{R}^d$ with $\langle X^{\alpha}_t \rangle=0$ and variance $Var[X^{\alpha}_t]= \langle (X^{\alpha}_t)^2 \rangle=\sigma^2$. Defined as the derivative of $B{\alpha}_t$:
+\begin{align}
+  B^{\alpha}_t=\int^t_0 X^{\alpha}_{\epsilon} d \epsilon
+\end{align}
+\end{mydef}
+Thus $X^{\alpha}_t=d B^{\alpha}_t/dt$ and the covariance function for ctfGn is:
+\begin{align}
+ Cov[X^{\alpha}_t,X^{\alpha}_s]&= \frac{d^2 B^{\alpha}_t B^{\alpha}_s}{dt ds}=-\sigma^2 \frac{d^2 |t-s|^{\alpha}}{dtds}\\
+ &=\alpha (\alpha-1) \sigma^2 |t-s|^{\alpha-2}+\alpha \sigma^2 |t-s|^{\alpha-1} \delta(t-s)
+\end{align}
+For Wiener white noise ($\alpha=1$) the first therm (the correlation) disapears:
+\begin{align}
+ Cov[X_t,X_s]= \sigma^2 \delta(t-s)
+\end{align}
+The spectrum density function is definied as the Fouriertransform of the autocovariance function:
+\begin{align}
+ S(\omega)= \int^{\infty}_{-\infty} Cov[X_t,X_0] exp[-2 \pi i \omega t] dt
+\end{align}
+
+
+
+For algorithmic purpose discrete time fractional Brownian Motion  (fGm) and Noise (fGn) are relevant as well:
+\begin{align}
+B^{\alpha}_{t}= \sum_{i=0}^kX^{\alpha}_i
+\end{align}
+The covariance function for fGm is simular to ctfGm but differnt for fGn in comparison to ctfGn:
+\begin{align*}
+ Cov[X^{\alpha}_n,X^{\alpha}_m]&=\langle (B^{\alpha}_n-B^{\alpha}_{n-1}) (B^{\alpha}_m-B^{\alpha}_{m-1})\rangle \\ &=\frac{\sigma^2}{2}[(n-m-1)^{\alpha}-2(n-m)^{\alpha}+(n-m+1)^{\alpha}]
+\end{align*}
+and with stationarity:
+\begin{align}
+ Cov[X^{\alpha}_0,X^{\alpha}_m]=\frac{\sigma^2}{2}[(n-1)^{\alpha}-2n^{\alpha}+(n+1)^{\alpha}]
+\end{align}
+
+
+
+
+
+
 check more from \cite{qian2003fractional}
+
 
 In terms of anomal diffusion fBm's variance can be written as:
 \begin{align}

@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2015/dev/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: finalreport.aux
 The style file: plain.bst
@@ -8,45 +8,45 @@ Warning--empty year in Flegg
 Warning--empty school in Johannesschoneberg2014
 Warning--empty journal in Smoluchowski1
 Warning--empty year in Smoluchowski1
-You've used 17 entries,
+You've used 16 entries,
             2118 wiz_defined-function locations,
-            624 strings with 6697 characters,
-and the built_in function-call counts, 5066 in all, are:
-= -- 521
-> -- 160
+            616 strings with 6591 characters,
+and the built_in function-call counts, 4818 in all, are:
+= -- 497
+> -- 153
 < -- 2
-+ -- 65
-- -- 48
-* -- 353
-:= -- 847
-add.period$ -- 51
-call.type$ -- 17
-change.case$ -- 74
++ -- 62
+- -- 46
+* -- 336
+:= -- 803
+add.period$ -- 48
+call.type$ -- 16
+change.case$ -- 70
 chr.to.int$ -- 0
-cite$ -- 22
-duplicate$ -- 196
-empty$ -- 437
-format.name$ -- 48
-if$ -- 1048
+cite$ -- 21
+duplicate$ -- 185
+empty$ -- 414
+format.name$ -- 46
+if$ -- 997
 int.to.chr$ -- 0
-int.to.str$ -- 17
-missing$ -- 15
-newline$ -- 87
-num.names$ -- 34
-pop$ -- 66
+int.to.str$ -- 16
+missing$ -- 14
+newline$ -- 82
+num.names$ -- 32
+pop$ -- 64
 preamble$ -- 1
-purify$ -- 58
+purify$ -- 55
 quote$ -- 0
-skip$ -- 134
+skip$ -- 127
 stack$ -- 0
-substring$ -- 401
-swap$ -- 27
+substring$ -- 387
+swap$ -- 26
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 68
+type$ -- 64
 warning$ -- 5
-while$ -- 61
-width$ -- 19
-write$ -- 182
+while$ -- 58
+width$ -- 18
+write$ -- 171
 (There were 5 warnings)

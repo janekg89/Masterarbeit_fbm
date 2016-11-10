@@ -7,35 +7,35 @@
 \contentsline {section}{\numberline {1.1}Introduciton}{2}{section.1.1}
 \contentsline {section}{\numberline {1.2}Brownian Motion}{2}{section.1.2}
 \contentsline {section}{\numberline {1.3}Fractional Brownian Motion}{4}{section.1.3}
-\contentsline {subsection}{\numberline {1.3.1}Algorithm}{6}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.1}Algorithm}{7}{subsection.1.3.1}
 \contentsline {subsubsection}{\nonumberline Hosking}{7}{section*.4}
-\contentsline {subsubsection}{\nonumberline Modified Davis-Harte}{7}{section*.5}
-\contentsline {subsubsection}{\nonumberline Lowen}{9}{section*.8}
-\contentsline {subsubsection}{\nonumberline Testing of the Algorithm}{9}{section*.9}
-\contentsline {chapter}{\numberline {2}Reactions-Diffusion-Dynamics}{15}{chapter.2}
-\contentsline {section}{\numberline {2.1}Theory}{15}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Diffusion-controlled Reactions for Brownian Motion}{15}{subsection.2.1.1}
-\contentsline {section}{\numberline {2.2}Simulation and Outlook}{16}{section.2.2}
-\contentsline {chapter}{\numberline {3}Reaction and Diffusion}{19}{chapter.3}
-\contentsline {section}{\numberline {3.1}Particle Based Reaction and Diffusion Simulations}{19}{section.3.1}
-\contentsline {section}{\numberline {3.2}Enzymatic Reaction}{19}{section.3.2}
-\contentsline {section}{\numberline {3.3}Michaelis Menten Sceme}{19}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}RevReaDDy implementation of Michaelis Menten}{19}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Equilibrium Approximation}{19}{subsection.3.3.2}
-\contentsline {subsection}{\numberline {3.3.3}Quasi Stationary Approximation}{19}{subsection.3.3.3}
-\contentsline {subsection}{\numberline {3.3.4}Diffusion Limit}{19}{subsection.3.3.4}
-\contentsline {subsubsection}{\nonumberline Search Problem}{19}{section*.18}
-\contentsline {subsubsection}{\nonumberline Erban Chapmann limit}{19}{section*.19}
-\contentsline {subsection}{\numberline {3.3.5}Reaction Limit}{20}{subsection.3.3.5}
-\contentsline {section}{\numberline {3.4}Michealis Menten Sceme with Fractional Brownian Motion}{20}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Diffusion Limit}{20}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}Search Problem}{20}{subsection.3.4.2}
-\contentsline {subsection}{\numberline {3.4.3}Spatial Segragation of Enzyme and Product}{20}{subsection.3.4.3}
-\contentsline {chapter}{\numberline {4}Appendix}{26}{chapter.4}
-\contentsline {section}{\numberline {4.1}From Central Limit Theorem to Gaussian Distribution}{26}{section.4.1}
-\contentsline {section}{\numberline {4.2}From Gaussian Distribution to Gaussian Transition Probability}{27}{section.4.2}
-\contentsline {section}{\numberline {4.3}Einstein Formula}{27}{section.4.3}
-\contentsline {section}{\numberline {4.4}Autocorrelation Function for fBm}{28}{section.4.4}
-\contentsline {section}{\numberline {4.5}Kinetics of the Bi-Molecular Chemical Reaction in Solution}{29}{section.4.5}
-\contentsline {section}{\numberline {4.6}Michaelis-Menten Kinetics}{30}{section.4.6}
-\contentsline {chapter}{\nonumberline Bibliography}{32}{chapter*.27}
+\contentsline {subsubsection}{\nonumberline Modified Davis-Harte}{8}{section*.5}
+\contentsline {subsubsection}{\nonumberline Lowen}{10}{section*.8}
+\contentsline {subsubsection}{\nonumberline Testing of the Algorithm}{10}{section*.9}
+\contentsline {chapter}{\numberline {2}Reactions-Diffusion-Dynamics}{16}{chapter.2}
+\contentsline {section}{\numberline {2.1}Theory}{16}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Diffusion-controlled Reactions for Brownian Motion}{16}{subsection.2.1.1}
+\contentsline {section}{\numberline {2.2}Simulation and Outlook}{17}{section.2.2}
+\contentsline {chapter}{\numberline {3}Reaction and Diffusion}{20}{chapter.3}
+\contentsline {section}{\numberline {3.1}Particle Based Reaction and Diffusion Simulations}{20}{section.3.1}
+\contentsline {section}{\numberline {3.2}Enzymatic Reaction}{20}{section.3.2}
+\contentsline {section}{\numberline {3.3}Michaelis Menten Sceme}{20}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}RevReaDDy implementation of Michaelis Menten}{20}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Equilibrium Approximation}{20}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.3}Quasi Stationary Approximation}{20}{subsection.3.3.3}
+\contentsline {subsection}{\numberline {3.3.4}Diffusion Limit}{20}{subsection.3.3.4}
+\contentsline {subsubsection}{\nonumberline Search Problem}{20}{section*.18}
+\contentsline {subsubsection}{\nonumberline Erban Chapmann limit}{20}{section*.19}
+\contentsline {subsection}{\numberline {3.3.5}Reaction Limit}{21}{subsection.3.3.5}
+\contentsline {section}{\numberline {3.4}Michealis Menten Sceme with Fractional Brownian Motion}{21}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Diffusion Limit}{21}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Search Problem}{21}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}Spatial Segragation of Enzyme and Product}{21}{subsection.3.4.3}
+\contentsline {chapter}{\numberline {4}Appendix}{27}{chapter.4}
+\contentsline {section}{\numberline {4.1}From Central Limit Theorem to Gaussian Distribution}{27}{section.4.1}
+\contentsline {section}{\numberline {4.2}From Gaussian Distribution to Gaussian Transition Probability}{28}{section.4.2}
+\contentsline {section}{\numberline {4.3}Einstein Formula}{28}{section.4.3}
+\contentsline {section}{\numberline {4.4}Autocorrelation Function for fBm}{29}{section.4.4}
+\contentsline {section}{\numberline {4.5}Kinetics of the Bi-Molecular Chemical Reaction in Solution}{30}{section.4.5}
+\contentsline {section}{\numberline {4.6}Michaelis-Menten Kinetics}{31}{section.4.6}
+\contentsline {chapter}{\nonumberline Bibliography}{33}{chapter*.27}
