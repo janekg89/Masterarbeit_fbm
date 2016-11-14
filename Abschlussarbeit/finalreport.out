@@ -3,28 +3,26 @@
 \BOOKMARK [1][-]{section.1.2}{Brownian Motion}{chapter.1}% 3
 \BOOKMARK [1][-]{section.1.3}{Fractional Brownian Motion}{chapter.1}% 4
 \BOOKMARK [2][-]{subsection.1.3.1}{Algorithm}{section.1.3}% 5
-\BOOKMARK [0][-]{chapter.2}{Reactions-Diffusion-Dynamics}{}% 6
-\BOOKMARK [1][-]{section.2.1}{Theory}{chapter.2}% 7
-\BOOKMARK [2][-]{subsection.2.1.1}{Diffusion-controlled Reactions for Brownian Motion}{section.2.1}% 8
-\BOOKMARK [1][-]{section.2.2}{Simulation and Outlook}{chapter.2}% 9
-\BOOKMARK [0][-]{chapter.3}{Reaction and Diffusion}{}% 10
-\BOOKMARK [1][-]{section.3.1}{Particle Based Reaction and Diffusion Simulations}{chapter.3}% 11
-\BOOKMARK [1][-]{section.3.2}{Enzymatic Reaction}{chapter.3}% 12
-\BOOKMARK [1][-]{section.3.3}{Michaelis Menten Sceme}{chapter.3}% 13
-\BOOKMARK [2][-]{subsection.3.3.1}{RevReaDDy implementation of Michaelis Menten}{section.3.3}% 14
-\BOOKMARK [2][-]{subsection.3.3.2}{Equilibrium Approximation}{section.3.3}% 15
-\BOOKMARK [2][-]{subsection.3.3.3}{Quasi Stationary Approximation}{section.3.3}% 16
-\BOOKMARK [2][-]{subsection.3.3.4}{Diffusion Limit}{section.3.3}% 17
-\BOOKMARK [2][-]{subsection.3.3.5}{Reaction Limit}{section.3.3}% 18
-\BOOKMARK [1][-]{section.3.4}{Michealis Menten Sceme with Fractional Brownian Motion}{chapter.3}% 19
-\BOOKMARK [2][-]{subsection.3.4.1}{Diffusion Limit}{section.3.4}% 20
-\BOOKMARK [2][-]{subsection.3.4.2}{Search Problem}{section.3.4}% 21
-\BOOKMARK [2][-]{subsection.3.4.3}{Spatial Segragation of Enzyme and Product}{section.3.4}% 22
-\BOOKMARK [0][-]{chapter.4}{Appendix}{}% 23
-\BOOKMARK [1][-]{section.4.1}{From Central Limit Theorem to Gaussian Distribution}{chapter.4}% 24
-\BOOKMARK [1][-]{section.4.2}{From Gaussian Distribution to Gaussian Transition Probability}{chapter.4}% 25
-\BOOKMARK [1][-]{section.4.3}{Einstein Formula}{chapter.4}% 26
-\BOOKMARK [1][-]{section.4.4}{Autocorrelation Function for fBm}{chapter.4}% 27
-\BOOKMARK [1][-]{section.4.5}{Kinetics of the Bi-Molecular Chemical Reaction in Solution}{chapter.4}% 28
-\BOOKMARK [1][-]{section.4.6}{Michaelis-Menten Kinetics}{chapter.4}% 29
-\BOOKMARK [0][-]{chapter*.27}{Bibliography}{}% 30
+\BOOKMARK [0][-]{chapter.2}{Particle Based Reaction Diffusion}{}% 6
+\BOOKMARK [1][-]{section.2.1}{Smoluchowski}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.2}{Erban Chapmann}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.3}{RevReaddy}{chapter.2}% 9
+\BOOKMARK [0][-]{chapter.3}{An Enzymatic Reaction With Fractional Brownian Motion}{}% 10
+\BOOKMARK [1][-]{section.3.1}{Michaelis Menten}{chapter.3}% 11
+\BOOKMARK [1][-]{section.3.2}{Simulation Model}{chapter.3}% 12
+\BOOKMARK [1][-]{section.3.3}{Results From Normal Diffusion}{chapter.3}% 13
+\BOOKMARK [1][-]{section.3.4}{Results from fBm}{chapter.3}% 14
+\BOOKMARK [1][-]{section.3.5}{Conclusion}{chapter.3}% 15
+\BOOKMARK [0][-]{chapter.4}{Summary}{}% 16
+\BOOKMARK [0][-]{chapter.5}{Appendix}{}% 17
+\BOOKMARK [1][-]{section.5.1}{From Central Limit Theorem to Gaussian Distribution}{chapter.5}% 18
+\BOOKMARK [1][-]{section.5.2}{From Gaussian Distribution to Gaussian Transition Probability}{chapter.5}% 19
+\BOOKMARK [1][-]{section.5.3}{Einstein Formula}{chapter.5}% 20
+\BOOKMARK [1][-]{section.5.4}{Autocorrelation Function for fBm}{chapter.5}% 21
+\BOOKMARK [1][-]{section.5.5}{Kinetics of the Bi-Molecular Chemical Reaction in Solution}{chapter.5}% 22
+\BOOKMARK [1][-]{section.5.6}{Michaelis-Menten Kinetics}{chapter.5}% 23
+\BOOKMARK [0][-]{chapter.6}{old stuff}{}% 24
+\BOOKMARK [1][-]{section.6.1}{Theory}{chapter.6}% 25
+\BOOKMARK [2][-]{subsection.6.1.1}{Diffusion-controlled Reactions for Brownian Motion}{section.6.1}% 26
+\BOOKMARK [1][-]{section.6.2}{Simulation and Outlook}{chapter.6}% 27
+\BOOKMARK [0][-]{chapter*.24}{Bibliography}{}% 28
