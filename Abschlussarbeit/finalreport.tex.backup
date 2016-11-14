@@ -141,7 +141,12 @@ T_{t}(y|x) & := (2 \pi t)^{- \frac{d}{2}} exp \left(- \frac{||x-y||^2}{2 t}\righ
 T_{0}(y|x) & = \delta(x-y) 
 \end{align}
 \end{mydef}
-The Wiener process is a Gaussian process with mean $\langle W_t \rangle_y=x$ and position of the particle is $W_o=x$ at $t=0$. Its variance is $\langle W^2_t \rangle_y= t$. It has a property called Brownian scaling $\{\hat{W}_t := \frac{1}{c} W_{c^2 t} \}_{t\geq0}$ if $\{W_t\}_{t \geq 0}$.A Wiener process has self-similar and fractal paths as a result from brownian scaling.\newline 
+The Wiener process is a Gaussian process with mean $\langle W_t \rangle_y=x$ and position of the particle is $W_o=x$ at $t=0$. Its variance is $\langle W^2_t \rangle_y= t$. It has a property called Brownian scaling:
+\begin{align}
+\label{Brownianscaling}
+\{\hat{W}_t := \frac{1}{c} W_{c^2 t} \}_{t\geq0} \qquad  \text{ if } \{W_t\}_{t \geq 0}
+\end{align}
+A Wiener process has self-similar and fractal paths as a result from brownian scaling.\newline 
 A Wiener process is a purely mathematical model with missing connection to the strength of diffusion of a particle. Fick's empirical second law how diffusion causes the concentration to change over time:
 \begin{align}
  \frac{\partial}{\partial t} c(\bm{r},t) = - \nabla J (\bm{r},t) = D  \Delta c(\bm{r},t) \qquad \text{ with } \qquad \Delta= \nabla^2  \label{eq:ficks}
@@ -220,10 +225,11 @@ and with stationarity:
 \end{align}
 
 For further properties \cite{qian2003fractional} can be recommended.
-To bring a connection to th pysical diffusion the variance of fGn to be written as: 
+To bring a connection to diffusion the variance of fGn to be written as: 
 
 \begin{align}
-\sigma^2=2dK_{\alpha}
+\label{diffusionvariance}
+\sigma^2=2dK_{\alpha} \Delta t
 \end{align}
 and the Mean square displacemnt as:
 \begin{align}
@@ -399,13 +405,26 @@ The algorithm which had been used in the pervious elaborations had down draws in
      \tilde\xi^{*}(2N-k) & \text{ for    } N \leq k \leq 2N 
   \end{cases}
  \end{align}
- $\tilde\xi^{*}$ denotes the complex conjugate of $\tilde\xi$. $\theta$ is a uniform random variable in the range  
+ $\tilde\xi^{*}$ denotes the complex conjugate of $\tilde\xi$. $\theta$ is a random variable uniformly distributed  in $(0,2\pi]$  
  \item Perform the inverse Fourier transform on $\tilde\xi(k)$ and use the first half of the resulting sochastic process $\xi(n)$ multiplied by a factor:
  \begin{align}
   \xi(n)&=FFT^{-1}(\tilde\xi(k)) \\
-  B^{\alpha}_n&= \xi(n)  \qquad \qquad \qquad \qquad \text{for    } 0 \leq n \leq N
+  B^{\alpha}_n&=  \sqrt{2 K_{\alpha} N^{\alpha} \Delta t^{\alpha}} (\xi(n)- \xi(0)) \qquad \qquad \qquad \text{for    } 0 \leq n \leq N
  \end{align}
 \end{enumerate}
+Lets check the resulting autocovariance function. 
+\begin{align}
+  & Cov[B^{\alpha}_n,B^{\alpha}_m]= 2 K_{\alpha} \Delta t^{\alpha} N^{\alpha} \langle (\xi(n)- \xi(0)) ((\xi(m)- \xi(0))\rangle \\
+ &=  2 K_{\alpha} \Delta t^{\alpha} N^{\alpha}\langle\xi(n)\xi(m)\rangle -\langle \xi(0) \xi(m)\rangle - \langle \xi(0) \xi(n)\rangle +\langle \xi(0)^2\rangle \\ 
+ &=\frac{2 K_{\alpha} \Delta t^{\alpha}}{2}[n^{\alpha}-2(m-n)^{\alpha}+n^{\alpha}]\qquad \qquad \qquad \qquad  \text{ for }  n < m
+\end{align}
+The autocovariance function indeed satisfies the condition for fBm with the definied variance in \cref{diffusionvariance}. The phase and and amplitude have been chosen to be random in the process of generating a random variable $\xi(m)$ folowing fBm out auf the fouriertransform of the autocovariance function as sugested in \cite{Timmer1995}. The second derivative of $R_{\xi}(n) $ is positve. $R_{\xi}(n) $ results in a periodic function with non negative curvature. Its Fouriertransform $S_{\xi}(k)$ is , real, symmetric  and non-negative for all k. $S_{\xi}(k)$ is then a valid power spectral density function of the descrete-time periodic process$x(n)$ with period $2n$ and  $R_{\xi}(n)$ is its valid autocovariance function \cite{Lowen1999}. This algorithm is using accually the property of brownian scaling \cref{Brownianscaling} to generate a relalization of fBm  with non negative autocovariance function.
+
+
+
+
+
+
 
 
 
