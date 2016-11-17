@@ -229,7 +229,7 @@ A more detailed study on fBm and fGm can be found in \cite{qian2003fractional}. 
 \end{align}
 The Mean square displacement for fBm follows from \cref{MSDfbm} as:
 \begin{align}
-\delta r^{2}(t)= < \Delta R(t)>=2dK_{\alpha} t^{\alpha}
+\delta r^{2}(t)= < \Delta R(t)^2>=2dK_{\alpha} t^{\alpha}
 \end{align}
 with $K_{\alpha}>0$  being the generalized diffusion coefficient. It is not quite the diffusion constant from Fick's law due to different units.
 \newline
@@ -275,19 +275,18 @@ The VACF in the frequency domain for fBm is:
 The calculation can be found in the appendix \ref{VACF}
 \end{itemize}
 \subsection{Algorithm}
+(what algorithm there are. (Weierstrauß) Put the algorithms into perspective to existing algorithms
 Three algorithms have been implemented. 
-1. Hosking 2, Modification of Davis-Harte 3. Lowen algorithm. In the following all three are going to be introduced and analyzed in terms of accuracy and speed. 
-\subsubsection{Hosking}
-
-
-
-$L^2$
-\subsubsection{Modified Davis-Harte}
+1. Choleski Method 2, Our algorithm 3. Lowen algorithm. In the following all three are going to be introduced and analyzed in terms of accuracy and speed. 
+\subsubsection{Choleski Method}
+cite the thesis of Ton Dieker
+$\mathcal{O}(M^3)$
+\subsubsection{Our Algorithm}
 Eventually, the VACF in the frequency domain will be used to modify standard Brownian motion velocities, which are easily computable, to generate fractional Brownian motion velocities. The starting point are the velocities $\partial_t \bm{R}(t)=\bm{\xi}(t)$. The increments can be decomposed in its Fourier modes for real frequencies $z=\omega$:
 \begin{align}
  \tilde{\bm{\xi}}_{T}(\omega)=\int_{-\frac{T}{2}}^{\frac{T}{2}} dt e^{i \omega t} \bm{\xi}(t) \label{eq:fourier}
 \end{align}
-For a finit observation time T the Wiener-Khinchin theorem applies :
+For a finite observation time T the Wiener-Khinchin theorem applies :
 \begin{align}
  \lim_{T\to\infty}\frac{1}{T}\langle \lvert  \tilde{\bm{\xi}}_{T}(\omega) \rvert^2  \rangle = 2  \operatorname{Re} \left(\tilde{Z}(\omega)\right)
 \end{align}
@@ -399,7 +398,7 @@ The previous algorithm had down draws in terms of convergence close to 0 and clo
      \tilde\xi^{*}(2N-k) & \text{ for    } N \leq k \leq 2N 
   \end{cases}
  \end{align}
- $\tilde\xi^{*}$ denotes the complex conjugate of $\tilde\xi$. $\theta$ is a random variable uniformly distributed  in $(0,2\pi]$  
+ $\tilde\xi^{*}$ denotes the complex conjugate of $\tilde\xi$. $\theta$ is a random variable uniformly distributed  in $(0,2\pi]$. $\eta$ is a random Gaussian variable with zero mean and variance 1 ($\mathcal{N}(0,1)$).  
  \item Perform the inverse Fourier transform on $\tilde\xi(k)$ and use the first half of the resulting stochastic process $\xi(n)$ multiplied by a factor:
  \begin{align}
   \xi(n)&=FFT^{-1}(\tilde\xi(k)) \\
@@ -412,25 +411,21 @@ Lets check the resulting auto-covariance function.
  &=  2 K_{\alpha} \Delta t^{\alpha} N^{\alpha}\langle\xi(n)\xi(m)\rangle -\langle \xi(0) \xi(m)\rangle - \langle \xi(0) \xi(n)\rangle +\langle \xi(0)^2\rangle \\ 
  &=\frac{2 K_{\alpha} \Delta t^{\alpha}}{2}[n^{\alpha}-2(m-n)^{\alpha}+n^{\alpha}]\qquad \qquad \qquad \qquad  \text{ for }  n < m
 \end{align}
-The auto-covariance function indeed satisfies the condition for fBm with variance similar to \cref{diffusionvariance}. In step 3 the phase and amplitude of the Fouriertransform  $\xi(m)$ were chosen to be random  as sugested in \cite{Timmer1995}. The second derivative of $R_{\xi}(n) $ is positve. $R_{\xi}(n) $ results in a periodic function with non negative curvature. Its Fouriertransform $S_{\xi}(k)$ is , real, symmetric  and non-negative for all k. $S_{\xi}(k)$ is then a valid power spectral density function of the descrete-time periodic process $\xi(n)$ with period $2n$ and  $R_{\xi}(n)$ its valid autocovariance function \cite{Lowen1999}. This algorithm is actually using the property of brownian scaling \cref{Brownianscaling} to generate a realization of fBm  with non negative autocovariance function. The algorithm was implemented in c++ with a 1 dimension Fast Fourier transform from the package FFTW3. FFTW computes an unnormalized DFT. Thus, computing a forward followed by a backward transform results in the original array scaled by the size of the array. The size of the array is $2N$  in Lowens algorithm. Thus a random variable should be divided by $\sqrt{2N}$ to have a normalized FFT.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+The auto-covariance function indeed satisfies the condition for fBm with variance similar to \cref{diffusionvariance}. In step 3 the phase and amplitude of the Fourier transform  $\xi(m)$ were chosen to be random  as suggested in \cite{Timmer1995}. The second derivative of $R_{\xi}(n) $ is positive. $R_{\xi}(n) $ results in a periodic function with non negative curvature. Its Fourier transform $S_{\xi}(k)$ is , real, symmetric  and non-negative for all k. $S_{\xi}(k)$ is then a valid power spectral density function of the discrete-time periodic process $\xi(n)$ with period $2n$ and  $R_{\xi}(n)$ its valid auto-covariance function \cite{Lowen1999}. This algorithm is actually using the property of Brownian scaling \cref{Brownianscaling} to generate a realization of fBm  with non negative auto-covariance function. The algorithm was implemented in c++ with a 1 dimension Fast Fourier transform from the package FFTW3. FFTW computes an unnormalized DFT. Thus, computing a forward followed by a backward transform results in the original array scaled by the size of the array. The size of the array is $2N$  in Lowens algorithm. Thus a random variable should be divided by $\sqrt{2N}$ to have a normalized FFT.
 
 \subsubsection{Testing of the Algorithm}
-The algorithm is implemented in python and c++. For the c++ implementation a wrapper to python is added. Both algorithms have been analysed by an analysis class. The c++ implementation is using FFTW library for the Fast Fourier Transform and Mersenne-Twister (gsl\texttt{\textunderscore}rng\texttt{\textunderscore}mt19937) as the random number generator. The algorithm is intended to be integrated into a \textbf{Rea}ction \textbf{D}iffusion \textbf{Dy}namics package (ReaDDy). A new c++ version of ReaDDy is currently developed. The algorithm is meant as an integrator for the particles additionally to normal Brownian motion and Langevin. The python implementation was developed beforehand and will no longer be developed but only serves as a reference. Python uses the numpy.fft library for the Fast Fourier Transform and also the Mersenne-Twister random number generator.\newline
-To get insight into the stochastic algorithm one has to study observables, which are generally averaged values. The algorithm was designed to produce fBm. The most important quantity is the variance i.e. MSD. It can be calculated as the ensemble-, time- or time-ensemble-average. It is shown in \cref{fig:4} . Comparing time and ensemble averages are showing no violation of ergodicity. The tails of the time and ensemble-time averages are starting not to follow the theoretical values due to decreasing statistics. In the following figures ensemble averages have been chosen. They are computationally cheaper. It can be  seen, that the algorithm tends to result in  too MSDs for small lag times. This is caused by the finite amount of samples in the discrete Fourier transform until know reducing these effects is only possible by reducing the time step.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{./data/trajectories_differentalpha.png}
+\caption{shows 3D trajectories for different $\alpha$ generated with the Lowen algorithm for $K_{\alpha}=1$, $\Delta t=1$ and the trajectory length $M=1000$.}
+\label{alphachangetrajectory}
+\end{figure}
+The algorithms were implemented in python and c++. For the c++ implementation a wrapper to python was added. All algorithms have been analyzed by an analysis class. The c++ implementation is using FFTW library for the Fast Fourier Transform and Mersenne-Twister (gsl\texttt{\textunderscore}rng\texttt{\textunderscore}mt19937) as the random number generator. The python implementation was developed beforehand and  only serves as a reference. Python uses the numpy.fft library for the Fast Fourier Transform and also the Mersenne-Twister random number generator.\newline
+To get insight into stochastic algorithms observables have to by studied. They are generally averaged values. The algorithm was designed to produce fBm. The most important quantity to analyze is the  MSD. It can be calculated as the ensemble-, time- or time-ensemble-average. A comparison between the average types are plotted in \cref{fig:4} .A difference in time and ensemble averages would show a violation of ergodicity. The tails of the time and ensemble-time averages are increasingly deviate from the theoretical values for long lag times due to decreasing statistics. In the following figures all MSD plots are ensemble averages. They are computationally cheaper. It can be  seen, that  tends to result in  too MSDs for small lag times. This is caused by the finite amount of samples in the discrete Fourier transform until know reducing these effects is only possible by reducing the time step.
+Another MSD influencing variable is the anomalous coefficient $\alpha$. The influence on the MSD is shown in \cref{alphachange} . In the limit of Brownian motion $\alpha=1$ the artifacts for small lag-times vanish. The downside are longer simulation times for the same time in the simulation.
+\begin{comment}
+ 
+
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{./data/averages_comparison.png}
@@ -446,7 +441,7 @@ To get insight into the stochastic algorithm one has to study observables, which
   \captionof{figure}{Comparison of ensemble averaged Mean-Square-Displacements with different $\Delta t$ for $D=2$, $\alpha=0.5$. }
   \label{fig:3}
 \end{figure} 
-\noindent Another MSD influencing variable is the anomalous coefficient $\alpha$. The influence on the MSD is shown in \cref{alphachange} . In the limit of Brownian motion $\alpha=1$ the artifacts for small lag-times vanish. The downside are longer simulation times for the same time in the simulation.
+\noindent 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=\textwidth]{./data/alpha_change.png}
@@ -474,42 +469,78 @@ To get insight into the stochastic algorithm one has to study observables, which
  \centering
 \end{minipage}
 \end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{./data/alpha_changeboth.png}
+\caption{Both Plots show an ensemble average MSD over $N=2000$ trajectories for $0.1<\alpha<1.0$  with $K_{\alpha}=2$ , $M=2000$ , $\Delta t = 0.1$, with a) Our algorithm and b) Lowen algorithm.}
+\label{alphachange}
+\end{figure}
 \noindent As a property of self similarity a scale free version of the density distribution can be calculated \cref{sectionfrac} \cref{scalefreeformfrac}. The scale free density distribution is not depended on time but overlaps for all times. The algorithm is performing as predicted and computing a self-similar process. The scale free distribution is extracted from the simulation for different times and compared to the analytical result. The graph can be seen in \cref{rescaledfigure}.  
+
+ 
+\end{comment}
+
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{./data/alpha_changethree.png}
+\caption{All three plots show an ensemble averaged MSD over $N=2000$ trajectories for $0.1<\alpha<1.0$  with $K_{\alpha}=2$ ,$\Delta t = 0.1$ and trajectory length $M=2000$  for Our and Lowen algorithm, $M=256$ for Choleski algorithm. a) Our algorithm and b) Lowen algorithm c) Choleski algorithm.}
+\label{alphachange}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{./data/changeintime.png}
+\caption{The plot show ensemble averaged MSDs over $N=2000$ trajectories for $\alpha =0.1$, $\Delta t = 0.1$ and trajectory length $M=1000$ and $K_{\alpha}=2$ for Our algorithm, $M=1000$  $K_{\alpha}=20 $ for Lowen algorithm and  $M=256$  $K_{\alpha}=200$ for Choleski algorithm.}
+\label{changeintime}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=\textwidth]{./data/scaledfunctionneu.png}
+\caption{All three plots show the scale free form of the propagator at different times as introduced in \cref{scalefreeformfrac} as an histogram over $N=10000$ trajectories for $\alpha=0.5$  with $K_{\alpha}=2$ ,$\Delta t = 0.1$ for all three algorithm, at different times $100<t<900$}
+\label{rescaledfunction}
+\end{figure}
+
+\noindent As a property of self similarity a scale free version of the density distribution can be calculated \cref{sectionfrac} \cref{scalefreeformfrac}. The scale free density distribution is not depended on time but overlaps for all times. The algorithm is performing as predicted and computing a self-similar process. The scale free distribution is extracted from the simulation for different times and compared to the analytical result. The graph can be seen in \cref{rescaledfigure}.  
+\begin{comment}
 \begin{figure}[h]
   \centering
   \includegraphics[width=\linewidth]{./data/profiling_length.png}
   \captionsetup{width=0.9\linewidth}
-  \captionof{figure}{Profiling c++ and python code in respect to trajectory length $M$,for $N=1$, $t = \mathcal{O}(M log(M))$ }
+  \captionof{figure}{Scaling behaviour of computational time of both algorithms implemented in c++ and python  in respect to trajectory length $M$,for $N=1$, $t = \mathcal{O}(M log(M))$ }
   \label{fig:1}
 \end{figure}
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\linewidth]{./data/profiling_particle.png}
   \captionsetup{width=0.9\linewidth}
-  \captionof{figure}{Profiling c++ and python code in respect to trajectory number $N$ for $M=1000$ ,$t = \mathcal{O}(N log(N))$}
+  \captionof{figure}{Scaling behaviour of computational time of both algorithms implemented in c++ and python  in respect to trajectory number $N$ for $M=1000$ ,$t = \mathcal{O}(N log(N))$}
   \label{fig:2}
 \end{figure}
+\end{comment}
+$t = \mathcal{O}(N))$ scaling
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\linewidth]{./data/profilingneu1.png}
+  \captionsetup{width=0.9\linewidth}
+  \captionof{figure}{a) Algorithmic scaling of computational time in respect to the amount of trajectories $N$ for trajectory length $M=1000$ , ($D=2$, $\alpha=0.5$, $\Delta t=1$) of Lowen and our own algorithm. Both implemented in  c++ and python (p) and the Choleski algorithm with $M=128$ implemented in python.\newline
+  b) Algorithmic scaling of computational time in respect to the trajectory length $M$ for a single trajectory $N=1$ , ($D=2$, $\alpha=0.5$, $\Delta t=1$). Lowen and our own algorithms are implemented in c++ and python (p). Choleski is only implemented in python (p).}
+  \label{fig:200}
+\end{figure}
 \noindent Subsequently also the non-Gaussian parameter was analyzed. For a perfect Gaussian process it should be zero as it is shown in \cref{nongaussian2}. \newline
-Finally the algorithmic scaling was tested. FFT in python and c++ should scale for large number as  $\mathcal{O}(M log(M))$, which seams to be the cause for this algorithm as one can see in \cref{fig:1}. Further also the computational time(t) dependence on trajectories (N) were profiled as one can see in \cref{fig:2}.Again $t = M^{0.7}$ for large N.  
-\chapter{Reaction and Diffusion}
-Was für Simulationsarten gibt es.
-Vielleicht etwas zur Konfergenz.
-Analytical solutions for resulting ordinary differencial equation exisit under certain conditions like Quasi-Steady-State assumpations or equlibirum assumption. In any case the mass action law is assumed. For fractional diffusion mass action law does not apply. Thus concentration based models had been upgraded by time dependend rate coefficients \cite{Berry2002}  \cite{schnell2004reaction}
-\section{Particle Based Reaction and Diffusion Simulations}
-\section{Enzymatic Reaction}
-\section{Michaelis Menten Sceme}
-\subsection{RevReaDDy implementation of Michaelis Menten}
-\subsection{Equilibrium Approximation}
-Vielleicht Vergleich zur nummerischen Lösung. 
-\subsection{Quasi Stationary Approximation}
-Vielleicht Vergleich zur nummerischen Lösung. 
-\subsection{Diffusion Limit}
-
-\subsubsection{Search Problem}
-no blocking of Complex
-no higher concentration close to the complex 
-
-\subsubsection{Erban Chapmann limit}
+Finally the algorithmic scaling was tested. FFT in python and c++ should scale for large number as  $\mathcal{O}(M log(M))$, which seams to be the cause for this algorithm as one can see in \cref{fig:200}. Further also the computational time(t) dependence on trajectories (N) were profiled as one can see in \cref{fig:200}.Again $t = M^{0.7}$ for large N.  
+\chapter{Particle Based Reaction Diffusion}
+This chapter is going to discuss particle based reaction diffusion. Particle based reaction diffusion is going to be put in relation to different reaction diffusion studying methods.  
+Analytical solutions for resulting ordinary differencial equation exist under certain conditions like Quasi-Steady-State assumption or equilibrium assumption. In any case the mass action law is assumed. For fractional diffusion mass action law does not apply. Thus concentration based models had been upgraded by time depended rate coefficients \cite{Berry2002}  \cite{schnell2004reaction}
+\section{Smoluchowski}
+\section{Erban Chapmann}
+\section{RevReaddy}
+\chapter{An Enzymatic Reaction With Fractional Brownian Motion}
+\section{Michaelis Menten}
+\section{Simulation Model}
+\section{Results From Normal Diffusion}
+\section{Results from fBm}
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{./data/erban-chapman-limit-concentrations1.png}
@@ -544,9 +575,6 @@ no higher concentration close to the complex
 \newpage
 
 
-
-
-\subsection{Reaction Limit}
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{./data/chapman-limit-radial.png}
@@ -555,7 +583,6 @@ no higher concentration close to the complex
   \label{fig:diffusion_limit-Erban-Chapmann_radial}
 \end{figure}
 
-\section{Michealis Menten Sceme with Fractional Brownian Motion}
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{./data/differentalphamsdrevreaddy.png}
@@ -572,15 +599,10 @@ no higher concentration close to the complex
   \label{fig:k1differentalphawithfit}
 \end{figure}
 
-
 thesis: $k1(t)\propto t^{-h}$
-\subsection{Diffusion Limit}
-\subsection{Search Problem}
-$\alpha(h)$
-\subsection{Spatial Segragation of Enzyme and Product}
 
-
-
+\section{Conclusion}
+\chapter{Summary}
 \chapter{Appendix}
 \section{From Central Limit Theorem to Gaussian Distribution}\label{append:CLT}
 In the following the Central Limit Theorem will be applied to calculated the distribution of Y,  $\rho(y)dy=P(y<Y<y+dy)$ in the limit of large N , with Y being defined as the sum of an random variable:
