@@ -12,32 +12,32 @@ Peter~F. Craigmile.
   Davies-Harte algorithm, with application to long memory processes}.
 \newblock {\em Journal of Time Series Analysis}, 24(5):505--511, 2003.
 
+\bibitem{DAVIES1987}
+R.~B. DAVIES and D.~S. HARTE.
+\newblock Tests for hurst effect.
+\newblock {\em Biometrika}, 74(1):95--101, 1987.
+
 \bibitem{LectureFelix}
 H{\"{o}}fling Felix.
 \newblock Stochastic processes and correlation functions.
 \newblock University Lecture, 2016.
-
-\bibitem{Flegg}
-Mark~B Flegg.
-\newblock {Smoluchowski reaction kinetics for reactions of any order}.
-\newblock pages 1--30.
 
 \bibitem{Hofling2013}
 Felix H{\"{o}}fling and Thomas Franosch.
 \newblock {Anomalous transport in the crowded world of biological cells}.
 \newblock {\em Reports on Progress in Physics}, 76(4):046602, apr 2013.
 
+\bibitem{Horvai2007}
+Peter Horvai, Tomasz Komorowski, and Jan Wehr.
+\newblock Finite time approach to equilibrium in a fractional brownian velocity
+  field.
+\newblock {\em Journal of Statistical Physics}, 127(3):553--565, feb 2007.
+
 \bibitem{WRCR:WRCR3676}
 J.~R.~M. Hosking.
 \newblock Modeling persistence in hydrological time series using fractional
   differencing.
 \newblock {\em Water Resources Research}, 20(12):1898--1908, 1984.
-
-\bibitem{Johnson2011}
-Kenneth~A. Johnson and Roger~S. Goody.
-\newblock {The original Michaelis constant: Translation of the 1913
-  Michaelis-Menten Paper}.
-\newblock {\em Biochemistry}, 50(39):8264--8269, 2011.
 
 \bibitem{Lowen1999}
 Steven~B. Lowen.
@@ -75,25 +75,14 @@ S~Schnell and TE~Turner.
 \newblock {\em Progress in biophysics and molecular biology}, 85(2):235--260,
   2004.
 
-\bibitem{Johannesschoneberg2014}
-Johannes sch{\"{o}}neberg.
-\newblock {\em {REACTION-DIFFUSION DYNAMICS IN BIOLOGICAL SYSTEMS}}.
-\newblock PhD thesis, 2014.
-
-\bibitem{Smoluchowski1}
-M.~v. Smoluchowski.
-\newblock {Versuch einer mathematischen Theorie der Koagulationskinetik
-  kolloider L{\"{o}}sungen}.
-
 \bibitem{Timmer1995}
 M.~Timmer, J.;Koenig.
 \newblock On generating power law noise.
 \newblock {\em Astronomy and Astrophysics}, 300(1):707, 1995.
 
-\bibitem{Zhou2008}
-Huan-Xiang Zhou, Germ{\'{a}}n Rivas, and Allen~P Minton.
-\newblock {Macromolecular crowding and confinement: biochemical, biophysical,
-  and potential physiological consequences.}
-\newblock {\em Annual review of biophysics}, 37:375--97, 2008.
+\bibitem{Dieker2004}
+Dieker Ton.
+\newblock Simulation of fractional brownian motion.
+\newblock Master's thesis, 2004.
 
 \end{thebibliography}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.10.30)  17 NOV 2016 21:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.10.30)  21 NOV 2016 14:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2230,18 +2230,13 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  [2
 
 ] (./finalreport.lof
-Overfull \hbox (0.12721pt too wide) in paragraph at lines 26--26
- \OT1/cmr/m/n/10.95 10[]\OML/cmm/m/it/10.95 nm$\OT1/cmr/m/n/10.95 ,reaction dis
--tance $= 3$,intrinsic re-ac-tion rate$= 10[]$, timesteps$= 
- []
+[3
 
-)
+])
 \tf@lof=\write6
 \openout6 = `finalreport.lof'.
 
- [3
-
-]
+ [4]
 No file finalreport.nls.
 \c@mydef=\count297
 [1
@@ -2267,148 +2262,129 @@ Class scrbook Warning: \float@addtolists detected!
 
 [2
 
-] [3] [4] [5]
-Overfull \hbox (18.79596pt too wide) in paragraph at lines 247--248
-\OT1/cmr/m/n/10.95 trans-form into its wave-number rep-re-sen-ta-tion, which is
- called the self-intermediate
- []
-
-[6] [7] [8] <./data/nocorrectionmsd.png, id=359, 361.35pt x 289.08pt>
-File: ./data/nocorrectionmsd.png Graphic file (type png)
-
-<use ./data/nocorrectionmsd.png>
-Package pdftex.def Info: ./data/nocorrectionmsd.png used on input line 357.
-(pdftex.def)             Requested size: 199.16931pt x 159.33412pt.
-
-<./data/withcorrection_nocutoff.png, id=363, 361.35pt x 289.08pt>
-File: ./data/withcorrection_nocutoff.png Graphic file (type png)
-
-<use ./data/withcorrection_nocutoff.png>
-Package pdftex.def Info: ./data/withcorrection_nocutoff.png used on input line 
-360.
-(pdftex.def)             Requested size: 199.16931pt x 159.33412pt.
-
-Overfull \hbox (17.0333pt too wide) in paragraph at lines 357--361
-[][] [][]
- []
-
-[9] [10 <./data/nocorrectionmsd.png> <./data/withcorrection_nocutoff.png>]
-<./data/trajectories_differentalpha.png, id=405, 433.62pt x 289.08pt>
+] [3] <./data/trajectories_differentalpha.png, id=267, 433.62pt x 289.08pt>
 File: ./data/trajectories_differentalpha.png Graphic file (type png)
 
 <use ./data/trajectories_differentalpha.png>
 Package pdftex.def Info: ./data/trajectories_differentalpha.png used on input l
-ine 419.
+ine 186.
 (pdftex.def)             Requested size: 398.33864pt x 265.57306pt.
 
+Underfull \hbox (badness 10000) in paragraph at lines 183--191
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+ []
 
+[4 <./data/trajectories_differentalpha.png>] [5]
+Overfull \hbox (18.79596pt too wide) in paragraph at lines 255--256
+\OT1/cmr/m/n/10.95 trans-form into its wave-number rep-re-sen-ta-tion, which is
+ called the self-intermediate
+ []
 
-LaTeX Warning: Reference `fig:4' on page 1 undefined on input line 424.
+[6] [7] [8] [9] <./data/nocorrectionmsd.png, id=374, 361.35pt x 289.08pt>
+File: ./data/nocorrectionmsd.png Graphic file (type png)
 
-[11] <./data/alpha_changethree.png, id=420, 408.8073pt x 407.8437pt>
-File: ./data/alpha_changethree.png Graphic file (type png)
+<use ./data/nocorrectionmsd.png>
+Package pdftex.def Info: ./data/nocorrectionmsd.png used on input line 361.
+(pdftex.def)             Requested size: 199.16931pt x 159.33412pt.
 
-<use ./data/alpha_changethree.png>
-Package pdftex.def Info: ./data/alpha_changethree.png used on input line 487.
-(pdftex.def)             Requested size: 398.33864pt x 397.41885pt.
+<./data/withcorrection_nocutoff.png, id=377, 361.35pt x 289.08pt>
+File: ./data/withcorrection_nocutoff.png Graphic file (type png)
 
+<use ./data/withcorrection_nocutoff.png>
+Package pdftex.def Info: ./data/withcorrection_nocutoff.png used on input line 
+364.
+(pdftex.def)             Requested size: 199.16931pt x 159.33412pt.
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+Overfull \hbox (17.0333pt too wide) in paragraph at lines 361--365
+[][] [][]
+ []
 
-<./data/changeintime.png, id=421, 495.2904pt x 227.8914pt>
+[10 <./data/nocorrectionmsd.png> <./data/withcorrection_nocutoff.png>] [11]
+<./data/timevsensambe.png, id=416, 479.391pt x 228.1323pt>
+File: ./data/timevsensambe.png Graphic file (type png)
+
+<use ./data/timevsensambe.png>
+Package pdftex.def Info: ./data/timevsensambe.png used on input line 424.
+(pdftex.def)             Requested size: 398.33864pt x 189.56557pt.
+
+<./data/changeintime.png, id=420, 495.2904pt x 227.8914pt>
 File: ./data/changeintime.png Graphic file (type png)
 
 <use ./data/changeintime.png>
-Package pdftex.def Info: ./data/changeintime.png used on input line 494.
+Package pdftex.def Info: ./data/changeintime.png used on input line 432.
 (pdftex.def)             Requested size: 398.33864pt x 183.28354pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./data/scaledfunctionneu.png, id=422, 518.1759pt x 406.8801pt>
+[12] [13 <./data/timevsensambe.png> <./data/changeintime.png>]
+<./data/alpha_changethree.png, id=441, 408.8073pt x 407.8437pt>
+File: ./data/alpha_changethree.png Graphic file (type png)
+
+<use ./data/alpha_changethree.png>
+Package pdftex.def Info: ./data/alpha_changethree.png used on input line 492.
+(pdftex.def)             Requested size: 398.33864pt x 397.41885pt.
+ [14 <./data/alpha_changethree.png>]
+<./data/scaledfunctionneu.png, id=455, 518.1759pt x 406.8801pt>
 File: ./data/scaledfunctionneu.png Graphic file (type png)
 
 <use ./data/scaledfunctionneu.png>
-Package pdftex.def Info: ./data/scaledfunctionneu.png used on input line 500.
+Package pdftex.def Info: ./data/scaledfunctionneu.png used on input line 501.
 (pdftex.def)             Requested size: 398.33864pt x 312.78955pt.
 
+<./data/nongaussianlowenalpha.png, id=458, 433.62pt x 216.81pt>
+File: ./data/nongaussianlowenalpha.png Graphic file (type png)
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: Reference `rescaledfigure' on page 1 undefined on input line 505
-.
-
-<./data/nongaussianneu.png, id=427, 578.16pt x 433.62pt>
-File: ./data/nongaussianneu.png Graphic file (type png)
-
-<use ./data/nongaussianneu.png>
-Package pdftex.def Info: ./data/nongaussianneu.png used on input line 509.
-(pdftex.def)             Requested size: 398.33864pt x 298.75482pt.
-
-! Extra }, or forgotten \endgroup.
-\@endfloatbox ...pagefalse \outer@nobreak \egroup 
-                                                  \color@endbox 
-l.512 \end{figure}
-                  
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
+<use ./data/nongaussianlowenalpha.png>
+Package pdftex.def Info: ./data/nongaussianlowenalpha.png used on input line 52
+0.
+(pdftex.def)             Requested size: 398.33864pt x 199.1798pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: Reference `rescaledfigure' on page 1 undefined on input line 514
-.
-
-<./data/profilingneu1.png, id=432, 505.6491pt x 232.9503pt>
+[15 <./data/scaledfunctionneu.png>]
+<./data/profilingneu1.png, id=471, 505.6491pt x 232.9503pt>
 File: ./data/profilingneu1.png Graphic file (type png)
 
 <use ./data/profilingneu1.png>
-Package pdftex.def Info: ./data/profilingneu1.png used on input line 535.
+Package pdftex.def Info: ./data/profilingneu1.png used on input line 548.
 (pdftex.def)             Requested size: 398.33864pt x 183.52042pt.
- [12 <./data/trajectories_differentalpha.png>]
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[13 <./data/alpha_changethree.png>] [14 <./data/changeintime.png>] [15 <./data/
-scaledfunctionneu.png>] [16 <./data/nongaussianneu.png>] [17 <./data/profilingn
-eu1.png>]
+[16 <./data/nongaussianlowenalpha.png>] [17 <./data/profilingneu1.png>]
 Chapter 2.
 [18
 
 ]
 Chapter 3.
-<./data/erban-chapman-limit-concentrations1.png, id=483, 578.16pt x 433.62pt>
+<./data/erban-chapman-limit-concentrations1.png, id=494, 578.16pt x 433.62pt>
 File: ./data/erban-chapman-limit-concentrations1.png Graphic file (type png)
 
 <use ./data/erban-chapman-limit-concentrations1.png>
 Package pdftex.def Info: ./data/erban-chapman-limit-concentrations1.png used on
- input line 556.
+ input line 569.
 (pdftex.def)             Requested size: 398.33864pt x 298.75482pt.
 
-<./data/chapman-limit-concentrations1_k1.png, id=484, 578.16pt x 433.62pt>
+<./data/chapman-limit-concentrations1_k1.png, id=495, 578.16pt x 433.62pt>
 File: ./data/chapman-limit-concentrations1_k1.png Graphic file (type png)
 
 <use ./data/chapman-limit-concentrations1_k1.png>
 Package pdftex.def Info: ./data/chapman-limit-concentrations1_k1.png used on in
-put line 563.
+put line 576.
 (pdftex.def)             Requested size: 398.33864pt x 298.75482pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./data/microrate_complex_radial_erban.png, id=485, 1734.48pt x 969.1407pt>
+<./data/microrate_complex_radial_erban.png, id=496, 1734.48pt x 969.1407pt>
 File: ./data/microrate_complex_radial_erban.png Graphic file (type png)
 
 <use ./data/microrate_complex_radial_erban.png>
 Package pdftex.def Info: ./data/microrate_complex_radial_erban.png used on inpu
-t line 571.
+t line 584.
 (pdftex.def)             Requested size: 398.33864pt x 222.57234pt.
 
 
@@ -2422,41 +2398,41 @@ LaTeX Warning: Text page 20 contains only floats.
 
 [20 <./data/chapman-limit-concentrations1_k1.png> <./data/microrate_complex_rad
 ial_erban.png>]
-<./data/microrate_complex_vsmicrorate_forward_radial_erban.png, id=499, 578.16p
+<./data/microrate_complex_vsmicrorate_forward_radial_erban.png, id=510, 578.16p
 t x 433.62pt>
 File: ./data/microrate_complex_vsmicrorate_forward_radial_erban.png Graphic fil
 e (type png)
 
 <use ./data/microrate_complex_vsmicrorate_forward_radial_erban.png>
 Package pdftex.def Info: ./data/microrate_complex_vsmicrorate_forward_radial_er
-ban.png used on input line 580.
+ban.png used on input line 593.
 (pdftex.def)             Requested size: 398.33864pt x 298.75482pt.
  [21 <./data/microrate_complex_vsmicrorate_forward_radial_erban.png>]
-<./data/chapman-limit-radial.png, id=506, 578.16pt x 433.62pt>
+<./data/chapman-limit-radial.png, id=518, 578.16pt x 433.62pt>
 File: ./data/chapman-limit-radial.png Graphic file (type png)
 
 <use ./data/chapman-limit-radial.png>
-Package pdftex.def Info: ./data/chapman-limit-radial.png used on input line 590
+Package pdftex.def Info: ./data/chapman-limit-radial.png used on input line 603
 .
 (pdftex.def)             Requested size: 398.33864pt x 298.75482pt.
 
-<./data/differentalphamsdrevreaddy.png, id=507, 578.16pt x 433.62pt>
+<./data/differentalphamsdrevreaddy.png, id=519, 578.16pt x 433.62pt>
 File: ./data/differentalphamsdrevreaddy.png Graphic file (type png)
 
 <use ./data/differentalphamsdrevreaddy.png>
 Package pdftex.def Info: ./data/differentalphamsdrevreaddy.png used on input li
-ne 598.
+ne 611.
 (pdftex.def)             Requested size: 398.33864pt x 298.75482pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./data/k1_fordifferentalpha_withfit.png, id=508, 578.16pt x 433.62pt>
+<./data/k1_fordifferentalpha_withfit.png, id=520, 578.16pt x 433.62pt>
 File: ./data/k1_fordifferentalpha_withfit.png Graphic file (type png)
 
 <use ./data/k1_fordifferentalpha_withfit.png>
 Package pdftex.def Info: ./data/k1_fordifferentalpha_withfit.png used on input 
-line 606.
+line 619.
 (pdftex.def)             Requested size: 398.33864pt x 298.75482pt.
 
 
@@ -2471,86 +2447,55 @@ Chapter 4.
 Chapter 5.
 [26
 
-] [27] [28] [29] [30] [31]
-Chapter 6.
-[32
+] [27] [28] [29] [30] (./finalreport.bbl [31] [32
 
-] [33] <./data/besta.png, id=636, 578.16pt x 433.62pt>
-File: ./data/besta.png Graphic file (type png)
+])
 
-<use ./data/besta.png>
-Package pdftex.def Info: ./data/besta.png used on input line 817.
-(pdftex.def)             Requested size: 398.33864pt x 298.75482pt.
- [34 <./data/besta.png>] (./finalreport.bbl [35] [36
-
-]
-Underfull \hbox (badness 1584) in paragraph at lines 85--87
-[]\OT1/cmr/m/n/10.95 Versuch einer math-e-ma-tis-chen The-o-rie der Koag-u-la-t
-ion-sk-inetik kol-loi-der
- []
-
-) 
 AED: lastpage setting LastPage
-[37]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 833.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 833.
+[33]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 849.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 849.
  (./finalreport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 833.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 833.
-
-
-Package rerunfilecheck Warning: File `finalreport.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `finalreport.out':
-(rerunfilecheck)             Before: 7FB718BC9B504A8B862CCF229E292718;1899
-(rerunfilecheck)             After:  6DDC182804B5A33D6EBF60AD940E82EA;1899.
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 833.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 849.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 849.
+Package rerunfilecheck Info: File `finalreport.out' has not changed.
+(rerunfilecheck)             Checksum: 0604E19C7172BF3E2B7F45DC58D736C7;1628.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 849.
  ) 
 Here is how much of TeX's memory you used:
- 37964 strings out of 493105
- 776724 string characters out of 6137071
- 881134 words of memory out of 5000000
- 40617 multiletter control sequences out of 15000+600000
+ 37936 strings out of 493105
+ 776381 string characters out of 6137071
+ 882134 words of memory out of 5000000
+ 40604 multiletter control sequences out of 15000+600000
  21256 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,24n,90p,10376b,950s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{chapter*.22} has been referenced but does not exi
-st, replaced by a fixed one
-
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
-b10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmi
-b8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/
-msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on finalreport.pdf (40 pages, 2370531 bytes).
+ 72i,24n,90p,10376b,987s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+mib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cm
+mib8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbol
+s/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on finalreport.pdf (37 pages, 2291108 bytes).
 PDF statistics:
- 789 PDF objects out of 1000 (max. 8388607)
- 680 compressed objects within 7 object streams
- 218 named destinations out of 1000 (max. 500000)
- 317 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 748 PDF objects out of 1000 (max. 8388607)
+ 643 compressed objects within 7 object streams
+ 203 named destinations out of 1000 (max. 500000)
+ 285 words of extra memory for PDF output out of 10000 (max. 10000000)
 
