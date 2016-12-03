@@ -73,8 +73,12 @@
 \citation{qian2003fractional}
 \newlabel{diffusionvariance}{{1.17}{6}{Fractional Brownian Motion}{equation.1.3.17}{}}
 \newlabel{diffusionvariance@cref}{{[equation][17][1]1.17}{6}}
-\newlabel{scalefreeformfrac}{{1.20}{6}{Fractional Brownian Motion}{equation.1.3.20}{}}
-\newlabel{scalefreeformfrac@cref}{{[equation][20][1]1.20}{6}}
+\newlabel{scalefreeformfrac}{{1.20}{7}{Fractional Brownian Motion}{equation.1.3.20}{}}
+\newlabel{scalefreeformfrac@cref}{{[equation][20][1]1.20}{7}}
+\newlabel{nongaussian2}{{1.23}{7}{Fractional Brownian Motion}{equation.1.3.23}{}}
+\newlabel{nongaussian2@cref}{{[equation][23][1]1.23}{7}}
+\newlabel{dynamicstructurfactor}{{1.24}{7}{Fractional Brownian Motion}{equation.1.3.24}{}}
+\newlabel{dynamicstructurfactor@cref}{{[equation][24][1]1.24}{7}}
 \citation{Dieker2004}
 \citation{WRCR:WRCR3676}
 \citation{Dieker2004}
@@ -82,28 +86,22 @@
 \citation{DAVIES1987}
 \citation{Lowen1999}
 \citation{Dieker2004}
-\newlabel{nongaussian2}{{1.23}{7}{Fractional Brownian Motion}{equation.1.3.23}{}}
-\newlabel{nongaussian2@cref}{{[equation][23][1]1.23}{7}}
-\newlabel{dynamicstructurfactor}{{1.24}{7}{Fractional Brownian Motion}{equation.1.3.24}{}}
-\newlabel{dynamicstructurfactor@cref}{{[equation][24][1]1.24}{7}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.1}Algorithm}{7}{subsection.1.3.1}}
-\citation{Craigmile2003}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.3.1}Algorithm}{8}{subsection.1.3.1}}
 \@writefile{toc}{\contentsline {subsubsection}{\nonumberline Cholesky Method}{8}{section*.5}}
 \@writefile{toc}{\contentsline {subsubsection}{\nonumberline Our Algorithms}{8}{section*.6}}
 \newlabel{eq:fourier}{{1.28}{8}{Our Algorithms}{equation.1.3.28}{}}
 \newlabel{eq:fourier@cref}{{[equation][28][1]1.28}{8}}
 \newlabel{eq:fracvacf}{{1.31}{8}{Our Algorithms}{equation.1.3.31}{}}
 \newlabel{eq:fracvacf@cref}{{[equation][31][1]1.31}{8}}
-\newlabel{eq:fourier2}{{1.32}{8}{Our Algorithms}{equation.1.3.32}{}}
-\newlabel{eq:fourier2@cref}{{[equation][32][1]1.32}{8}}
+\citation{Craigmile2003}
+\newlabel{eq:fourier2}{{1.32}{9}{Our Algorithms}{equation.1.3.32}{}}
+\newlabel{eq:fourier2@cref}{{[equation][32][1]1.32}{9}}
 \newlabel{eq:diskretdeltar}{{1.34}{9}{Our Algorithms}{equation.1.3.34}{}}
 \newlabel{eq:diskretdeltar@cref}{{[equation][34][1]1.34}{9}}
 \newlabel{eq:fouriertrans}{{1.37}{9}{Our Algorithms}{equation.1.3.37}{}}
 \newlabel{eq:fouriertrans@cref}{{[equation][37][1]1.37}{9}}
 \newlabel{eq:diskret-freq}{{1.39}{9}{Our Algorithms}{equation.1.3.39}{}}
 \newlabel{eq:diskret-freq@cref}{{[equation][39][1]1.39}{9}}
-\newlabel{eq:problem}{{1.40}{9}{Our Algorithms}{equation.1.3.40}{}}
-\newlabel{eq:problem@cref}{{[equation][40][1]1.40}{9}}
 \newlabel{fig:6}{{1.2(a)}{10}{Subfigure 1 1.2(a)}{subfigure.1.2.1}{}}
 \newlabel{fig:6@cref}{{[subfigure][1][1,2]1.2(a)}{10}}
 \newlabel{sub@fig:6}{{(a)}{10}{Subfigure 1 1.2(a)\relax }{subfigure.1.2.1}{}}
@@ -112,6 +110,8 @@
 \newlabel{sub@fig:5}{{(b)}{10}{Subfigure 1 1.2(b)\relax }{subfigure.1.2.2}{}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Ensemble MSD without the correction introduced in \cref {correction}}}}{10}{subfigure.1.2.2}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Ensemble MSD with correction introduced in \cref {correction}. The side of the red bar indicates the threshold for the remaining increments for $M=2n$}}}{10}{subfigure.1.2.2}}
+\newlabel{eq:problem}{{1.40}{10}{Our Algorithms}{equation.1.3.40}{}}
+\newlabel{eq:problem@cref}{{[equation][40][1]1.40}{10}}
 \newlabel{correction}{{1.42}{10}{Our Algorithms}{equation.1.3.42}{}}
 \newlabel{correction@cref}{{[equation][42][1]1.42}{10}}
 \citation{Lowen1999}
@@ -120,118 +120,131 @@
 \citation{Lowen1999}
 \citation{Horvai2007}
 \@writefile{toc}{\contentsline {subsubsection}{\nonumberline Accuracy Analysis}{12}{section*.9}}
+\citation{Lowen1999}
 \@writefile{lof}{\contentsline {figure}{\numberline {1.2}{\ignorespaces Comparison of MSD between time-average, ensemble-average ($N=1000$) ,$\alpha =0.5$, $\Delta t=0.1$ for the three algorithms.\newline  Cholesky: $D=2$, $M=300$.\newline  Our $D=20$ $M=2000$, \newline  Lowen: $D=200$ $M=2000$. \relax }}{13}{figure.caption.10}}
 \newlabel{fig:4}{{1.2}{13}{Comparison of MSD between time-average, ensemble-average ($N=1000$) ,$\alpha =0.5$, $\Delta t=0.1$ for the three algorithms.\newline Cholesky: $D=2$, $M=300$.\newline Our $D=20$ $M=2000$, \newline Lowen: $D=200$ $M=2000$. \relax }{figure.caption.10}{}}
 \newlabel{fig:4@cref}{{[figure][2][1]1.2}{13}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.3}{\ignorespaces The plot show ensemble averaged MSDs for forward time and backward time over $N=2000$ trajectories for $\alpha =0.1$, $\Delta t = 0.1$ and trajectory length $M=1000$ and $K_{\alpha }=2$ for Our algorithm, $M=1000$ $K_{\alpha }=20 $ for Lowen algorithm and $M=256$ $K_{\alpha }=200$ for Cholesky algorithm.\relax }}{13}{figure.caption.11}}
-\newlabel{changeintime}{{1.3}{13}{The plot show ensemble averaged MSDs for forward time and backward time over $N=2000$ trajectories for $\alpha =0.1$, $\Delta t = 0.1$ and trajectory length $M=1000$ and $K_{\alpha }=2$ for Our algorithm, $M=1000$ $K_{\alpha }=20 $ for Lowen algorithm and $M=256$ $K_{\alpha }=200$ for Cholesky algorithm.\relax }{figure.caption.11}{}}
-\newlabel{changeintime@cref}{{[figure][3][1]1.3}{13}}
-\citation{Lowen1999}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.4}{\ignorespaces All three plots show an ensemble averaged MSD over $N=2000$ trajectories for $0.1<\alpha <1.0$ with $K_{\alpha }=2$ ,$\Delta t = 0.1$ and trajectory length $M=2000$ for Our and Lowen algorithm, $M=256$ for Choleski algorithm. a) Our algorithm and b) Lowen algorithm c) Choleski algorithm.\relax }}{14}{figure.caption.12}}
-\newlabel{alphachange}{{1.4}{14}{All three plots show an ensemble averaged MSD over $N=2000$ trajectories for $0.1<\alpha <1.0$ with $K_{\alpha }=2$ ,$\Delta t = 0.1$ and trajectory length $M=2000$ for Our and Lowen algorithm, $M=256$ for Choleski algorithm. a) Our algorithm and b) Lowen algorithm c) Choleski algorithm.\relax }{figure.caption.12}{}}
-\newlabel{alphachange@cref}{{[figure][4][1]1.4}{14}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.5}{\ignorespaces All three plots show the scale free form of the propagator at different times as introduced in \cref  {scalefreeformfrac} as an histogram over $N=10000$ trajectories for $\alpha =0.5$ with $K_{\alpha }=2$ ,$\Delta t = 0.1$ for all three algorithm, at different times $100<t<900$\relax }}{15}{figure.caption.13}}
-\newlabel{rescaledfunction}{{1.5}{15}{All three plots show the scale free form of the propagator at different times as introduced in \cref {scalefreeformfrac} as an histogram over $N=10000$ trajectories for $\alpha =0.5$ with $K_{\alpha }=2$ ,$\Delta t = 0.1$ for all three algorithm, at different times $100<t<900$\relax }{figure.caption.13}{}}
-\newlabel{rescaledfunction@cref}{{[figure][5][1]1.5}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.3}{\ignorespaces The plot show ensemble averaged MSDs for forward time and backward time over $N=2000$ trajectories for $\alpha =0.1$, $\Delta t = 0.1$ and trajectory length $M=1000$ and $K_{\alpha }=2$ for Our algorithm, $M=1000$ $K_{\alpha }=20 $ for Lowen algorithm and $M=256$ $K_{\alpha }=200$ for Cholesky algorithm.\relax }}{14}{figure.caption.11}}
+\newlabel{changeintime}{{1.3}{14}{The plot show ensemble averaged MSDs for forward time and backward time over $N=2000$ trajectories for $\alpha =0.1$, $\Delta t = 0.1$ and trajectory length $M=1000$ and $K_{\alpha }=2$ for Our algorithm, $M=1000$ $K_{\alpha }=20 $ for Lowen algorithm and $M=256$ $K_{\alpha }=200$ for Cholesky algorithm.\relax }{figure.caption.11}{}}
+\newlabel{changeintime@cref}{{[figure][3][1]1.3}{14}}
 \citation{Dieker2004}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.6}{\ignorespaces a) Non-Gaussian-Parameter as introduced in \cref  {nongaussian2} for all three algorithms with $K_{\alpha }=2$ , $N=5000$,$\alpha =0.5$ (Lowen and Our $M=1001$; Choleski $M=356$), $\Delta t = 1$ averaged over $50$ non-Gaussian-Parameter with its variance displayed as an error bar.\newline  b) Non-Gaussian-Parameter for Lowen algorithms with $K_{\alpha }=2$ , $N=5000$, $M=1001$, $\Delta t = 1$ and for various $0.1\leq \alpha \leq 1.0$ averaged over $50$ non-Gaussian-Parameter with its variance displayed as an error bar.\relax }}{16}{figure.caption.14}}
-\newlabel{nongaussianlowen}{{1.6}{16}{a) Non-Gaussian-Parameter as introduced in \cref {nongaussian2} for all three algorithms with $K_{\alpha }=2$ , $N=5000$,$\alpha =0.5$ (Lowen and Our $M=1001$; Choleski $M=356$), $\Delta t = 1$ averaged over $50$ non-Gaussian-Parameter with its variance displayed as an error bar.\newline b) Non-Gaussian-Parameter for Lowen algorithms with $K_{\alpha }=2$ , $N=5000$, $M=1001$, $\Delta t = 1$ and for various $0.1\leq \alpha \leq 1.0$ averaged over $50$ non-Gaussian-Parameter with its variance displayed as an error bar.\relax }{figure.caption.14}{}}
-\newlabel{nongaussianlowen@cref}{{[figure][6][1]1.6}{16}}
-\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Performance Analysis}{16}{section*.15}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.7}{\ignorespaces a) Algorithmic scaling of computational time in respect to the amount of trajectories $N$ for trajectory length $M=1000$ , ($D=2$, $\alpha =0.5$, $\Delta t=1$) of Lowen and our own algorithm. Both implemented in c++ and python (p). The Cholesky algorithm was implemented in python with $M=128$.\newline  b) Algorithmic scaling of computational time in respect to the trajectory length $M$ for a single trajectory $N=1$ , ($D=2$, $\alpha =0.5$, $\Delta t=1$). Lowen and our own algorithms are implemented in c++ and python (p). Cholesky is only implemented in python (p).\relax }}{17}{figure.caption.16}}
-\newlabel{fig:200}{{1.7}{17}{a) Algorithmic scaling of computational time in respect to the amount of trajectories $N$ for trajectory length $M=1000$ , ($D=2$, $\alpha =0.5$, $\Delta t=1$) of Lowen and our own algorithm. Both implemented in c++ and python (p). The Cholesky algorithm was implemented in python with $M=128$.\newline b) Algorithmic scaling of computational time in respect to the trajectory length $M$ for a single trajectory $N=1$ , ($D=2$, $\alpha =0.5$, $\Delta t=1$). Lowen and our own algorithms are implemented in c++ and python (p). Cholesky is only implemented in python (p).\relax }{figure.caption.16}{}}
-\newlabel{fig:200@cref}{{[figure][7][1]1.7}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.4}{\ignorespaces All three plots show an ensemble averaged MSD over $N=2000$ trajectories for $0.1<\alpha <1.0$ with $K_{\alpha }=2$ ,$\Delta t = 0.1$ and trajectory length $M=2000$ for Our and Lowen algorithm, $M=256$ for Choleski algorithm. a) Our algorithm and b) Lowen algorithm c) Choleski algorithm.\relax }}{15}{figure.caption.12}}
+\newlabel{alphachange}{{1.4}{15}{All three plots show an ensemble averaged MSD over $N=2000$ trajectories for $0.1<\alpha <1.0$ with $K_{\alpha }=2$ ,$\Delta t = 0.1$ and trajectory length $M=2000$ for Our and Lowen algorithm, $M=256$ for Choleski algorithm. a) Our algorithm and b) Lowen algorithm c) Choleski algorithm.\relax }{figure.caption.12}{}}
+\newlabel{alphachange@cref}{{[figure][4][1]1.4}{15}}
+\@writefile{toc}{\contentsline {subsubsection}{\nonumberline Performance Analysis}{15}{section*.15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.5}{\ignorespaces All three plots show the scale free form of the propagator at different times as introduced in \cref  {scalefreeformfrac} as an histogram over $N=10000$ trajectories for $\alpha =0.5$ with $K_{\alpha }=2$ ,$\Delta t = 0.1$ for all three algorithm, at different times $100<t<900$\relax }}{16}{figure.caption.13}}
+\newlabel{rescaledfunction}{{1.5}{16}{All three plots show the scale free form of the propagator at different times as introduced in \cref {scalefreeformfrac} as an histogram over $N=10000$ trajectories for $\alpha =0.5$ with $K_{\alpha }=2$ ,$\Delta t = 0.1$ for all three algorithm, at different times $100<t<900$\relax }{figure.caption.13}{}}
+\newlabel{rescaledfunction@cref}{{[figure][5][1]1.5}{16}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.6}{\ignorespaces a) Non-Gaussian-Parameter as introduced in \cref  {nongaussian2} for all three algorithms with $K_{\alpha }=2$ , $N=5000$,$\alpha =0.5$ (Lowen and Our $M=1001$; Choleski $M=356$), $\Delta t = 1$ averaged over $50$ non-Gaussian-Parameter with its variance displayed as an error bar.\newline  b) Non-Gaussian-Parameter for Lowen algorithms with $K_{\alpha }=2$ , $N=5000$, $M=1001$, $\Delta t = 1$ and for various $0.1\leq \alpha \leq 1.0$ averaged over $50$ non-Gaussian-Parameter with its variance displayed as an error bar.\relax }}{17}{figure.caption.14}}
+\newlabel{nongaussianlowen}{{1.6}{17}{a) Non-Gaussian-Parameter as introduced in \cref {nongaussian2} for all three algorithms with $K_{\alpha }=2$ , $N=5000$,$\alpha =0.5$ (Lowen and Our $M=1001$; Choleski $M=356$), $\Delta t = 1$ averaged over $50$ non-Gaussian-Parameter with its variance displayed as an error bar.\newline b) Non-Gaussian-Parameter for Lowen algorithms with $K_{\alpha }=2$ , $N=5000$, $M=1001$, $\Delta t = 1$ and for various $0.1\leq \alpha \leq 1.0$ averaged over $50$ non-Gaussian-Parameter with its variance displayed as an error bar.\relax }{figure.caption.14}{}}
+\newlabel{nongaussianlowen@cref}{{[figure][6][1]1.6}{17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.7}{\ignorespaces a) Algorithmic scaling of computational time in respect to the amount of trajectories $N$ for trajectory length $M=1000$ , ($D=2$, $\alpha =0.5$, $\Delta t=1$) of Lowen and our own algorithm. Both implemented in c++ and python (p). The Cholesky algorithm was implemented in python with $M=128$.\newline  b) Algorithmic scaling of computational time in respect to the trajectory length $M$ for a single trajectory $N=1$ , ($D=2$, $\alpha =0.5$, $\Delta t=1$). Lowen and our own algorithms are implemented in c++ and python (p). Cholesky is only implemented in python (p).\relax }}{18}{figure.caption.16}}
+\newlabel{fig:200}{{1.7}{18}{a) Algorithmic scaling of computational time in respect to the amount of trajectories $N$ for trajectory length $M=1000$ , ($D=2$, $\alpha =0.5$, $\Delta t=1$) of Lowen and our own algorithm. Both implemented in c++ and python (p). The Cholesky algorithm was implemented in python with $M=128$.\newline b) Algorithmic scaling of computational time in respect to the trajectory length $M$ for a single trajectory $N=1$ , ($D=2$, $\alpha =0.5$, $\Delta t=1$). Lowen and our own algorithms are implemented in c++ and python (p). Cholesky is only implemented in python (p).\relax }{figure.caption.16}{}}
+\newlabel{fig:200@cref}{{[figure][7][1]1.7}{18}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Particle Based Reaction Diffusion}{19}{chapter.2}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{lol}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Smoluchowski Problem}{19}{section.2.1}}
+\newlabel{smolubi}{{2.1}{19}{Smoluchowski Problem}{equation.2.1.1}{}}
+\newlabel{smolubi@cref}{{[equation][1][2]2.1}{19}}
+\citation{Waage1986}
+\citation{Erban2009}
+\newlabel{smoluchwoskiproblem}{{2.12}{21}{Smoluchowski Problem}{equation.2.1.12}{}}
+\newlabel{smoluchwoskiproblem@cref}{{[equation][12][2]2.12}{21}}
+\newlabel{difkinetics}{{2.13}{21}{Smoluchowski Problem}{equation.2.1.13}{}}
+\newlabel{difkinetics@cref}{{[equation][13][2]2.13}{21}}
 \citation{Berry2002}
 \citation{schnell2004reaction}
-\@writefile{toc}{\contentsline {chapter}{\numberline {2}Particle Based Reaction Diffusion}{18}{chapter.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}chemical reactions}{22}{section.2.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Smoluchowski}{23}{section.2.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Erban Chapmann}{23}{section.2.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}RevReaddy}{23}{section.2.5}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}An Enzymatic Reaction With Fractional Brownian Motion}{24}{chapter.3}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}Smoluchowski}{18}{section.2.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}Erban Chapmann}{18}{section.2.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}RevReaddy}{18}{section.2.3}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}An Enzymatic Reaction With Fractional Brownian Motion}{19}{chapter.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Michaelis Menten}{24}{section.3.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Simulation Model}{24}{section.3.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Results From Normal Diffusion}{24}{section.3.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Results from fBm}{24}{section.3.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces  Erban Chapmann Concentrations\relax }}{24}{figure.caption.17}}
+\newlabel{fig:diffusion_limit-Erban-Chapmann}{{3.1}{24}{Erban Chapmann Concentrations\relax }{figure.caption.17}{}}
+\newlabel{fig:diffusion_limit-Erban-Chapmann@cref}{{[figure][1][3]3.1}{24}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces  Erban Chapmann $k1$\relax }}{25}{figure.caption.18}}
+\newlabel{fig:diffusion_limit-Erban-Chapmann_k1}{{3.2}{25}{Erban Chapmann $k1$\relax }{figure.caption.18}{}}
+\newlabel{fig:diffusion_limit-Erban-Chapmann_k1@cref}{{[figure][2][3]3.2}{25}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces  Radial distribution for differnt $k_{c}$ \relax }}{25}{figure.caption.19}}
+\newlabel{fig:microrate_complex_radial_erban}{{3.3}{25}{Radial distribution for differnt $k_{c}$ \relax }{figure.caption.19}{}}
+\newlabel{fig:microrate_complex_radial_erban@cref}{{[figure][3][3]3.3}{25}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces  Radial distribution for $\lambda _{-}=0$ \relax }}{26}{figure.caption.20}}
+\newlabel{fig:microrate_complex_vsmicrorate_forward_radial_erban}{{3.4}{26}{Radial distribution for $\lambda _{-}=0$ \relax }{figure.caption.20}{}}
+\newlabel{fig:microrate_complex_vsmicrorate_forward_radial_erban@cref}{{[figure][4][3]3.4}{26}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces  Erban Chapmann radial distribution\relax }}{27}{figure.caption.21}}
+\newlabel{fig:diffusion_limit-Erban-Chapmann_radial}{{3.5}{27}{Erban Chapmann radial distribution\relax }{figure.caption.21}{}}
+\newlabel{fig:diffusion_limit-Erban-Chapmann_radial@cref}{{[figure][5][3]3.5}{27}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.5}Conclusion}{27}{section.3.5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces  different alpha\relax }}{28}{figure.caption.22}}
+\newlabel{fig:differentalpharevreaddymsd}{{3.6}{28}{different alpha\relax }{figure.caption.22}{}}
+\newlabel{fig:differentalpharevreaddymsd@cref}{{[figure][6][3]3.6}{28}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces $k1(t)$ for differnt $\alpha $ with fitted h\relax }}{29}{figure.caption.23}}
+\newlabel{fig:k1differentalphawithfit}{{3.7}{29}{$k1(t)$ for differnt $\alpha $ with fitted h\relax }{figure.caption.23}{}}
+\newlabel{fig:k1differentalphawithfit@cref}{{[figure][7][3]3.7}{29}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Summary}{30}{chapter.4}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Michaelis Menten}{19}{section.3.1}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Simulation Model}{19}{section.3.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Results From Normal Diffusion}{19}{section.3.3}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}Results from fBm}{19}{section.3.4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces  Erban Chapmann Concentrations\relax }}{19}{figure.caption.17}}
-\newlabel{fig:diffusion_limit-Erban-Chapmann}{{3.1}{19}{Erban Chapmann Concentrations\relax }{figure.caption.17}{}}
-\newlabel{fig:diffusion_limit-Erban-Chapmann@cref}{{[figure][1][3]3.1}{19}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces  Erban Chapmann $k1$\relax }}{20}{figure.caption.18}}
-\newlabel{fig:diffusion_limit-Erban-Chapmann_k1}{{3.2}{20}{Erban Chapmann $k1$\relax }{figure.caption.18}{}}
-\newlabel{fig:diffusion_limit-Erban-Chapmann_k1@cref}{{[figure][2][3]3.2}{20}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces  Radial distribution for differnt $k_{c}$ \relax }}{20}{figure.caption.19}}
-\newlabel{fig:microrate_complex_radial_erban}{{3.3}{20}{Radial distribution for differnt $k_{c}$ \relax }{figure.caption.19}{}}
-\newlabel{fig:microrate_complex_radial_erban@cref}{{[figure][3][3]3.3}{20}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces  Radial distribution for $\lambda _{-}=0$ \relax }}{21}{figure.caption.20}}
-\newlabel{fig:microrate_complex_vsmicrorate_forward_radial_erban}{{3.4}{21}{Radial distribution for $\lambda _{-}=0$ \relax }{figure.caption.20}{}}
-\newlabel{fig:microrate_complex_vsmicrorate_forward_radial_erban@cref}{{[figure][4][3]3.4}{21}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces  Erban Chapmann radial distribution\relax }}{22}{figure.caption.21}}
-\newlabel{fig:diffusion_limit-Erban-Chapmann_radial}{{3.5}{22}{Erban Chapmann radial distribution\relax }{figure.caption.21}{}}
-\newlabel{fig:diffusion_limit-Erban-Chapmann_radial@cref}{{[figure][5][3]3.5}{22}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.5}Conclusion}{22}{section.3.5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces  different alpha\relax }}{23}{figure.caption.22}}
-\newlabel{fig:differentalpharevreaddymsd}{{3.6}{23}{different alpha\relax }{figure.caption.22}{}}
-\newlabel{fig:differentalpharevreaddymsd@cref}{{[figure][6][3]3.6}{23}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces $k1(t)$ for differnt $\alpha $ with fitted h\relax }}{24}{figure.caption.23}}
-\newlabel{fig:k1differentalphawithfit}{{3.7}{24}{$k1(t)$ for differnt $\alpha $ with fitted h\relax }{figure.caption.23}{}}
-\newlabel{fig:k1differentalphawithfit@cref}{{[figure][7][3]3.7}{24}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Summary}{25}{chapter.4}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Appendix}{31}{chapter.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Appendix}{26}{chapter.5}}
-\@writefile{lof}{\addvspace {10\p@ }}
-\@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{lol}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}From Central Limit Theorem to Gaussian Distribution}{26}{section.5.1}}
-\newlabel{append:CLT}{{5.1}{26}{From Central Limit Theorem to Gaussian Distribution}{section.5.1}{}}
-\newlabel{append:CLT@cref}{{[section][1][5]5.1}{26}}
-\newlabel{eq:CLT1}{{5.1}{26}{From Central Limit Theorem to Gaussian Distribution}{equation.5.1.1}{}}
-\newlabel{eq:CLT1@cref}{{[equation][1][5]5.1}{26}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}From Gaussian Distribution to Gaussian Transition Probability}{27}{section.5.2}}
-\newlabel{baystheorem}{{5.2}{27}{From Gaussian Distribution to Gaussian Transition Probability}{section.5.2}{}}
-\newlabel{baystheorem@cref}{{[section][2][5]5.2}{27}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Einstein Formula}{27}{section.5.3}}
-\newlabel{einsteinrealtionappendix}{{5.3}{27}{Einstein Formula}{section.5.3}{}}
-\newlabel{einsteinrealtionappendix@cref}{{[section][3][5]5.3}{27}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Autocorrelation Function for fBm}{28}{section.5.4}}
-\newlabel{VACF}{{5.4}{28}{Autocorrelation Function for fBm}{section.5.4}{}}
-\newlabel{VACF@cref}{{[section][4][5]5.4}{28}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}Kinetics of the Bi-Molecular Chemical Reaction in Solution}{29}{section.5.5}}
-\newlabel{bi-molecular}{{5.5}{29}{Kinetics of the Bi-Molecular Chemical Reaction in Solution}{section.5.5}{}}
-\newlabel{bi-molecular@cref}{{[section][5][5]5.5}{29}}
-\newlabel{smolubi}{{5.17}{29}{Kinetics of the Bi-Molecular Chemical Reaction in Solution}{equation.5.5.17}{}}
-\newlabel{smolubi@cref}{{[equation][17][5]5.17}{29}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.6}Michaelis-Menten Kinetics}{30}{section.5.6}}
-\newlabel{Menten_der}{{5.6}{30}{Michaelis-Menten Kinetics}{section.5.6}{}}
-\newlabel{Menten_der@cref}{{[section][6][5]5.6}{30}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}From Central Limit Theorem to Gaussian Distribution}{31}{section.5.1}}
+\newlabel{append:CLT}{{5.1}{31}{From Central Limit Theorem to Gaussian Distribution}{section.5.1}{}}
+\newlabel{append:CLT@cref}{{[section][1][5]5.1}{31}}
+\newlabel{eq:CLT1}{{5.1}{31}{From Central Limit Theorem to Gaussian Distribution}{equation.5.1.1}{}}
+\newlabel{eq:CLT1@cref}{{[equation][1][5]5.1}{31}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}From Gaussian Distribution to Gaussian Transition Probability}{32}{section.5.2}}
+\newlabel{baystheorem}{{5.2}{32}{From Gaussian Distribution to Gaussian Transition Probability}{section.5.2}{}}
+\newlabel{baystheorem@cref}{{[section][2][5]5.2}{32}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Einstein Formula}{32}{section.5.3}}
+\newlabel{einsteinrealtionappendix}{{5.3}{32}{Einstein Formula}{section.5.3}{}}
+\newlabel{einsteinrealtionappendix@cref}{{[section][3][5]5.3}{32}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Autocorrelation Function for fBm}{33}{section.5.4}}
+\newlabel{VACF}{{5.4}{33}{Autocorrelation Function for fBm}{section.5.4}{}}
+\newlabel{VACF@cref}{{[section][4][5]5.4}{33}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Erban-Chapman}{34}{section.5.5}}
+\newlabel{Erban-Chapmann}{{5.5}{34}{Erban-Chapman}{section.5.5}{}}
+\newlabel{Erban-Chapmann@cref}{{[section][5][5]5.5}{34}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.6}Michaelis-Menten Kinetics}{34}{section.5.6}}
+\newlabel{Menten_der}{{5.6}{34}{Michaelis-Menten Kinetics}{section.5.6}{}}
+\newlabel{Menten_der@cref}{{[section][6][5]5.6}{34}}
+\newlabel{first}{{5.18}{34}{Michaelis-Menten Kinetics}{equation.5.6.18}{}}
+\newlabel{first@cref}{{[equation][18][5]5.18}{34}}
+\newlabel{conservationenym}{{5.21}{34}{Michaelis-Menten Kinetics}{equation.5.6.21}{}}
+\newlabel{conservationenym@cref}{{[equation][21][5]5.21}{34}}
 \bibdata{literatur}
-\newlabel{first}{{5.31}{31}{Michaelis-Menten Kinetics}{equation.5.6.31}{}}
-\newlabel{first@cref}{{[equation][31][5]5.31}{31}}
-\newlabel{conservationenym}{{5.34}{31}{Michaelis-Menten Kinetics}{equation.5.6.34}{}}
-\newlabel{conservationenym@cref}{{[equation][34][5]5.34}{31}}
 \bibcite{Berry2002}{1}
 \bibcite{Craigmile2003}{2}
 \bibcite{DAVIES1987}{3}
-\bibcite{LectureFelix}{4}
-\bibcite{Hofling2013}{5}
-\bibcite{Horvai2007}{6}
-\bibcite{WRCR:WRCR3676}{7}
-\bibcite{Lowen1999}{8}
-\bibcite{Mandelbrot1968}{9}
-\bibcite{michaelis1913kinetik}{10}
-\bibcite{Minton2006}{11}
-\@writefile{toc}{\contentsline {chapter}{\nonumberline Bibliography}{32}{chapter*.24}}
-\bibcite{qian2003fractional}{12}
-\bibcite{schnell2004reaction}{13}
-\bibcite{Timmer1995}{14}
-\bibcite{Dieker2004}{15}
+\bibcite{Erban2009}{4}
+\bibcite{LectureFelix}{5}
+\bibcite{Hofling2013}{6}
+\bibcite{Horvai2007}{7}
+\bibcite{WRCR:WRCR3676}{8}
+\bibcite{Lowen1999}{9}
+\bibcite{Mandelbrot1968}{10}
+\bibcite{michaelis1913kinetik}{11}
+\@writefile{toc}{\contentsline {chapter}{\nonumberline Bibliography}{36}{chapter*.24}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{lol}{\addvspace {10\p@ }}
+\bibcite{Minton2006}{12}
+\bibcite{qian2003fractional}{13}
+\bibcite{schnell2004reaction}{14}
+\bibcite{Timmer1995}{15}
+\bibcite{Dieker2004}{16}
+\bibcite{Waage1986}{17}
 \bibstyle{plain}
-\newlabel{LastPage}{{}{33}{}{page.33}{}}
-\xdef\lastpage@lastpage{33}
-\xdef\lastpage@lastpageHy{33}
+\newlabel{LastPage}{{}{37}{}{page.37}{}}
+\xdef\lastpage@lastpage{37}
+\xdef\lastpage@lastpageHy{37}

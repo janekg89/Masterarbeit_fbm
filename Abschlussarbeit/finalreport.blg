@@ -1,48 +1,48 @@
-This is BibTeX, Version 0.99d (TeX Live 2015/dev/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: finalreport.aux
 The style file: plain.bst
 Database file #1: literatur.bib
 Warning--empty school in Dieker2004
-You've used 15 entries,
+You've used 17 entries,
             2118 wiz_defined-function locations,
-            614 strings with 6349 characters,
-and the built_in function-call counts, 4532 in all, are:
-= -- 469
-> -- 146
+            632 strings with 6689 characters,
+and the built_in function-call counts, 5140 in all, are:
+= -- 527
+> -- 172
 < -- 1
-+ -- 59
-- -- 44
-* -- 325
-:= -- 761
-add.period$ -- 46
-call.type$ -- 15
-change.case$ -- 67
++ -- 69
+- -- 52
+* -- 375
+:= -- 865
+add.period$ -- 52
+call.type$ -- 17
+change.case$ -- 77
 chr.to.int$ -- 0
-cite$ -- 16
-duplicate$ -- 169
-empty$ -- 392
-format.name$ -- 44
-if$ -- 937
+cite$ -- 18
+duplicate$ -- 191
+empty$ -- 442
+format.name$ -- 52
+if$ -- 1061
 int.to.chr$ -- 0
-int.to.str$ -- 15
-missing$ -- 13
-newline$ -- 78
-num.names$ -- 30
-pop$ -- 50
+int.to.str$ -- 17
+missing$ -- 15
+newline$ -- 88
+num.names$ -- 34
+pop$ -- 56
 preamble$ -- 1
-purify$ -- 52
+purify$ -- 60
 quote$ -- 0
-skip$ -- 116
+skip$ -- 132
 stack$ -- 0
-substring$ -- 366
-swap$ -- 21
+substring$ -- 406
+swap$ -- 23
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 60
+type$ -- 68
 warning$ -- 1
-while$ -- 54
-width$ -- 17
-write$ -- 166
+while$ -- 60
+width$ -- 19
+write$ -- 188
 (There was 1 warning)

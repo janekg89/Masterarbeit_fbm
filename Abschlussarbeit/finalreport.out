@@ -4,21 +4,23 @@
 \BOOKMARK [1][-]{section.1.3}{Fractional Brownian Motion}{chapter.1}% 4
 \BOOKMARK [2][-]{subsection.1.3.1}{Algorithm}{section.1.3}% 5
 \BOOKMARK [0][-]{chapter.2}{Particle Based Reaction Diffusion}{}% 6
-\BOOKMARK [1][-]{section.2.1}{Smoluchowski}{chapter.2}% 7
-\BOOKMARK [1][-]{section.2.2}{Erban Chapmann}{chapter.2}% 8
-\BOOKMARK [1][-]{section.2.3}{RevReaddy}{chapter.2}% 9
-\BOOKMARK [0][-]{chapter.3}{An Enzymatic Reaction With Fractional Brownian Motion}{}% 10
-\BOOKMARK [1][-]{section.3.1}{Michaelis Menten}{chapter.3}% 11
-\BOOKMARK [1][-]{section.3.2}{Simulation Model}{chapter.3}% 12
-\BOOKMARK [1][-]{section.3.3}{Results From Normal Diffusion}{chapter.3}% 13
-\BOOKMARK [1][-]{section.3.4}{Results from fBm}{chapter.3}% 14
-\BOOKMARK [1][-]{section.3.5}{Conclusion}{chapter.3}% 15
-\BOOKMARK [0][-]{chapter.4}{Summary}{}% 16
-\BOOKMARK [0][-]{chapter.5}{Appendix}{}% 17
-\BOOKMARK [1][-]{section.5.1}{From Central Limit Theorem to Gaussian Distribution}{chapter.5}% 18
-\BOOKMARK [1][-]{section.5.2}{From Gaussian Distribution to Gaussian Transition Probability}{chapter.5}% 19
-\BOOKMARK [1][-]{section.5.3}{Einstein Formula}{chapter.5}% 20
-\BOOKMARK [1][-]{section.5.4}{Autocorrelation Function for fBm}{chapter.5}% 21
-\BOOKMARK [1][-]{section.5.5}{Kinetics of the Bi-Molecular Chemical Reaction in Solution}{chapter.5}% 22
-\BOOKMARK [1][-]{section.5.6}{Michaelis-Menten Kinetics}{chapter.5}% 23
-\BOOKMARK [0][-]{chapter*.24}{Bibliography}{}% 24
+\BOOKMARK [1][-]{section.2.1}{Smoluchowski Problem}{chapter.2}% 7
+\BOOKMARK [1][-]{section.2.2}{chemical reactions}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.3}{Smoluchowski}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.4}{Erban Chapmann}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.5}{RevReaddy}{chapter.2}% 11
+\BOOKMARK [0][-]{chapter.3}{An Enzymatic Reaction With Fractional Brownian Motion}{}% 12
+\BOOKMARK [1][-]{section.3.1}{Michaelis Menten}{chapter.3}% 13
+\BOOKMARK [1][-]{section.3.2}{Simulation Model}{chapter.3}% 14
+\BOOKMARK [1][-]{section.3.3}{Results From Normal Diffusion}{chapter.3}% 15
+\BOOKMARK [1][-]{section.3.4}{Results from fBm}{chapter.3}% 16
+\BOOKMARK [1][-]{section.3.5}{Conclusion}{chapter.3}% 17
+\BOOKMARK [0][-]{chapter.4}{Summary}{}% 18
+\BOOKMARK [0][-]{chapter.5}{Appendix}{}% 19
+\BOOKMARK [1][-]{section.5.1}{From Central Limit Theorem to Gaussian Distribution}{chapter.5}% 20
+\BOOKMARK [1][-]{section.5.2}{From Gaussian Distribution to Gaussian Transition Probability}{chapter.5}% 21
+\BOOKMARK [1][-]{section.5.3}{Einstein Formula}{chapter.5}% 22
+\BOOKMARK [1][-]{section.5.4}{Autocorrelation Function for fBm}{chapter.5}% 23
+\BOOKMARK [1][-]{section.5.5}{Erban-Chapman}{chapter.5}% 24
+\BOOKMARK [1][-]{section.5.6}{Michaelis-Menten Kinetics}{chapter.5}% 25
+\BOOKMARK [0][-]{chapter*.24}{Bibliography}{}% 26

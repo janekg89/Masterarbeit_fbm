@@ -17,6 +17,12 @@ R.~B. DAVIES and D.~S. HARTE.
 \newblock Tests for hurst effect.
 \newblock {\em Biometrika}, 74(1):95--101, 1987.
 
+\bibitem{Erban2009}
+Radek Erban and S~Jonathan Chapman.
+\newblock Stochastic modelling of reaction{\textendash}diffusion processes:
+  algorithms for bimolecular reactions.
+\newblock {\em Physical Biology}, 6(4):046001, aug 2009.
+
 \bibitem{LectureFelix}
 H{\"{o}}fling Felix.
 \newblock Stochastic processes and correlation functions.
@@ -84,5 +90,10 @@ M.~Timmer, J.;Koenig.
 Dieker Ton.
 \newblock Simulation of fractional brownian motion.
 \newblock Master's thesis, 2004.
+
+\bibitem{Waage1986}
+P.~Waage and C.~M. Gulberg.
+\newblock Studies concerning affinity.
+\newblock {\em Journal of Chemical Education}, 63(12):1044, dec 1986.
 
 \end{thebibliography}

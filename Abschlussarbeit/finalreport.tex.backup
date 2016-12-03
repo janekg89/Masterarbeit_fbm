@@ -166,10 +166,7 @@ There exists a scale-free form of the Gaussian propagator as a more intuitive co
 \begin{align}
 P(\bm{r},t)= r^{-d} \mathcal{P}_{gauss}(\hat{\bm{r}})  \qquad \text{with} \qquad \hat{\bm{r}} = \frac{\bm{r}}{\sqrt{2Dt}} \label{scalefreeform}
 \end{align}
-
-
-
-
+For the sake of completeness, it was to be mentioned that velocities in reality are always correlated at least for very short lag times. It is often referred to as the ballistic regime. As an example a water molecule forgets its initial velocities in ca. 16Fs.
 
 % Now some stuff from \cite{Timmer1995}
 % and its autocorrelation
@@ -542,17 +539,129 @@ b) Non-Gaussian-Parameter for Lowen algorithms with $K_{\alpha}=2$ , $N=5000$, $
 \end{comment}
 \newpage
 \subsubsection{Performance Analysis}
-The performance in respected to sample size (trajectory length) and number of samples (amount of trajectories) was analyzed in \cref{fig:200} b) . Thereby the most promising, in terms of exactness, algorithm (Cholesky) scales in respect to the trajectory length $M$ with $\mathcal{O}(M^3)$. For long trajectories as expected for our application in reaction diffusion it is not reasonable to use such a slow algorithm. Even if every next trajectory with the same $\alpha$ and length is of  $\mathcal{O}(M^2)$ \cite{Dieker2004}. In \cref{fig:200} a) one can see Cholesky to scale slow with the amount of trajectories $N$. Although one should keep in mind that the trajectory length had to be chosen $M=128$ and not $M=1000$ as for Our and Lowens algorithm to get comparably small values. Lowens and Our algorithm perform both $\mathcal{O}(M log(M))$ in respect to the trajectory length as a result of the FFT and $\mathcal{O}(N)$ in respect to the amount of trajectories.
+The performance in respected to sample size (trajectory length) and number of samples (amount of trajectories) was analyzed in \cref{fig:200} b) . Thereby the most promising, in terms of exactness, Cholesky algorithm scales in respect to the trajectory length $M$ with $\mathcal{O}(M^3)$. Our application of the integrator desire long trajectories. It is not reasonable to use such a slow algorithm. Even if every next trajectory with the same $\alpha$ and length is of  $\mathcal{O}(M^2)$ \cite{Dieker2004}. In \cref{fig:200} a) one can see Cholesky to scale slow with the amount of trajectories $N$. Although one should keep in mind that the trajectory length had to be chosen $M=128$ compared to $M=1000$ as for Our and Lowens algorithm to get comparably small values. Lowens and Our algorithm perform both $\mathcal{O}(M log(M))$ in respect to the trajectory length as a result of the FFT and $\mathcal{O}(N)$ in respect to the amount of trajectories.
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\linewidth]{./data/profilingneu1.png}
   \captionsetup{width=0.9\linewidth}
-  \captionof{figure}{a) Algorithmic scaling of computational time in respect to the amount of trajectories $N$ for trajectory length $M=1000$ , ($D=2$, $\alpha=0.5$, $\Delta t=1$) of Lowen and our own algorithm. Both implemented in  c++ and python (p) and the Cholesky algorithm with $M=128$ implemented in python.\newline
+  \captionof{figure}{a) Algorithmic scaling of computational time in respect to the amount of trajectories $N$ for trajectory length $M=1000$ , ($D=2$, $\alpha=0.5$, $\Delta t=1$) of Lowen and our own algorithm. Both implemented in  c++ and python (p). The Cholesky algorithm was implemented in python with $M=128$.\newline
   b) Algorithmic scaling of computational time in respect to the trajectory length $M$ for a single trajectory $N=1$ , ($D=2$, $\alpha=0.5$, $\Delta t=1$). Lowen and our own algorithms are implemented in c++ and python (p). Cholesky is only implemented in python (p).}
   \label{fig:200}
 \end{figure}
 
 \chapter{Particle Based Reaction Diffusion}
+
+
+classical description of reaction diffusion system  can be 
+
+The motivation of reaction diffusion is to combine the theory of chemical reactions and 
+normal reaction diffusion can be modelled by various models. Depending on the system one might be favourable over the other. In general two different approaches can be distinguished. Deterministic models based on differential equations and stochastic simulations. Reaction diffusion for well mixed system can even be described by a system of ODEs. Thereby any concentrations in space are assumed to be constant. Theses ODEs follow from the law of mass action and coalition theory for an ideal gas ( independent increments). They are naturally used for chemical kinetics and the amount of concentration in equilibrium. 
+
+
+
+Let mass conservation be the starting point:
+
+\section{Smoluchowski Problem}
+Lets starts our considerations on chemical reactions with the Smoluchowski problem for kinetics of a bi-molecular chemical reaction in solution. The following derivation shell give the kinetics of an easy model for a bi-molecular reaction and motivate under certain conditions the reaction diffusion equation.\newline  
+The reaction sceme for a bi-molecular reaction with reactants A and B forming an fusion to a complex AB with a rate $k^{+}_{\mathrm{d}}$ and fission back to A and B with a rate $k^{-}_{\mathrm{d}}$  can be written as:
+\begin{align*}
+\text{\ch{A + B <=>[ $k^{+}_{\mathrm{d}}$ ][ $k^{-}_{\mathrm{d}}$ ] AB }}
+\end{align*}
+The assumption of free diffusion of particle A and B with the diffusion constants $D_A$ and $D_B$ , respectively and without any interactions between them is introduced for the most straight forward analytical solution. In fact this problem can be described by an modified version of the diffusion \cref{eq:ficks} motivated in the first chapter.
+The modification introduces the joint concentration field for a bi-molecular system in a solution:
+\begin{align}
+ \frac{\partial \rho_t(\bm{r}_A,\bm{r}_B)}{\partial t}=(D_A \nabla^{2}_{A}+D_B \nabla^{2}_{B}) \rho_t(\bm{r}_A,\bm{r}_B) \label{smolubi}
+\end{align}
+The complexity of the problem can be reduced by substituting the positions of the particles A and B with their relative distance $\bm{r}=\bm{r}_A-\bm{r}_B$. It is convenient to introduce even further substitutions:
+\begin{align}
+ D= D_A+D_B \qquad \qquad \bm{R}=\frac{D_B \bm{r}_A+ D_A \bm{r}_B}{D_A+D_B}
+\end{align}
+the Laplace operator in terms of new coordinates result in:
+\begin{align}
+\nabla^{2}_{A} = \left( \nabla_r+\frac{D_B}{D} \nabla_R \right)^2 \\
+\nabla^{2}_{B} = \left( \nabla_r+\frac{D_A}{D} \nabla_R \right)^2 
+\end{align}
+Inserting these in \cref{smolubi} one gets:
+\begin{align}
+ \frac{\partial \tilde{\rho}_t(\bm{r},\bm{R})}{\partial t}=\left(D \nabla^{2}_{r}+\frac{D_B D_A}{D_A+D_B}\nabla^{2}_{R}\right) \tilde{\rho}_t(\bm{r},\bm{R})
+\end{align}
+The equation is describing two independent diffusion processes, one in
+the coordinate $\bm{r}$ and one in the coordinate $\bm{R}$. The solution can be obtained by the product ansatz $\tilde{\rho}_t(\bm{r},\bm{R})=\rho_t(\bm{r})q_t(\bm{R})$. Integration over $\bm{R}$ results in:
+\begin{align}
+\frac{\partial \rho_t(\bm{r})}{\partial t}=D \nabla^{2}_{r} \rho_t(\bm{r}) +\frac{D_B D_A}{D_A+D_B} \nabla^{2}_{R} \rho_t(\bm{r}) \int_{\partial V} q_t(\bm{R}) d \bm{a}
+\end{align}
+In the previous equation the stokes theorem was applied. The second term is zero due to conservation of probability. The problem is isotropic, hence $r=|\bm{r}|$ and $\nabla^{2}_{\bm{r}}=\left(\partial_r+\frac{2}{r}\right)\partial$. The equation reduce to one dimension:
+\begin{align}
+\frac{\partial \rho_t(r)}{\partial t}=-\left(\frac{\partial}{\partial_r}+\frac{2}{r} \right) j_t(r) \qquad \qquad j_t(r)=D \frac{\partial\rho_t(r)}{\partial_r}
+\end{align}
+ The stationary distribution results in:
+\begin{align}
+ 0 &=-\left(\frac{\partial}{\partial_r}+\frac{2}{r} \right) j^{s}_t(r) \\
+ \frac{d j^{s}_t(r)}{j^{s}_t(r)}  &=- \frac{2}{r} dr\\
+ j^{s}_t(r)&=A r^{-2}\\
+ \rho^s(r)&=\rho^s(r_0)- \frac{\int_{r_0}^{r} j^{s}_t(r')dr'}{D}=\rho^s(r_0)+\frac{A}{D}\left(\frac{1}{r}-\frac{1}{r_0}\right)
+\end{align}
+Now assuming only a single B molecule being at the position $r=0$. Instantaneous reaction occur for $r\leq \sigma \Rightarrow \rho_t(r \leq \sigma)=0$. For $r \rightarrow \infty$ the distribution is than defined as the concentration of particle A $\rho_t(r \rightarrow \infty)=c_A$.
+The solutions for $\rho^{s}(r)$ and $j^{s}_t(r)$ for theses boundary conditions are then:
+\begin{align}
+ \rho^{s}(r)=C_A \left(1-\frac{\sigma}{r}\right) \qquad \qquad j^{s}_t(r)&=-D \sigma C_A r^{-2}
+ \label{smoluchwoskiproblem}
+\end{align}
+The change of the concentration of $C_{AB}$ is then: 
+\begin{align}
+ \frac{d C_{AB} }{dt}=4 \pi \sigma D C_A C_B \label{difkinetics}
+\end{align}
+Along the way several assumptions were made:
+\begin{itemize}
+  \item The system can be described by a diffusion constant which is in depended of time and position. 
+  \item no interaction between particles (ideal gas).
+  \item System has a constant concentration of A particles at boundary $\rho_t(r \rightarrow \infty)=c_A$.
+  \item System is in a stationary distribution.
+  \item System of one B particle with a concentration $C_B=1/V$ can generalised for a system with many particles and still a constant concentration. 
+  \item The limit of instantaneous reactions is called diffusion limited reaction.
+\end{itemize}
+Still the solution gives the kinetics for a simple bi-molecular system. It is consistent with collision theory, which states that the collision frequency is proportional to the concentrations of the colliding particles. Pioneer work in reaction kinetics by Guldberg and Waage already in 1864 \cite{Waage1986} resulted in the law of mass action, which states the proportionality of the reaction speed to the concentration with a constant rate. It builds up the basis for a description of reaction kinetics in terms of ordinary differential equations (ODEs) like \cref{difkinetics}.\newline
+Smoluchowski's problem can be in fact generalised for reaction to occur with a microscopic rate $\lambda_{+}$ within a radius $\sigma$. Derived by R. Erban and S. J. Chapman in \cite{Erban2009}.  However, as a small remark, the microscopic rate has to be distinguished from the macroscopic rate. As an example microscopic rates are related to the Kramers problem, describing the time dependence of a particle passing a potential barrier like commonly in biology protein binding / unbinding. The problem can be described similar to Smoluchwoski's problem \cref{smoluchwoskiproblem}  with similar boundary conditions for $r > \sigma$ and new for $r \leq \sigma$:
+\begin{align}
+r\leq \sigma \Rightarrow \frac{\partial \rho_t(r \leq \sigma)}{\partial t}=-\lambda_{+} \rho_t (r \leq \sigma)
+\end{align}
+It can also be interpreted as the production term in the continuity equation. The calculation to the solution of the second-order ODEs can be found in the Appendix \cref{Erban-Chapmann}.
+
+
+
+\begin{align}
+ \text{with prdocution term}
+\end{align}
+Determinitic:
+Then Smoluchowski. (then gas theory wiki, maybe aurilius and kramers problem and simulations of proteins for determination of rates in reaction). back mass conservation with  production term. Then erban chapman. Then no diffusion (or diffusion time independ (and in-cooperated in marcoscopic rate.)). constant concentration (again mass action from gas theory)  . concentration  based models (ODEs) and solving . Then CME Then compartment based CME. 
+
+Then stochastic simulations, stochstic cme. stochstic compatment based cme. stochastic particle based simulations smoluchawoski/diffsuion equation to Fockerplank. (fluctuations / dissipation ) theorem.
+
+ 
+
+
+
+
+
+
+Deterministic models have their origin.  
+
+
+stationary values. kinetics. spatial distribution of reactants. 
+
+What are interesting observables. Solutions in dynamical equilibrium reaction rates rate equtaions ( assumption rate is independent of time. not nesesarilly true.  chemical equlubrium. Mass action. order of reaction. Smoluchowski. Chemical master equation. quantum physical -> bonds between reactants for example electrons involved.
+\section{chemical reactions}
+With no information on 
+The classical theory of reaction 
+ 
+
+
+
+
+
+
+
+In biological systems, phenomena often depend on stochastic fluctuations. Deterministic models often are often inaccurate or even not applicable at all. 
 (von franks Vortrag das Bild mit den unterschiedlichen Methoden zur genererieung von Reactiondiffusions systemen). 
 This chapter is going to discuss particle based reaction diffusion. Particle based reaction diffusion is going to be put in relation to different reaction diffusion studying methods.  
 Analytical solutions for resulting ordinary differencial equation exist under certain conditions like Quasi-Steady-State assumption or equilibrium assumption. In any case the mass action law is assumed. For fractional diffusion mass action law does not apply. Thus concentration based models had been upgraded by time depended rate coefficients \cite{Berry2002}  \cite{schnell2004reaction}
@@ -719,9 +828,13 @@ Partial integration and Tauber theorem:
  \tilde{Z}(z) & \stackrel{par. integ.}{=} - \frac{1}{2 d} \left( \underbrace{\left [ e^{izt}\overbrace{  2dK_{\alpha}t^{\alpha}}^{=B(t)} \right]_{0}^{\infty}}_{\stackrel{\alpha < 1} {=} 0} - (iz)^2 \int_{0}^{\infty} d t e^{izt} \delta r^2 (t) \right) \\
   & = - \frac{z^2}{2 d}\int_{0}^{\infty} d t e^{izt} \delta r^2 (t)  \stackrel{\operatorname{Im}(z)> 0} {=}  K_{\alpha} \Gamma(1+\alpha)(i z)^{1-\alpha} 
 \end{align*}
+\section{Erban-Chapman}\label{Erban-Chapmann}
+The solution of Erban problem:
+\begin{comment}
+ 
 
 \section{Kinetics of the Bi-Molecular Chemical Reaction in Solution}\label{bi-molecular}
-The aim of this calculation is to derive the kinetics for the following reaction scheme: \ch{A + B <>[ $k^{+}_{\mathrm{d}}$ ][ $k^{-}_{\mathrm{d}}$ ] AB }\newline
+The aim of this calculation is to derive the kinetics for the following reaction scheme: \ch{A + B <=>[ $k^{+}_{\mathrm{d}}$ ][ $k^{-}_{\mathrm{d}}$ ] AB }\newline
 The derivation is calculated under the assumption of free diffusion of particle A and B with the diffusion constants $D_A$ and $D_B$ , respectively and without any interactions between them. 
 The joint concentration field can be described by the Smoluchowski equation for a bi-molecular system in a solution:
 \begin{align}
@@ -768,6 +881,7 @@ The change of the concentration of $C_{AB}$ is then:
 By formulating the problem in relative distance from particle A and B. It was also reasonable to keep particle B at its initial position. The results shows the relation between the product of the concentrations and the concentration change.In the derivation of Michealis-Menten kinetics this is an assumption. 
 
 
+\end{comment}
 
 \section{Michaelis-Menten Kinetics}\label{Menten_der}
 Michaelis-Menten kinetics are describing the following system:\newline
@@ -791,6 +905,7 @@ Combining it with the first differential \cref{first} one gets the rate of Produ
 \begin{align}
  v= \frac{d[P]}{dt}= k_{\mathrm{2}} \frac{[E]_0 [S]}{K_M+[S]} = V_{max} \frac{[S]}{K_M+[S]}  
 \end{align}
+
 \begin{comment}
  
 
