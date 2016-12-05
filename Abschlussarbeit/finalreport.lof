@@ -14,14 +14,14 @@
 \contentsline {figure}{\numberline {1.6}{\ignorespaces a) Non-Gaussian-Parameter as introduced in \cref {nongaussian2} for all three algorithms with $K_{\alpha }=2$ , $N=5000$,$\alpha =0.5$ (Lowen and Our $M=1001$; Choleski $M=356$), $\Delta t = 1$ averaged over $50$ non-Gaussian-Parameter with its variance displayed as an error bar.\newline b) Non-Gaussian-Parameter for Lowen algorithms with $K_{\alpha }=2$ , $N=5000$, $M=1001$, $\Delta t = 1$ and for various $0.1\leq \alpha \leq 1.0$ averaged over $50$ non-Gaussian-Parameter with its variance displayed as an error bar.\relax }}{17}{figure.caption.14}
 \contentsline {figure}{\numberline {1.7}{\ignorespaces a) Algorithmic scaling of computational time in respect to the amount of trajectories $N$ for trajectory length $M=1000$ , ($D=2$, $\alpha =0.5$, $\Delta t=1$) of Lowen and our own algorithm. Both implemented in c++ and python (p). The Cholesky algorithm was implemented in python with $M=128$.\newline b) Algorithmic scaling of computational time in respect to the trajectory length $M$ for a single trajectory $N=1$ , ($D=2$, $\alpha =0.5$, $\Delta t=1$). Lowen and our own algorithms are implemented in c++ and python (p). Cholesky is only implemented in python (p).\relax }}{18}{figure.caption.16}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Density distirbution of Smoluchowski and Erban Chapmann Chapman\relax }}{23}{figure.caption.17}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Erban Chapmann Concentrations\relax }}{24}{figure.caption.17}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Erban Chapmann $k1$\relax }}{25}{figure.caption.18}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Radial distribution for differnt $k_{c}$ \relax }}{25}{figure.caption.19}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Radial distribution for $\lambda _{-}=0$ \relax }}{26}{figure.caption.20}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Erban Chapmann radial distribution\relax }}{27}{figure.caption.21}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces different alpha\relax }}{28}{figure.caption.22}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces $k1(t)$ for differnt $\alpha $ with fitted h\relax }}{29}{figure.caption.23}
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Erban Chapmann Concentrations\relax }}{25}{figure.caption.18}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Erban Chapmann $k1$\relax }}{26}{figure.caption.19}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Radial distribution for differnt $k_{c}$ \relax }}{26}{figure.caption.20}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Radial distribution for $\lambda _{-}=0$ \relax }}{27}{figure.caption.21}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Erban Chapmann radial distribution\relax }}{28}{figure.caption.22}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces different alpha\relax }}{29}{figure.caption.23}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces $k1(t)$ for differnt $\alpha $ with fitted h\relax }}{30}{figure.caption.24}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

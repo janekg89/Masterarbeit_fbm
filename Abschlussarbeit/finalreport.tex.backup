@@ -550,52 +550,23 @@ The performance in respected to sample size (trajectory length) and number of sa
 \end{figure}
 
 \chapter{Particle Based Reaction Diffusion}
+Chemical recations are genericly found in nature. They describe a transformation of chemical substances to one annother, transforamtion of chemical substances are described by formation and breaking of chemical bonds. These bonds are formed due to electromagnetic forces. Physicaly corret theses bond should be described quatum mechanicly. For large systems these calcuation cannot be performed, so goarsed grained models for the description were developed. But reactions in a broader sence can also be a transformation of a state to another. A  protein changing its transformation can be thought of as an exmaple. Interesting quatenties are reaction kinetics, amount of reactants in equlibrium and spatial distirbutions. Most commonly chemical kinetics are modelled by ordinary differential equations (ODEs) based on the mass action law. Thereby any concentrations are assumed to be constant in space. In the first section this law is shown to follow from the diffusion \cref{eq:ficks} motivated and introduced in the first chapter. In the process fundamental derivations for the kinetics of a bimolecular reaction limited and influenced by diffusion are shown. Theses derivations motivate the description of chemical reactions in an concentration or particle based model. The interesting topic of chemical reactions with concentrations based models will not be part of the elaborations. Nevertless, for the sake of completeness, it was to be mentioned that concentration based models following from the chemical master equation can describe reactions with the Gillispie algorithm \cite{Gillespie1977} very efficiently. Even spatial resolutions can be achieved with compartment based chemical master equations. This chapter examines a particle based model more specifically. Both models can be further categorised into two fundamental mathematical approaches: deterministic models which are based on differential equations; and stochastic simulations. Stochastic models provide a more detailed understanding of the reaction-diffusion processes. Such a description is often necessary for the modelling of biological systems where small molecular abundances of some chemical species make deterministic models inaccurate or even inapplicable \cite{0704.1908}. Stochastic particle based models conventionally rely on Brownian or Langevin dynamics for the description of diffusion. Brownian dynamics was introduced in chapter 1. Langevin dynamics will not be examined explicitly. In short, it is further considering momentum and reaches Brownian dynamics in the limit of vanishing momentum. Fractional Brownian motion was also introduced in the first chapter. It is less frequently used for the description of diffusion in reaction diffusion models. However, in chapter three a reaction with fraction Brownian motion is studied. For fractional diffusion mass action law does not apply. Thus conventional concentration based modelswith time independed rate coefficients are no longer suitibale \cite{Berry2002}  \cite{schnell2004reaction}. After setting up the foundations a particle based simulation package with fractional Brownian motion will be introduced, which is going to be applied in chapter three for a particular enyzmatic reaction.
+% 
+% 
+% The motivation of reaction diffusion is to combine the theory of chemical reactions and 
+% normal reaction diffusion can be modelled by various models. Depending on the system one might be favourable over the other. In general two different approaches can be distinguished. Deterministic models based on differential equations and stochastic simulations. Reaction diffusion for well mixed system can even be described by a system of ODEs. Thereby any concentrations in space are assumed to be constant. Theses ODEs follow from the law of mass action and coalition theory for an ideal gas ( independent increments). They are naturally used for chemical kinetics and the amount of concentration in equilibrium. 
+% 
+% 
 
-Most commonly chemical kinetics are modelled by ordinary differential equations (ODEs) based on the mass action law. Thereby any concentrations are assumed to be constant in space. In the first section this law is shown to follow from the diffusion \cref{eq:ficks} motivated and introduced in the first chapter. In the process fundamental derivations for the kinetics of a bimolecular reaction limited and influenced by diffusion are shown. Theses derivations motivate the description of chemical reactions in an concentration or particle based model. The interesting topic of chemical reactions with concentrations based models will not be part of the elaborations. Nevertless, for the sake of completeness, it was to be mentioned that concentration based models following from the chemical master equation can describe reactions very efficiently. Even spatial resolutions can be a
-
-
-
-
-This chapter examines models to describe reaction diffusion systems in general and more specifically a particle based model.  
-
-
-
-
-two fundamental approaches to the mathematical modelling of chemical reactions and diffusion: deterministic models which are based on differential equations; and stochastic simulations. Stochastic models provide a more detailed understanding of the reaction-diffusion processes. Such a description is often necessary for the modelling of biological systems where small molecular abundances of some chemical species make deterministic models inaccurate or even inapplicable \cite{0704.1908}. 
-
-This chapter examines models to describe reaction diffusion systems in general and more specifically a particle based model.  
-
-
-
-
-different modeling approaches. Concentration The latter  motivates an algorithm for a particle based model. Also Particle based models 
-
-
-
-Particle based models conventionally rely on Brownian or Langevin dynamics for the description of diffusion. Brownian dynamics was introduced in chapter 1. Langevin dynamics will not be examined explicitly. In short, it is further considering momentum and reaches Brownian dynamics in the limit of vanishing momentum. Fractional Brownian motion was also introduced in the first chapter. It is less frequently used for the description of diffusion in reaction diffusion models. However, in chapter three a reaction with fraction Brownian motion is studied. Reaction  
-
-
-
-First     This chapter introduce reactions are going to be introduced. 
-
-There 
-classical description of reaction diffusion system can be 
-
-The motivation of reaction diffusion is to combine the theory of chemical reactions and 
-normal reaction diffusion can be modelled by various models. Depending on the system one might be favourable over the other. In general two different approaches can be distinguished. Deterministic models based on differential equations and stochastic simulations. Reaction diffusion for well mixed system can even be described by a system of ODEs. Thereby any concentrations in space are assumed to be constant. Theses ODEs follow from the law of mass action and coalition theory for an ideal gas ( independent increments). They are naturally used for chemical kinetics and the amount of concentration in equilibrium. 
-
-
-
-Let mass conservation be the starting point:
-
+%Let mass conservation be the starting point:
 \section{Smoluchowski Problem}
-Lets starts our considerations on chemical reactions with the Smoluchowski problem for kinetics of a bi-molecular chemical reaction in solution. The following derivation shell give the kinetics of an easy model for a bi-molecular reaction and motivate under certain conditions the reaction diffusion equation.\newline  
-The reaction sceme for a bi-molecular reaction with reactants A and B forming an fusion to a complex AB with a rate $k^{+}_{\mathrm{d}}$ and fission back to A and B with a rate $k^{-}_{\mathrm{d}}$  can be written as:
+Lets start our considerations on chemical reactions with the Smoluchowski problem for kinetics of a bi-molecular chemical reaction in solution. The following derivation shell give the kinetics of an easy model for a bi-molecular reaction and motivate convection-diffusion equation.\newline  
+The reaction sceme for a bi-molecular reaction with reactants A and B fusion to a complex AB with a rate $k^{+}_{\mathrm{d}}$ and fission back to A and B with a rate $k^{-}_{\mathrm{d}}$  can be written as:
 \begin{align*}
 \text{\ch{A + B <=>[ $k^{+}_{\mathrm{d}}$ ][ $k^{-}_{\mathrm{d}}$ ] AB }}
 \end{align*}
-The assumption of free diffusion of particle A and B with the diffusion constants $D_A$ and $D_B$ , respectively and without any interactions between them is introduced for the most straight forward analytical solution. In fact this problem can be described by an modified version of the diffusion \cref{eq:ficks} motivated in the first chapter.
-The modification introduces the joint concentration field for a bi-molecular system in a solution:
+Free diffusion of particle A and B with the diffusion constants $D_A$ and $D_B$ , respectively, are assumed. Further no interactions between them are present. In fact this problem can be described by a modified version of the diffusion \cref{eq:ficks} motivated in the first chapter.
+The joint concentration field for a bi-molecular system in a solution can be written as:
 \begin{align}
  \frac{\partial \rho_t(\bm{r}_A,\bm{r}_B)}{\partial t}=(D_A \nabla^{2}_{A}+D_B \nabla^{2}_{B}) \rho_t(\bm{r}_A,\bm{r}_B) \label{smolubi}
 \end{align}
@@ -628,7 +599,7 @@ In the previous equation the stokes theorem was applied. The second term is zero
  j^{s}_t(r)&=A r^{-2}\\
  \rho^s(r)&=\rho^s(r_0)- \frac{\int_{r_0}^{r} j^{s}_t(r')dr'}{D}=\rho^s(r_0)+\frac{A}{D}\left(\frac{1}{r}-\frac{1}{r_0}\right)
 \end{align}
-Now assuming only a single B molecule being at the position $r=0$. Instantaneous reaction occur for $r\leq \sigma \Rightarrow \rho_t(r \leq \sigma)=0$. For $r \rightarrow \infty$ the distribution is than defined as the concentration of particle A $\rho_t(r \rightarrow \infty)=c_A$.
+Now assuming only a single B molecule being at the position $r=0$. Instantaneous reactions occur for $r\leq \sigma \Rightarrow \rho_t(r \leq \sigma)=0$. For $r \rightarrow \infty$ the distribution is than defined as the concentration of particle A $\rho_t(r \rightarrow \infty)=c_A$.
 The solutions for $\rho^{s}(r)$ and $j^{s}_t(r)$ for theses boundary conditions are then:
 \begin{align}
  \rho^{s}(r)=C_A \left(1-\frac{\sigma}{r}\right) \qquad \qquad j^{s}_t(r)&=-D \sigma C_A r^{-2}
@@ -664,26 +635,19 @@ The calculation to the solution of the second-order ODEs can be found in the App
 \begin{align}
 k_{+}=4\pi D \left( \sigma-\sqrt{\frac{D}{\lambda_{+}}} \tanh{\sigma \sqrt{\frac{D}{\lambda_{+}}}}\right)
 \end{align}
-Not only in the diffusion limit but also for reactions occurring with a certain microscopic rate the law of mass action can describe a reaction. For a given reaction sceme it is generally possible to formulate a system of ODEs. There solutions give the kinetics and concentrations in equilibrium, but no informations on the spatial distribution are present. For easy problems analytical solutions to spatial distribution can be obtained by solving the convection diffusion \cref{convenctiondiffsuion}.  \newline
-
-
-The Gillispie algorithm \cite{Gillespie1977}
-
-Nevertheless bigger and more complex systems cannot be handled by analytical approaches particularly for biological systems. Further stochastic effects may have an impact on the results. Thus stochastic approaches give more accurate results. Two main categories of stochastic simulations can be distinguished, concentration and particle based.
-
+Not only in the diffusion limit but also for reactions occurring with a certain microscopic rate the law of mass action can describe a reaction. For a given reaction sceme it is generally possible to formulate a system of ODEs. There solutions give the kinetics and concentrations in equilibrium, but no informations on the spatial distribution are present. For easy problems analytical solutions to spatial distribution can be obtained by solving the convection diffusion \cref{convenctiondiffsuion}. \newline
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=\textwidth]{./data/smoluchowskierban.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{Density distirbution of Smoluchowski and  Erban Chapmann Chapman}
+  \label{fig:diffusion_limit-Erban-Chapmann}
+\end{figure}
 
 
 
 
 A particle based model for diffusion is Brownian motion introduced in the first chapter. Thereby similar to the setup of the previous elaborations by Erban and Chapman  particles can react within a certain distance $\sigma$ with a certain microscopic reaction rate $\lambda$. These calculation most 
-
-
-
-
-
-
-questions to answer: why stochstic simulation and not analytics. why not only stochastic simultions.
-
 
 Determinitic:
 Then Smoluchowski. (then gas theory wiki, maybe aurilius and kramers problem and simulations of proteins for determination of rates in reaction). back mass conservation with  production term. Then erban chapman. Then no diffusion (or diffusion time independ (and in-cooperated in marcoscopic rate.)). constant concentration (again mass action from gas theory)  . concentration  based models (ODEs) and solving . Then CME Then compartment based CME. 
@@ -722,6 +686,7 @@ Analytical solutions for resulting ordinary differencial equation exist under ce
 \section{Erban Chapmann}
 \section{RevReaddy}
 \chapter{An Enzymatic Reaction With Fractional Brownian Motion}
+Biochemical reactions are manily controlled by enzymes.
 \section{Michaelis Menten}
 \section{Simulation Model}
 \section{Results From Normal Diffusion}
