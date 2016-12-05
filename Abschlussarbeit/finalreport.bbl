@@ -17,6 +17,11 @@ R.~B. DAVIES and D.~S. HARTE.
 \newblock Tests for hurst effect.
 \newblock {\em Biometrika}, 74(1):95--101, 1987.
 
+\bibitem{0704.1908}
+Radek Erban, Jonathan Chapman, and Philip Maini.
+\newblock A practical guide to stochastic simulations of reaction-diffusion
+  processes, 2007.
+
 \bibitem{Erban2009}
 Radek Erban and S~Jonathan Chapman.
 \newblock Stochastic modelling of reaction{\textendash}diffusion processes:
@@ -27,6 +32,11 @@ Radek Erban and S~Jonathan Chapman.
 H{\"{o}}fling Felix.
 \newblock Stochastic processes and correlation functions.
 \newblock University Lecture, 2016.
+
+\bibitem{Gillespie1977}
+Daniel~T. Gillespie.
+\newblock Exact stochastic simulation of coupled chemical reactions.
+\newblock {\em The Journal of Physical Chemistry}, 81(25):2340--2361, dec 1977.
 
 \bibitem{Hofling2013}
 Felix H{\"{o}}fling and Thomas Franosch.

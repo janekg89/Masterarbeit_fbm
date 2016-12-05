@@ -134,7 +134,7 @@ This scenario in which a random variable is defined by the sum of another can be
 \begin{align}
  \rho(y) =\frac{1}{\sqrt{2 \pi} \sigma } e^{-\frac{y^2}{2 \sigma^2}}
 \end{align}
-A calculation of this very interesting result can be found in the appendix \ref{append:CLT}.    Microscopic processes with independent random position changes of a particle, thus have a Gaussian distribution function for the overall change in position. Therefore a random walk converges toward the Wiener process. \newline With  Bayes' theorem and an initial delta-distribution one can show that transition probability $T_{t}(y|0) = \rho_{t}(y)$ is equivalent to the particle density distribution. One can find the calculation in the appendix \ref{baystheorem}. The above-mentioned elaborations motivate the reason for a process with a Gaussian transition probability. A processes with Gaussian distributed transition probability and uncorrelated increments is called Wiener process (Standard Brownian motion).
+A calculation of this very interesting result can be found in the appendix \ref{append:CLT}.    Microscopic processes with independent random position changes of a particle, thus have a Gaussian distribution function for the overall change in position. Therefore a random walk converges toward the Wiener process. \newline With  Bayes' theorem and an initial delta-distribution one can show that transition probability $T_{t}(y|0) = \rho_{t}(y)$ is equivalent to the particle density distribution. One can find the calculation in the appendix \cref{baystheorem}. The above-mentioned elaborations motivate the reason for a process with a Gaussian transition probability. A processes with Gaussian distributed transition probability and uncorrelated increments is called Wiener process (Standard Brownian motion).
 \begin{mydef}
 Brownian motion described by the Wiener process is a stochastic process $ \{ W_t \}_{t\geq0}: \Omega \rightarrow \mathbb{R}^d$ with $ W_t(\omega)$ being the position of a particle with $\omega \in \Omega$ at time $t \in T$ in the observation time $T =[0, \infty)$. It has a fixed $x \in \mathbb{R}^d$ as its origin. The transition probabilities are \cite{LectureFelix}: 
 \begin{align}
@@ -551,8 +551,35 @@ The performance in respected to sample size (trajectory length) and number of sa
 
 \chapter{Particle Based Reaction Diffusion}
 
+Most commonly chemical kinetics are modelled by ordinary differential equations (ODEs) based on the mass action law. Thereby any concentrations are assumed to be constant in space. In the first section this law is shown to follow from the diffusion \cref{eq:ficks} motivated and introduced in the first chapter. In the process fundamental derivations for the kinetics of a bimolecular reaction limited and influenced by diffusion are shown. Theses derivations motivate the description of chemical reactions in an concentration or particle based model. The interesting topic of chemical reactions with concentrations based models will not be part of the elaborations. Nevertless, for the sake of completeness, it was to be mentioned that concentration based models following from the chemical master equation can describe reactions very efficiently. Even spatial resolutions can be a
 
-classical description of reaction diffusion system  can be 
+
+
+
+This chapter examines models to describe reaction diffusion systems in general and more specifically a particle based model.  
+
+
+
+
+two fundamental approaches to the mathematical modelling of chemical reactions and diffusion: deterministic models which are based on differential equations; and stochastic simulations. Stochastic models provide a more detailed understanding of the reaction-diffusion processes. Such a description is often necessary for the modelling of biological systems where small molecular abundances of some chemical species make deterministic models inaccurate or even inapplicable \cite{0704.1908}. 
+
+This chapter examines models to describe reaction diffusion systems in general and more specifically a particle based model.  
+
+
+
+
+different modeling approaches. Concentration The latter  motivates an algorithm for a particle based model. Also Particle based models 
+
+
+
+Particle based models conventionally rely on Brownian or Langevin dynamics for the description of diffusion. Brownian dynamics was introduced in chapter 1. Langevin dynamics will not be examined explicitly. In short, it is further considering momentum and reaches Brownian dynamics in the limit of vanishing momentum. Fractional Brownian motion was also introduced in the first chapter. It is less frequently used for the description of diffusion in reaction diffusion models. However, in chapter three a reaction with fraction Brownian motion is studied. Reaction  
+
+
+
+First     This chapter introduce reactions are going to be introduced. 
+
+There 
+classical description of reaction diffusion system can be 
 
 The motivation of reaction diffusion is to combine the theory of chemical reactions and 
 normal reaction diffusion can be modelled by various models. Depending on the system one might be favourable over the other. In general two different approaches can be distinguished. Deterministic models based on differential equations and stochastic simulations. Reaction diffusion for well mixed system can even be described by a system of ODEs. Thereby any concentrations in space are assumed to be constant. Theses ODEs follow from the law of mass action and coalition theory for an ideal gas ( independent increments). They are naturally used for chemical kinetics and the amount of concentration in equilibrium. 
@@ -620,18 +647,44 @@ Along the way several assumptions were made:
   \item System of one B particle with a concentration $C_B=1/V$ can generalised for a system with many particles and still a constant concentration. 
   \item The limit of instantaneous reactions is called diffusion limited reaction.
 \end{itemize}
-Still the solution gives the kinetics for a simple bi-molecular system. It is consistent with collision theory, which states that the collision frequency is proportional to the concentrations of the colliding particles. Pioneer work in reaction kinetics by Guldberg and Waage already in 1864 \cite{Waage1986} resulted in the law of mass action, which states the proportionality of the reaction speed to the concentration with a constant rate. It builds up the basis for a description of reaction kinetics in terms of ordinary differential equations (ODEs) like \cref{difkinetics}.\newline
-Smoluchowski's problem can be in fact generalised for reaction to occur with a microscopic rate $\lambda_{+}$ within a radius $\sigma$. Derived by R. Erban and S. J. Chapman in \cite{Erban2009}.  However, as a small remark, the microscopic rate has to be distinguished from the macroscopic rate. As an example microscopic rates are related to the Kramers problem, describing the time dependence of a particle passing a potential barrier like commonly in biology protein binding / unbinding. The problem can be described similar to Smoluchwoski's problem \cref{smoluchwoskiproblem}  with similar boundary conditions for $r > \sigma$ and new for $r \leq \sigma$:
+Still the solution gives the kinetics for a simple bi-molecular system. It is consistent with collision theory, which states that the collision frequency is proportional to the concentrations of the colliding particles. Pioneer work in reaction kinetics by Guldberg and Waage already in 1864 \cite{Waage1986} resulted in the law of mass action, which states the proportionality of the reaction rate ($r_f$) to the concentration for elementary uni- and bi molecular reactions.
 \begin{align}
-r\leq \sigma \Rightarrow \frac{\partial \rho_t(r \leq \sigma)}{\partial t}=-\lambda_{+} \rho_t (r \leq \sigma)
+ r_f=k_f C_A C_B
 \end{align}
-It can also be interpreted as the production term in the continuity equation. The calculation to the solution of the second-order ODEs can be found in the Appendix \cref{Erban-Chapmann}.
-
-
-
+It builds up the basis for a description of reaction kinetics in terms of ordinary differential equations (ODEs) like \cref{difkinetics}.\newline
+Smoluchowski's problem can be in fact generalised for reaction to occur with a microscopic rate $\lambda_{+}$ within a radius $\sigma$. Derived by R. Erban and S. J. Chapman in \cite{Erban2009}.  However, as a small remark, the microscopic rate has to be distinguished from the macroscopic rate. As an example microscopic rates are related to the Kramers problem, describing the time dependence of a particle passing a potential barrier like commonly in biology protein binding / unbinding. The problem can be described similar to Smoluchwoski's problem \cref{smoluchwoskiproblem}  with similar boundary conditions for $r > \sigma$ but different for $r \leq \sigma$:
 \begin{align}
- \text{with prdocution term}
+r\leq \sigma \Rightarrow R=\frac{\partial \rho_t(r \leq \sigma)}{\partial t}=-\lambda_{+} \rho_t (r \leq \sigma)
 \end{align}
+It can also be interpreted as the production term in the continuity equation. In literature it referred to as the convection-diffusion equation:
+\begin{align}
+ \frac{\partial \rho_t(r)}{\partial t}=-\left(\frac{\partial}{\partial_r}+\frac{2}{r} \right) j_t(r) + R \label{convenctiondiffsuion}
+\end{align}
+The calculation to the solution of the second-order ODEs can be found in the Appendix \cref{Erban-Chapmann}. The solution shows again the possibility of describing the overall change of concentration with a macroscopic reaction rate $k_{+}(\lambda_{+},\sigma,D)$:
+\begin{align}
+k_{+}=4\pi D \left( \sigma-\sqrt{\frac{D}{\lambda_{+}}} \tanh{\sigma \sqrt{\frac{D}{\lambda_{+}}}}\right)
+\end{align}
+Not only in the diffusion limit but also for reactions occurring with a certain microscopic rate the law of mass action can describe a reaction. For a given reaction sceme it is generally possible to formulate a system of ODEs. There solutions give the kinetics and concentrations in equilibrium, but no informations on the spatial distribution are present. For easy problems analytical solutions to spatial distribution can be obtained by solving the convection diffusion \cref{convenctiondiffsuion}.  \newline
+
+
+The Gillispie algorithm \cite{Gillespie1977}
+
+Nevertheless bigger and more complex systems cannot be handled by analytical approaches particularly for biological systems. Further stochastic effects may have an impact on the results. Thus stochastic approaches give more accurate results. Two main categories of stochastic simulations can be distinguished, concentration and particle based.
+
+
+
+
+
+A particle based model for diffusion is Brownian motion introduced in the first chapter. Thereby similar to the setup of the previous elaborations by Erban and Chapman  particles can react within a certain distance $\sigma$ with a certain microscopic reaction rate $\lambda$. These calculation most 
+
+
+
+
+
+
+questions to answer: why stochstic simulation and not analytics. why not only stochastic simultions.
+
+
 Determinitic:
 Then Smoluchowski. (then gas theory wiki, maybe aurilius and kramers problem and simulations of proteins for determination of rates in reaction). back mass conservation with  production term. Then erban chapman. Then no diffusion (or diffusion time independ (and in-cooperated in marcoscopic rate.)). constant concentration (again mass action from gas theory)  . concentration  based models (ODEs) and solving . Then CME Then compartment based CME. 
 
