@@ -14,8 +14,8 @@
 \contentsline {subsubsection}{\nonumberline Accuracy Analysis}{12}{section*.9}
 \contentsline {subsubsection}{\nonumberline Performance Analysis}{15}{section*.15}
 \contentsline {chapter}{\numberline {2}Particle Based Reaction Diffusion}{19}{chapter.2}
-\contentsline {section}{\numberline {2.1}Smoluchowski Problem}{20}{section.2.1}
-\contentsline {section}{\numberline {2.2}chemical reactions}{23}{section.2.2}
+\contentsline {section}{\numberline {2.1}Diffusion Influenced Bimolecular Reaction}{20}{section.2.1}
+\contentsline {section}{\numberline {2.2}chemical reactions}{24}{section.2.2}
 \contentsline {section}{\numberline {2.3}Smoluchowski}{24}{section.2.3}
 \contentsline {section}{\numberline {2.4}Erban Chapmann}{24}{section.2.4}
 \contentsline {section}{\numberline {2.5}RevReaddy}{24}{section.2.5}
