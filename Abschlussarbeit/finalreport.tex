@@ -1,6 +1,5 @@
 \documentclass[
   a4paper,BCOR10mm,oneside,
-  bibtotoc,idxtotoc,
   headsepline,footsepline,% also activate headinclude and footinclude
   fleqn,openbib
 ]{scrbook}
@@ -15,6 +14,8 @@
 \usepackage[refpage,intoc]{nomencl}% for nomenlature Abkuerzungsverzeichnis
 \usepackage{listings}
 \usepackage{color}
+\usepackage[sort, numbers]{natbib}
+\bibliographystyle{detailed}
 \usepackage{hyperref}
 \usepackage{subfigure} 
 \usepackage[dvipsnames,svgnames,x11names,hyperref]{xcolor}
@@ -29,6 +30,7 @@
 \usepackage{chemmacros}
 \usepackage{wrapfig}
 \usepackage{sidecap}
+
 
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
@@ -67,16 +69,15 @@
 \pagestyle{scrheadings}
 \clearscrheadfoot % clear header and footer
 \automark[section]{chapter}% !!! Wouldn't do that at oneside documents!!!
-\ihead[]{\leftmark}% header left part
+%\ihead[]{\leftmark}% header left part
 \ohead[]{\rightmark}% header right part
 %\ifoot{Name}% footer left part
 %\cfoot{Thema}% footer middle part
 \makeatletter
 % use different foot at front and main matter
 \g@addto@macro{\mainmatter}{%
-  \ofoot[{\usekomafont{pagenumber}Page \pagemark\ of \pageref{LastPage}}]
-    {\usekomafont{pagenumber}Page \pagemark\ of 
-      \pageref{LastPage}}% footer right part
+  \ofoot[{\usekomafont{pagenumber} \pagemark\ }]
+    {\usekomafont{pagenumber} \pagemark\ }% footer right part
 }
 \g@addto@macro{\frontmatter}{%
   \ofoot[\pagemark]{\pagemark}%
@@ -104,7 +105,7 @@
 \end{titlepage}
 
 \tableofcontents
-\listoffigures
+%\listoffigures
 %\listoftables
 
 \mainmatter
@@ -116,57 +117,58 @@
 \newtheorem{mydef}{Definition}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \chapter*{Motivation}
-Anomalous diffusion can be observed in many different areas of nature, in particular, related to heterogeneous media like porous rocks, random resistor networks and crowded biological media with its prominent phenomena macromolecular crowding, confinement and macromolecular adsorption \cite{Minton2006}. These environments exhibit remarkable characteristics like anomalous diffusion with its most popular power-law behaviour of the Mean-Square-Displacement ($MSD\propto t^{\alpha}$) \cite{Hofling2013}, which violates the Einstein formula $MSD=2 d D t$ and thereby the central limit theorem. Various theoretical models try to encounter anomalous diffusion. One of these models is fractional Brownian motion (fBm). It is modelling a stochastic process with strong correlations of the incerements. FBm was first introduced as family of Gaussian random function by Mandelbrot and Van Ness in 1968 and motivated by examples in economics \cite{Mandelbrot1968}. In contrast to different models of anomalous diffusion, the fBm approach is plainly phenomenological defined by a power-law of the MSD and thus perfectly qualifies as a starting point to study effects resulting from a power-law MSD. \newline This thesis focuses on the impact of fBm on enzymatic reactions. Pionier work by Leonor Michaelis and Maud Menten \cite{michaelis1913kinetik} simplified the enzymatic reaction sceme for a concentration based model. As one of the best known and important models of enzyme kinetecs it is of great intereset to study effects on Michaelis-Menten like reactions by fBm. For this purpose a particle based simulation with a fBm integrator of a Michaelis-Menten like reactions was set up. Spatial and temporal effects induced by fBm were studied. 
-\newline The thesis is organized in four chapters: 1. Fractional Brownian Motion ,2. Particle Based Reaction Diffusion, 3. An Enzyme Reaction With Fractional Brownian Motion and 4. Summary. The first chapter sets up theoretical fondations for fBm. Subsequently, fBm generating algorithms are studied. The second chapter deales with models describing reactions in general but focuses on particle based reaction diffusion. A particle based Reaction Diffusion software RevReaDDy, which dealed as a starting point for the implementation is introduced.  Chapter 3 focuses more specifically on enzyme reactions. Followed by a enzymatic simulation model set up with RevReaDDy. Finally results from the simulation are discussed and related to existing literature. Chapter 4 summarizes the content of the thesis. 
+Anomalous diffusion can be observed in many different areas of nature, in particular, related to heterogeneous media like porous rocks, gels and crowded biological media with its prominent phenomena macromolecular crowding, confinement and macromolecular adsorption \cite{Minton2006}. These environments exhibit remarkable characteristics like anomalous diffusion with its most popular power-law behavior of the mean-square-displacement ($\delta r^2(t)\propto t^{\alpha}$) \cite{Hofling2013}, which violates the Einstein formula $\delta r^2(t)=2 d D t$ and thereby the central limit theorem. Anomalous diffusion is described by various theoretical models like time random walks (CTRW) with unconventional waiting time-distribution, the Lorentz models with excluded volume and a highly ramified remaining space  or fractional Brownian motion (fBm). The latter is modeling a stochastic process with strong correlations of the increments. FBm was first introduced as a family of Gaussian random functions by Mandelbrot and Van Ness in 1968 and motivated by examples in economics \cite{Mandelbrot1968}. In contrast to different models of anomalous diffusion, the fBm approach is plainly phenomenologically defined by a power-law increase of the MSD and thus perfectly qualifies as a starting point to study effects resulting from a power-law increase of the MSD. \par This thesis focuses on the impact of fBm on enzymatic reaction kinetics in three dimension space. Pioneer work by Leonor Michaelis and Maud Menten \cite{michaelis1913kinetik} simplified enzymatic reaction kinetics and formulated a model based on the law of mass action. As one of the best known and important models of enzyme kinetics it is of great interest to study effects on Michaelis-Menten like reactions by fBm. For this purpose a particle based simulation with an fBm integrator of a Michaelis-Menten like reactions was set up. Spatial and temporal effects induced by fBm were studied. 
+\par The thesis is organized in four chapters: The first chapter sets up theoretical foundations for fBm. Subsequently, fBm generating algorithms are studied. Chapter 2 deals with models describing reactions in general but focuses on particle-based reaction diffusion. A particle-based Reaction Diffusion software RevReaDDy, which served as a starting point for the implementation is introduced.  Chapter 3 focuses more specifically on enzyme reactions. Followed by an enzymatic simulation model set up with RevReaDDy. Finally results from the simulation are discussed and related to existing literature. Chapter 4 summarizes the content of the thesis. 
 \chapter{Fractional Brownian Motion}
-\section{Introduciton}
-Wiener process is a continous-time stochastic processes. It is applied to finance, biology, physics and many more because of no or only week correlations of the underlying processes. Brownian motion is the random motion of particles suspended in a fluid, which is modeled by a wiener process.   
-Fractional Brownian Motion (fBm) is a more general family of Gaussian random function then standard Brownian motion with long-range correlations as its defining property. The main objective of this chapter is to explore the theoretical foundation for fBm starting with Brownian motion in the following section. Further algorithms generating fBm are introduced and analyzed in terms of accuracy and performance.    
+The Wiener process is a continuous-time stochastic processes, which models white noise. It is applied to finance, biology, physics and many more if no or only week correlations of the underlying processes are present. Brownian motion is the random motion of particles suspended in a fluid, which is modeled by a wiener process. Velocities of particles however are always correlated at least for very short lag times in the physical world. It is often referred to as the super diffusive regime. Water molecules in water as an example forget there initial velocities in ca. 16Fs. For longer times Brownian motion can be assumed.\par
+Fractional Brownian Motion (fBm) is a more general family of stochastic Gaussian processes then standard Brownian motion with long-range correlations as its defining property. The main objective of this chapter is to explore the theoretical foundation for fBm starting with Brownian motion in the following section. Further algorithms generating fBm are introduced and analyzed in terms of accuracy and performance.    
 \section{Brownian Motion}
-Standard Brownian Motion is a very important and good studied stochastic process. It describes the erratic motion of mesoscopic particles, which first were documented by Jan Ingenhousz in 1785, in particular for coal dust on the surface of alcohol \cite{Hofling2013}. Later on, in 1827 Robert Brown observed the erratic motion of pollen grains. Brownian Motion has a Gaussian propagator, which has its origin in the Central Limit Theorem (CLT) for a sum of independent and identically distributed random variables.
-\begin{mydef} 
-Let's assume a set of $N$ independent variables $\{X_i\}$ with a finite variance $ \sigma_i^2=\langle X_{i}^2\rangle $ and the mean $\langle X_{i}\rangle = 0$. The definition of another random variable $Y$ is given by:
+Standard Brownian Motion (Bm) is a very important and well studied stochastic process. It describes the erratic motion of mesoscopic particles, which first were documented by Jan Ingenhousz in 1785, in particular for coal dust on the surface of alcohol \cite{Hofling2013}. Later on, in 1827 Robert Brown observed the erratic motion of pollen grains. Brownian motion has a Gaussian propagator, which has its origin in the Central Limit Theorem (CLT) for a sum of independent and identically distributed random variables (i.i.d.). Let's assume a set of $N$ independent variables $\{X_j\}$ with a finite variance $ \sigma_j^2=\langle X_{j}^2\rangle $ and the mean $\langle X_{j}\rangle = 0$. The definition of another random variable $Y$ is given by:
  \begin{align}
   Y = \frac{1}{\sqrt{N}} \sum_{j=1}^N X_j \label{eq:CLT}
  \end{align}
-\end{mydef}
-This scenario in which a random variable is defined by the sum of another can be observed generically in nature. The seemingly innocent assumption of independence for the random variable $\{X_i\}$ in the summation results in a Gaussian distribution $\rho(y)$ in the limit of large N with $\rho(y)dy=P(y<Y<y+dy)$ 
+This scenario in which a random variable is defined by the sum of another can be observed generically in nature. $X_j$ are called increments of $Y$. The seemingly innocent assumption of independent increments result in a Gaussian distribution of $\rho(y)$ in the limit of large N with $\rho(y)dy=\mathrm{P}(y<Y<y+dy)$ 
 \begin{align}
  \rho(y) =\frac{1}{\sqrt{2 \pi} \sigma } e^{-\frac{y^2}{2 \sigma^2}}
 \end{align}
-A calculation of this very interesting result can be found in the appendix \ref{append:CLT}.    Microscopic processes with independent random position changes of a particle, thus have a Gaussian distribution function for the overall change in position. Therefore a random walk converges toward the Wiener process. \newline With  Bayes' theorem and an initial delta-distribution one can show that transition probability $T_{t}(y|0) = \rho_{t}(y)$ is equivalent to the particle density distribution. One can find the calculation in the appendix \cref{baystheorem}. The above-mentioned elaborations motivate the reason for a process with a Gaussian transition probability. A processes with Gaussian distributed transition probability and uncorrelated increments is called Wiener process (Standard Brownian motion).
-\begin{mydef}
-Brownian motion described by the Wiener process is a stochastic process $ \{ W_t \}_{t\geq0}: \Omega \rightarrow \mathbb{R}^d$ with $ W_t(\omega)$ being the position of a particle with $\omega \in \Omega$ at time $t \in T$ in the observation time $T =[0, \infty)$. It has a fixed $x \in \mathbb{R}^d$ as its origin. The transition probabilities are \cite{LectureFelix}: 
+A derivation of this very interesting result can be found in the appendix \ref{append:CLT}.    Microscopic processes with i.i.d. velocities, thus have a Gaussian distribution for the overall change in position. Indeed, even the increments of Brownian motion are distributed Gaussian as a result of i.i.d. velocities at shorter time scales. A random walk in the limit of very small time steps therefore converges to Brownian motion. \par With  Bayes' theorem and an initial delta-distribution one can show that transition probability $T_{t}(y|0) = \rho_{t}(y)$ is equivalent to the particle density distribution. One can find the calculation in the appendix \cref{baystheorem}. The above-mentioned elaborations motivate the reason for a process with a Gaussian transition probability. A processes with Gaussian distributed transition probability and independent increments is called Wiener process (Standard Brownian motion).\par
+Brownian motion described by the Wiener process is a stochastic process $ \{ W_t \}: \Omega \rightarrow \mathbb{R}^d$ with $ W_t(\omega)$ being the position of a particle with $\omega \in \Omega$ at time $t \in T$ in the observation time $T =[0, \infty)$. It has a fixed $x \in \mathbb{R}^d$ as its origin. The transition probabilities are \cite{LectureFelix}: 
 \begin{align}
 T_{t}(y|x) & := (2 \pi t)^{- \frac{d}{2}} exp \left(- \frac{||x-y||^2}{2 t}\right) \text{ for } y \in \mathbb{R}^d, t>0 \\ \nonumber
 T_{0}(y|x) & = \delta(x-y) 
 \end{align}
-\end{mydef}
-The Wiener process is a Gaussian process with mean $\langle W_t \rangle_y=x$ and particle position $W_o=x$ at $t=0$. Its variance is $\langle W^2_t \rangle_y= t$. It has a property called Brownian scaling:
+The Wiener process is a Gaussian process with mean $\langle W_t \rangle_y=x$ and particle position $W_o=x$ at $t=0$. Its variance is $\langle W^2_t \rangle_y= t$. It has stationary, independent, Gaussian increments. Following from the definition Brownian motion has the property called Brownian scaling:
 \begin{align}
 \label{Brownianscaling}
-\{\hat{W}_t := \frac{1}{c} W_{c^2 t} \}_{t\geq0} \qquad  \text{ if } \{W_t\}_{t \geq 0}
+\{\hat{W}_t := \frac{1}{c} W_{c^2 t} \}_{t\geq0} 
 \end{align}
-A Wiener process has self-similar and fractal paths as a result from Brownian scaling.\newline 
-However it is a purely mathematical model with missing connection to the strength of diffusion of a particle. Fick's empirical second law describes how diffusion causes the concentration to change over time:
+A Wiener process has self-similar and fractal paths as a result from Brownian scaling.\par\bigskip
+However it is a purely mathematical model with missing connection to the strength of diffusion of a particle. The process in fact is a normalized diffusion process with the a diffusion constant $D=\frac{1}{2}$. A mathematical description of diffusion was first realized by Fick in 1855 \cite{Fick1855}. He applied partial differential equations for heat transfer first solved by Fourier in 1822 \cite{Fourier1822}. Fick's  second law of diffusion describes how diffusion causes the concentration ($c(\bm{r},t)$) to change over time:
 \begin{align}
  \frac{\partial}{\partial t} c(\bm{r},t) = - \nabla J (\bm{r},t) = D  \Delta c(\bm{r},t) \qquad \text{ with } \qquad \Delta= \nabla^2  \label{eq:ficks}
 \end{align}
-With Fick's first law $J(\bm{r},t)=- \nabla c(\bm{r},t)$ and $D$ being the flux of particles and the diffusion coefficient, respectively. Fick's first law is a result from the linear response theory. Fick's second law can be derived from the continuity equation and Fick's first law. The Concentration $c(\bm{r},t)$ can be interpreted as a probability distribution, if properly normalized  $\int d\bm{r} c(\bm{r},t)=1$. The transition probability of the Wiener process builds the foundation for a more physical description of a propagator:
+With Fick's first law $J(\bm{r},t)=- \nabla c(\bm{r},t)$ and $D$ being the flux of particles and the diffusion coefficient, respectively. The notation of bold letters is chosen to describe vectors (e.g. $\bm{r}$). Fick's first law is a result from the linear response theory. Fick's second law can be derived from mass conservation and Fick's first law. The most general form of mass conversation with a production term $\sigma$ is described by the continuity equation:
 \begin{align}
- P(\bm{r},t)=  \left(\frac{2 \pi \delta \bm{r}^2(t)}{d}\right)^{- \frac{d}{2}} exp \left(- \frac{\bm{r}^2 d}{2 \delta \bm{r}^2(t)} \right) \label{propagator}
+\frac{\partial}{\partial t} c(\bm{r},t))=- \nabla J(\bm{r},t)+ \sigma 
 \end{align}
-One can show that the propagator is solving the diffusion equation \cref{eq:ficks} with $\delta \bm{r}^2(t)=2dDt$ and the meaningful initial condition of vanishing concentration at boundaries: 
+Albert Einstein in 1905 proposed a similar equation to Fick's second law of diffusion to solve one dimensional Brownian motion \cite{Einstein1905}. This was the first derivation and application of probabilistic stochastic theory. Derived from the kinetic gas theory and a statistical description collisions in 1906 Marian von Smoluchowski could give similar results to Einstein \cite{vonSmoluchowski1906}. The concentration $c(\bm{r},t)$ is proportional to the transition probability $\mathrm{P}(\bm{r},t) \propto c(\bm{r},t)$ and  $\int d\bm{r}\mathrm{P}(\bm{r},t)=1$. The transition probability of the Wiener process builds the foundation for a more physical description of particle motion by a propagator:
+\begin{align}
+ \mathrm{P}(r,t)=  \left(4 \pi D t\right)^{- \frac{d}{2}} \exp \left(- \frac{r^2}{4 D t} \right) \label{propagator}
+\end{align}
+The propagator $\mathrm{P}(r,t)$ can be interpreted as the probability to move the distance $r$ during the time $t$. $d$ is the dimension of the space of $\bm{r}$. One can show that this propagator is in fact solving the diffusion equation \cref{eq:ficks} with the meaningful initial condition of vanishing concentration at boundaries: 
 \begin{align}
 c(\pm \infty,t)=0
 \end{align}
-The calculation can be found in the appendix \ref{einsteinrealtionappendix}.
-Brownian scaling applies as a property also to the propagator of Brownian motion.
-There exists a scale-free form of the Gaussian propagator as a more intuitive consequence of Brownian scaling. 
+The calculation can be found in the appendix \ref{einsteinrealtionappendix}. The most important property of Brownian motion in the context of this thesis  is the mean square displacement ($\delta r^2(t)$), which grows linearly with the number of steps: 
 \begin{align}
-P(\bm{r},t)= r^{-d} \mathcal{P}_{gauss}(\hat{\bm{r}})  \qquad \text{with} \qquad \hat{\bm{r}} = \frac{\bm{r}}{\sqrt{2Dt}} \label{scalefreeform}
+\delta r^2(t)=<[\bm{R}(t)-\bm{R}(0)]^2>= 2dDt                                                                                                                                                                                                                                                                                                                                \end{align}
+with $\bm{R}(t)$ being the position of the particle at time $t$.
+Brownian scaling was mentioned as a property of a Wiener process. It obviously also applies as a property to the propagator of Brownian motion. A scale-free form of the Gaussian propagator exists as a more intuitive consequence of Brownian scaling: 
+\begin{align}
+\mathrm{P}(r,t)&= r^{-d} \mathcal{P}_{gauss}(\hat{r}) \\ \text{with} \quad \hat{r} &= \frac{r}{\sqrt{2Dt}} \quad \text{and} \quad \mathcal{P}_{gauss}(\hat{r})= (2 \pi)^{- \frac{d}{2}}  \hat{r}^d \exp \left(- \frac{\hat{r}^2}{2} \right) \label{scalefreeform} 
 \end{align}
-For the sake of completeness, it was to be mentioned that velocities in reality are always correlated at least for very short lag times. It is often referred to as the ballistic regime. As an example a water molecule forgets its initial velocities in ca. 16Fs.
+The scale free form of Bm can later on be compared to the scale free form of fractional Brownian motion, which will be introduced next. This property results in a neat possibility of analysis of Bm and fBm generating algorithms later on.
+
 
 % Now some stuff from \cite{Timmer1995}
 % and its autocorrelation
@@ -177,55 +179,51 @@ For the sake of completeness, it was to be mentioned that velocities in reality 
 
 
 \section{Fractional Brownian Motion}\label{sectionfrac}
-In this section the theoretical foundation for continious-time and discrete-time Fractional Brownian Motion will be set.
-\begin{figure}[h!]
+\begin{figure}
 \centering
-\includegraphics[width=\textwidth]{./data/trajectories_differentalpha.png}
-\caption{shows 3D trajectories of fBm for different $\alpha$ generated with the Lowen algorithm for $K_{\alpha}=1$, $\Delta t=1$ and the trajectory length $M=1000$.}
+\includegraphics[width=0.7\textwidth]{./data/trajectories_differentalpha1234.png}
+\caption{A three dimensional fBm trajectories for the anomalous coefficient $0.01\leq\alpha\leq 1$ generated with the Lowen algorithm are shown. The general diffusion constant, the time step and trajectory length were chosen as follows:  $K_{\alpha}=1$, $\Delta t=1$, $M=1000$.}
 \label{alphachangetrajectory}
 \end{figure}
-In the previous section the MSD has been shown to be linear with time as a result of the central limit theorem. In normal liquids this behaviour can be seen already at time scales higher than picoseconds \cite{Hofling2013}. Nevertheless, many experiments show that the MSD has a power law behaviour ( $\delta r ^2 (t) \propto t^{\alpha}$ for  $0 < \alpha < 1$ ). Thus, the central limit theorem does not hold, not even for long time scales. It can be shown that persistent correlations of the increments are present. In soft matter, like polymers, a subdiffusive behaviour is typically present in a time window but finally the linear MSD takes over. Fractional Brownian motion instead examines the case that the central limit theorem is violated for all time scales. The basic feature of fBm's is that the "span of interdependence" between their increments can be said to be infinite \cite{Mandelbrot1968}\\
-
-
-\begin{mydef}
-Just like the Wiener process, continous-time Fractional Brownian motion (ctfBm) is a continous-time Gaussian process $\{B^{\alpha}_t\}_{t\geq0}: \Omega \rightarrow \mathbb{R}^d$. Therefore it is fully specified by its mean $\langle B_t \rangle=0$ and its covariance function $Cov[B^{\alpha}_t,B^{\alpha}_s]=\frac{\sigma^2}{2}[t^{\alpha}-2(s-t)^{\alpha}+s^{\alpha}]$
-\end{mydef}
-With the mean and the covariance defined, the mean square displacement can be calculated as: 
+In the previous section the MSD has been shown to be linear with time as a result of the central limit theorem. In normal liquids this behavior can be seen already at time scales higher than picoseconds \cite{Hofling2013}. Nevertheless, many experiments show that the MSD has a power law behavior ( $\delta r ^2 (t) \propto t^{\alpha}$ for  $0 < \alpha < 1$ ) over certain time windows form  microseconds to even seconds. Thus, the central limit theorem does not hold, at least in theses time scales. It can be shown that persistent correlations of the increments are present. In soft matter, like polymers, a sub-diffusive behavior is typically present in a time window but finally the linear MSD takes over. Fractional Brownian motion idealizes this situation by imposing that the central limit theorem is violated even for all time scales. The basic feature of fBm's is that the "span of interdependence" between their increments can be said to be infinite \cite{Mandelbrot1968} \par
+Just like the Wiener process, continuous-time Fractional Brownian motion (ctfBm) is a continuous-time Gaussian process $\{B^{\alpha}_t\}: \Omega \rightarrow \mathbb{R}^d$ at time $t \in T$ in the observation time $T =[0, \infty)$. It is fully specified by its mean $\langle B_t \rangle=0$ and its covariance function:
+\begin{align}
+\mathrm{Cov}[B^{\alpha}_t,B^{\alpha}_s]=\frac{\sigma^2}{2}[t^{\alpha}-2(s-t)^{\alpha}+s^{\alpha}] \qquad \text{for} \qquad t<s
+\end{align}
+With the mean and the covariance defined, the mean square displacement for fBm can be derived as: 
 \begin{align}
 \label{MSDfbm}
  \langle (B^{\alpha}_{t}-B^{\alpha}_{s})^2 \rangle = (s-t)^\alpha \sigma^2
 \end{align}
-Lets define another connected random variable: the continous-time fractional Gaussian noise (ctfGn).
-\begin{mydef}
-ctfGn is a continous-time Gaussian process $\{X^{\alpha}_t\}_{t\geq0}: \Omega \rightarrow \mathbb{R}^d$ with $\langle X^{\alpha}_t \rangle=0$ and variance $Var[X^{\alpha}_t]= \langle (X^{\alpha}_t)^2 \rangle=\sigma^2$. It is the derivative of $B^{\alpha}_t$:
+Fractional Brownian motion exhibits a power law behavior of the mean square displacement and therefore indeed motivates to act as a model for anomalous diffusion.\par Fractional Brownian motion can be alternatively expressed in terms of its incremental sequence. The incremental sequence is a related stochastic process called continuous-time fractional Gaussian noise (ctfGn). CtfGn is a continuous-time Gaussian process $\{X^{\alpha}_t\}: \Omega \rightarrow \mathbb{R}^d$ at time $t \in T$ in the observation time $T =[0, \infty)$. The mean is zero  $\langle X^{\alpha}_t \rangle=0$   and variance $\mathrm{Var}[X^{\alpha}_t]= \langle (X^{\alpha}_t)^2 \rangle=\sigma^2$:
 \begin{align}
-  B^{\alpha}_t=\int^t_0 X^{\alpha}_{\epsilon} d \epsilon
+  B^{\alpha}_t=\int^t_s X^{\alpha}_{t'} d t' +  B^{\alpha}_s \qquad \text{for} \qquad t<s
 \end{align}
-\end{mydef}
-Thus $X^{\alpha}_t=d B^{\alpha}_t/dt$ and the covariance function for ctfGn is:
+The covariance function for ctfGn can be derived from the covariance function of fractional Brownian noise:
 \begin{align}
- Cov[X^{\alpha}_t,X^{\alpha}_s]&= \frac{d^2 B^{\alpha}_t B^{\alpha}_s}{dt ds}=-\sigma^2 \frac{d^2 |t-s|^{\alpha}}{dtds}\\
+\mathrm{Cov}[X^{\alpha}_t,X^{\alpha}_s]&= \frac{d^2}{dt ds} \mathrm{Cov}[B^{\alpha}_t B^{\alpha}_s]=-\sigma^2 \frac{d^2 |t-s|^{\alpha}}{dtds}\\
  &=\alpha (\alpha-1) \sigma^2 |t-s|^{\alpha-2}+\alpha \sigma^2 |t-s|^{\alpha-1} \delta(t-s)
 \end{align}
-For Wiener white noise ($\alpha=1$) the first therm (the correlation) disappears:
+The first term of this covariance function is describing the correlation of the increments. For Wiener white noise ($\alpha=1$) the first terms disappears:
 \begin{align}
- Cov[X_t,X_s]= \sigma^2 \delta(t-s)
+ \mathrm{Cov}[X_t,X_s]= \sigma^2 \delta(t-s)
 \end{align}
-The spectrum density function is defined as the Fourier transform of the auto-covariance function:
+The description of fractional Brownian motion in terms of fractional Gaussian noise is often convenient because of fGn's stationarity. 
+The spectral density function can be written due to the Wiener-Khintchin theorem as the Fourier transform of the auto-covariance function:
 \begin{align}
- S(\omega)= \int^{\infty}_{-\infty} Cov[X_t,X_0] exp[-2 \pi i \omega t] dt
+ S(\omega)= \int^{\infty}_{-\infty} \mathrm{Cov}[X_t,X_0] \exp[-2 \pi i \omega t] dt
 \end{align}
-For algorithmic purpose discrete time fractional Brownian Motion  (fGm) and Noise (fGn) are relevant as well:
+For algorithmic purpose discrete time fractional Brownian motion (fBm) and Gaussian noise (fGn) are relevant as well:
 \begin{align}
 B^{\alpha}_{t}= \sum_{i=0}^kX^{\alpha}_i
 \end{align}
-The covariance function for fGm is similar to ctfGm but different for fGn in comparison to ctfGn:
+The covariance function for fBm is similar to ctfBm but different for fGn in comparison to ctfGn:
 \begin{align*}
- Cov[X^{\alpha}_n,X^{\alpha}_m]&=\langle (B^{\alpha}_n-B^{\alpha}_{n-1}) (B^{\alpha}_m-B^{\alpha}_{m-1})\rangle \\ &=\frac{\sigma^2}{2}[(n-m-1)^{\alpha}-2(n-m)^{\alpha}+(n-m+1)^{\alpha}]
+ \mathrm{Cov}[X^{\alpha}_n,X^{\alpha}_m]&=\langle (B^{\alpha}_n-B^{\alpha}_{n-1}) (B^{\alpha}_m-B^{\alpha}_{m-1})\rangle \\ &=\frac{\sigma^2}{2}[(n-m-1)^{\alpha}-2(n-m)^{\alpha}+(n-m+1)^{\alpha}]\\ \quad \text{for}  \quad n\geq m
 \end{align*}
 and with stationarity:
 \begin{align}
- Cov[X^{\alpha}_0,X^{\alpha}_m]=\frac{\sigma^2}{2}[(n-1)^{\alpha}-2n^{\alpha}+(n+1)^{\alpha}]
+ \mathrm{Cov}[X^{\alpha}_0,X^{\alpha}_m]=\frac{\sigma^2}{2}[(n-1)^{\alpha}-2n^{\alpha}+(n+1)^{\alpha}]
 \end{align}
 A more detailed study on fBm and fGm can be found in \cite{qian2003fractional}. Similar to the argumentation for Brownian motion also fBm need a connection to the strength of diffusion. This connection is introduced by the variance of fGn as: 
 \begin{align}
@@ -237,7 +235,7 @@ The Mean square displacement for fBm follows from \cref{MSDfbm} as:
 \delta r^{2}(t)= < \Delta R(t)^2>=2dK_{\alpha} t^{\alpha}
 \end{align}
 with $K_{\alpha}>0$  being the generalized diffusion coefficient. It is not quite the diffusion constant from Fick's law due to different units.
-\newline
+\par
 In the following properties of a more physical description of fBm will be discussed:
 \begin{itemize}
  \item The single particle density $\rho(\bm{r},t)=\delta(\bm{r}-\bm{R}(t))$ describes the density of a particle, which is localized at position $\bm{R}(t)$. Its correlation function $P(\bm{r}-\bm{r}',t-t')= V\langle\rho(\bm{r},t) \rho(\bm{r}',t')\rangle$ is also called Van Hove self-correlation function (in this context the propagator). $V$ refers to the volume. From now on we will consider an isotropic system $ r= |\bm{r}|$. As for Brownian motion with independent increments the correlated increments  $\Delta R(t)$ of fractional Brownian motion are assumed to follow a Gaussian distribution with zero mean. Thus the correlation function of the single particle density results in:
@@ -255,7 +253,7 @@ P(\bm{r},t)= \bm{r}^{-d} \mathcal{P}_{gauss}(\hat{\bm{r}})  \qquad \text{with} \
  &=\langle e^{-i k \Delta R(t)} \rangle
 \end{align}
 \item 
-The intermediate scattering function for the single particle density turns out to be the characteristic or moment generating function of $\Delta R(t)$ by expanding it for small wavenumbers $k \rightarrow 0$ one can get the moments. Its logarithm returns the cumulants. For Gaussian propagators with zero-mean all but the second cumulants vanish. For non-Gaussian transport also further cumulants are non-zero. Therefore, it is used to indicate beyond Gaussian transport. The non-Gaussian parameter is defined as:
+The intermediate scattering function for the single particle density turns out to be the characteristic or moment generating function of $\Delta R(t)$ by expanding it for small wave numbers $k \rightarrow 0$ one can get the moments. Its logarithm returns the cumulants. For Gaussian propagators with zero-mean all but the second cumulants vanish. For non-Gaussian transport also further cumulants are non-zero. Therefore, it is used to indicate beyond Gaussian transport. The non-Gaussian parameter is defined as:
 \begin{align}
  \alpha_2=\frac{d \delta r^{4}(t)}{(d+2) [\delta r^{2}(t)]}-1 \label{nongaussian2}
 \end{align}
@@ -278,7 +276,7 @@ The VACF in the frequency domain for fBm is:
 \end{align}
 The calculation can be found in the appendix \ref{VACF}
 \end{itemize}
-\subsection{Algorithm}
+\section{Algorithm}
 The algorithm of choice will be needed as the integrator of motion in a particle based reaction-diffusion software with preferably long trajectories. Therefore exactness and performance of the algorithm matter. In literature several algorithms were studied. Promising exact methods are: Cholesky \cite{Dieker2004}, Hosking \cite{WRCR:WRCR3676}, Davis-Harte \cite{Dieker2004} and  Lowen \cite{Lowen1999} method. Cholesky  method claim to perform $\mathcal{O}(M^3)$ in respect to the length of trajectory $M$ and even $\mathcal{O}(M^2)$ for every next trajectory. Davis-Harte and Lowen method claim to be exact and fast $\mathcal{O}(M log(M))$ \cite{DAVIES1987}\cite{Lowen1999}. There are further algorithms with even faster performance (e.g. the $RMD_{3,3}$- method \cite{Dieker2004} with $\mathcal{O}(M)$) . However, they are approximations. In order to choose an algorithm. Three algorithms were analyzed in terms of accuracy and speed. 1.Cholesky  2.Lowen and 3. Our own algorithm.
 \subsubsection{Cholesky Method}
 (cite the thesis of Ton Dieker)
@@ -304,7 +302,7 @@ Fractional correlations can be incorporated via its VACF:
 \begin{align}
 \bm{\xi}(t)=\int d \omega e^{i \omega t} \tilde{\bm{\xi}}(\omega) \label{eq:fourier2}
 \end{align}
-In the following an algorithm, which generates fractional Brownian noise will be introduced. The algorithm is based on the Davis-Harte algorithm \cite{Craigmile2003}. The idea is to use the calculated VACF and thereby modify conventionally generated Gaussian random variables. All the increments should be generated beforehand. With this concept it is difficult to include forces. For computational reasons the pervious elaborations on how to generate fractional Brownian increments have to be transformed into a discrete form, thereby the solution is no longer exact, which will be shown in the analysis part of the algorithm.  
+In the following an algorithm, which generates fractional Brownian noise will be introduced. The algorithm is based on the Davis-Harte algorithm \cite{Craigmile2003}. The idea is to use the calculated VACF and thereby modify conventionally generated Gaussian random variables. All the increments should be generated beforehand. With this concept it is difficult to include forces. For computational reasons the previous elaborations on how to generate fractional Brownian increments have to be transformed into a discrete form, thereby the solution is no longer exact, which will be shown in the analysis part of the algorithm.  
 \begin{align}
 \bm{\eta} (t) \longrightarrow \bm{\eta}_j(t)  \text{  with  } j=0,1,2,...,n  \text{  ,  } n= \text{amount of steps}
 \end{align}
@@ -416,14 +414,15 @@ The auto-covariance function indeed satisfies the condition for fBm with varianc
 
 \subsubsection{Accuracy Analysis}
 
-The algorithms were implemented in python and c++. For the c++ implementation a wrapper to python was added. All algorithms have been analyzed by an analysis class. The c++ implementation is using FFTW library for the Fast Fourier Transform and Mersenne-Twister (gsl\texttt{\textunderscore}rng\texttt{\textunderscore}mt19937) as the random number generator. Python implementations were developed beforehand and only serve as reference. Python uses the numpy.fft library for the Fast Fourier Transform and also the Mersenne-Twister random number generator.\newline \begin{figure}[h!]
+The algorithms were implemented in python and c++. For the c++ implementation a wrapper to python was added. All algorithms have been analyzed by an analysis class. The c++ implementation is using FFTW library for the Fast Fourier Transform and Mersenne-Twister (gsl\texttt{\textunderscore}rng\texttt{\textunderscore}mt19937) as the random number generator. Python implementations were developed beforehand and only serve as reference. Python uses the numpy.fft library for the Fast Fourier Transform and also the Mersenne-Twister random number generator.\par
+\begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{./data/timevsensambe.png}
   \captionsetup{width=\linewidth}
   \captionof{figure}{Comparison of MSD between time-average, ensemble-average ($N=1000$) ,$\alpha=0.5$, $\Delta t=0.1$ for the three algorithms.\newline Cholesky: $D=2$,  $M=300$.\newline Our $D=20$ $M=2000$, \newline  Lowen:  $D=200$ $M=2000$. }
   \label{fig:4}
 \end{figure}
-To get insight into stochastic algorithms observables have to by studied. Observables of an stochastic process are generally averaged values. The motivation of choosing fBm was its power law behaviour of the MSD. It is therefore to be reasonable to analyze first this observable. It can be calculated as the ensemble- or time average. A difference in time and ensemble average would show a violation of ergodicity. A comparison for all the three implemented algorithms can be seen in \cref{fig:4}. All algorithm show good accuracy between ensemble and time averaged MSD, besides for long lag times for the time averaged MSD due to decreasing statistics. Our algorithm tend to result in too  small MSDs for small lag times particularly for small $\alpha$, which is going be shown later on. This is caused by the finite amount of samples in the discrete Fourier transform. In the following figures all MSD plots are ensemble averages. They are computationally cheaper.\newline Secondly time-reversibility had been checked. FBm should be time reversible as shown in \cite{Horvai2007}. In \cref{changeintime} MSDs for forward time and for backward time were plotted. No difference can be seen. $\alpha$ had been chosen to be $0.1$. Thereby our algorithm has an even stronger deviation from the desired power law.
+To get insight into stochastic algorithms observables have to by studied. Observables of an stochastic process are generally averaged values. The motivation of choosing fBm was its power law behavior of the MSD. It is therefore to be reasonable to analyze first this observable. It can be calculated as the ensemble- or time average. A difference in time and ensemble average would show a violation of ergodicity. A comparison for all the three implemented algorithms can be seen in \cref{fig:4}. All algorithm show good accuracy between ensemble and time averaged MSD, besides for long lag times for the time averaged MSD due to decreasing statistics. Our algorithm tend to result in too  small MSDs for small lag times particularly for small $\alpha$, which is going be shown later on. This is caused by the finite amount of samples in the discrete Fourier transform. In the following figures all MSD plots are ensemble averages. They are computationally cheaper.\par Secondly time-reversibility had been checked. FBm should be time reversible as shown in \cite{Horvai2007}. In \cref{changeintime} MSDs for forward time and for backward time were plotted. No difference can be seen. $\alpha$ had been chosen to be $0.1$. Thereby our algorithm has an even stronger deviation from the desired power law.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=\textwidth]{./data/changeintime.png}
@@ -487,11 +486,11 @@ A strong influence of $\alpha$ on the accuracy of MSD for our algorithm can be s
 \begin{figure}[h!]
 \centering
 \includegraphics[width=\textwidth]{./data/alpha_changethree.png}
-\caption{All three plots show an ensemble averaged MSD over $N=2000$ trajectories for $0.1<\alpha<1.0$  with $K_{\alpha}=2$ ,$\Delta t = 0.1$ and trajectory length $M=2000$  for Our and Lowen algorithm, $M=256$ for Choleski algorithm. a) Our algorithm and b) Lowen algorithm c) Choleski algorithm.}
+\caption{All three plots show an ensemble averaged MSD over $N=2000$ trajectories for $0.1<\alpha<1.0$  with $K_{\alpha}=2$ ,$\Delta t = 0.1$ and trajectory length $M=2000$  for Our and Lowen algorithm, $M=256$ for Cholesky algorithm. a) Our algorithm and b) Lowen algorithm c) Cholesky algorithm.}
 \label{alphachange}
 \end{figure}
 
-FBms property of self similarity can be used to plot a scale free version of the density distribution. The scale free version was introduced in \cref{scalefreeformfrac}. The scaled density distribution is not depended on time but overlaps for all times. In \cref{rescaledfunction}  histograms over $N=10000$ single trajectories at various times ($100\leq t \leq 1000$) were calcualted and rescaled according to \cref{scalefreeformfrac}. The dashed line show the expected distribution. For Cholesky and our algorithm no deviations from the analytical line is obvious. For Lowens algorithm systematically small changes to the analytical value can be observed. However, the distribution of fBm should stay a Gaussian for all times.  As introduced in \cref{nongaussian2} the non-Gaussian parameter should be zero. The Non-Gaussian parameter has been plotted for $0 \leq t \leq 1000 (\leq 356 \text{ for Cholesky})$  $\alpha=0.5$  in \cref{nongaussianlowen} a). Our and Cholesky algorithm perform as expected. Lowen however show deviation from a Gaussian distribution increasingly towards the end of the trajectory. In  \cref{nongaussianlowen} b) the influence of $\alpha$ on the non-Gaussian parameter for the Lowen algorithm was tested. For small $\alpha$ the distribution is closer to a Gaussian. In our implementation Lowens algorithm is not exact as claimed in \cite{Lowen1999}.
+FBms property of self similarity can be used to plot a scale free version of the density distribution. The scale free version was introduced in \cref{scalefreeformfrac}. The scaled density distribution is not depended on time but overlaps for all times. In \cref{rescaledfunction}  histograms over $N=10000$ single trajectories at various times ($100\leq t \leq 1000$) were calculated and rescaled according to \cref{scalefreeformfrac}. The dashed line show the expected distribution. For Cholesky and our algorithm no deviations from the analytical line is obvious. For Lowens algorithm systematically small changes to the analytical value can be observed. However, the distribution of fBm should stay a Gaussian for all times.  As introduced in \cref{nongaussian2} the non-Gaussian parameter should be zero. The Non-Gaussian parameter has been plotted for $0 \leq t \leq 1000 (\leq 356 \text{ for Cholesky})$  $\alpha=0.5$  in \cref{nongaussianlowen} a). Our and Cholesky algorithm perform as expected. Lowen however show deviation from a Gaussian distribution increasingly towards the end of the trajectory. In  \cref{nongaussianlowen} b) the influence of $\alpha$ on the non-Gaussian parameter for the Lowen algorithm was tested. For small $\alpha$ the distribution is closer to a Gaussian. In our implementation Lowens algorithm is not exact as claimed in \cite{Lowen1999}.
 
 \begin{figure}[h!]
 \centering
@@ -515,7 +514,7 @@ FBms property of self similarity can be used to plot a scale free version of the
 \begin{figure}[h!]
 \centering
 \includegraphics[width=\textwidth]{./data/nongaussianlowenalpha.png}
-\caption{a) Non-Gaussian-Parameter as introduced in \cref{nongaussian2} for all three algorithms with $K_{\alpha}=2$ , $N=5000$,$\alpha=0.5$ (Lowen and Our $M=1001$; Choleski $M=356$), $\Delta t = 1$  averaged over $50$ non-Gaussian-Parameter with its variance displayed as an error bar.\newline
+\caption{a) Non-Gaussian-Parameter as introduced in \cref{nongaussian2} for all three algorithms with $K_{\alpha}=2$ , $N=5000$,$\alpha=0.5$ (Lowen and Our $M=1001$; Cholesky $M=356$), $\Delta t = 1$  averaged over $50$ non-Gaussian-Parameter with its variance displayed as an error bar.\newline
 b) Non-Gaussian-Parameter for Lowen algorithms with $K_{\alpha}=2$ , $N=5000$, $M=1001$, $\Delta t = 1$ and for various $0.1\leq\alpha\leq1.0$  averaged over $50$ non-Gaussian-Parameter with its variance displayed as an error bar.}
 \label{nongaussianlowen}
 \end{figure}
@@ -550,8 +549,8 @@ The performance in respected to sample size (trajectory length) and number of sa
 \end{figure}
 
 \chapter{Particle Based Reaction Diffusion }
-Chemical recations are genericly found in nature. They describe a transformation of chemical substances to one annother, transforamtion of chemical substances are described by formation and breaking of chemical bonds. These bonds are formed due to electromagnetic forces. Physicaly corret theses bond should be described quatum mechanicly. For large systems these calcuation cannot be performed, so goarsed grained models for the description were developed. But reactions in a broader sence can also be a transformation of a state to another (e.g. protein changing its transformation). The most detailed stadard model is given by particle-based reaction-diffusion dynamcis (PBRD). Thereby all particles are modeled as points or spheres and resolved in space and time. However, the size particularly of common biological systems surpass computational feasibility. So further coarse graining gets nessesary. Early pioneer work on reactions by Guldberg and Waage already in 1864 \cite{Waage1986} resulted in the law of mass action, which states the proportionality of the reaction rate to the concentration for elementary uni- and bi molecular reactions. Therby spatial resolution is neglected. The systems is described in terms of a concentration (well-mixed assumption). The mass action law leeds to a deterministic model described by ordinary differential equations (ODEs). Quanties like reaction kinetics and amount of reactants in equlibrium can be obtained. Deterministic models however are not resolving stochastic phenomena. Stochastic models provide a more detailed understanding of the reaction-diffusion processes. Such a description is often necessary for the modelling of biological systems where small molecular abundances of some chemical species make deterministic models inaccurate or even inapplicable \cite{0704.1908}. Stochstic concentration based model are chartarized by the chemical Master equation (CME). It describes the temporal evolution of the probabilities for the system to occupy each different state. The interesting topic of chemical reactions with concentrations based models will not be part of the elaborations. Nevertless, for the sake of completeness, it was to be mentioned that concentration based models can describe reactions with the Gillispie algorithm \cite{Gillespie1977} very efficiently. Even spatial resolutions can be achieved with the reaction-diffusion Master equation (RDME). Still the well-mixed assumption has to hold at least for the compartments. Difficulties in simulation of bioloical systems arise on the one hand from very large systems and on the other from small molecular abundances of some chemical species. The well-mixed assumption does not hold. A Less promient approach is a PBRD model with fractiontal Brownian dynamics. Fractional Brownian motion describes the motion of a particle in crowded biological media. The motion of the media itself has not to be modeles explicitly. Therefore PBRD simulations for less particles are nesseary. Stochastic particle based models conventionally rely on Brownian or Langevin dynamics for the description of diffusion. Brownian dynamics was introduced in chapter 1. Langevin dynamics will not be examined explicitly. In short, it is further considering momentum and reaches Brownian dynamics in the limit of vanishing momentum.\newline
-This chapter deals with theoretical foundations of chemical reaction. The first section examines Smoluchwoski pionier work on diffusion limited reaction kinietcs of a bi-molecular reaction and Erban / Chapmman extenstions \cite{Erban2009} for diffusion influenced bi-molecular reactions. Thereby a dependence of makroskopic reaction rares and the diffusion of the particles can be seen. These results shell motivate invesigations of reactions with a different diffusion model. Along the way law of mass action is shown to follow  under certain conditions from the diffusion \cref{eq:ficks} motivated and introduced in the first chapter. These derivations further motivate both, concentration and PBRD modells. RevReaDDy, a realization of the latter, is then introduced and explained in the second section of this chapter.
+Chemical reactions are generically found in nature. They describe a transformation of chemical substances to one another, transformations of chemical substances are described by formation and breaking of chemical bonds. These bonds are formed due to electromagnetic forces. Physically correct theses bonds should be described quantum mechanically. For large systems these calculation cannot be performed, so coarse grained models for the description were developed. But reactions in a broader sense can also be a transformations of a state to another (e.g. protein changing its transformation). The most detailed standard model is given by particle-based reaction-diffusion dynamcis (PBRD). Thereby all particles are modeled as points or spheres and are resolved in space and time. However, the size particularly of common biological systems surpass computational feasibility. So further coarse graining gets necessary. Early pioneer work on reactions by Guldberg and Waage already in 1864 \cite{Waage1986} resulted in the law of mass action, which states the proportionality of the reaction rate to the concentration for elementary molecular reactions. Thereby spatial resolution is neglected. The system is described in terms of a concentration (well-mixed assumption). The mass action law leads to a deterministic model described by ordinary differential equations (ODEs). Quantities like reaction kinetics and amount of reactants in equilibrium can be obtained. Deterministic models however are not resolving stochastic phenomena. Stochastic models provide a more detailed understanding of the reaction-diffusion processes. Such a description is often necessary for the modeling of biological systems where small molecular abundances of some chemical species make deterministic models inaccurate or even inapplicable \cite{0704.1908}. Stochastic models based on the mass action law are characterized by the chemical Master equation (CME). CME describes the temporal evolution of the probabilities for the system to occupy each different state. The interesting topic of chemical kinetics described by CME will not be part of the elaborations. Nevertheless, for the sake of completeness, it was to be mentioned that stochastic simulations based on CME with the Gillispie algorithm \cite{Gillespie1977} are performing very efficiently. Even spatial resolutions can be achieved with simulations based on the reaction-diffusion Master equation (RDME). Still the well-mixed assumption has to hold at least for the compartments of the RDME model. Difficulties in simulation of biological systems arise on the one hand from very large systems and on the other from small molecular abundances of some chemical species. The well-mixed assumption does not hold. A Less prominent approach is a PBRD model with fractional Brownian dynamics. Fractional Brownian motion describes the motion of a particle in crowded biological media. The motion of the media itself has not to be modeled explicitly. Therefore PBRD simulations can be performed just for the relevant reacting particles. Stochastic particle based models conventionally rely on Brownian or Langevin dynamics for the description of diffusion. Brownian dynamics was introduced in chapter 1. Langevin dynamics will not be examined explicitly. In short, it is further considering momentum and reaches Brownian dynamics in the limit of vanishing momentum.\par
+This chapter deals with some theoretical considerations on the impact of diffusion on reaction rates. The first section examines Smoluchwoski pioneer work \cite{Smoluchowski1} on diffusion limited reaction kinetics of a bi-molecular reaction and Erban/Chapmman extensions \cite{Erban2009} for diffusion influenced bi-molecular reactions. Thereby a dependence of macroscopic reaction rates and the diffusion of the particles can be seen. These results shell motivate investigations of reaction diffusion dynamics with a different diffusion model. Along the way the law of mass action is shown to follow under certain conditions from the diffusion \cref{eq:ficks} motivated and introduced in the first chapter. These derivations further motivate both, concentration and PBRD models. RevReaDDy, a realization of the latter, is then introduced and explained in the second section of this chapter.
 
 
 
@@ -583,11 +582,13 @@ This chapter deals with theoretical foundations of chemical reaction. The first 
 % 
 
 %Let mass conservation be the starting point:
-\section{Diffusion Influenced Bimolecular Reaction}
-Our considerations on how diffusion influcences chemical reactions starts with the Smoluchowski problem for kinetics of a bi-molecular chemical reaction in solution. The following derivation shell give the kinetics of an easy model for a bi-molecular reaction and motivate the convection-diffusion equation.\newline  
-The reaction sceme for a bi-molecular reaction with reactants A and B undergo fusion to a complex AB with a rate $k^{+}_{\mathrm{d}}$ and undergo fission to A and B with a rate $k^{-}_{\mathrm{d}}$. The chemical reaction can be written as:
+\section{Diffusion Influenced Bimolecular Reaction}\label{Erban-chapman-section}
+Uni- and bi-molecular elementary reactions are most relevant in nature. According to collision theory tre-molecular elementary reactions are negligible. Diffusion is not relevant for uni-molecular reactions. It is reasonable to start our considerations on how diffusion influences chemical reactions with the Smoluchowski problem for kinetics of a bi-molecular chemical reaction in solution. One particular area of research on which the Smoluchowski relation had significant impact in the last few decades is biology. This is unsurprising as a vast number of biomolecular systems involve dilute and minute diffusing molecular populations undergoing continuous reaction. Understanding how these biological systems operate is complicated and is in itself a whole field of research; systems biology. The Smoluchowski result has provided a very powerful tool for theoretical investigation of microscopic biochemical reaction-diffusion processes \cite{Flegg}. It was extended by P. Debye in 1942 to add intermolecular forces. However, especially in biological systems Brownian motion do not apply for all time-scales. These environments exhibit very often anomalous diffusion, which can be addressed by fBm. 
+\par
+The following derivation shell give the kinetics of an easy model for a bi-molecular reaction and motivate a particle based simulation scheme.\par 
+The reaction scheme for a bi-molecular reaction with reactants A and B undergo fusion to a complex AB with a rate $k^{+}_{\mathrm{d}}$ and undergo fission to A and B with a rate $k^{-}_{\mathrm{d}}$. The chemical reaction can be written as:
 \begin{align*}
-\text{\ch{A + B <=>[ $k^{+}_{\mathrm{d}}$ ][ $k^{-}_{\mathrm{d}}$ ] AB }}
+\text{\ch{A + B <>[ $k^{+}_{\mathrm{d}}$ ][ $k^{-}_{\mathrm{d}}$ ] AB }}
 \end{align*}
 Free diffusion of particle A and B with the diffusion constants $D_A$ and $D_B$, respectively, are assumed. Further no interactions between them are present. In fact this problem can be described by a modified version of the diffusion \cref{eq:ficks} motivated in the first chapter.
 The joint concentration field for a bi-molecular system in a solution can be written as:
@@ -617,15 +618,15 @@ In the previous equation the stokes theorem was applied. The second term is zero
 \end{align}
  The stationary distribution results in:
 \begin{align}
- -\left(\frac{\partial}{\partial_r}+\frac{2}{r} \right) j^{s}_t(r)&= 0\\
- \frac{d j^{s}_t(r)}{j^{s}_t(r)}  &=- \frac{2}{r} dr\\
- j^{s}_t(r)&=A r^{-2}\\
- \rho^s(r)&=\rho^s(r_0)- \frac{\int_{r_0}^{r} j^{s}_t(r')dr'}{D}=\rho^s(r_0)+\frac{A}{D}\left(\frac{1}{r}-\frac{1}{r_0}\right)
+ -\left(\frac{\partial}{\partial_r}+\frac{2}{r} \right) j^{s}(r)&= 0\\
+ \frac{d j^{s}(r)}{j^{s}(r)}  &=- \frac{2}{r} dr\\
+ j^{s}(r)&=A r^{-2}\\
+ \rho^s(r)&=\rho^s(r_0)- \frac{\int_{\sigma}^{r} j^{s}(r')dr'}{D}=\rho^s(r_0)+\frac{A}{D}\left(\frac{1}{r}-\frac{1}{\sigma}\right)
 \end{align}
-Now assuming only a single molecule B being at the position $r=0$. Instantaneous reactions occur for $r\leq \sigma \Rightarrow \rho_t(r \leq \sigma)=0$. For $r \rightarrow \infty$ the distribution is defined as the concentration of particle A $\rho_t(r \rightarrow \infty)=c_A$.
+Now lets assume only a single molecule B being at the position $r=0$. Instantaneous reactions occur for $r\leq \sigma \Rightarrow \rho_t(r \leq \sigma)=0$. For $r \rightarrow \infty$ the distribution is defined as the concentration of particle A $\rho_t(r \rightarrow \infty)=c_A$.
 The solutions for $\rho^{s}(r)$ and $j^{s}_t(r)$ for theses boundary conditions can be written as:
 \begin{align}
- \rho^{s}(r)=C_A \left(1-\frac{\sigma}{r}\right) \qquad \qquad j^{s}_t(r)&=-D \sigma C_A r^{-2}
+ \rho^{s}(r)=C_A \left(1-\frac{\sigma}{r}\right) \qquad \qquad j^{s}(r)&=-D \sigma C_A r^{-2}
  \label{smoluchwoskiproblem}
 \end{align}
 The change of the concentration of $C_{AB}$ is then: 
@@ -634,107 +635,270 @@ The change of the concentration of $C_{AB}$ is then:
 \end{align}
 Along the way several assumptions were made:
 \begin{itemize}
-  \item The system can be described by a diffusion constant which is in depended of time and position. 
-  \item no interaction between particles (ideal gas).
-  \item System has a constant concentration of A particles at boundary $\rho_t(r \rightarrow \infty)=c_A$.
-  \item System is in a stationary distribution.
-  \item System of one B particle with a concentration $C_B=1/V$ can generalised for a system with many particles and still a constant concentration. 
-  \item The limit of instantaneous reactions is called diffusion limited reaction.
+  \item The system can be described by a diffusion constant which is independent of time and position. 
+  \item No interaction between particles are present (ideal gas).
+  \item The System has a constant concentration of A particles at boundary $\rho_t(r \rightarrow \infty)=c_A$.
+  \item The system System is in a stationary distribution.
+  \item The system of one B particle with a concentration $C_B=1/V$ can generalized for a system with many particles. 
+  \item The system is in the diffusion limit.
 \end{itemize}
-Still the solution gives the kinetics for a simple bi-molecular system. It is consistent with collision theory, which states that the collision frequency is proportional to the concentrations of the colliding particles. Pioneer work in reaction kinetics by Guldberg and Waage already in 1864 \cite{Waage1986} resulted in the law of mass action, which states the proportionality of the reaction rate ($r_f$) to the concentration for elementary uni- and bi-molecular reactions.
+Still the solution gives the kinetics for a simple bi-molecular system. It is consistent with collision theory, which states that the collision frequency is proportional to the concentrations of the colliding particles. Pioneer work on reaction kinetics by Guldberg and Waage already in 1864 \cite{Waage1986} resulted in the law of mass action, which states the proportionality of the reaction rate ($r_f$) to the concentration for elementary uni- and bi-molecular reactions.
 \begin{align}
  r_f=k_f C_A C_B
 \end{align}
-It builds up the basis for a description of reaction kinetics in terms of ordinary differential equations (ODEs) like \cref{difkinetics}.\newline
-Smoluchowski's problem can be in fact generalised for reaction to occur with a microscopic rate $\lambda_{+}$ within a radius $\sigma$. Derived by R. Erban and S. J. Chapman in \cite{Erban2009}.  However, as a small remark, the microscopic rate has to be distinguished from the macroscopic rate. As an example microscopic rates are related to the Kramers problem, describing the time dependence of a particle passing a potential barrier like commonly in biology protein binding / unbinding. The problem can be described similar to Smoluchwoski's problem \cref{smoluchwoskionedimension}  with a similar boundary condition for $r > \sigma$ but different for $r \leq \sigma$:
+It builds up the basis for a description of reaction kinetics in terms of ordinary differential equations (ODEs) like \cref{difkinetics}.\par
+Smoluchowski's problem can be in fact generalized for reactions to occur with a microscopic rate $\lambda_{+}$ within a radius $\sigma$, derived by R. Erban and S. J. Chapman in \cite{Erban2009}.  However, as a small remark, the microscopic rate has to be distinguished from the macroscopic rate. As an example microscopic rates are related to the Kramers problem, describing the time dependence of a particle passing a potential barrier e. g. commonly in biology protein binding / unbinding. The generalized problem can be described similarly to Smoluchwoski's problem \cref{smoluchwoskionedimension}  with a similar boundary condition for $r > \sigma$ but different for $r \leq \sigma$:
 \begin{align}
 r\leq \sigma \Rightarrow \frac{\partial \rho_t(r \leq \sigma)}{\partial t}=-\lambda_{+} \rho_t (r \leq \sigma)
 \end{align}
-The calculation to the solution of the second-order ODEs can be found in the Appendix \cref{Erban-Chapmann}. The solution shows again the possibility of describing the overall change of concentration with a macroscopic reaction rate $k_{+}(\lambda_{+},\sigma,D)$:
-\begin{align}
-k_{+}=4\pi D \left( \sigma-\sqrt{\frac{D}{\lambda_{+}}} \tanh{\sigma \sqrt{\frac{D}{\lambda_{+}}}}\right)
+The derivation of the solution of the second-order ODEs can be found in the Appendix \ref{Erban-Chapmann}. The solution shows again the possibility of describing the overall change of concentration with a macroscopic reaction rate $k_{+}(\lambda_{+},\sigma,D)$:
+\begin{align} \label{kalphaerbanchepmann}
+k_{+}=4 \pi D \left( \sigma-\sqrt{\frac{D}{\lambda_{+}}} \tanh{\sigma \sqrt{\frac{\lambda_{+}}{D}}}\right)
 \end{align}
-Not only in the diffusion limit but also for reactions occurring with a certain microscopic rate the law of mass action can describe a reaction. For a given reaction sceme it is generally possible to formulate a system of ODEs. There solutions give the kinetics and concentrations in equilibrium, but no informations on the spatial distribution are present. Further  
-
-It can also be interpreted as the production term in the continuity equation. In literature this equation is referred to as the convection-diffusion equation:
-\begin{align}
- \frac{\partial \rho_t(r)}{\partial t}=-\left(\frac{\partial}{\partial_r}+\frac{2}{r} \right) j_t(r) + R \label{convenctiondiffsuion}
-\end{align}
-with $R$ the production term. For simple systems analysical solutions for theses partial derivative eqaution (PDEs) exist. 
-
-
-For easy problems analytical solutions to spatial distribution can be obtained by solving the convection diffusion \cref{convenctiondiffsuion}. \newline
+Reaction kinetics can be described by the law of mass action not only in the diffusion limit but also for reactions occurring with a certain microscopic rate.  Under the well mixed assumption and normal diffusion it is possible to formulate ODEs for the system. There solutions give the kinetics and concentrations in equilibrium, but no informations on the spatial distribution are contained.
 \begin{figure}[h!]
   \centering
   \includegraphics[width=\textwidth]{./data/smoluchowskierban.png}
   \captionsetup{width=\linewidth}
-  \captionof{figure}{Density distirbution of Smoluchowski and  Erban Chapmann Chapman}
+  \captionof{figure}{Density distribution of three scenarios. 1 reaction limit for $\lambda_{+} =0.0001\ll \frac{D}{\sigma^2}$, 2.  Erban Chapmann with  $\lambda_{+} =1 $ and 3. In all Diffusion limit with  $\lambda_{+} \rightarrow \infty $. For all scenarios $D$, $\sigma$ and $\rho_t(r \rightarrow \infty)=c_A$ have been set to $1$.}
   \label{fig:diffusion_limit-Erban-Chapmann-figure}
 \end{figure}
+\par
+For the generalized problem with a microscopic rate $\lambda_{+}$ a diffusion and microscopic reaction limit can be shown. For $\lambda_{+} \rightarrow \infty $ reaction occur immediately and the diffusion limit is reached. If  $\lambda_{+} \ll \frac{D}{\sigma^2}$ a Taylor expansion of the Tangens Hyperbolicus in \cref{kalphaerbanchepmann} can be written as:
+\begin{align}
+\tanh{\sigma \sqrt{\frac{D}{\lambda_{+}}}} \approx \sigma \sqrt{\frac{D}{\lambda_{+}}}-\frac{\left(\sigma \sqrt{\frac{D}{\lambda_{+}}}\right)^3}{3}
+\end{align}
+and \cref{kalphaerbanchepmann} can be written approximately as:
+\begin{align}
+ k_{+}=\frac{4 \pi \sigma^3 \lambda_{+}}{3}
+\end{align}
+The macroscopic reaction rate no longer depends on the diffusion but solely on the microscopic reaction rate. The stationary distributions for both limits and an intermediate scenario are plotted in \cref{fig:diffusion_limit-Erban-Chapmann-figure}.\par
+The previous elaborations show that macroscopic reaction rates dependent on diffusion for bi-molecular reactions. For easy reaction diffusion systems the evolution and the stationary distribution of the density distribution can be obtained by solving Smoluchwoski's equation (PDE). For the bi-molecular reaction the law of mass action could be seen to follow for spatial homogeneity. Then reaction kinetics can be described for easy systems in terms of ODEs. Nevertheless complex systems cannot be solved. Further, for small molecular abundances of some chemical species deterministic models get inaccurate or even inapplicable. Stochastic models are necessary. Via Chemical Master equations (CMEs) and reaction diffusion Master equations (RDMEs) analytical stochastic results can be obtained. Deduced from the Master equation also stochastic simulations based on Monte Carlo methods, like the prominent Gillispie algorithm \cite{Gillespie1977}, can be performed. This chapter however aims to introduce PBRD. The implementation of a PBRD simulation introduced in the next section follows the theoretical description of reactions with microscopic reaction rates within a reaction radius in this section.
+% 
+% 
+% 
+% Ab hier überleitung zu dann zur onvection-diffusion equation als motivation für simulations (ODE,PDEs, CME, RDME, PBRD, fractional PBRD). Letzteres analytic solution nicht einfach Fractional calculus, fractional Fokker-plank, frachtional master equation.
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% It can also be interpreted as the production term in the continuity equation. In literature this equation is referred to as the convection-diffusion equation:
+% \begin{align}
+%  \frac{\partial \rho_t(r)}{\partial t}=-\left(\frac{\partial}{\partial_r}+\frac{2}{r} \right) j_t(r) + R \label{convenctiondiffsuion}
+% \end{align}
+% with $R$ the production term. For simple systems analytical solutions for theses partial derivative eqaution (PDEs) exist. 
+% 
+% 
+% For easy problems analytical solutions to spatial distribution can be obtained by solving the convection diffusion \cref{convenctiondiffsuion}. \newline
+% 
+% 
 
 
+% A particle based model for diffusion is Brownian motion introduced in the first chapter. Thereby similar to the setup of the previous elaborations by Erban and Chapman  particles can react within a certain distance $\sigma$ with a certain microscopic reaction rate $\lambda$. These calculation most 
+% 
+% Determinitic:
+% Then Smoluchowski. (then gas theory wiki, maybe aurilius and kramers problem and simulations of proteins for determination of rates in reaction). back mass conservation with  production term. Then erban chapman. Then no diffusion (or diffusion time independ (and in-cooperated in marcoscopic rate.)). constant concentration (again mass action from gas theory)  . concentration  based models (ODEs) and solving . Then CME Then compartment based CME. 
+% 
+% Then stochastic simulations, stochstic cme. stochstic compatment based cme. stochastic particle based simulations smoluchawoski/diffsuion equation to Fockerplank. (fluctuations / dissipation ) theorem.
+% 
+%  
+% 
+% 
+% 
+% 
+% 
+% 
+% Deterministic models have their origin.  
+% 
+% 
+% stationary values. kinetics. spatial distribution of reactants. 
+% 
+% What are interesting observables. Solutions in dynamical equilibrium reaction rates rate equtaions ( assumption rate is independent of time. not nesesarilly true.  chemical equlubrium. Mass action. order of reaction. Smoluchowski. Chemical master equation. quantum physical -> bonds between reactants for example electrons involved.
+% \section{chemical reactions}
+% With no information on 
+% The classical theory of reaction 
+%  
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% In biological systems, phenomena often depend on stochastic fluctuations. Deterministic models often are often inaccurate or even not applicable at all. 
+% (von franks Vortrag das Bild mit den unterschiedlichen Methoden zur genererieung von Reactiondiffusions systemen). 
+% This chapter is going to discuss particle based reaction diffusion. Particle based reaction diffusion is going to be put in relation to different reaction diffusion studying methods.  
+% Analytical solutions for resulting ordinary differencial equation exist under certain conditions like Quasi-Steady-State assumption or equilibrium assumption. In any case the mass action law is assumed. For fractional diffusion mass action law does not apply. Thus concentration based models had been upgraded by time depended rate coefficients \cite{Berry2002}  \cite{schnell2004reaction}
+% \section{Smoluchowski}
+% \section{Erban Chapmann}
+\section{RevReaddy with fBm} 
+RevreaDDy is a PBRD tool developed by Christoph Fröhner. It is not going to be published or further improved. Many modification to the tool had to be done in the process of this thesis. RevreaDDy is based on the simulation package ReaDDy by Johannes Schöneberg and Frank Noé \cite{10.1371/journal.pone.0074261}. Reaction-diffusion dynamics of all particles can be resolved in space and time. Particles are modeled as spheres with possible particle interaction potentials. The tool aims to bridge the gap between molecular simulation and CME/RDME simulations. It is written in C++. However, the user can setup up and simulate the desired reaction scheme in Python via a Python binding. Particle types with a specific radius and diffusion constant can be defined. Particles of a predefined particle type can be placed anywhere into a simulation box with variable box size and periodic boundary conditions. A desired simulation length and width of the time step have to be set. Conventionally particles propagate by Brownian Dynamics. In the process of the thesis also a fractional Brownian motion integrator with the circulant method by Davis-Harte \cite{Dieker2004}  and Lowen \cite{Lowen1999} was implement. For Brownian Dynamics potentials with two different potential types, Lennard Jones and soft repulsion, can be introduced to act in-between participles and between fixed geometries  in the simulation box and particles. Thereby a temperature has to by defined. Particles can be e.g limited to diffuse on a surface by a potential. It can be chosen from various reaction types to effect the particle types. For Uni-molecular reactions like conversion \ch{A <>[ $k$ ][ $k'$ ] B}, decay \ch{A -> [ $k$ ] $\emptyset$}, fission \ch{$A$ ->[ $k$ ] $B+C$} the probability that one particle undergoes a reaction can be given as:
+\begin{align} \label{propabilityreaction}
+ P=\lambda \Delta t
+\end{align}
+Microscopic reaction rates for a single particle to undergo a reaction $\lambda$ are independent of the relative position.
+\begin{figure} 
+  \centering
+  \includegraphics[width=0.7 \textwidth]{./data/schemeforreacions1.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{The Figure shows a visualization of a bi-molecular reaction between particle A and B in RevReaDDy.}
+  \label{fig:model-reactions}
+\end{figure}
+\par
+For fission a weighting factor and reaction distance can be defined. They determine how far each of the particles are placed from the previously existing complex. For bi-molecular reactions like the enzymatic reaction with complex building \ch{$A + B$ <>[ $k$ ][ $k'$ ] $A + C$} or fusion \ch{$A + B$ ->[$k$] C} relative positions of the reactants are important for the reaction to take place. Analogous to the setup up of Erban and Chapman in \cref{Erban-chapman-section} a microscopic reaction rate $\lambda$ within a reaction distance $\sigma$ have to be defined. If the reactants come closer than $\sigma$ a reaction takes place with probability $P= \lambda \Delta t$. The problem is visualized in \cref{fig:model-reactions}. Thereby the time step cannot by chosen arbitrary large. The mean square displacement for Brownian motion in three dimensions is given as $\delta r^2(\Delta t)= 6D \Delta t$. The mean displacement has to be a lot smaller than the reaction distance. Otherwise differences between the time of particles staying within a radius $\sigma$ to another particle would differ significantly in comparison to $\Delta t \rightarrow 0$. Thus also the macroscopic reaction rates would become less accurate. For fractional Brownian motion with $\alpha<1$ the effect gets even worse. A variety of observables are provided in RevReaddy, which are written into HDF5 files during the simulation. Possible observables are: Acceptance rate, energy, mean square displacement, particle number, radial distribution functions, amount of reactions, increments and positions. Observables can mostly be defined to consider any particle type over any period in time. 
 
-
-A particle based model for diffusion is Brownian motion introduced in the first chapter. Thereby similar to the setup of the previous elaborations by Erban and Chapman  particles can react within a certain distance $\sigma$ with a certain microscopic reaction rate $\lambda$. These calculation most 
-
-Determinitic:
-Then Smoluchowski. (then gas theory wiki, maybe aurilius and kramers problem and simulations of proteins for determination of rates in reaction). back mass conservation with  production term. Then erban chapman. Then no diffusion (or diffusion time independ (and in-cooperated in marcoscopic rate.)). constant concentration (again mass action from gas theory)  . concentration  based models (ODEs) and solving . Then CME Then compartment based CME. 
-
-Then stochastic simulations, stochstic cme. stochstic compatment based cme. stochastic particle based simulations smoluchawoski/diffsuion equation to Fockerplank. (fluctuations / dissipation ) theorem.
-
- 
-
-
-
-
-
-
-Deterministic models have their origin.  
-
-
-stationary values. kinetics. spatial distribution of reactants. 
-
-What are interesting observables. Solutions in dynamical equilibrium reaction rates rate equtaions ( assumption rate is independent of time. not nesesarilly true.  chemical equlubrium. Mass action. order of reaction. Smoluchowski. Chemical master equation. quantum physical -> bonds between reactants for example electrons involved.
-\section{chemical reactions}
-With no information on 
-The classical theory of reaction 
- 
-
-
-
-
-
-
-
-In biological systems, phenomena often depend on stochastic fluctuations. Deterministic models often are often inaccurate or even not applicable at all. 
-(von franks Vortrag das Bild mit den unterschiedlichen Methoden zur genererieung von Reactiondiffusions systemen). 
-This chapter is going to discuss particle based reaction diffusion. Particle based reaction diffusion is going to be put in relation to different reaction diffusion studying methods.  
-Analytical solutions for resulting ordinary differencial equation exist under certain conditions like Quasi-Steady-State assumption or equilibrium assumption. In any case the mass action law is assumed. For fractional diffusion mass action law does not apply. Thus concentration based models had been upgraded by time depended rate coefficients \cite{Berry2002}  \cite{schnell2004reaction}
-\section{Smoluchowski}
-\section{Erban Chapmann}
-\section{RevReaddy}
 \chapter{An Enzymatic Reaction With Fractional Brownian Motion}
-Biochemical reactions are manily controlled by enzymes.
-\section{Michaelis Menten}
+Enzymes are large biological molecules mostly proteins. They have a key role especially in metabolic processes in cells. They help to break down large nutrient molecules like carbohydrates, fats and proteins during in the process of digestion. Other enzymes contrariwise help forming large and complex molecules from smaller once. Enzymes are involved in storage and release of energy, processes of respiration, vision, muscle contraction, transmission of nerve impulses. In fact biochemical reactions are controlled mainly by enzymes. In general they act as catalysts by lowering the activation energy. As stated by the Arrhenius law the activation energy is then increasing the reaction rates. The speed of reactions is typically increased by $10^6-10^{14}$. So reactions with enzymes involved take place a lot faster than without. Enzymes do not change the equilibrium concentrations. Enzymes are mostly proteins. They have a defined amino acid sequence and a three-dimensional structure. The specific three-dimensional structure contains an active side for a substrate molecule to bind and orient and a catalytic site to reduce the chemical activation energy. Usually, an enzyme molecule has only one active site, and the active site fits with one specific type of substrate. So enzymes mostly have a high specificity for a particular type of reaction. Catalysis follows the binding of the substrate to the binding side. Some residues can be both, part of the binding side and catalytic site. The catalytic site lowers the activation energy for the reaction. After reaction takes place the product is released. The enzyme is free to start the reaction with a new substrate. From a single enzyme and single substrate to a single enzyme and single product many reversible intermediate states can be present in the reaction mechanism. A simple representation of the mechanism with two complex intermediate states can be written as:
+\begin{align} \label{eq:enyzmescheme}
+\ch{S + E <=>[$ k_1 $][$ k'_1 $] ES <=> [$ k_2 $][$ k'_2 $]EP<=>[ $k_3 $][$ k'_3 $]P + E}
+\end{align}
+$k$ are the forward rates and $k'$ the backward rates. $\mathrm{S}$ and $\mathrm{P}$ are substrates and products, respectively. $\mathrm{ES}$ and $\mathrm{EP}$ are intermediate complexes. By the law of mass action ODEs can be formulated but not solved.\par
+The focus of this chapter is to study the kinetics and spatial distribution of the Michaelis-Menten mechanism, an even simpler mechanism, without and with fractional Brownian motion. Some related theoretical work on the fractional reaction diffusion equation of the Michaelis-Menten mechanism had been done by Abdullah \cite{AiniAbdullah2011}. Monte Carlo simulations with the anomalous diffusion modeled by a random walk and immobile obstacles were performed by Berry and Schnell \cite{Berry2002, Schnell2004}. An overview on stochastic modeling of in vivo reactions was given by Turner \cite{Turner2004}. Recently first passage time simulations with fBm  were performed by Jae-Hyung Jeon, A. V. Chechkin and Ralf Metzler \cite{Jeon2014}. Nevertheless, a Michaelis Menten mechanism with fractional Brownian motion was not yet studied.
+\section{Michaelis-Menten (MM) kinetics}
+Leonor Michaelis and Maud Menten  proposed in 1913 a mathematical model for enzyme kinetics. Their most important contribution was to assume an enzyme-substrate to be present \cite{michaelis1913kinetik}. In their honor it is also called Michaelis-Menten complex. A simpler version of \cref{eq:enyzmescheme} was proposed as the Michaelis-Menten mechanism:
+\begin{align} \label{eq:michaelismechanism}
+\ch{S + E <=>[$ k_+ $][$ k_- $] ES -> [ $k_c $]P + E}
+\end{align}
+ The rate of the backward reaction from products and enzymes to  complexes was assumed to be negligible. They postulated the relation between the reaction velocity, formation of products, and the concentration of substrates. This relation is captured by the so called Michaelis-Menten equation:
+\begin{align} \label{michaelis-menten-equation}
+ v=\frac{v_{max} c_s}{K_M+ c_s}
+\end{align}
+$v_{max}$ is the maximum reaction velocity. The Michaelis constant $K_M$ is the substrate concentration with $50 \%$ of maximum velocity and $c_s$  is the concentration of the substrate. A derivation of the Michaelis-Menten equation was done by Briggs and Haldane in 1925 assuming the mass action law, mass conservation and a quasi-steady state approximation (QSSA). It states that after a negligible initial transition period ($t>t_c$) the concentration of the complex vary slowly as if in a quasi-steady state $dC_{ES}/dt=0$. The approximation was shown to hold for $c_{E_0}\ll K_M \text{ or } K_M \ll c_{S_0}$ \cite{Palsson1987}. A derivation of \cref{michaelis-menten-equation} can be found in the Appendix \ref{Menten_der}. In 1997 a closed form for the kinetics of the Michaelis-Menten mechanism with the quasi-steady state approximation was derived by Schnell amd C.Mendoza \cite{Schnell1997}:
+\begin{align}
+ c_S(t)&=K_M \mathrm{W}\left(\frac{c_{S_0}}{K_M} \exp \left( \frac{-v_{max} t + c_{S_0}}{K_M}\right)\right)  \label{tiemdependedC_S} \\
+ c_{ES}(t)&= \frac{c_{E_0} c_S(t)}{K_M+c_S(t)} (1- \exp(-(K_M + c_S(t) k_+))\label{timedendendces}\\ 
+ c_{E}(t)&=c_{E_0}(t)-c_{ES}(t) \label{timedendendce}\\
+ c_{P}(t)&=c_{S_0}-c_S(t)+c_{ES}(t) \label{timedendendcp}
+\end{align}
+$v_{max}=k_2 c_{E_0}$ is the maximum velocity,  $\mathrm{W(x)}$ is the omega function and the Michaelis-Menten constant is defined as:
+\begin{align}
+ K_M= \frac{k_{-}+k_c}{k_+}
+\end{align}
+The quasi-steady state approximation was applied in the derivation of $c_S(t)$. A time independent $c_{ES}$ is conventionally solved for the transitions period $t<t_c$ by approximating $c_S(t<t_c) \approx c_{S_0}$. For \cref{timedendendces} the result for the time independent $c_{ES}$ during the transitions period ($t<t_c$) was extended to the total period of time ($0<t<\infty$) by applying time depended $c_S(t)$ from \cref{tiemdependedC_S}. For normal diffusion theses equation will be used to fit the concentrations resulting from the simulation.  Still for a small number of particles deterministic approach may differ from the averages of the stochastic simulation \cite{Turner2004}.\par
+The quasi equilibrium approximation is the second very common approximation typically applied on setups with high enzyme concentrations. It is assumed that the binding step quickly reaches an equilibrium state ($c_S c_E/c_{ES}=K_S$). $K_S=k_-/k_+$ is the dissociation constant and the rate of product formation can be written as:
+\begin{align}
+ v={\frac{V_{max} c_S}{K_S+ c_S}}
+\end{align}
+The assumption was shown to be true for $c_{E_0}\gg K_M \text{ or } k_- \gg k_c$.  \cite{Palsson1987}.\par A description of the Michaelis Menten mechansim with fractional Brownian motion by fractional fractional diffusion reaction equation \cite{Yuste2002} was done by Abdullah \cite{AiniAbdullah2011}. An earlier description of reaction kinetics with fractional diffusion was done by Kopelman \cite{Kopelman1988} for a percolation cluster with a scaling theory and an upgraded time depended reaction rates. This concepts were applied by Berry \cite{Berry2002} and Schnell \cite{Schnell2004} for the Michaelis Menten mechanism.
 \section{Simulation Model}
-\section{Results From Normal Diffusion}
-\section{Results from fBm}
-\begin{figure}[h!]
+The simulation of the Michaelis-Menten mechanism \cref{eq:michaelismechanism} and fractional Brownian motion with the circulant method by Davis-Harte \cite{Dieker2004} was setup up with RevReaDDy. Four particle types were defined: substrate, product complex and enzyme. Substrates and products were set to diffuse with the general diffusion constant $K_{\alpha}=1/6 $. Enzymes and complexes are modeled to be immobile with $K_{\alpha}=0$. Enzymes are often even 100 times heavier than substrates or products and therefore diffuse a lot slower.  A single enzyme was set in the origin $(x,y)=(0,0)$ and 20 substrates were placed randomly in the simulation box with the box size $l$ and periodic boundary conditions. Two association/decay reaction types were defined:  \ch{S + E <=>[$ k_+ $][$ k_- $] ES} and \ch{P + E <-[$ k_c $] ES} with intrinsic reaction rates $\lambda_+$,$\lambda_-$ and $\lambda_c$ for complex formation, decay into substrate and enzyme and decay into product and enzyme, respectively. The reaction radius $\sigma $ was set for both reaction types to be $1$. A desired simulation length $M=2^{14}$ and length of the time step $\Delta t=0.05$ was set. $1/\kappa= \sqrt{\lambda_+/D}$ can be defined as the penetration length into the the reaction square. Reaction distance should be larger than the mean displacement traveled with one step. Otherwise the time of one particle staying within the reaction radius and thus the reaction rate would have large errors due to finite time step errors. In this simulation setup with $\sigma =1 $ and $\Delta t=0.05$  and regardless of $\alpha$ the particles on average travel for $n=20$ steps $\sqrt{6K_{\alpha} n \Delta t^{\alpha}} \sigma$ to overcome the distance $\sigma$. Further the reaction probability  as approximated in \cref{propabilityreaction} should be a lot smaller than  $P(\Delta t)=\lambda \Delta t \ll 1$. Otherwise that approximations fails to describe the correct reaction probability $P(t)=1-\exp(-\lambda t)$. Simulations for various $\lambda_+$ ,$\lambda_-$,$\lambda_c$, box size $l$ and $\alpha$ were performed. The results are discussed in the next two sections.
+\section{Results for Normal Diffusion}
+First simulations with normal diffusion were set up to have a connection to the results from the Smoluchowski and Erban-Chapman problem. The difference in kinetics of the Michaelis Menten mechanism to the Erban-Chapman problem is a possible blocking of the enzyme. Thus slowing down the reaction speed and a higher local concentration of the substrates in close proximity to the enzyme because of the back reaction. At first  a reaction similar to the Erban-Chapman problem was aimed to simulate. Therefore  $\lambda_-=0$  was chosen to neglect the effect of a higher local concentration of substrates and $\lambda_+>\lambda_c$ to neglect enzyme blocking. Thereafter the normal MM mechanism was studied. 
+\subsection{Results for one Way Reactions}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{./data/chapman-limit-concentrations1.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{ Normalized concentrations of substrate, product and complex and their fit with the quasi-steady state approximation for the substrate concentration are shown in the loglog plot. The blue bar in the plot indicates the area where the radial distribution was observed, which is plotted in \cref{fig:diffusion_limit-Erban-Chapmann_radial}. Parameters were set to:  $\lambda_+=0.1$, $\lambda_-=0$,  $\lambda_c=1.0$ and the box size $l^3=8^3$.}
+  \label{fig:diffusion_limit-Erban-Chapmann}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{./data/chapman-limit-radial.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{The radial distribution function of the substrates around the enzyme / complex was observed for $5<t<900$ and plotted as a blue line with an error-bar of the standard deviation. The Erban-Chapman result was plotted as a green dashed line for bigger than the reaction radius $\sigma$  and a red dashed line for smaller than $\sigma$. Parameters were set to:  $\lambda_+=0.1$, $\lambda_-=0$,  $\lambda_c=1.0$ and the box size $l^3=8^3$.}
+  \label{fig:diffusion_limit-Erban-Chapmann_radial}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{./data/chapman-limit-concentrations1_k1.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{ A comparison of $k_+$ from three different calculations. $k_+$ was calculated from the number of reactions with \cref{reactioncount} and marked as blue crosses. The Mean of this $k_+$ is plotted as a green dashed line. The result for $k_+$ from the fit of the substrate concentration \cref{tiemdependedC_S} with the QSSA is plotted as a red dotted line and the result form the Erban-Chapman \cref{kalphaerbanchepmann} problem is plotted as a solid cyan colored line. Parameters were set to:  $\lambda_+=0.1$, $\lambda_-=0$,  $\lambda_+=1.0$ and the box size $l^3=8^3$.}
+  \label{fig:diffusion_limit-Erban-Chapmann_k1}
+\end{figure}
+The first simulations was performed under normal diffusion $\alpha=1$ and with $\lambda_-=0$  in a simulation box of size $l^3=8^3$ . The reaction mechanism results in:
+\begin{align} \label{eq:michaelismechanismneu}
+\ch{S + E ->[$ k_+ $] ES -> [ $k_c $]P + E}
+\end{align}
+$\lambda_+=0.1$ was set to be the rate limiting step in the reaction chain and $\lambda_c=1.0$ was set to reproduce approximately the Erban-Chapman problem.
+The average normalized number of substrates $c_{S}(t)/c_{S_0}$, the normalized number of products $c_{P}(t)/c_{S_0}$ and the averaged number of complexes $c_{ES}(t)$  (over $2544$ runs) were observed and visualized in a loglog plot in \cref{fig:diffusion_limit-Erban-Chapmann}. Every run had a new random (uniformly distributed) initial position of the substrate molecules. The simulated concentrations are shown as solid lines. The curves were fitted to obtain $k_+$ with the quasi-steady state approximation from \cref{tiemdependedC_S}. The microscopic reaction rates and macroscopic reaction rate for a uni-molecular reaction should be similar $\lambda_c=k_c$.  With all macroscopic rates available, the MM kinetics with the quasi-steady state approximation for the substrate were plotted from \cref{tiemdependedC_S,timedendendces,timedendendce,timedendendcp} as dashed lines in \cref{fig:diffusion_limit-Erban-Chapmann}. A blue bar in the plot indicates the time during which the radial distribution was observed. It was assumed that after 20 steps a stationary distribution was reached. The assumption was based on an approximated constant average number of complexes from there on. The radial distribution of the substrates around the enzyme/complex from 0 to the boundary of the simulation box $0<r<4.0$ was plotted in \cref{fig:diffusion_limit-Erban-Chapmann_radial}. It was obtained by averaging over a normalized histogram of substrate particles. The Erban-Chapman solution \cref{erbanchapmanradial1,erbanchapmanradial} was plotted with dashed lines. The Erban-Chapman radial distribution is reproducing with good accuracy the observed radial distribution obtained by averaging over the histograms. For a better agreement substrate particles should be placed at the boundaries during the simulation to get a stationary concentration. The macroscopic reaction rate  $k_+$ was calculated from the number of reactions $N_{reaction}$ of the reaction \ch{S + E <=>[$ k_+ $] ES}. $k_+$ can be calculated from the reaction number change as:
+ \begin{align} \label{reactioncount}
+  k_+=\frac{d N_{reaction}}{dt}\frac{1}{V c_S c_E} 
+ \end{align}
+$V$ is the volume of the simulation box. Numerically the difference of the average reaction number was calculate. $k_+$ was very noise. It could be smoothed by averaging over 300 time steps. The result was plotted in \cref{fig:diffusion_limit-Erban-Chapmann_k1} as blue crosses. The average of these blue crosses was plotted as a dashed green line. The result for $k_+$ from the fit of the substrate concentration \cref{tiemdependedC_S} with the QSSA was plotted as a red dotted line and the result form the Erban-Chapman \cref{kalphaerbanchepmann} problem was plotted as a solid cyan colored line.\par
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{./data/diffusion-limit-concentrations1_k1.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{ Parameters were set to:  $\lambda_c=1.0$, $\lambda_-=0$ and the box size $l^3=8^3$. The blue solid line shows macroscopic rates $k_+$ in respect to  microscopic rate $1\leq\lambda_+\leq3.0$. The macroscopic rates are obtained with a fit of the substrate concentration \cref{tiemdependedC_S} with the QSSA. The diffusion limit \cref{difkinetics} is plotted as the dashed blue line.}
+  \label{fig:diffusionlimit_k1}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{./data/limit-radial.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{The radial distribution function of the substrates around the enzyme / complex was observed for $5<t<900$ and plotted as a blue line with an error-bar of the standard deviation. The Erban-Chapman result was plotted as a green dashed line for bigger than the reaction radius $\sigma$  and a red dashed line for smaller than $\sigma$. Parameters were set to:  $\lambda_+=3.0$, $\lambda_-=0$,  $\lambda_c=3.0$ and the box size $l^3=8^3$.}
+  \label{fig:diffusion1_limit-radial}
+\end{figure}
+On the other hand a setup were reaction kinetics are limited by diffusion was tried to setup. Therefore  $\lambda_c=1.0$, $\lambda_-=0$ and the box size $l^3=8^3$ were set fixed and  $1\leq\lambda_+\leq3.0$ scanned until diffusion becomes the rate limiting step. The macroscopic rates were obtained by fitting the substrate concentration with \cref{tiemdependedC_S}. The fastest possible reaction should be limited by \cref{difkinetics} to be $k_+=2.094$. Even higher reaction rates were observed for $\lambda_+=2.0 \text{ and }3.0$ possibly because no extra particles were placed at the boundaries to indeed have a quasi stationary distribution. The radial distribution function was again obtained by a histogram observed for $5<t<900$ and compared with good agreement to the Erban-Chapman result in \cref{fig:diffusion1_limit-radial}. Even for the closest scenario to reactions being limited by diffusion the quasi steady state approximation still should hold because of $0.002 \approx c_{E_0}\ll K_M\approx 0.04$  as stated by \cite{Palsson1987}. 
+\begin{comment}
+  
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{./data/diffusion-limit-concentractionlambdaminus_k1.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{ Parameters were set to:  $\lambda_c=1.0$,  and the box size $l^3=8^3$. The green solid line shows macroscopic rates $k_+$ in respect to  microscopic rate $1\leq\lambda_+\leq3.0$ for $\lambda_-=0$ and the blue solid line for $\lambda_-=1$. The macroscopic rates are obtained with a fit of the substrate concentration \cref{tiemdependedC_S} with the QSSA. The diffusion limit \cref{difkinetics} is plotted as the dashed blue line.}
+  \label{fig:diffusionlimit_k1variouslambda}
+\end{figure}
+ \end{comment}
+ \newpage
+\subsection{Results for the MM mechanism}
+The first scenario of the MM mechanism was $\lambda_{-}>\lambda_c$ and $\lambda_{+}>\lambda_c$ to have a local higher concentration of substrates around the enzyme. The radial distribution function was plotted in \cref{fig:diffusion1_limit-radial_local concentration} with the Erban-Chapman result as a reference. Determining $k_{+fit}=4.34$ from the fit of \cref{tiemdependedC_S} results in a lot higher reaction rate than the Erban Chapman result $k_{+erban}=1.25$. It is the result of the high local concentration of substrates around the enzyme. \cref{tiemdependedC_S} however, is based on the mass action law with homogeneously distributed substrates. The fits from the quasi steady state approximation  with $k_{+fit}$ and the average and not local concentration are still in well agreement with the data from the simulation. This can be seen in x-log plot in \cref{fig:enzyme_blocking}. Also the method of counting reactions \cref{reactioncount} is based on an average concentration and results in similar macroscopic reaction rate $k_{+count}=4.39$. 
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{./data/limit-radial-highlocalconcentration.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{The radial distribution function of the substrates around the enzyme / complex was observed for $5<t<900$ and plotted as a blue line with an error-bar of the standard deviation. The Erban-Chapman result was plotted as a green dashed line for bigger than the reaction radius $\sigma$  and a red dashed line for smaller than $\sigma$. Parameters were set to:  $\lambda_+=1.0$, $\lambda_-=1.0$,  $\lambda_c=0.1$ and the box size $l^3=8^3$.}
+  \label{fig:diffusion1_limit-radial_local concentration}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{./data/highlocaldensityconcentrationslin.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{ Normalized concentrations of substrate, product and complex and their fit with the quasi-steady state approximation for the substrate concentration are shown. The blue bar in the plot indicates the area where the radial distribution was observed, which is plotted in \cref{fig:diffusion_limit-Erban-Chapmann_radial}. The remaining Parameters were set to:  $\lambda_+=1$, $\lambda_-=1$,  $\lambda_c=0.1$ and the box size $l^3=8^3$.}
+  \label{fig:enzyme_blocking}
+\end{figure}
+
+\begin{comment}
+ 
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{./data/normal-scenario-concentrations.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{ Normalized concentrations of substrate, product and complex and their fit with the quasi-steady state approximation for the substrate concentration are shown in the loglog plot. The blue bar in the plot indicates the area where the radial distribution was observed, which is plotted in \cref{fig:diffusion_limit-Erban-Chapmann_radial}. Parameters were set to:  $\lambda_+=1$, $\lambda_-=1$,  $\lambda_c=1.0$ and the box size $l^3=8^3$.}
+  \label{fig:normalscenario_reaction}
+\end{figure}
+averaged over 8700 runs
+\end{comment}
+\newpage
+\begin{comment}
+\newpage
+\begin{figure}
   \centering
   \includegraphics[width=\textwidth]{./data/erban-chapman-limit-concentrations1.png}
   \captionsetup{width=\linewidth}
   \captionof{figure}{ Erban Chapmann Concentrations}
   \label{fig:diffusion_limit-Erban-Chapmann}
 \end{figure}
-\begin{figure}[h!]
+\begin{figure}
   \centering
   \includegraphics[width=\textwidth]{./data/chapman-limit-concentrations1_k1.png}
   \captionsetup{width=\linewidth}
   \captionof{figure}{ Erban Chapmann $k1$}
   \label{fig:diffusion_limit-Erban-Chapmann_k1}
 \end{figure}
-
-\begin{figure}[h!]
+\end{comment}
+\begin{comment}
+\begin{figure}
   \centering
   \includegraphics[width=\textwidth]{./data/microrate_complex_radial_erban.png}
   \captionsetup{width=\linewidth}
@@ -743,7 +907,7 @@ Biochemical reactions are manily controlled by enzymes.
 \end{figure}
 \newpage
 
-\begin{figure}[h!]
+\begin{figure}
   \centering
   \includegraphics[width=\textwidth]{./data/microrate_complex_vsmicrorate_forward_radial_erban.png}
   \captionsetup{width=\linewidth}
@@ -752,35 +916,81 @@ Biochemical reactions are manily controlled by enzymes.
 \end{figure}
 \newpage
 
-
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=\textwidth]{./data/chapman-limit-radial.png}
-  \captionsetup{width=\linewidth}
-  \captionof{figure}{ Erban Chapmann radial distribution}
-  \label{fig:diffusion_limit-Erban-Chapmann_radial}
-\end{figure}
-
-\begin{figure}[h!]
+\newpage
+\begin{figure}
   \centering
   \includegraphics[width=\textwidth]{./data/differentalphamsdrevreaddy.png}
   \captionsetup{width=\linewidth}
   \captionof{figure}{ different alpha}
   \label{fig:differentalpharevreaddymsd}
 \end{figure}
+\end{comment}
+\section{Results for fBm}
+The mass action law does not hold anymore for reactions with fractional Brownian motion. Kopelman suggested for percolation cluster, in which particles diffuse   anomalously, to have time depended macroscopic reaction rates for bi-molecular reaction of the form \cite{Kopelman1988}:
+\begin{align} \label{ktime}
+k(t)=k_0 t^{-h} \qquad \text{for} \qquad 0 \leq h \leq 1 \qquad \text{and} \qquad t \geq 1
+\end{align}
+to do: check how anomalous diffusion is related to fractal like kinetics factor $h$ \cref{fig:k1differentalphawithfitbetter}. Can be shown that k(t) indeed describes the kinetics of MM with fractional Brownian motion. 
 
-\begin{figure}[h!]
+\begin{comment}
+ 
+\begin{figure}
   \centering
   \includegraphics[width=\textwidth]{./data/k1_fordifferentalpha_withfit.png}
   \captionsetup{width=\linewidth}
-  \captionof{figure}{$k1(t)$ for differnt $\alpha$ with fitted h}
+  \captionof{figure}{$k1(t)$ for different $\alpha$ with fitted h}
   \label{fig:k1differentalphawithfit}
 \end{figure}
+\end{comment}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{./data/fractionalalphachangek1.png}
+  \captionsetup{width=\linewidth}
+  \captionof{figure}{Form the number of reactions $k_{+count}(t)$ was calculated via  \cref{reactioncount} and displayed as solid lines for $0.5\leq\alpha\leq1.0$. With\cref{ktime} the fractal like kinetics exponent $h$ was fitted and displayed as dashed lines in the plot. The remaining parameters were set to: $\lambda_+=1.0$, $\lambda_-=1$,  $\lambda_c=1.0$ and the box size $l^3=8^3$.}
+  \label{fig:k1differentalphawithfitbetter}
+\end{figure}
 
-thesis: $k1(t)\propto t^{-h}$
-
+\newpage
 \section{Conclusion}
+The simulation model is capable of reproducing Smoluchwoskis and Erban-Chapman theoretical results for a Bi-molecular reaction. 
+The simulation model can be described by Michaelis Menten kinetics for the quasi steady state approximation for normal diffusion but not for anomalous diffusion.
+Michaelis Menten reactions in a diffusion controlled regime with fractional Brownian motion are of fractal type. The modeling of biological reaction-diffusion dynamics with fBm can be interesting in a large system with a high number of particles not involved in the reaction mechanism but a small number of reactants, which diffuse anomalously. The large number of particles not  have to be simulated explicitly. There influence on diffusion of the reactants is incorporated in fBm. The missing particle-particle interactions might get negligible with a low density of particles.  
 \chapter{Summary}
+
+Cholesky, Davis Harte, our naive and Lowen algorithm for fractional Brownian motion have been implemented and analyzed in terms of accuracy and performance. Our implementation of Lowens algorithm turned out not to be exact as claimed by the author. Davis-Harte method turned out to be both exact and fast $\mathcal{O}(M log(M))$ with $M$ the trajectory length. Davis-Harte and Lowen method was implemented in RevReaDDy. Besides the implementation of fBm many modifications to RevReaDDy were done to deal with our set of questions. A new reaction type and new observables were implemented. Some old observables were modified. A simulation setting with one enzyme and 20 randomly distributed substrates for the Michaelis Menten mechanism was set up and studied under normal Brownian motion and under fractional Brownian motion. Theoretical results from the Smoluchwoski problem of a diffusion controlled bi-molecular reaction and theoretical results for a bi-molecular reaction with microscopic reactions within close proximity to the enzyme could be reproduced by the simulation. It could be shown that the quasi steady-state assumption is indeed reproducing the kinetics of the Michaelis Menten mechanism for our setting, although this approach is not considering a non uniform spatial distribution.\par For fractional Brownian motion with $\alpha<1$ and  $t<1$ a general slowing down of reactions compared to normal diffusion was shown. Reaction rates are time depended for MM with fBm if reaction speed is controlled by diffusion, as Kopelman suggested for particles performing reactions in a percolation cluster ($k(t)=k_0 t^{-h}$). The kinetics are of fractal type.  \par
+As an outlook of the thesis a mathematical model for fractal Brownian motion and Michaelis menten mechanism for 3D could be developed. FBm with forces could be studied. Although a algorithm with possible potentials included will probably be very slow. \begin{comment}
+outlook:
+''''''''''''''''''''''''''''''''''''''''''''
+0.find analytical solution to RDPB with brownian motion (chemical lagevin equation?)
+besides smoluchswskis PDE, concentration based models.
+%http://scitation.aip.org/docserver/fulltext/aip/journal/jcp/113/1/1.481811.pdf?expires=1481129009&id=id&accname=2120797&checksum=758284E4BA8FBF60E006DFB8857194A9
+
+1.find analytical solution to fractional description. (fractional PDE, fraction ODE, fractional master equation,fractional RDME, fractional chemical lagevin equation,  
+ fractional master equation fractional diffusion equation %http://www.hrpub.org/download/201308/ms.2013.010208.pdfhttp://www.hrpub.org/download/201308/ms.2013.010208.pdf)
+ Fractional master equation and fractal time random walks
+ %https://www.icp.uni-stuttgart.de/~hilfer/publikationen/pdfo/PRE-1995-51-R848.pdf
+ 
+2.introduce forces (complicated)
+
+2.1 find analytical solution
+
+3. find similar time depended reaction rates with interaction potentials, obstacles and Brownian dynamics (interesting for presentation, first this simulation with mean square displacement. then let all the other particles vanish and fbm is performed. on the side msd is shown simultaneous how it develops.problem no excluded volume but not so important cause, small abundances are especially interesting.)
+''''''''''''''''''''''''
+
+Outlook in two section
+1: scientifically interesting :
+-introduce forces (complicated) and find find analytical solution
+-find analytical solution to RDPB with brownian motion (chemical lagevin equation?) besides smoluchswskis PDE, concentration based models.
+- Fractional master equation and fractal time random walks
+
+
+2:interesting for integration as an modeling tool:
+-not only fBm but any velocity correlation function measured by n experiment
+-introduce forces (complicated)
+-verify by finding similar time depended reaction rates with interaction potentials, obstacles and Brownian dynamics 
+\end{comment}
+ 
+ 
 \chapter{Appendix}
 \section{From Central Limit Theorem to Gaussian Distribution}\label{append:CLT}
 In the following the Central Limit Theorem will be applied to calculated the distribution of Y,  $\rho(y)dy=P(y<Y<y+dy)$ in the limit of large N , with Y being defined as the sum of an random variable:
@@ -875,7 +1085,32 @@ Partial integration and Tauber theorem:
   & = - \frac{z^2}{2 d}\int_{0}^{\infty} d t e^{izt} \delta r^2 (t)  \stackrel{\operatorname{Im}(z)> 0} {=}  K_{\alpha} \Gamma(1+\alpha)(i z)^{1-\alpha} 
 \end{align*}
 \section{Erban-Chapman}\label{Erban-Chapmann}
-The solution of Erban problem:
+The calculation can be started from \cref{smoluchwoskionedimension}. This derivation can be found in \cite{Erban2009}. The stationary distribution can be written as:
+\begin{align}
+\left(\frac{\partial}{\partial_r}+\frac{2}{r} \right) D \frac{\partial\rho_t(r)}{\partial_r}=0 \qquad \text{for} \qquad r \geq \sigma \\
+\left(\frac{\partial}{\partial_r}+\frac{2}{r} \right) D \frac{\partial\rho_t(r)}{\partial_r}=\lambda_{+} \rho_t(r)  \qquad \text{for} \qquad r \leq \sigma
+\end{align}
+For  $r \leq \sigma$ a production term had been added to the continuity equation. The general solution can be written as: 
+\begin{align}
+\rho_t(r)= a_1+\frac{a_2}{r} \qquad \text{for} \qquad r \geq \sigma \label{erbanchapmanradial1} \\
+\rho_t(r)= \frac{a_3}{r} \exp \left[ r \sqrt{\frac{\lambda_{+}}{D}} \right] + \frac{a_4}{r} \exp \left[-r \sqrt{\frac{\lambda_{+}}{D}} \right] \qquad\text{for}\qquad r \leq \sigma \label{erbanchapmanradial}
+\end{align}
+with $a_1, a_2, a_3, a_4$ real constants. Just like in the calculation in diffusion limit the distribution at  $r \rightarrow \infty$ is defined as the concentration of particle A $\rho_t(r \rightarrow \infty)=C_A$. Thus $a_1=C_A$ and due to the continuity of the density distribution , $a_3=-a_4$. Further, due to the continuity of the the flux $j_s(r)$ at $r=\sigma$ also $a_2$ and $a_3$ can be determined:
+\begin{align}
+ a_2&= C_A \left( \sqrt{\frac{D}{\lambda_{+}}} \tanh\left(\sigma \sqrt{\frac{\lambda_{+}}{D}}\right)-\sigma\right)  \\
+ a_3&= \frac{C_A  \sqrt{\frac{D}{\lambda_{+}}}}{2 \cosh\left(\sigma \sqrt{\frac{\lambda_{+}}{D}}\right)}
+\end{align}
+The flux at  $r= \sigma$ can be written as:
+\begin{align}
+j^{s}(\sigma)=D \frac{\partial\rho_t(\sigma)}{\partial_{\sigma}}= -D \frac{a_2}{\sigma^2} 
+\end{align}
+Gauss's theorem states that the negative flux of a quantity through a closed surface is equal to the production of that quantity inside the volume. Further The change of complex AB is proportional to the change of A inside the volume of of the sphere with $r=\sigma$. The total flux and thus the change of AB can be written as:
+\begin{align}
+  \frac{d C_{AB} }{dt}&=- \int_{\partial V} j^{s}(\sigma) da= \int_{\partial V} D \frac{a_2} {\sigma^2}  da =- 4 \pi D a_2 C_B \\ &= 4 \pi D C_B  C_A \left(\sigma -\sqrt{\frac{D}{\lambda_{+}}} \tanh\left(\sigma \sqrt{\frac{\lambda_{+}}{D}}\right)\right)
+\end{align}
+
+
+
 \begin{comment}
  
 
@@ -930,26 +1165,27 @@ By formulating the problem in relative distance from particle A and B. It was al
 \end{comment}
 
 \section{Michaelis-Menten Kinetics}\label{Menten_der}
-Michaelis-Menten kinetics are describing the following system:\newline
-\ch{S + E <>[ $k_{\mathrm{1}}$ ][ $k'_{\mathrm{1}}$ ] E S -> [ $k_{\mathrm{2}}$ ] P + E}.
-A range of differential equations can be formulated as a result of particle conservation and the assumption for a bi-molecular chemical reaction to be proportional to the product of the reactants concentration. 
+Michaelis-Menten kinetics are describing the following reaction: \par
+\ch{S + E <>[ $k_{\mathrm{+}}$ ][ $k_{\mathrm{-}}$ ] E S -> [ $k_{\mathrm{c}}$ ] P + E}.
+A set of differential equations can be formulated as a result of mass conservation and the mass action law:
 \begin{align}
-\frac{d[P]}{dt} &= k_{\mathrm{2}} [ES] \\ \label{first}
-\frac{d[E]}{dt} &= k_{\mathrm{2}} [ES]+k'_{\mathrm{1}} [ES]-k'_{\mathrm{1}} [E][S]\\
-\frac{d[S]}{dt} &= k'_{\mathrm{1}} [ES]-k'_{\mathrm{1}} [E][S]\\
-\frac{d[ES]}{dt} &=  - k_{\mathrm{2}} [ES] -k'_{\mathrm{1}} [ES]+k'_{\mathrm{1}} [E][S]
+\frac{dc_P(t)}{dt} &= k_{\mathrm{c}} c_{ES}(t) \\ \label{first}
+\frac{dc_E(t)}{dt} &= k_{\mathrm{c}} c_{ES}(t)+k_{\mathrm{-}} c_{ES}(t)-k_{\mathrm{-}} C_E(t) C_S(t)\\
+\frac{dc_S(t)}{dt} &= k_{\mathrm{-}} c_{ES}(t)-k_{\mathrm{+}} c_E(t) c_S(t)\\
+\frac{dc_{ES}(t)}{dt} &=  - k_{\mathrm{c}} c_{ES}(t) -k_{\mathrm{-}} c_{ES}(t)+k_{\mathrm{+}} c_E(t) c_S(t) \label{quasisteadymichaelis}
 \end{align}
-With a quasi-steady-state approximation: $\frac{d[ES]}{dt}=0  \longrightarrow k_{\mathrm{1}}[E][S]=k'_{\mathrm{1}}[ES]+k_{\mathrm{2}}[ES]$. A Rearrangement of this equation results in the  Michaelis-Menten constant: $K_M=\frac{k'_{\mathrm{1}}+k_{\mathrm{2}}}{k_{\mathrm{1}}}=\frac{[E][S]}{[ES]}$. From the enzyme conservation law one gets:
+With a quasi-steady-state approximation: $\frac{dc_{ES}(t)}{dt}=0$ one can reduce label{quasisteadymichaelis} to: $ k_{\mathrm{+}}c_E(t) C_S(t)=k_{\mathrm{-}}c_{ES}+k_{\mathrm{c}}c_{ES}(t)$. A Rearrangement of this equation results in the Michaelis-Menten constant:
 \begin{align}
-[E]=[E]_0 -[ES] \label{conservationenym}
+ K_M=\frac{k_{\mathrm{-}}+k_{\mathrm{c}}}{k_{\mathrm{+}}}=\frac{c_E(t) c_S(t)}{c_{ES}}. 
 \end{align}
-After inserting \cref{conservationenym} into the quasi-steady-state approximation, one gets:
+From mass conservation law one gets: $c_E(t)=c_{E_0} -c_{ES}(t) $
+After inserting this equation into the quasi-steady-state approximation of \cref{quasisteadymichaelis}, one gets:
 \begin{align}
- [ES]=\frac{[E]_0 [S]}{K_M+[S]}
+ c_{ES}(t)=\frac{c_{E_0} c_S(t)}{K_M+c_S(t)}
 \end{align}
-Combining it with the first differential \cref{first} one gets the rate of Product production:
+The combination of this eq. with the first differential \cref{first} defines the velocity of the reaction:
 \begin{align}
- v= \frac{d[P]}{dt}= k_{\mathrm{2}} \frac{[E]_0 [S]}{K_M+[S]} = V_{max} \frac{[S]}{K_M+[S]}  
+ v(c_S(t))= \frac{dc_P(t)}{dt}= k_{\mathrm{c}} \frac{c_{E_0} c_S(t)}{K_M+c_S(t)} = v_{max} \frac{c_S(t)}{K_M+c_S(t)}  
 \end{align}
 
 \begin{comment}
@@ -1005,6 +1241,6 @@ This setup has been simulated with only one enzyme. The time dependent particle 
 
 %\printindex
 \bibliography{literatur}
-\bibliographystyle{plain}
+
 
 \end{document}

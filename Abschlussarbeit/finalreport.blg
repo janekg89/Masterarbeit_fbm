@@ -1,48 +1,59 @@
-This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2015/dev/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: finalreport.aux
-The style file: plain.bst
+The style file: detailed.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: literatur.bib
-Warning--empty school in Dieker2004
-You've used 19 entries,
-            2118 wiz_defined-function locations,
-            644 strings with 6975 characters,
-and the built_in function-call counts, 5723 in all, are:
-= -- 583
-> -- 197
-< -- 1
-+ -- 80
-- -- 60
-* -- 416
-:= -- 960
-add.period$ -- 57
-call.type$ -- 19
-change.case$ -- 87
-chr.to.int$ -- 0
-cite$ -- 20
-duplicate$ -- 209
-empty$ -- 493
-format.name$ -- 60
-if$ -- 1181
-int.to.chr$ -- 0
-int.to.str$ -- 19
-missing$ -- 16
-newline$ -- 97
-num.names$ -- 38
-pop$ -- 69
+I was expecting a `,' or a `}'---line 242 of file literatur.bib
+ : 
+ : year = {1917}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Warning--missing school in Dieker2004
+Warning--empty journal in Smoluchowski1
+Warning--empty year in Smoluchowski1; set to ????
+Warning--empty journal in Flegg
+Warning--empty year in Flegg; set to ????
+You've used 33 entries,
+            3109 wiz_defined-function locations,
+            1362 strings with 14625 characters,
+and the built_in function-call counts, 18141 in all, are:
+= -- 1154
+> -- 367
+< -- 83
++ -- 170
+- -- 102
+* -- 2514
+:= -- 2306
+add.period$ -- 33
+call.type$ -- 33
+change.case$ -- 163
+chr.to.int$ -- 33
+cite$ -- 38
+duplicate$ -- 1666
+empty$ -- 1612
+format.name$ -- 285
+if$ -- 3408
+int.to.chr$ -- 1
+int.to.str$ -- 34
+missing$ -- 235
+newline$ -- 107
+num.names$ -- 99
+pop$ -- 229
 preamble$ -- 1
-purify$ -- 68
+purify$ -- 132
 quote$ -- 0
-skip$ -- 147
+skip$ -- 565
 stack$ -- 0
-substring$ -- 448
-swap$ -- 25
-text.length$ -- 1
+substring$ -- 704
+swap$ -- 1353
+text.length$ -- 54
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 76
-warning$ -- 1
-while$ -- 66
-width$ -- 21
-write$ -- 207
-(There was 1 warning)
+type$ -- 196
+warning$ -- 5
+while$ -- 99
+width$ -- 0
+write$ -- 360
+(There was 1 error message)
