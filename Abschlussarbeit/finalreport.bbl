@@ -1,4 +1,4 @@
-\begin{thebibliography}{33}
+\begin{thebibliography}{32}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\bibnamefont}[1]{#1}
 \providecommand{\bibfnamefont}[1]{#1}
@@ -95,13 +95,6 @@
   \bibinfo{author}{\bibfnamefont{D.~S.} \bibnamefont{HARTE}}:
   \emph{\bibinfo{title}{Tests for hurst effect}}, \bibinfo{journal}{Biometrika}
   \textbf{\bibinfo{volume}{74}}, \bibinfo{pages}{95} (\bibinfo{year}{1987}).
-
-\bibitem[{\citenamefont{Craigmile}(2003)}]{Craigmile2003}
-\bibinfo{author}{\bibfnamefont{P.~F.} \bibnamefont{Craigmile}}:
-  \emph{\bibinfo{title}{{Simulating a class of stationary Gaussian processes
-  using the Davies-Harte algorithm, with application to long memory
-  processes}}}, \bibinfo{journal}{Journal of Time Series Analysis}
-  \textbf{\bibinfo{volume}{24}}, \bibinfo{pages}{505} (\bibinfo{year}{2003}).
 
 \bibitem[{\citenamefont{Timmer}(1995)}]{Timmer1995}
 \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Timmer},
