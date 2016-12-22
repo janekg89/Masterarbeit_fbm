@@ -1,4 +1,4 @@
-\begin{thebibliography}{32}
+\begin{thebibliography}{39}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\bibnamefont}[1]{#1}
 \providecommand{\bibfnamefont}[1]{#1}
@@ -35,6 +35,22 @@
   \emph{\bibinfo{title}{Die kinetik der invertinwirkung}},
   \bibinfo{journal}{Biochem. z} \textbf{\bibinfo{volume}{49}},
   \bibinfo{pages}{352} (\bibinfo{year}{1913}).
+
+\bibitem[{\citenamefont{Huang} \emph{et~al.}(2011)\citenamefont{Huang},
+  \citenamefont{Chavez}, \citenamefont{Taute}, \citenamefont{Luki{\'{c}}},
+  \citenamefont{Jeney}, \citenamefont{Raizen}, and
+  \citenamefont{Florin}}]{Huang2011}
+\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Huang}},
+  \bibinfo{author}{\bibfnamefont{I.}~\bibnamefont{Chavez}},
+  \bibinfo{author}{\bibfnamefont{K.~M.} \bibnamefont{Taute}},
+  \bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Luki{\'{c}}}},
+  \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Jeney}},
+  \bibinfo{author}{\bibfnamefont{M.~G.} \bibnamefont{Raizen}},
+  \bibnamefont{and} \bibinfo{author}{\bibfnamefont{E.-L.}
+  \bibnamefont{Florin}}: \emph{\bibinfo{title}{Direct observation of the full
+  transition from ballistic to diffusive brownian motion in a liquid}},
+  \bibinfo{journal}{Nature Physics} \textbf{\bibinfo{volume}{7}},
+  \bibinfo{pages}{576} (\bibinfo{year}{2011}).
 
 \bibitem[{\citenamefont{H{\"{o}}fling}(2016)}]{LectureFelix}
 \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{H{\"{o}}fling}}:
@@ -102,6 +118,20 @@
   noise}}, \bibinfo{journal}{Astronomy and Astrophysics}
   \textbf{\bibinfo{volume}{300}}, \bibinfo{pages}{707} (\bibinfo{year}{1995}).
 
+\bibitem[{FFT()}]{FFTW}
+\emph{\bibinfo{title}{Fftw}},
+  \bibinfo{howpublished}{\url{http://www.fftw.org/}} (????),
+  \bibinfo{note}{accessed: 20.11.2016}.
+
+\bibitem[{\citenamefont{Matsumoto} and
+  \citenamefont{Nishimura}(1998)}]{Matsumoto1998}
+\bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Matsumoto}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Nishimura}}:
+  \emph{\bibinfo{title}{Mersenne twister: a 623-dimensionally equidistributed
+  uniform pseudo-random number generator}}, \bibinfo{journal}{{ACM}
+  Transactions on Modeling and Computer Simulation}
+  \textbf{\bibinfo{volume}{8}}, \bibinfo{pages}{3} (\bibinfo{year}{1998}).
+
 \bibitem[{\citenamefont{Horvai} \emph{et~al.}(2007)\citenamefont{Horvai},
   \citenamefont{Komorowski}, and \citenamefont{Wehr}}]{Horvai2007}
 \bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Horvai}},
@@ -132,6 +162,40 @@
   reactions}}, \bibinfo{journal}{The Journal of Physical Chemistry}
   \textbf{\bibinfo{volume}{81}}, \bibinfo{pages}{2340} (\bibinfo{year}{1977}).
 
+\bibitem[{\citenamefont{Winkelmann} and
+  \citenamefont{Sch\"{u}tte}(2016)}]{Winkelmann2016}
+\bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Winkelmann}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{C.}~\bibnamefont{Sch\"{u}tte}}:
+  \emph{\bibinfo{title}{The spatiotemporal master equation: Approximation of
+  reaction-diffusion dynamics via markov state modeling}},
+  \bibinfo{journal}{The Journal of Chemical Physics}
+  \textbf{\bibinfo{volume}{145}}, \bibinfo{pages}{214107}
+  (\bibinfo{year}{2016}).
+
+\bibitem[{\citenamefont{Sch\"{o}neberg}
+  \emph{et~al.}(2014)\citenamefont{Sch\"{o}neberg}, \citenamefont{Ullrich}, and
+  \citenamefont{No{\'{e}}}}]{Schneberg2014}
+\bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Sch\"{o}neberg}},
+  \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Ullrich}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{No{\'{e}}}}:
+  \emph{\bibinfo{title}{Simulation tools for particle-based reaction-diffusion
+  dynamics in continuous space}}, \bibinfo{journal}{{BMC} Biophysics}
+  \textbf{\bibinfo{volume}{7}} (\bibinfo{year}{2014}).
+
+\bibitem[{\citenamefont{Gruenert} \emph{et~al.}(2010)\citenamefont{Gruenert},
+  \citenamefont{Ibrahim}, \citenamefont{Lenser}, \citenamefont{Lohel},
+  \citenamefont{Hinze}, and \citenamefont{Dittrich}}]{Gruenert2010}
+\bibinfo{author}{\bibfnamefont{G.}~\bibnamefont{Gruenert}},
+  \bibinfo{author}{\bibfnamefont{B.}~\bibnamefont{Ibrahim}},
+  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Lenser}},
+  \bibinfo{author}{\bibfnamefont{M.}~\bibnamefont{Lohel}},
+  \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Hinze}}, \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{P.}~\bibnamefont{Dittrich}}:
+  \emph{\bibinfo{title}{Rule-based spatial modeling with diffusing,
+  geometrically constrained molecules}}, \bibinfo{journal}{{BMC}
+  Bioinformatics} \textbf{\bibinfo{volume}{11}}, \bibinfo{pages}{307}
+  (\bibinfo{year}{2010}).
+
 \bibitem[{\citenamefont{Smoluchowski}()}]{Smoluchowski1}
 \bibinfo{author}{\bibfnamefont{M.~v.} \bibnamefont{Smoluchowski}}:
   \emph{\bibinfo{title}{{Versuch einer mathematischen Theorie der
@@ -158,6 +222,11 @@
   reaction-diffusion dynamics in crowded cellular environments}},
   \bibinfo{journal}{PLOS ONE} \textbf{\bibinfo{volume}{8}}, \bibinfo{pages}{1}
   (\bibinfo{year}{2013}).
+
+\bibitem[{\citenamefont{{The HDF Group}}(1997-NNNN)}]{hdf5}
+\bibinfo{author}{\bibnamefont{{The HDF Group}}}:
+  \emph{\bibinfo{title}{{Hierarchical Data Format, version 5}}}
+  (\bibinfo{year}{1997-NNNN}), \bibinfo{note}{/HDF5/}.
 
 \bibitem[{\citenamefont{Abdullah}(2011)}]{AiniAbdullah2011}
 \bibinfo{author}{\bibfnamefont{F.~A.} \bibnamefont{Abdullah}}:

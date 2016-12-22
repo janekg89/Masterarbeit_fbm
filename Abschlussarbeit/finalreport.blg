@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2015/dev/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: finalreport.aux
 The style file: detailed.bst
@@ -11,49 +11,50 @@ I was expecting a `,' or a `}'---line 242 of file literatur.bib
 I'm skipping whatever remains of this entry
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Warning--missing school in Dieker2004
+Warning--empty year in FFTW; set to ????
 Warning--empty journal in Smoluchowski1
 Warning--empty year in Smoluchowski1; set to ????
 Warning--empty journal in Flegg
 Warning--empty year in Flegg; set to ????
-You've used 32 entries,
+You've used 39 entries,
             3109 wiz_defined-function locations,
-            1355 strings with 14410 characters,
-and the built_in function-call counts, 17647 in all, are:
-= -- 1121
-> -- 360
-< -- 81
-+ -- 166
-- -- 100
-* -- 2450
-:= -- 2239
-add.period$ -- 32
-call.type$ -- 32
-change.case$ -- 158
-chr.to.int$ -- 32
-cite$ -- 37
-duplicate$ -- 1621
-empty$ -- 1567
-format.name$ -- 280
-if$ -- 3314
+            1401 strings with 15730 characters,
+and the built_in function-call counts, 22105 in all, are:
+= -- 1359
+> -- 502
+< -- 104
++ -- 224
+- -- 142
+* -- 3161
+:= -- 2755
+add.period$ -- 39
+call.type$ -- 39
+change.case$ -- 195
+chr.to.int$ -- 39
+cite$ -- 47
+duplicate$ -- 2046
+empty$ -- 1946
+format.name$ -- 384
+if$ -- 4117
 int.to.chr$ -- 1
-int.to.str$ -- 33
-missing$ -- 228
-newline$ -- 104
-num.names$ -- 96
-pop$ -- 224
+int.to.str$ -- 40
+missing$ -- 286
+newline$ -- 125
+num.names$ -- 114
+pop$ -- 273
 preamble$ -- 1
-purify$ -- 128
+purify$ -- 156
 quote$ -- 0
-skip$ -- 549
+skip$ -- 665
 stack$ -- 0
-substring$ -- 683
-swap$ -- 1317
-text.length$ -- 53
+substring$ -- 811
+swap$ -- 1687
+text.length$ -- 73
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 190
-warning$ -- 5
-while$ -- 96
+type$ -- 232
+warning$ -- 6
+while$ -- 112
 width$ -- 0
-write$ -- 349
+write$ -- 424
 (There was 1 error message)
