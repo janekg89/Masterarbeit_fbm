@@ -68,6 +68,7 @@ void Increments1::generateIncrements1 (double D ,double tau, double alpha)
        fftw_execute(planforward);
 
        innew[0]= std::complex <double> (0,0);
+       innew[N]=sqrt(2*D* std::pow(tau ,alpha)*out[N])*gsl_ran_gaussian(r,1);
 
        for (int ipart=0; ipart < particles; ++ipart)
        {
@@ -78,13 +79,15 @@ void Increments1::generateIncrements1 (double D ,double tau, double alpha)
                 {
                     if( i>0  and  i<N)
                     {
-                        innew[i] = sqrt(out[i])*gsl_ran_gaussian(r,1)*std::exp(2*M_PI*gsl_rng_uniform(r)*icomplex);
+                        innew[i] = sqrt(2*D* std::pow(tau ,alpha)*out[i])*gsl_ran_gaussian(r,1)*std::exp(2*M_PI*gsl_rng_uniform(r)*icomplex);
                     }
 
-                    if(i>=N)
+
+                    if(i>N)
                     {
                         innew[i] = std::conj(innew[2*N-i]);
                     }
+
                 }
                 fftw_execute(planbackward);
 
