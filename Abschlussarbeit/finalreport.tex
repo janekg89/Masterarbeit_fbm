@@ -364,7 +364,7 @@ By comparison with the \cref{eq:fourier} one can see that:
  \end{table}
 \begin{figure}[h]
   \centering
-  \includegraphics[width=\textwidth]{./data/boundary_problem.png}
+  \includegraphics[width=\textwidth]{./data/nocorrectionmsd1.png}
   \captionsetup{width=\linewidth}
   \captionof{figure}{An ensemble average mean square displacement of two versions of the naive algorithm. The green curve is the MSD of the algorithm with the correction introduced in step 4 and the blue curve without.}
   \label{fig:41}
@@ -527,7 +527,7 @@ The auto-covariance function indeed satisfies the condition for fBm with varianc
  \begin{align}
   R^{\xi}_n= 
   \begin{cases}
-    K_{\alpha} \Delta t^{\alpha}\left((n-1)^{\alpha}-2n^{\alpha}+(n+1)^{\alpha}\right) & \text{ for    } 0 \leq n \leq M \\
+    K_{\alpha} \Delta t^{\alpha}\left[(n-1)^{\alpha}-2n^{\alpha}+(n+1)^{\alpha}\right] & \text{ for    } 0 \leq n \leq M \\
    R^{\xi}_{2M-n}  & \text{ for    } M \leq n \leq 2M 
   \end{cases}
  \end{align}
@@ -561,83 +561,33 @@ The auto-covariance function indeed satisfies the condition for fBm with varianc
 \end{table}
 Davis-Harte algorithm \cite{DAVIES1987} is related Lowens Algorithm. It is also based on a FFT. The author claims the algorithm to be exact and its performance to scale with the length of the trajectory as $(\mathcal{O}(NlogN))$ . However, in contrast to Lowens algorithm it is based on the covariance function of fGn described by equation \cref{autocovfgn}. Thus it actually generates the increments of fBm. The  algorithm is shown in \cref{Davies_harte-algorithm}. 
 \subsubsection{Accuracy Analysis}
-The algorithms were implemented in Python and C++. For the C++ implementation a wrapper to Python was added. All algorithms were analysed by an analysis class. The C++ implementation is using the FFTW library for the Fast Fourier Transform \cite{FFTW} and Mersenne-Twister (gsl\texttt{\textunderscore}rng\texttt{\textunderscore}mt19937) \cite{Matsumoto1998} as the random number generator. Python implementations were developed beforehand and only serve as a reference. Python uses the numpy.fft library for the Fast Fourier Transform and also the Mersenne-Twister random number generator.\par
 \begin{figure}[h!]
   \centering
-  \includegraphics[width=\textwidth]{./data/timevsensambe.png}
+  \includegraphics[width=\textwidth]{./data/timevsensambenew.png}
   \captionsetup{width=\linewidth}
-  \captionof{figure}{Comparison of MSD between time-average, ensemble-average ($N=1000$) ,$\alpha=0.5$, $\Delta t=0.1$ for the three algorithms.\newline Cholesky: $D=2$,  $M=300$.\newline Our $D=20$ $M=2000$, \newline  Lowen:  $D=200$ $M=2000$. }
+  \captionof{figure}{Comparison of MSD between time-average, ensemble-average over $N=1000$ trajectories with trajectory length $M=2000$ (Cholesky: $M=300$) and  $\alpha=0.5$ for four algorithms. Cyan coloured line: Davis-Harte with $k=0.1$, red coloured: Cholesky $k=1$, green coloured: Naive $k=10$, blue colour Lowen $k=100$. }
   \label{fig:4}
 \end{figure}
-Insights of stochastic algorithms can be obtained by analyzing the observables. Observables of an stochastic process are generally averaged values. The motivation of choosing fBm was its power law behavior of the MSD. Therefore it is reasonable to analyze first this observable. It can be calculated as the ensemble- or time average. A difference in time and ensemble average would show a violation of ergodicity. A comparison for all four implemented algorithms can be seen in \cref{fig:4}. All algorithm show good accuracy between ensemble and time averaged MSD, besides for long lag times for the time averaged MSD due to decreasing statistics. Our algorithm tend to result in too  small MSDs for small lag times particularly for small $\alpha$, which is going be shown later on. This is caused by the finite amount of samples in the discrete Fourier transform. In the following figures all MSD plots are ensemble averages. They are computationally cheaper.\par Secondly time-reversibility had been checked. FBm should be time reversible as shown in \cite{Horvai2007}. In \cref{changeintime} MSDs for forward time and for backward time were plotted. No difference can be seen. $\alpha$ had been chosen to be $0.1$. Thereby our algorithm has an even stronger deviation from the desired power law.
 \begin{figure}[h!]
 \centering
-\includegraphics[width=\textwidth]{./data/changeintime.png}
-\caption{The plot show ensemble averaged MSDs for forward time and backward time over $N=2000$ trajectories for $\alpha =0.1$, $\Delta t = 0.1$ and trajectory length $M=1000$ and $K_{\alpha}=2$ for Our algorithm, $M=1000$  $K_{\alpha}=20 $ for Lowen algorithm and  $M=256$  $K_{\alpha}=200$ for Cholesky algorithm.}
+\includegraphics[width=\textwidth]{./data/changeintimenew.png}
+\caption{The plot show ensemble averaged MSDs for forward time and backward time over $N=2000$ (Cholesky: $M=300$) trajectories with trajectory length $M=1000$  $\alpha =0.3$,  brown coloured line: Davis-Harte with $k=0.1$, red coloured: Cholesky $k=1$, green coloured: Naive $k=10$, blue colour Lowen $k=100$. All backward trajectories are cyan coloured}
 \label{changeintime}
 \end{figure} 
-A strong influence of $\alpha$ on the accuracy of MSD for our algorithm can be seen. The influence of $\alpha$ on the MSD for the three algorithms are shown in \cref{alphachange}. In the limit of Brownian motion $\alpha=1$ the artifacts for small lag-times in the our algorithm vanish. Cholesky and Lowen show no deviation to the expected MSD for all $\alpha$.
-\begin{comment}
- 
-
-
-\newline \noindent The influence of the time step size is shown in \cref{fig:3} . The deviation from the expected value is linearly dependent on the amount of samples in the interval.
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=\textwidth]{./data/dt_change.png}
-  \captionsetup{width=\linewidth}
-  \captionof{figure}{Comparison of ensemble averaged Mean-Square-Displacements with different $\Delta t$ for $D=2$, $\alpha=0.5$. }
-  \label{fig:3}
-\end{figure} 
-\noindent 
+The algorithms were implemented in Python and C++. For the C++ implementation a wrapper to Python was added. All algorithms were analysed by an analysis class. The C++ implementation is using the FFTW library for the Fast Fourier Transform \cite{FFTW} and Mersenne-Twister (gsl\texttt{\textunderscore}rng\texttt{\textunderscore}mt19937) \cite{Matsumoto1998} as the random number generator. Python implementations were developed beforehand and only serve as a reference. Python uses the numpy.fft library for the Fast Fourier Transform and also the Mersenne-Twister random number generator.\par
+Insights of stochastic algorithms can be obtained by analysing observables. Observables of an stochastic process are generally averaged values. The motivation for fBm was its power law behaviour of the MSD. Therefore it is reasonable to analyse first the MSD. It can be calculated as the ensemble- or time average. A difference in time and ensemble average would show a violation of ergodicity. A comparison for all four implemented algorithms can be seen in \cref{fig:4}. Here $\Gamma=\sqrt{2K_\alpha \Delta t}$ is going to be the scale defining quantity in space. The MSD is displayed in $\Gamma^2$. MSDs for the algorithm are scaled with $k=0.1,1,10,100$ for Davis-Harte, Cholesky, Naive, Lowen, respectively for a better visualisation. The theoretical scaled MSD $\delta r^2 (t)=2 K_\alpha k t$ are displayed as solid black lines. All algorithm show good accuracy between ensemble and time averaged MSD, besides for long lag times for the time averaged MSD due to decreasing statistics. The naive algorithm tends to result in too small MSDs for small lag times particularly for small $\alpha$, which is going be shown later on. This is caused by the finite amount of samples in the discrete Fourier transform. In the following figures all MSD plots are ensemble averages.\par Secondly time-reversibility had been checked. FBm is a equilibrium process and thus should be time reversible  \cite{Horvai2007}. A time reversed trajectory can be defined as:
+\begin{align} \label{backward}
+ \overleftarrow{B}^{\alpha}_n=B^{\alpha}_M-\sum^M_{j=0} \xi_{M-j}
+\end{align}
+In \cref{changeintime}  MSDs of normal fBm and inversed time fBm described in \cref{backward} are plotted with the previously introduced scaling parameter $k$ for better visualisation. No difference can be seen. Thus all algorithm generate an equilibrium process. $\alpha$ had been chosen to be $0.3$. Thereby the naive algorithm has an even stronger deviation from the desired power law because of the problem of finite amount of samples in the discrete Fourier transform. A strong influence of $\alpha$ on the accuracy of MSD for the naive algorithm is suspected. Hence, the influence of $\alpha$ on the MSD accuracy was studied next. The influence of $\alpha$ on the MSD for all four algorithms is shown in \cref{alphachange}. No deviations for Lowen, CHolesky and Davis-Harte can be seen. Cholesky and Davis-Harte algorithm work also in the range of $1<\alpha<2$. 
+In the limit of Brownian motion $\alpha=1$ the artefacts of the naive algorithm  vanish. Cholesky, Lowen and Davis-Harte show no deviation to the expected MSD for all $\alpha$. \par
 \begin{figure}[h!]
 \centering
-\includegraphics[width=\textwidth]{./data/alpha_change.png}
-\caption{Ensemble averaged MSD for different $\alpha$  with $K_{\alpha}=2$ , $N=2000$, $n=2000$ , $\Delta t = 1$, $M=2n$.}
+\includegraphics[width=\textwidth]{./data/alpha_changethreeneu.png}
+\caption{The figure shows ensemble averaged MSDs for all four algorithms over $N=400$ trajectories with the trajectory length $M=2000$ (Cholesky: $M=64$) and $0.01\leq\alpha\leq1.0$ (Cholesky and Davis-Harte $\alpha\leq1.38$.}
 \label{alphachange}
 \end{figure}
-\begin{figure}[h!]
-\centering
-\includegraphics[width=\textwidth]{./data/K_alpha_change.png}
-\caption{Ensemble averaged MSD for different $K_\alpha$. with $\alpha=0.5$ , $N=2000$, $n=2000$ , $\Delta t = 1$, $M=2n$.}
-\label{kalphachange}
-\end{figure}
-\noindent The generalized diffusion coefficient has also bin varied. The influence on the MSD can be seen in \cref{kalphachange} . The change of $K_{alpha}$ is not influencing the quality of the simulation.
-\begin{figure}[h!]
-\begin{minipage}{\textwidth}
-\centering
-\includegraphics[width=\textwidth]{./data/rescaled.png}
-\caption{The scale free form of the Propagator at different times as introduced in \cref{scalefreeformfrac}. With $K_{\alpha}=2$, $\alpha=0.5 $, $N=10000$ , $\Delta t = 1$, $M=2n$.  }
-\label{rescaledfigure}
-\end{minipage}
-\begin{minipage}{\textwidth}
-\centering
-\includegraphics[width=\textwidth]{./data/nongaussian.png}
-\caption{Non-Gaussian-Parameter (as introduced in \cref{nongaussian2}) With $K_{\alpha}=2$ , $N=5000$, $n=1001$ , $\Delta t = 1$, $M=2n$ averaged over $30$ non-Gaussian-Parameter with its variance displayed as an error bar.}
- \centering
-\end{minipage}
-\end{figure}
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=\textwidth]{./data/alpha_changeboth.png}
-\caption{Both Plots show an ensemble average MSD over $N=2000$ trajectories for $0.1<\alpha<1.0$  with $K_{\alpha}=2$ , $M=2000$ , $\Delta t = 0.1$, with a) Our algorithm and b) Lowen algorithm.}
-\label{alphachange}
-\end{figure}
-\noindent As a property of self similarity a scale free version of the density distribution can be calculated \cref{sectionfrac} \cref{scalefreeformfrac}. The scale free density distribution is not depended on time but overlaps for all times. The algorithm is performing as predicted and computing a self-similar process. The scale free distribution is extracted from the simulation for different times and compared to the analytical result. The graph can be seen in \cref{rescaledfigure}.  
-
- 
-\end{comment}
-
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=\textwidth]{./data/alpha_changethree.png}
-\caption{All three plots show an ensemble averaged MSD over $N=2000$ trajectories for $0.1<\alpha<1.0$  with $K_{\alpha}=2$ ,$\Delta t = 0.1$ and trajectory length $M=2000$  for Our and Lowen algorithm, $M=256$ for Cholesky algorithm. a) Our algorithm and b) Lowen algorithm c) Cholesky algorithm.}
-\label{alphachange}
-\end{figure}
-
-FBms property of self similarity can be used to plot a scale free version of the density distribution. The scale free version was introduced in \cref{scalefreeformfrac}. The scaled density distribution is not depended on time but overlaps for all times. In \cref{rescaledfunction}  histograms over $N=10000$ single trajectories at various times ($100\leq t \leq 1000$) were calculated and rescaled according to \cref{scalefreeformfrac}. The dashed line show the expected distribution. For Cholesky and our algorithm no deviations from the analytical line is obvious. For Lowens algorithm systematically small changes to the analytical value can be observed. However, the distribution of fBm should stay a Gaussian for all times.  As introduced in \cref{nongaussian2} the non-Gaussian parameter should be zero. The Non-Gaussian parameter has been plotted for $0 \leq t \leq 1000 (\leq 356 \text{ for Cholesky})$  $\alpha=0.5$  in \cref{nongaussianlowen} a). Our and Cholesky algorithm perform as expected. Lowen however show deviation from a Gaussian distribution increasingly towards the end of the trajectory. In  \cref{nongaussianlowen} b) the influence of $\alpha$ on the non-Gaussian parameter for the Lowen algorithm was tested. For small $\alpha$ the distribution is closer to a Gaussian. In our implementation Lowens algorithm is not exact as claimed in \cite{Lowen1999}.
+FBms property of self similarity can be used to plot a scale free version of the density distribution. The scale free version was introduced in \cref{scalefreeformfrac}. The scaled density distribution is not depended on time. Time rescaling leads to a "data collapse". In \cref{rescaledfunction}  histograms over $N=10000$ single trajectories at various times ($100\leq t \leq 1000$) were calculated and rescaled according to \cref{scalefreeformfrac}. The dashed line show the expected distribution. For Cholesky and our algorithm no deviations from the analytical line is obvious. For Lowens algorithm systematically small changes to the analytical value can be observed. However, the distribution of fBm should stay a Gaussian for all times.  As introduced in \cref{nongaussian2} the non-Gaussian parameter should be zero. The Non-Gaussian parameter has been plotted for $0 \leq t \leq 1000 (\leq 356 \text{ for Cholesky})$  $\alpha=0.5$  in \cref{nongaussianlowen} a). Our and Cholesky algorithm perform as expected. Lowen however show deviation from a Gaussian distribution increasingly towards the end of the trajectory. In  \cref{nongaussianlowen} b) the influence of $\alpha$ on the non-Gaussian parameter for the Lowen algorithm was tested. For small $\alpha$ the distribution is closer to a Gaussian. In our implementation Lowens algorithm is not exact as claimed in \cite{Lowen1999}.
 
 \begin{figure}[h!]
 \centering
@@ -645,19 +595,6 @@ FBms property of self similarity can be used to plot a scale free version of the
 \caption{All three plots show the scale free form of the propagator at different times as introduced in \cref{scalefreeformfrac} as an histogram over $N=10000$ trajectories for $\alpha=0.5$  with $K_{\alpha}=2$ ,$\Delta t = 0.1$ for all three algorithm, at different times $100<t<900$}
 \label{rescaledfunction}
 \end{figure}
-
- 
-\begin{comment}
- 
-
-\begin{figure}[h!]
-\centering
-\includegraphics[width=\textwidth]{./data/nongaussianneu.png}
-\caption{a) Non-Gaussian-Parameter as introduced in \cref{nongaussian2} for all three algorithms with $K_{\alpha}=2$ , $N=5000$,$\alpha=0.5$ (Lowen and Our $M=1001$; Choleski $M=356$), $\Delta t = 1$  averaged over $50$ non-Gaussian-Parameter with its variance displayed as an error bar.}
-\label{nongaussian}
-\end{figure}
-\end{comment}
-
 \begin{figure}[h!]
 \centering
 \includegraphics[width=\textwidth]{./data/nongaussianlowenalpha.png}

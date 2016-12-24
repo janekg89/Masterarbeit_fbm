@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.26)  22 DEC 2016 20:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.26)  23 DEC 2016 21:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2455,57 +2455,58 @@ Overfull \hbox (0.12021pt too wide) in paragraph at lines 193--194
  []
 
 [5 <./data/trajectories_differentalpha1234.png>] [6] [7] [8]
-<./data/boundary_problem.png, id=268, 505.89pt x 289.08pt>
-File: ./data/boundary_problem.png Graphic file (type png)
+<./data/nocorrectionmsd1.png, id=268, 505.89pt x 289.08pt>
+File: ./data/nocorrectionmsd1.png Graphic file (type png)
 
-<use ./data/boundary_problem.png>
-Package pdftex.def Info: ./data/boundary_problem.png used on input line 367.
+<use ./data/nocorrectionmsd1.png>
+Package pdftex.def Info: ./data/nocorrectionmsd1.png used on input line 367.
 (pdftex.def)             Requested size: 398.33864pt x 227.62523pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[9] [10] [11 <./data/boundary_problem.png>] [12]
+[9] [10] [11 <./data/nocorrectionmsd1.png>] [12]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./data/timevsensambe.png, id=348, 479.391pt x 228.1323pt>
-File: ./data/timevsensambe.png Graphic file (type png)
+<./data/timevsensambenew.png, id=346, 508.0581pt x 279.2031pt>
+File: ./data/timevsensambenew.png Graphic file (type png)
 
-<use ./data/timevsensambe.png>
-Package pdftex.def Info: ./data/timevsensambe.png used on input line 567.
-(pdftex.def)             Requested size: 398.33864pt x 189.56557pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[13] [14] <./data/changeintime.png, id=380, 495.2904pt x 227.8914pt>
-File: ./data/changeintime.png Graphic file (type png)
-
-<use ./data/changeintime.png>
-Package pdftex.def Info: ./data/changeintime.png used on input line 575.
-(pdftex.def)             Requested size: 398.33864pt x 183.28354pt.
+<use ./data/timevsensambenew.png>
+Package pdftex.def Info: ./data/timevsensambenew.png used on input line 566.
+(pdftex.def)             Requested size: 398.33864pt x 218.91502pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./data/alpha_changethree.png, id=382, 408.8073pt x 407.8437pt>
-File: ./data/alpha_changethree.png Graphic file (type png)
+<./data/changeintimenew.png, id=347, 508.0581pt x 279.2031pt>
+File: ./data/changeintimenew.png Graphic file (type png)
 
-<use ./data/alpha_changethree.png>
-Package pdftex.def Info: ./data/alpha_changethree.png used on input line 635.
-(pdftex.def)             Requested size: 398.33864pt x 397.41885pt.
+<use ./data/changeintimenew.png>
+Package pdftex.def Info: ./data/changeintimenew.png used on input line 573.
+(pdftex.def)             Requested size: 398.33864pt x 218.91502pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./data/scaledfunctionneu.png, id=390, 518.1759pt x 406.8801pt>
+[13] [14] <./data/alpha_changethreeneu.png, id=383, 566.5968pt x 561.297pt>
+File: ./data/alpha_changethreeneu.png Graphic file (type png)
+
+<use ./data/alpha_changethreeneu.png>
+Package pdftex.def Info: ./data/alpha_changethreeneu.png used on input line 586
+.
+(pdftex.def)             Requested size: 398.33864pt x 394.60959pt.
+ [15 <./data/timevsensambenew.png>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./data/scaledfunctionneu.png, id=400, 518.1759pt x 406.8801pt>
 File: ./data/scaledfunctionneu.png Graphic file (type png)
 
 <use ./data/scaledfunctionneu.png>
-Package pdftex.def Info: ./data/scaledfunctionneu.png used on input line 644.
+Package pdftex.def Info: ./data/scaledfunctionneu.png used on input line 594.
 (pdftex.def)             Requested size: 398.33864pt x 312.78955pt.
- [15 <./data/timevsensambe.png>]
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -2513,21 +2514,21 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: ./data/nongaussianlowenalpha.png Graphic file (type png)
 
 <use ./data/nongaussianlowenalpha.png>
-Package pdftex.def Info: ./data/nongaussianlowenalpha.png used on input line 66
+Package pdftex.def Info: ./data/nongaussianlowenalpha.png used on input line 61
 3.
 (pdftex.def)             Requested size: 398.33864pt x 199.1798pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[16 <./data/changeintime.png>]
-<./data/profilingneu1.png, id=414, 505.6491pt x 232.9503pt>
+[16 <./data/changeintimenew.png>]
+<./data/profilingneu1.png, id=416, 505.6491pt x 232.9503pt>
 File: ./data/profilingneu1.png Graphic file (type png)
 
 <use ./data/profilingneu1.png>
-Package pdftex.def Info: ./data/profilingneu1.png used on input line 691.
+Package pdftex.def Info: ./data/profilingneu1.png used on input line 641.
 (pdftex.def)             Requested size: 398.33864pt x 183.52042pt.
- [17 <./data/alpha_changethree.png>]
+ [17 <./data/alpha_changethreeneu.png>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -2538,22 +2539,22 @@ chapter 2.
 
 
 ] [22] [23] [24]
-<./data/smoluchowskierban.png, id=505, 469.755pt x 289.08pt>
+<./data/smoluchowskierban.png, id=507, 469.755pt x 289.08pt>
 File: ./data/smoluchowskierban.png Graphic file (type png)
 
 <use ./data/smoluchowskierban.png>
-Package pdftex.def Info: ./data/smoluchowskierban.png used on input line 807.
+Package pdftex.def Info: ./data/smoluchowskierban.png used on input line 757.
 (pdftex.def)             Requested size: 398.33864pt x 245.13249pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [25] [26 <./data/smoluchowskierban.png>]
-<./data/schemeforreacions1.png, id=537, 498.36188pt x 311.66437pt>
+<./data/schemeforreacions1.png, id=539, 498.36188pt x 311.66437pt>
 File: ./data/schemeforreacions1.png Graphic file (type png)
 
 <use ./data/schemeforreacions1.png>
-Package pdftex.def Info: ./data/schemeforreacions1.png used on input line 897.
+Package pdftex.def Info: ./data/schemeforreacions1.png used on input line 847.
 (pdftex.def)             Requested size: 278.83583pt x 174.38342pt.
  [27] [28 <./data/schemeforreacions1.png>]
 chapter 3.
@@ -2561,76 +2562,76 @@ chapter 3.
 
 
 ]
-Overfull \hbox (2.11124pt too wide) in paragraph at lines 927--929
+Overfull \hbox (2.11124pt too wide) in paragraph at lines 877--879
 $\OML/cmm/m/it/10.95 v[] \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 k[]c[]$ \OT1/
 cmr/m/n/10.95 is the max-i-mum ve-loc-ity, $[]$ is the omega func-tion and the 
 Michaelis-
  []
 
 [30] [31]
-<./data/chapman-limit-concentrations1.png, id=607, 458.9145pt x 405.4347pt>
+<./data/chapman-limit-concentrations1.png, id=609, 458.9145pt x 405.4347pt>
 File: ./data/chapman-limit-concentrations1.png Graphic file (type png)
 
 <use ./data/chapman-limit-concentrations1.png>
 Package pdftex.def Info: ./data/chapman-limit-concentrations1.png used on input
- line 945.
+ line 895.
 (pdftex.def)             Requested size: 398.33864pt x 351.9211pt.
 
-<./data/chapman-limit-radial.png, id=610, 484.209pt x 349.7868pt>
+<./data/chapman-limit-radial.png, id=612, 484.209pt x 349.7868pt>
 File: ./data/chapman-limit-radial.png Graphic file (type png)
 
 <use ./data/chapman-limit-radial.png>
-Package pdftex.def Info: ./data/chapman-limit-radial.png used on input line 952
+Package pdftex.def Info: ./data/chapman-limit-radial.png used on input line 902
 .
 (pdftex.def)             Requested size: 398.33864pt x 287.7664pt.
 
-<./data/chapman-limit-concentrations1_k1.png, id=611, 469.755pt x 351.9549pt>
+<./data/chapman-limit-concentrations1_k1.png, id=613, 469.755pt x 351.9549pt>
 File: ./data/chapman-limit-concentrations1_k1.png Graphic file (type png)
 
 <use ./data/chapman-limit-concentrations1_k1.png>
 Package pdftex.def Info: ./data/chapman-limit-concentrations1_k1.png used on in
-put line 960.
+put line 910.
 (pdftex.def)             Requested size: 398.33864pt x 298.4488pt.
  [32] [33 <./data/chapman-limit-concentrations1.png>] [34 <./data/chapman-limit
 -radial.png>] [35 <./data/chapman-limit-concentrations1_k1.png>]
-<./data/diffusion-limit-concentrations1_k1.png, id=654, 444.4605pt x 403.2666pt
+<./data/diffusion-limit-concentrations1_k1.png, id=656, 444.4605pt x 403.2666pt
 >
 File: ./data/diffusion-limit-concentrations1_k1.png Graphic file (type png)
  <use ./data/diffusion-limit-concentrations1_k1.png>
 Package pdftex.def Info: ./data/diffusion-limit-concentrations1_k1.png used on 
-input line 977.
+input line 927.
 (pdftex.def)             Requested size: 398.33864pt x 361.43517pt.
 
-<./data/limit-radial.png, id=659, 489.2679pt x 406.8801pt>
+<./data/limit-radial.png, id=661, 489.2679pt x 406.8801pt>
 File: ./data/limit-radial.png Graphic file (type png)
 
 <use ./data/limit-radial.png>
-Package pdftex.def Info: ./data/limit-radial.png used on input line 984.
+Package pdftex.def Info: ./data/limit-radial.png used on input line 934.
 (pdftex.def)             Requested size: 398.33864pt x 331.2722pt.
  [36] [37 <./data/diffusion-limit-concentrations1_k1.png>] [38 <./data/limit-ra
 dial.png>]
-<./data/limit-radial-highlocalconcentration.png, id=685, 500.8311pt x 337.5009p
+<./data/limit-radial-highlocalconcentration.png, id=687, 500.8311pt x 337.5009p
 t>
 File: ./data/limit-radial-highlocalconcentration.png Graphic file (type png)
  <use ./data/limit-radial-highlocalconcentration.png>
 Package pdftex.def Info: ./data/limit-radial-highlocalconcentration.png used on
- input line 1006.
+ input line 956.
 (pdftex.def)             Requested size: 398.33864pt x 268.44067pt.
 
-<./data/highlocaldensityconcentrationslin.png, id=686, 479.1501pt x 387.3672pt>
+<./data/highlocaldensityconcentrationslin.png, id=688, 479.1501pt x 387.3672pt>
 File: ./data/highlocaldensityconcentrationslin.png Graphic file (type png)
 <use ./data/highlocaldensityconcentrationslin.png>
 Package pdftex.def Info: ./data/highlocaldensityconcentrationslin.png used on i
-nput line 1014.
+nput line 964.
 (pdftex.def)             Requested size: 398.33864pt x 322.04666pt.
  [39 <./data/limit-radial-highlocalconcentration.png>] [40 <./data/highlocalden
 sityconcentrationslin.png>]
-<./data/fractionalalphachangek1.png, id=704, 461.0826pt x 366.4089pt>
+<./data/fractionalalphachangek1.png, id=706, 461.0826pt x 366.4089pt>
 File: ./data/fractionalalphachangek1.png Graphic file (type png)
 
 <use ./data/fractionalalphachangek1.png>
 Package pdftex.def Info: ./data/fractionalalphachangek1.png used on input line 
-1098.
+1048.
 (pdftex.def)             Requested size: 398.33864pt x 316.55916pt.
  [41 <./data/fractionalalphachangek1.png>] [42]
 chapter 4.
@@ -2643,7 +2644,7 @@ chapter 5.
 
 
 ] [45] [46] [47] (./finalreport.bbl [48]
-Underfull \hbox (badness 1237) in paragraph at lines 70--75
+Underfull \hbox (badness 1237) in paragraph at lines 71--76
 []\OT1/cmr/m/n/10.95 A. Ein-stein: []\OT1/cmr/m/it/10.95 Uber die von der molek
 u-larkinetis-chen the-o-rie der w^^?arme
  []
@@ -2654,24 +2655,24 @@ u-larkinetis-chen the-o-rie der w^^?arme
 ] [50]) 
 AED: lastpage setting LastPage
 [51]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1399.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1399.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1349.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1349.
  (./finalreport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1399.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1399.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1349.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1349.
 
 Package rerunfilecheck Info: File `finalreport.out' has not changed.
 (rerunfilecheck)             Checksum: E03AE4C989CD5E58E906B8CF0A789505;1544.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1399.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1349.
  ) 
 Here is how much of TeX's memory you used:
- 36925 strings out of 493029
- 724379 string characters out of 6136233
- 868594 words of memory out of 5000000
- 39570 multiletter control sequences out of 15000+600000
+ 36928 strings out of 493029
+ 724464 string characters out of 6136233
+ 869780 words of memory out of 5000000
+ 39572 multiletter control sequences out of 15000+600000
  18678 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 100i,19n,97p,10361b,788s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 100i,20n,97p,10361b,788s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dis
@@ -2694,10 +2695,10 @@ ublic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symb
 ols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on finalreport.pdf (53 pages, 1812516 bytes).
+Output written on finalreport.pdf (53 pages, 2184953 bytes).
 PDF statistics:
- 939 PDF objects out of 1000 (max. 8388607)
- 804 compressed objects within 9 object streams
- 291 named destinations out of 1000 (max. 500000)
+ 941 PDF objects out of 1000 (max. 8388607)
+ 806 compressed objects within 9 object streams
+ 292 named destinations out of 1000 (max. 500000)
  279 words of extra memory for PDF output out of 10000 (max. 10000000)
 
