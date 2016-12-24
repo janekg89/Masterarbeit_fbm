@@ -4,7 +4,7 @@
 
 #include <boost/multi_array.hpp>
 #include <complex>
-#include <fftw3.h>
+#include "/home/mi/janekg89/Dokumente/Masterarbeit/lown_cython/include/fftw3.h"
 #include <stdio.h>
 #include <iostream>
 #include <gsl/gsl_rng.h>
