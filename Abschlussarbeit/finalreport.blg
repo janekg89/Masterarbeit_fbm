@@ -4,57 +4,49 @@ The top-level auxiliary file: finalreport.aux
 The style file: detailed.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: literatur.bib
-I was expecting a `,' or a `}'---line 242 of file literatur.bib
- : 
- : year = {1917}
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Warning--missing school in Dieker2004
-Warning--empty year in FFTW; set to ????
 Warning--empty journal in Smoluchowski1
-Warning--empty year in Smoluchowski1; set to ????
 Warning--empty journal in Flegg
-Warning--empty year in Flegg; set to ????
-You've used 39 entries,
+You've used 40 entries,
             3109 wiz_defined-function locations,
-            1401 strings with 15730 characters,
-and the built_in function-call counts, 22105 in all, are:
-= -- 1359
-> -- 502
-< -- 104
-+ -- 224
-- -- 142
-* -- 3161
-:= -- 2755
-add.period$ -- 39
-call.type$ -- 39
-change.case$ -- 195
-chr.to.int$ -- 39
-cite$ -- 47
-duplicate$ -- 2046
-empty$ -- 1946
-format.name$ -- 384
-if$ -- 4117
+            1412 strings with 15911 characters,
+and the built_in function-call counts, 22710 in all, are:
+= -- 1394
+> -- 517
+< -- 107
++ -- 232
+- -- 146
+* -- 3254
+:= -- 2827
+add.period$ -- 40
+call.type$ -- 40
+change.case$ -- 199
+chr.to.int$ -- 40
+cite$ -- 45
+duplicate$ -- 2103
+empty$ -- 2001
+format.name$ -- 397
+if$ -- 4230
 int.to.chr$ -- 1
-int.to.str$ -- 40
-missing$ -- 286
-newline$ -- 125
-num.names$ -- 114
-pop$ -- 273
+int.to.str$ -- 41
+missing$ -- 293
+newline$ -- 128
+num.names$ -- 117
+pop$ -- 266
 preamble$ -- 1
-purify$ -- 156
+purify$ -- 160
 quote$ -- 0
-skip$ -- 665
+skip$ -- 692
 stack$ -- 0
-substring$ -- 811
-swap$ -- 1687
-text.length$ -- 73
+substring$ -- 832
+swap$ -- 1742
+text.length$ -- 75
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 232
-warning$ -- 6
-while$ -- 112
+type$ -- 238
+warning$ -- 3
+while$ -- 115
 width$ -- 0
-write$ -- 424
-(There was 1 error message)
+write$ -- 434
+(There were 3 warnings)

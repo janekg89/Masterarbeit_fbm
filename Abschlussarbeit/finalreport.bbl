@@ -1,4 +1,4 @@
-\begin{thebibliography}{39}
+\begin{thebibliography}{40}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\bibnamefont}[1]{#1}
 \providecommand{\bibfnamefont}[1]{#1}
@@ -7,16 +7,16 @@
 
 \bibitem[{\citenamefont{Minton}(2006)}]{Minton2006}
 \bibinfo{author}{\bibfnamefont{A.~P.} \bibnamefont{Minton}}:
-  \emph{\bibinfo{title}{{How can biochemical reactions within cells differ from
-  those in test tubes?}}}, \bibinfo{journal}{Journal of cell science}
+  \emph{\bibinfo{title}{{How can Biochemical Reactions Within Cells Differ From
+  Those in Test Tubes?}}}, \bibinfo{journal}{Journal of cell science}
   \textbf{\bibinfo{volume}{119}}, \bibinfo{pages}{2863} (\bibinfo{year}{2006}).
 
 \bibitem[{\citenamefont{H{\"{o}}fling} and
   \citenamefont{Franosch}(2013)}]{Hofling2013}
 \bibinfo{author}{\bibfnamefont{F.}~\bibnamefont{H{\"{o}}fling}}
   \bibnamefont{and} \bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Franosch}}:
-  \emph{\bibinfo{title}{{Anomalous transport in the crowded world of biological
-  cells}}}, \bibinfo{journal}{Reports on Progress in Physics}
+  \emph{\bibinfo{title}{{Anomalous Transport in the Crowded World of Biological
+  Cells}}}, \bibinfo{journal}{Reports on Progress in Physics}
   \textbf{\bibinfo{volume}{76}}, \bibinfo{pages}{046602}
   (\bibinfo{year}{2013}).
 
@@ -64,8 +64,8 @@
 
 \bibitem[{\citenamefont{Fourier}(1822)}]{Fourier1822}
 \bibinfo{author}{\bibfnamefont{J.}~\bibnamefont{Fourier}}:
-  \emph{\bibinfo{title}{theorie analytique de la}} (\bibinfo{publisher}{Firmin
-  Didot}, \bibinfo{year}{1822}).
+  \emph{\bibinfo{title}{Theorie Analytique de la Chaleur}}
+  (\bibinfo{publisher}{Firmin Didot}, \bibinfo{year}{1822}).
 
 \bibitem[{\citenamefont{Einstein}(1905)}]{Einstein1905}
 \bibinfo{author}{\bibfnamefont{A.}~\bibnamefont{Einstein}}:
@@ -84,13 +84,13 @@
 \bibitem[{\citenamefont{Qian}(2003)}]{qian2003fractional}
 \bibinfo{author}{\bibfnamefont{H.}~\bibnamefont{Qian}}:
   \emph{\bibinfo{title}{Fractional brownian motion and fractional gaussian
-  noise}}, in \emph{\bibinfo{booktitle}{Processes with Long-Range
+  noise}}, in \emph{\bibinfo{booktitle}{Processes With Long-Range
   Correlations}} (\bibinfo{publisher}{Springer}, \bibinfo{year}{2003}), pp.
   \bibinfo{pages}{22--33}.
 
-\bibitem[{\citenamefont{Ton}(2004)}]{Dieker2004}
-\bibinfo{author}{\bibfnamefont{D.}~\bibnamefont{Ton}}:
-  \emph{\bibinfo{title}{Simulation of fractional Brownian motion}}, Master's
+\bibitem[{\citenamefont{Dieker}(2004)}]{Dieker2004}
+\bibinfo{author}{\bibfnamefont{T.}~\bibnamefont{Dieker}}:
+  \emph{\bibinfo{title}{Simulation of Fractional Brownian Motion}}, Master's
   thesis (\bibinfo{year}{2004}).
 
 \bibitem[{\citenamefont{Hosking}(1984)}]{WRCR:WRCR3676}
@@ -118,10 +118,10 @@
   noise}}, \bibinfo{journal}{Astronomy and Astrophysics}
   \textbf{\bibinfo{volume}{300}}, \bibinfo{pages}{707} (\bibinfo{year}{1995}).
 
-\bibitem[{FFT()}]{FFTW}
+\bibitem[{FFT(Accessed: 20.11.2016)}]{FFTW}
 \emph{\bibinfo{title}{Fftw}},
-  \bibinfo{howpublished}{\url{http://www.fftw.org/}} (????),
-  \bibinfo{note}{accessed: 20.11.2016}.
+  \bibinfo{howpublished}{\url{http://www.fftw.org/}} (\bibinfo{year}{Accessed:
+  20.11.2016}).
 
 \bibitem[{\citenamefont{Matsumoto} and
   \citenamefont{Nishimura}(1998)}]{Matsumoto1998}
@@ -196,23 +196,23 @@
   Bioinformatics} \textbf{\bibinfo{volume}{11}}, \bibinfo{pages}{307}
   (\bibinfo{year}{2010}).
 
-\bibitem[{\citenamefont{Smoluchowski}()}]{Smoluchowski1}
+\bibitem[{\citenamefont{Smoluchowski}(1917)}]{Smoluchowski1}
 \bibinfo{author}{\bibfnamefont{M.~v.} \bibnamefont{Smoluchowski}}:
   \emph{\bibinfo{title}{{Versuch einer mathematischen Theorie der
-  Koagulationskinetik kolloider L{\"{o}}sungen}}}  (????).
+  Koagulationskinetik kolloider L{\"{o}}sungen}}}  (\bibinfo{year}{1917}).
 
 \bibitem[{\citenamefont{Erban} and \citenamefont{Chapman}(2009)}]{Erban2009}
 \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Erban}} \bibnamefont{and}
   \bibinfo{author}{\bibfnamefont{S.~J.} \bibnamefont{Chapman}}:
   \emph{\bibinfo{title}{Stochastic modelling of reaction{\textendash}diffusion
-  processes: algorithms for bimolecular reactions}}, \bibinfo{journal}{Physical
+  processes: Algorithms for bimolecular reactions}}, \bibinfo{journal}{Physical
   Biology} \textbf{\bibinfo{volume}{6}}, \bibinfo{pages}{046001}
   (\bibinfo{year}{2009}).
 
-\bibitem[{\citenamefont{Flegg}()}]{Flegg}
+\bibitem[{\citenamefont{Flegg}(2015)}]{Flegg}
 \bibinfo{author}{\bibfnamefont{M.~B.} \bibnamefont{Flegg}}:
-  \emph{\bibinfo{title}{{Smoluchowski reaction kinetics for reactions of any
-  order}}} pp. \bibinfo{pages}{1--30} (????).
+  \emph{\bibinfo{title}{{Smoluchowski Reaction Kinetics for Reactions of any
+  Order}}} pp. \bibinfo{pages}{1--30} (\bibinfo{year}{2015}).
 
 \bibitem[{\citenamefont{Schöneberg} and
   \citenamefont{Noé}(2013)}]{10.1371/journal.pone.0074261}
@@ -228,25 +228,18 @@
   \emph{\bibinfo{title}{{Hierarchical Data Format, version 5}}}
   (\bibinfo{year}{1997-NNNN}), \bibinfo{note}{/HDF5/}.
 
-\bibitem[{\citenamefont{Abdullah}(2011)}]{AiniAbdullah2011}
-\bibinfo{author}{\bibfnamefont{F.~A.} \bibnamefont{Abdullah}}:
-  \emph{\bibinfo{title}{Using fractional differential equations to model the
-  michaelis-menten reaction in a 2-d region containing obstacles}},
-  \bibinfo{journal}{{ScienceAsia}} \textbf{\bibinfo{volume}{37}},
-  \bibinfo{pages}{75} (\bibinfo{year}{2011}).
-
 \bibitem[{\citenamefont{Berry}(2002)}]{Berry2002}
 \bibinfo{author}{\bibfnamefont{H.}~\bibnamefont{Berry}}:
-  \emph{\bibinfo{title}{{Monte carlo simulations of enzyme reactions in two
-  dimensions: fractal kinetics and spatial segregation.}}},
+  \emph{\bibinfo{title}{{Monte Carlo Simulations of Enzyme Reactions in two
+  Dimensions: Fractal Kinetics and Spatial Segregation.}}},
   \bibinfo{journal}{Biophysical journal} \textbf{\bibinfo{volume}{83}},
   \bibinfo{pages}{1891} (\bibinfo{year}{2002}).
 
 \bibitem[{\citenamefont{Schnell} and \citenamefont{Turner}(2004)}]{Schnell2004}
 \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Schnell}} \bibnamefont{and}
   \bibinfo{author}{\bibfnamefont{T.~E.} \bibnamefont{Turner}}:
-  \emph{\bibinfo{title}{{Reaction kinetics in intracellular environments with
-  macromolecular crowding: Simulations and rate laws}}},
+  \emph{\bibinfo{title}{{Reaction Kinetics in Intracellular Environments With
+  Macromolecular Crowding: Simulations and Rate Laws}}},
   \bibinfo{journal}{Progress in Biophysics and Molecular Biology}
   \textbf{\bibinfo{volume}{85}}, \bibinfo{pages}{235} (\bibinfo{year}{2004}).
 
@@ -255,8 +248,8 @@
 \bibinfo{author}{\bibfnamefont{T.~E.} \bibnamefont{Turner}},
   \bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Schnell}}, \bibnamefont{and}
   \bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Burrage}}:
-  \emph{\bibinfo{title}{{Stochastic approaches for modelling in vivo
-  reactions}}}, \bibinfo{journal}{Computational Biology and Chemistry}
+  \emph{\bibinfo{title}{{Stochastic Approaches for Modelling in Vivo
+  Reactions}}}, \bibinfo{journal}{Computational Biology and Chemistry}
   \textbf{\bibinfo{volume}{28}}, \bibinfo{pages}{165} (\bibinfo{year}{2004}).
 
 \bibitem[{\citenamefont{Jeon} \emph{et~al.}(2014)\citenamefont{Jeon},
@@ -269,6 +262,13 @@
   \emph{\bibinfo{booktitle}{First-Passage Phenomena and Their Applications}}
   (\bibinfo{publisher}{World Scientific Pub Co Pte Lt}, \bibinfo{year}{2014}),
   pp. \bibinfo{pages}{175--202}.
+
+\bibitem[{\citenamefont{Briggs} and \citenamefont{Haldane}(1925)}]{Briggs1925}
+\bibinfo{author}{\bibfnamefont{G.~E.} \bibnamefont{Briggs}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{J.~B.~S.} \bibnamefont{Haldane}}:
+  \emph{\bibinfo{title}{A note on the kinetics of enzyme action}},
+  \bibinfo{journal}{Biochemical Journal} \textbf{\bibinfo{volume}{19}},
+  \bibinfo{pages}{338} (\bibinfo{year}{1925}).
 
 \bibitem[{\citenamefont{Palsson}(1987)}]{Palsson1987}
 \bibinfo{author}{\bibfnamefont{B.~O.} \bibnamefont{Palsson}}:
@@ -290,6 +290,13 @@
   \emph{\bibinfo{title}{Subdiffusion-limited reactions}},
   \bibinfo{journal}{Chemical Physics} \textbf{\bibinfo{volume}{284}},
   \bibinfo{pages}{169} (\bibinfo{year}{2002}).
+
+\bibitem[{\citenamefont{Abdullah}(2011)}]{AiniAbdullah2011}
+\bibinfo{author}{\bibfnamefont{F.~A.} \bibnamefont{Abdullah}}:
+  \emph{\bibinfo{title}{Using fractional differential equations to model the
+  michaelis-menten reaction in a 2-d region containing obstacles}},
+  \bibinfo{journal}{{ScienceAsia}} \textbf{\bibinfo{volume}{37}},
+  \bibinfo{pages}{75} (\bibinfo{year}{2011}).
 
 \bibitem[{\citenamefont{Kopelman}(1988)}]{Kopelman1988}
 \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Kopelman}}:
