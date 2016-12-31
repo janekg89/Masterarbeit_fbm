@@ -929,14 +929,14 @@ First, simulations with normal diffusion were set up to verify our simulation mo
   \centering
   \includegraphics[width=\textwidth]{./data/chapman-limit-concentrations1.png}
   \captionsetup{width=\linewidth}
-  \captionof{figure}{ Normalised concentrations of substrate and  product are displayed as solid lines. The  number of complexes are displayed as crosses. \cref{tiemdependedC_S}(QSSA) was fitted to $c_s(t)$. the resulting $k_+$ from the fit was inserted in \cref{timedendendces,timedendendcp} and plotted in dashed lines. The blue bar in the plot indicates the area where the radial distribution was sampled (see \cref{fig:diffusion_limit-Erban-Chapmann_radial}). Parameters were set to:  $\lambda_+=0.1 /\Gamma$, $\lambda_-=0$,  $\lambda_c=1.0 /\Gamma $ and the box size $L^3=(8\sigma)^3$.}
+  \captionof{figure}{ Normalised concentrations of substrate,product and complexes are displayed as solid lines. \cref{tiemdependedC_S}(QSSA) was fitted to $c_s(t)$. The resulting $k_+=0.36\sigma^3/\Gamma$ from the fit was inserted in \cref{timedendendces,timedendendcp} and plotted in as empty circles. The blue bar in the plot indicates the area where the radial distribution was sampled (see \cref{fig:diffusion_limit-Erban-Chapmann_radial}). Parameters were set to:  $\lambda_+=0.1 /\Gamma$, $\lambda_-=0$,  $\lambda_c=1.0 /\Gamma $ and the box size $L^3=(8\sigma)^3$.}
   \label{fig:diffusion_limit-Erban-Chapmann}
 \end{figure}
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{./data/chapman-limit-radial.png}
   \captionsetup{width=\linewidth}
-  \captionof{figure}{The radial distribution function of the substrates around the enzyme / complex was observed for $5<t<900$ and plotted as a blue line with an error-bar of the standard deviation. The Erban-Chapman result was plotted as a green dashed line for bigger than the reaction radius $\sigma$  and a red dashed line for smaller than $\sigma$. Parameters were set to:  $\lambda_+=0.1$, $\lambda_-=0$,  $\lambda_c=1.0$ and the box size $l^3=8^3$.}
+  \captionof{figure}{The radial distribution function \ref{radialcalcutaltion} of the substrates around the enzyme/complex was sampled for $100 \Delta t<t<2^{14}\Delta t$ and plotted as error-bar with the width of the standard deviation. The Erban-Chapman result was plotted as a green dashed line for bigger than the reaction radius $\sigma$  and a red dashed line for smaller than $\sigma$. Parameters were set to:  $\lambda_+=0.1$, $\lambda_-=0$,  $\lambda_c=1.0$ and the box size $l^3=8^3$.}
   \label{fig:diffusion_limit-Erban-Chapmann_radial}
 \end{figure}
 
@@ -959,7 +959,7 @@ The next observable of interest is the radial distribution function ($g_{S,E}(\b
 \end{align}
  $\bm{R}_{S j}(t)$ denotes the position of molecule $i$ of species $S$ at time t and $i=1,...,N_{S}$.
 In a simulation the radial distribution function can be calculated form the number of substrates $dn(r)$ within an interval $r,r+dr$ away from the enzyme:
-\begin{align}
+\begin{align} \label{radialcalcutaltion}
  g_{S,E}(r;t)=\frac{V dn(r)}{  N_S (t) N_E(t) 4\pi r^2 dr} \label{eq:messsungradial}
 \end{align}
 In a simulation box with periodic boundary conditions, one cannot obtain the structure beyond $r>L/2$. Thus, $g_{S,E}(r;t)$ was sampled in the range $0 <r<4.0 \sigma$ and averaged over the time window ($t=100 \Delta t ...819 \Delta t$). An ensemble-average of 2544 runs was performed on top. The time-ensemble-average was plotted in \cref{fig:diffusion_limit-Erban-Chapmann_radial} and compared to Erban-Chapman \cref{erbanchapmanradial1,erbanchapmanradial}. Again, the simulation is reproducing with good accuracy the radial distribution obtained by \cref{eq:messsungradial}. The radial distribution is deviating from Erban-Chapman only for $r$ close to the enzyme and close to the simulation box boundary. $dr$ was chosen constant. Hence, the volume of the shell decreases for small $r$, which makes the calculation less accurate for $r\rightarrow 0$. That is also the reason for the standard deviation, which is displayed as the error-bars, to increase for $r\rightarrow 0$.  Erban-Chapman equations are derived by a constant concentration of substrates at infinity. This explains the deviation of the simulation to Erban-Chapmen result close to the boundary of the simulation box. For a better agreement, substrates should be inserted at the boundaries during the simulation to obtain a stationary concentration. 
