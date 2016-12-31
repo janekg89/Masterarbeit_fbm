@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.26)  30 DEC 2016 00:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.10.26)  31 DEC 2016 00:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2580,6 +2580,12 @@ Package pdftex.def Info: ./data/schemeforreacions1.png used on input line 864.
 (pdftex.def)             Requested size: 278.83583pt x 174.38342pt.
  [29] [30 <./data/schemeforreacions1.png>]
 chapter 3.
+
+Overfull \hbox (6.05148pt too wide) in paragraph at lines 876--877
+\OT1/cmr/m/n/10.95 The bio-chem-i-cal re-ac-tions tak-ing place in cells, thoug
+h ther-mo-dy-nam-i-cally favourable,
+ []
+
 [31
 
 
@@ -2589,102 +2595,102 @@ File: ./data/chapman-limit-concentrations1.png Graphic file (type png)
 
 <use ./data/chapman-limit-concentrations1.png>
 Package pdftex.def Info: ./data/chapman-limit-concentrations1.png used on input
- line 931.
+ line 930.
 (pdftex.def)             Requested size: 398.33864pt x 351.9211pt.
 
-<./data/chapman-limit-radial.png, id=633, 484.209pt x 349.7868pt>
+<./data/chapman-limit-radial.png, id=639, 484.209pt x 349.7868pt>
 File: ./data/chapman-limit-radial.png Graphic file (type png)
 
 <use ./data/chapman-limit-radial.png>
-Package pdftex.def Info: ./data/chapman-limit-radial.png used on input line 938
+Package pdftex.def Info: ./data/chapman-limit-radial.png used on input line 937
 .
 (pdftex.def)             Requested size: 398.33864pt x 287.7664pt.
 
-<./data/chapman-limit-concentrations1_k1.png, id=634, 469.755pt x 351.9549pt>
+<./data/chapman-limit-concentrations1_k1.png, id=640, 469.755pt x 351.9549pt>
 File: ./data/chapman-limit-concentrations1_k1.png Graphic file (type png)
 
 <use ./data/chapman-limit-concentrations1_k1.png>
 Package pdftex.def Info: ./data/chapman-limit-concentrations1_k1.png used on in
-put line 946.
+put line 945.
 (pdftex.def)             Requested size: 398.33864pt x 298.4488pt.
  [34] [35 <./data/chapman-limit-concentrations1.png>] [36 <./data/chapman-limit
--radial.png>] [37 <./data/chapman-limit-concentrations1_k1.png>]
-<./data/diffusion-limit-concentrations1_k1.png, id=678, 444.4605pt x 403.2666pt
+-radial.png>] [37 <./data/chapman-limit-concentrations1_k1.png>] [38]
+<./data/diffusion-limit-concentrations1_k1.png, id=693, 444.4605pt x 403.2666pt
 >
 File: ./data/diffusion-limit-concentrations1_k1.png Graphic file (type png)
  <use ./data/diffusion-limit-concentrations1_k1.png>
 Package pdftex.def Info: ./data/diffusion-limit-concentrations1_k1.png used on 
-input line 963.
+input line 980.
 (pdftex.def)             Requested size: 398.33864pt x 361.43517pt.
 
-<./data/limit-radial.png, id=683, 489.2679pt x 406.8801pt>
+<./data/limit-radial.png, id=698, 489.2679pt x 406.8801pt>
 File: ./data/limit-radial.png Graphic file (type png)
 
 <use ./data/limit-radial.png>
-Package pdftex.def Info: ./data/limit-radial.png used on input line 970.
+Package pdftex.def Info: ./data/limit-radial.png used on input line 987.
 (pdftex.def)             Requested size: 398.33864pt x 331.2722pt.
- [38] [39 <./data/diffusion-limit-concentrations1_k1.png>] [40 <./data/limit-ra
+ [39] [40 <./data/diffusion-limit-concentrations1_k1.png>] [41 <./data/limit-ra
 dial.png>]
-<./data/limit-radial-highlocalconcentration.png, id=710, 500.8311pt x 337.5009p
+<./data/limit-radial-highlocalconcentration.png, id=728, 500.8311pt x 337.5009p
 t>
 File: ./data/limit-radial-highlocalconcentration.png Graphic file (type png)
  <use ./data/limit-radial-highlocalconcentration.png>
 Package pdftex.def Info: ./data/limit-radial-highlocalconcentration.png used on
- input line 992.
+ input line 1009.
 (pdftex.def)             Requested size: 398.33864pt x 268.44067pt.
 
-<./data/highlocaldensityconcentrationslin.png, id=711, 479.1501pt x 387.3672pt>
+<./data/highlocaldensityconcentrationslin.png, id=729, 479.1501pt x 387.3672pt>
 File: ./data/highlocaldensityconcentrationslin.png Graphic file (type png)
 <use ./data/highlocaldensityconcentrationslin.png>
 Package pdftex.def Info: ./data/highlocaldensityconcentrationslin.png used on i
-nput line 1000.
+nput line 1017.
 (pdftex.def)             Requested size: 398.33864pt x 322.04666pt.
- [41 <./data/limit-radial-highlocalconcentration.png>] [42 <./data/highlocalden
+ [42 <./data/limit-radial-highlocalconcentration.png>] [43 <./data/highlocalden
 sityconcentrationslin.png>]
-<./data/fractionalalphachangek1.png, id=729, 461.0826pt x 366.4089pt>
+<./data/fractionalalphachangek1.png, id=746, 461.0826pt x 366.4089pt>
 File: ./data/fractionalalphachangek1.png Graphic file (type png)
 
 <use ./data/fractionalalphachangek1.png>
 Package pdftex.def Info: ./data/fractionalalphachangek1.png used on input line 
-1084.
+1101.
 (pdftex.def)             Requested size: 398.33864pt x 316.55916pt.
- [43 <./data/fractionalalphachangek1.png>] [44]
+ [44 <./data/fractionalalphachangek1.png>] [45]
 chapter 4.
-[45
+[46
 
 
-] [46]
+] [47]
 chapter 5.
-[47
+[48
 
 
-] [48] [49] (./finalreport.bbl [50]
+] [49] [50] (./finalreport.bbl [51]
 Underfull \hbox (badness 1237) in paragraph at lines 71--76
 []\OT1/cmr/m/n/10.95 A. Ein-stein: []\OT1/cmr/m/it/10.95 Uber die von der molek
 u-larkinetis-chen the-o-rie der w^^?arme
  []
 
-[51
+[52
 
 
-] [52]) 
+] [53]) 
 AED: lastpage setting LastPage
-[53]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1368.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1368.
+[54]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1385.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1385.
  (./finalreport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1368.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1368.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1385.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1385.
 
 Package rerunfilecheck Info: File `finalreport.out' has not changed.
 (rerunfilecheck)             Checksum: 42AB5BF16C5D3F833516226502192F23;1472.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1368.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1385.
  ) 
 Here is how much of TeX's memory you used:
- 36959 strings out of 493029
- 725167 string characters out of 6136233
- 870137 words of memory out of 5000000
- 39597 multiletter control sequences out of 15000+600000
+ 36964 strings out of 493029
+ 725202 string characters out of 6136233
+ 870298 words of memory out of 5000000
+ 39596 multiletter control sequences out of 15000+600000
  21573 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  100i,20n,97p,10361b,788s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2713,10 +2719,10 @@ cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/s
 hare/texmf/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on finalreport.pdf (55 pages, 2536917 bytes).
+Output written on finalreport.pdf (56 pages, 2548347 bytes).
 PDF statistics:
- 964 PDF objects out of 1000 (max. 8388607)
- 820 compressed objects within 9 object streams
- 293 named destinations out of 1000 (max. 500000)
+ 982 PDF objects out of 1000 (max. 8388607)
+ 834 compressed objects within 9 object streams
+ 299 named destinations out of 1000 (max. 500000)
  281 words of extra memory for PDF output out of 10000 (max. 10000000)
 

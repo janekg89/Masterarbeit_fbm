@@ -1,4 +1,4 @@
-\begin{thebibliography}{40}
+\begin{thebibliography}{39}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\bibnamefont}[1]{#1}
 \providecommand{\bibfnamefont}[1]{#1}
@@ -228,6 +228,14 @@
   \emph{\bibinfo{title}{{Hierarchical Data Format, version 5}}}
   (\bibinfo{year}{1997-NNNN}), \bibinfo{note}{/HDF5/}.
 
+\bibitem[{\citenamefont{Wolfenden} and
+  \citenamefont{Snider}(2001)}]{Wolfenden2001}
+\bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Wolfenden}} \bibnamefont{and}
+  \bibinfo{author}{\bibfnamefont{M.~J.} \bibnamefont{Snider}}:
+  \emph{\bibinfo{title}{The depth of chemical time and the power of enzymes as
+  catalysts}}, \bibinfo{journal}{Accounts of Chemical Research}
+  \textbf{\bibinfo{volume}{34}}, \bibinfo{pages}{938} (\bibinfo{year}{2001}).
+
 \bibitem[{\citenamefont{Berry}(2002)}]{Berry2002}
 \bibinfo{author}{\bibfnamefont{H.}~\bibnamefont{Berry}}:
   \emph{\bibinfo{title}{{Monte Carlo Simulations of Enzyme Reactions in two
@@ -283,20 +291,6 @@
   \emph{\bibinfo{title}{Closed form solution for time-dependent enzyme
   kinetics}}, \bibinfo{journal}{Journal of Theoretical Biology}
   \textbf{\bibinfo{volume}{187}}, \bibinfo{pages}{207} (\bibinfo{year}{1997}).
-
-\bibitem[{\citenamefont{Yuste} and \citenamefont{Lindenberg}(2002)}]{Yuste2002}
-\bibinfo{author}{\bibfnamefont{S.}~\bibnamefont{Yuste}} \bibnamefont{and}
-  \bibinfo{author}{\bibfnamefont{K.}~\bibnamefont{Lindenberg}}:
-  \emph{\bibinfo{title}{Subdiffusion-limited reactions}},
-  \bibinfo{journal}{Chemical Physics} \textbf{\bibinfo{volume}{284}},
-  \bibinfo{pages}{169} (\bibinfo{year}{2002}).
-
-\bibitem[{\citenamefont{Abdullah}(2011)}]{AiniAbdullah2011}
-\bibinfo{author}{\bibfnamefont{F.~A.} \bibnamefont{Abdullah}}:
-  \emph{\bibinfo{title}{Using fractional differential equations to model the
-  michaelis-menten reaction in a 2-d region containing obstacles}},
-  \bibinfo{journal}{{ScienceAsia}} \textbf{\bibinfo{volume}{37}},
-  \bibinfo{pages}{75} (\bibinfo{year}{2011}).
 
 \bibitem[{\citenamefont{Kopelman}(1988)}]{Kopelman1988}
 \bibinfo{author}{\bibfnamefont{R.}~\bibnamefont{Kopelman}}:
