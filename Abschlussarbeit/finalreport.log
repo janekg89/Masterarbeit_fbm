@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.10.30)  31 DEC 2016 13:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2015.10.30)  1 JAN 2017 02:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -40,18 +40,11 @@ Package tocbasic Info: omitting babel extension for `lot'
 (tocbasic)             for `lot' on input line 119.
 Package tocbasic Info: defining new hook before heading of `' on input line 111
 8.
-Class scrbook Info: You've used standard option `oneside'.
-(scrbook)           This is correct!
-(scrbook)           Internally I'm using `twoside=false'.
-(scrbook)           If you'd like to set the option with \KOMAoptions,
-(scrbook)           you'd have to use `twoside=false' there
-(scrbook)           instead of `oneside', too.
 Package scrbase Info: Unknown processing state.
-(scrbase)             Processing option `twoside=false'
-(scrbase)             of member `.scrbook.cls'
-(scrbase)             of family `KOMA'
-(scrbase)             doesn't set a valid state.
-(scrbase)             This will be interpreted
+(scrbase)             Processing option `twoside'
+(scrbase)             of member `.scrbook.cls' of family
+(scrbase)             `KOMA' doesn't set
+(scrbase)             a valid state. This will be interpreted
 (scrbase)             as \FamilyKeyStateProcessed on input line 1269.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/fleqn.clo
@@ -87,12 +80,6 @@ Package typearea Info: You've used standard option `a4paper'.
 (typearea)             If you'd like to set the option with \KOMAoptions,
 (typearea)             you'd have to use `paper=a4' there
 (typearea)             instead of `a4paper', too.
-Package typearea Info: You've used standard option `oneside'.
-(typearea)             This is correct!
-(typearea)             Internally I'm using `twoside=false'.
-(typearea)             If you'd like to set the option with \KOMAoptions,
-(typearea)             you'd have to use `twoside=false' there
-(typearea)             instead of `oneside', too.
 \ta@hblk=\skip42
 \ta@vblk=\skip43
 \ta@temp=\skip44
@@ -103,8 +90,8 @@ Package typearea Info: These are the values describing the layout:
 (typearea)             \paperwidth      = 597.50793pt
 (typearea)              \textwidth      = 398.33864pt
 (typearea)              DIV departure   = -1%
-(typearea)              \evensidemargin = 41.54103pt
-(typearea)              \oddsidemargin  = 41.54103pt
+(typearea)              \evensidemargin = 41.54105pt
+(typearea)              \oddsidemargin  = 13.08827pt
 (typearea)             \paperheight     = 845.04694pt
 (typearea)              \textheight     = 514.20023pt
 (typearea)              \topmargin      = 12.2347pt
@@ -2084,30 +2071,43 @@ File: lstlang1.sty 2014/09/06 1.5e listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
-) (./finalreport.aux)
+) (./finalreport.aux
+
+LaTeX Warning: Label `ktime' multiply defined.
+
+
+LaTeX Warning: Label `ktime@cref' multiply defined.
+
+
+LaTeX Warning: Label `fig:k1differentalphawithfitbetter' multiply defined.
+
+
+LaTeX Warning: Label `fig:k1differentalphawithfitbetter@cref' multiply defined.
+
+
+)
 \openout1 = `finalreport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 93.
-LaTeX Font Info:    ... okay on input line 93.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 93.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 93.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 95.
+LaTeX Font Info:    ... okay on input line 95.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 95.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 95.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 93.
+LaTeX Font Info:    ... okay on input line 95.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -2143,10 +2143,10 @@ Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             or
 (lastpage)             http://www.ctan.org/tex-archive/ 
 (lastpage)             install/macros/latex/contrib/pageslts.tds.zip
-(lastpage)             ! on input line 93.
+(lastpage)             ! on input line 95.
 \c@lstlisting=\count294
 \AtBeginShipoutBox=\box76
-Package hyperref Info: Link coloring ON on input line 93.
+Package hyperref Info: Link coloring ON on input line 95.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -2156,9 +2156,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count295
 )
-LaTeX Info: Redefining \ref on input line 93.
-LaTeX Info: Redefining \pageref on input line 93.
-LaTeX Info: Redefining \nameref on input line 93.
+LaTeX Info: Redefining \ref on input line 95.
+LaTeX Info: Redefining \pageref on input line 95.
+LaTeX Info: Redefining \nameref on input line 95.
 
 (./finalreport.out) (./finalreport.out)
 \@outlinefile=\write4
@@ -2207,12 +2207,12 @@ LaTeX Info: Redefining \selectfont on input line 126.
 \JustifyingParindent=\skip102
 )
 \c__siunitx_mathsf_int=\count296
-LaTeX Font Info:    Try loading font information for U+msa on input line 93.
+LaTeX Font Info:    Try loading font information for U+msa on input line 95.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 93.
+LaTeX Font Info:    Try loading font information for U+msb on input line 95.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -2223,18 +2223,21 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./finalreport.toc)
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
+
+
+] (./finalreport.toc)
 \tf@toc=\write5
 \openout5 = `finalreport.toc'.
 
- [2
+ [3] [4
 
 
 ]
 No file finalreport.nls.
 \c@mydef=\count298
 [1
-
 
 
 
@@ -2255,53 +2258,73 @@ Class scrbook Warning: \float@addtolists detected!
 (scrbook)              a package that still implements the
 (scrbook)              deprecated \float@addtolist interface .
 
-[3
+
+Underfull \vbox (badness 7064) has occurred while \output is active []
+
+ [3
 
 
-] [4]
-<./data/trajectories_differentalpha1234.png, id=182, 275.1078pt x 175.1343pt>
+]
+[4]
+<./data/trajectories_differentalpha1234.png, id=201, 275.1078pt x 175.1343pt>
 File: ./data/trajectories_differentalpha1234.png Graphic file (type png)
 
 <use ./data/trajectories_differentalpha1234.png>
 Package pdftex.def Info: ./data/trajectories_differentalpha1234.png used on inp
-ut line 188.
+ut line 190.
 (pdftex.def)             Requested size: 278.83583pt x 177.51491pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
  [5]
-Overfull \hbox (0.12021pt too wide) in paragraph at lines 193--194
+Overfull \hbox (0.12021pt too wide) in paragraph at lines 195--196
 []\OT1/cmr/m/n/10.95 Just like the Wiener pro-cess, continuous-time Frac-tional
  Brow-n-ian mo-tion (ctfBm)
  []
 
-[6 <./data/trajectories_differentalpha1234.png>] [7] [8] [9]
-<./data/nocorrectionmsd1.png, id=266, 505.89pt x 289.08pt>
+[6 <./data/trajectories_differentalpha1234.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [8]
+[9] <./data/nocorrectionmsd1.png, id=285, 505.89pt x 289.08pt>
 File: ./data/nocorrectionmsd1.png Graphic file (type png)
 
 <use ./data/nocorrectionmsd1.png>
-Package pdftex.def Info: ./data/nocorrectionmsd1.png used on input line 367.
+Package pdftex.def Info: ./data/nocorrectionmsd1.png used on input line 369.
 (pdftex.def)             Requested size: 398.33864pt x 227.62523pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[10] [11] [12 <./data/nocorrectionmsd1.png>] [13]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10]
+[11]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [12 <./data/nocorrectionmsd1.png>] [13]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./data/timevsensambenew.png, id=344, 508.0581pt x 279.2031pt>
+<./data/timevsensambenew.png, id=362, 508.5399pt x 279.9258pt>
 File: ./data/timevsensambenew.png Graphic file (type png)
 
 <use ./data/timevsensambenew.png>
-Package pdftex.def Info: ./data/timevsensambenew.png used on input line 566.
-(pdftex.def)             Requested size: 398.33864pt x 218.91502pt.
+Package pdftex.def Info: ./data/timevsensambenew.png used on input line 568.
+(pdftex.def)             Requested size: 398.33864pt x 219.26811pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./data/changeintimenew.png, id=345, 508.0581pt x 279.2031pt>
+<./data/changeintimenew.png, id=363, 508.0581pt x 279.2031pt>
 File: ./data/changeintimenew.png Graphic file (type png)
 
 <use ./data/changeintimenew.png>
-Package pdftex.def Info: ./data/changeintimenew.png used on input line 573.
+Package pdftex.def Info: ./data/changeintimenew.png used on input line 575.
 (pdftex.def)             Requested size: 398.33864pt x 218.91502pt.
 
 
@@ -2312,66 +2335,73 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Warning: Text page 16 contains only floats.
 
 [16 <./data/timevsensambenew.png> <./data/changeintimenew.png>]
-<./data/alpha_changethreeneu.png, id=388, 566.5968pt x 561.297pt>
+<./data/alpha_changethreeneu.png, id=407, 566.5968pt x 561.297pt>
 File: ./data/alpha_changethreeneu.png Graphic file (type png)
 
 <use ./data/alpha_changethreeneu.png>
-Package pdftex.def Info: ./data/alpha_changethreeneu.png used on input line 586
+Package pdftex.def Info: ./data/alpha_changethreeneu.png used on input line 588
 .
 (pdftex.def)             Requested size: 398.33864pt x 394.60959pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./data/scaledfunctionneu12.png, id=389, 578.8827pt x 555.9972pt>
+<./data/scaledfunctionneu12.png, id=408, 578.8827pt x 555.9972pt>
 File: ./data/scaledfunctionneu12.png Graphic file (type png)
 
 <use ./data/scaledfunctionneu12.png>
-Package pdftex.def Info: ./data/scaledfunctionneu12.png used on input line 592.
+Package pdftex.def Info: ./data/scaledfunctionneu12.png used on input line 594.
 
 (pdftex.def)             Requested size: 398.33864pt x 382.58649pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./data/nongaussianlowenalphaneu.png, id=392, 578.16pt x 289.08pt>
+<./data/nongaussianlowenalphaneu.png, id=411, 578.16pt x 289.08pt>
 File: ./data/nongaussianlowenalphaneu.png Graphic file (type png)
 
 <use ./data/nongaussianlowenalphaneu.png>
 Package pdftex.def Info: ./data/nongaussianlowenalphaneu.png used on input line
- 598.
+ 600.
 (pdftex.def)             Requested size: 398.33864pt x 199.16986pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./data/nongaussianlowenalphaneumodifed.png, id=395, 578.16pt x 289.08pt>
+<./data/nongaussianlowenalphaneumodifed.png, id=414, 578.16pt x 289.08pt>
 File: ./data/nongaussianlowenalphaneumodifed.png Graphic file (type png)
 
 <use ./data/nongaussianlowenalphaneumodifed.png>
 Package pdftex.def Info: ./data/nongaussianlowenalphaneumodifed.png used on inp
-ut line 605.
+ut line 607.
 (pdftex.def)             Requested size: 398.33864pt x 199.16986pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[17] [18 <./data/alpha_changethreeneu.png>]
-<./data/nongaussiandouble1.png, id=425, 433.62pt x 216.81pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [17]
+[18 <./data/alpha_changethreeneu.png>]
+<./data/nongaussiandouble1.png, id=444, 433.62pt x 216.81pt>
 File: ./data/nongaussiandouble1.png Graphic file (type png)
 
 <use ./data/nongaussiandouble1.png>
-Package pdftex.def Info: ./data/nongaussiandouble1.png used on input line 636.
+Package pdftex.def Info: ./data/nongaussiandouble1.png used on input line 638.
 (pdftex.def)             Requested size: 398.33864pt x 199.1798pt.
+
+Underfull \vbox (badness 1163) has occurred while \output is active []
+
  [19 <./data/scaledfunctionneu12.png>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./data/nongaussiandouble2.png, id=435, 433.62pt x 216.81pt>
+<./data/nongaussiandouble2.png, id=453, 433.62pt x 216.81pt>
 File: ./data/nongaussiandouble2.png Graphic file (type png)
 
 <use ./data/nongaussiandouble2.png>
-Package pdftex.def Info: ./data/nongaussiandouble2.png used on input line 645.
+Package pdftex.def Info: ./data/nongaussiandouble2.png used on input line 647.
 (pdftex.def)             Requested size: 398.33864pt x 199.1798pt.
 
 
@@ -2384,28 +2414,35 @@ Chapter 2.
 [23
 
 
-] [24] [25] [26]
-<./data/smoluchowskierban.png, id=518, 469.755pt x 289.08pt>
+] [24]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [25]
+[26] <./data/smoluchowskierban.png, id=536, 469.755pt x 289.08pt>
 File: ./data/smoluchowskierban.png Graphic file (type png)
 
 <use ./data/smoluchowskierban.png>
-Package pdftex.def Info: ./data/smoluchowskierban.png used on input line 771.
+Package pdftex.def Info: ./data/smoluchowskierban.png used on input line 773.
 (pdftex.def)             Requested size: 398.33864pt x 245.13249pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[27] [28 <./data/smoluchowskierban.png>]
-<./data/schemeforreacions1.png, id=551, 498.36188pt x 311.66437pt>
+
+Underfull \vbox (badness 1454) has occurred while \output is active []
+
+ [27]
+[28 <./data/smoluchowskierban.png>]
+<./data/schemeforreacions1.png, id=571, 498.36188pt x 311.66437pt>
 File: ./data/schemeforreacions1.png Graphic file (type png)
 
 <use ./data/schemeforreacions1.png>
-Package pdftex.def Info: ./data/schemeforreacions1.png used on input line 864.
+Package pdftex.def Info: ./data/schemeforreacions1.png used on input line 866.
 (pdftex.def)             Requested size: 278.83583pt x 174.38342pt.
  [29] [30 <./data/schemeforreacions1.png>]
 Chapter 3.
 
-Overfull \hbox (6.05148pt too wide) in paragraph at lines 876--877
+Overfull \hbox (6.05148pt too wide) in paragraph at lines 878--879
 \OT1/cmr/m/n/10.95 The bio-chem-i-cal re-ac-tions tak-ing place in cells, thoug
 h ther-mo-dy-nam-i-cally favourable,
  []
@@ -2413,144 +2450,168 @@ h ther-mo-dy-nam-i-cally favourable,
 [31
 
 
-] [32] [33]
-<./data/chapman-limit-concentrations1.png, id=630, 578.16pt x 433.62pt>
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [32]
+[33] <./data/chapman-limit-concentrations1.png, id=649, 578.16pt x 433.62pt>
 File: ./data/chapman-limit-concentrations1.png Graphic file (type png)
 
 <use ./data/chapman-limit-concentrations1.png>
 Package pdftex.def Info: ./data/chapman-limit-concentrations1.png used on input
- line 930.
+ line 932.
 (pdftex.def)             Requested size: 398.33864pt x 298.75482pt.
 
-<./data/chapman-limit-radial.png, id=639, 484.209pt x 349.7868pt>
-File: ./data/chapman-limit-radial.png Graphic file (type png)
+<./data/chapman-limit-radial_alpha_better.png, id=658, 578.16pt x 433.62pt>
+File: ./data/chapman-limit-radial_alpha_better.png Graphic file (type png)
 
-<use ./data/chapman-limit-radial.png>
-Package pdftex.def Info: ./data/chapman-limit-radial.png used on input line 937
-.
-(pdftex.def)             Requested size: 398.33864pt x 287.7664pt.
+<use ./data/chapman-limit-radial_alpha_better.png>
+Package pdftex.def Info: ./data/chapman-limit-radial_alpha_better.png used on i
+nput line 939.
+(pdftex.def)             Requested size: 398.33864pt x 298.75482pt.
 
-
-LaTeX Warning: Reference `radialcalcutaltion' on page 34 undefined on input lin
-e 939.
-
-
-LaTeX Warning: Reference `radialcalcutaltion' on page 34 undefined on input lin
-e 939.
-
-<./data/chapman-limit-concentrations1_k1.png, id=640, 469.755pt x 351.9549pt>
+<./data/chapman-limit-concentrations1_k1.png, id=663, 578.16pt x 433.62pt>
 File: ./data/chapman-limit-concentrations1_k1.png Graphic file (type png)
 
 <use ./data/chapman-limit-concentrations1_k1.png>
 Package pdftex.def Info: ./data/chapman-limit-concentrations1_k1.png used on in
-put line 945.
-(pdftex.def)             Requested size: 398.33864pt x 298.4488pt.
+put line 947.
+(pdftex.def)             Requested size: 398.33864pt x 298.75482pt.
  [34] [35 <./data/chapman-limit-concentrations1.png>] [36 <./data/chapman-limit
--radial.png>] [37 <./data/chapman-limit-concentrations1_k1.png>]
+-radial_alpha_better.png>]
+[37 <./data/chapman-limit-concentrations1_k1.png>] [38]
+<./data/diffusion-limit-concentractionlambdaminus_k1.png, id=717, 517.6941pt x 
+285.7074pt>
+File: ./data/diffusion-limit-concentractionlambdaminus_k1.png Graphic file (typ
+e png)
+ <use ./data/diffusion-limit-concentractionlambdaminus_k1.png>
+Package pdftex.def Info: ./data/diffusion-limit-concentractionlambdaminus_k1.pn
+g used on input line 1000.
+(pdftex.def)             Requested size: 398.33864pt x 219.83841pt.
 
-! Package amsmath Error: Multiple \label's: label '{radialcalcutaltion}' will b
-e lost.
+[39 <./data/diffusion-limit-concentractionlambdaminus_k1.png>] [40]
+<./data/highlocaldensityconcentrationversion2.png, id=740, 578.16pt x 433.62pt>
+File: ./data/highlocaldensityconcentrationversion2.png Graphic file (type png)
+<use ./data/highlocaldensityconcentrationversion2.png>
+Package pdftex.def Info: ./data/highlocaldensityconcentrationversion2.png used 
+on input line 1031.
+(pdftex.def)             Requested size: 398.33864pt x 298.75482pt.
 
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.964 \end{align}
-                 
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-[38]
-
-LaTeX Warning: Reference `fig:diffusion_limit-Erban-Chapmann_k1' on page 1 unde
-fined on input line 976.
-
-
-<./data/diffusion-limit-concentrations1_k1.png, id=692, 444.4605pt x 403.2666pt
->
-File: ./data/diffusion-limit-concentrations1_k1.png Graphic file (type png)
- <use ./data/diffusion-limit-concentrations1_k1.png>
-Package pdftex.def Info: ./data/diffusion-limit-concentrations1_k1.png used on 
-input line 980.
-(pdftex.def)             Requested size: 398.33864pt x 361.43517pt.
-
-<./data/limit-radial.png, id=697, 489.2679pt x 406.8801pt>
-File: ./data/limit-radial.png Graphic file (type png)
-
-<use ./data/limit-radial.png>
-Package pdftex.def Info: ./data/limit-radial.png used on input line 987.
-(pdftex.def)             Requested size: 398.33864pt x 331.2722pt.
- [39] [40 <./data/diffusion-limit-concentrations1_k1.png>] [41 <./data/limit-ra
-dial.png>]
-<./data/limit-radial-highlocalconcentration.png, id=727, 500.8311pt x 337.5009p
+<./data/limit-radial-highlocalconcentration.png, id=743, 503.7219pt x 287.1528p
 t>
 File: ./data/limit-radial-highlocalconcentration.png Graphic file (type png)
  <use ./data/limit-radial-highlocalconcentration.png>
 Package pdftex.def Info: ./data/limit-radial-highlocalconcentration.png used on
- input line 1009.
-(pdftex.def)             Requested size: 398.33864pt x 268.44067pt.
+ input line 1038.
+(pdftex.def)             Requested size: 398.33864pt x 227.07605pt.
 
-<./data/highlocaldensityconcentrationslin.png, id=728, 479.1501pt x 387.3672pt>
-File: ./data/highlocaldensityconcentrationslin.png Graphic file (type png)
-<use ./data/highlocaldensityconcentrationslin.png>
-Package pdftex.def Info: ./data/highlocaldensityconcentrationslin.png used on i
-nput line 1017.
-(pdftex.def)             Requested size: 398.33864pt x 322.04666pt.
- [42 <./data/limit-radial-highlocalconcentration.png>] [43 <./data/highlocalden
-sityconcentrationslin.png>]
-<./data/fractionalalphachangek1.png, id=745, 461.0826pt x 366.4089pt>
-File: ./data/fractionalalphachangek1.png Graphic file (type png)
 
-<use ./data/fractionalalphachangek1.png>
-Package pdftex.def Info: ./data/fractionalalphachangek1.png used on input line 
-1101.
-(pdftex.def)             Requested size: 398.33864pt x 316.55916pt.
- [44 <./data/fractionalalphachangek1.png>] [45]
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[41 <./data/highlocaldensityconcentrationversion2.png>] [42 <./data/limit-radia
+l-highlocalconcentration.png>]
+<./data/highlocaldensityconcentrationversionfbmvsbm.png, id=767, 578.16pt x 433
+.62pt>
+File: ./data/highlocaldensityconcentrationversionfbmvsbm.png Graphic file (type
+ png)
+ <use ./data/highlocaldensityconcentrationversionfbmvsbm.png>
+Package pdftex.def Info: ./data/highlocaldensityconcentrationversionfbmvsbm.png
+ used on input line 1113.
+(pdftex.def)             Requested size: 398.33864pt x 298.75482pt.
+
+<./data/chapman-limit-radial_alpha_betterfbm.png, id=770, 520.1031pt x 287.8755
+pt>
+File: ./data/chapman-limit-radial_alpha_betterfbm.png Graphic file (type png)
+ <use ./data/chapman-limit-radial_alpha_betterfbm.png>
+Package pdftex.def Info: ./data/chapman-limit-radial_alpha_betterfbm.png used o
+n input line 1121.
+(pdftex.def)             Requested size: 398.33864pt x 220.4788pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+<./data/chapman-limit-radial_alpha_betterfbmfast.png, id=773, 511.4307pt x 287.
+1528pt>
+File: ./data/chapman-limit-radial_alpha_betterfbmfast.png Graphic file (type pn
+g)
+ <use ./data/chapman-limit-radial_alpha_betterfbmfast.png>
+Package pdftex.def Info: ./data/chapman-limit-radial_alpha_betterfbmfast.png us
+ed on input line 1130.
+(pdftex.def)             Requested size: 398.33864pt x 223.6628pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./data/fractionalalphachangek1neu.png, id=776, 522.9939pt x 289.5618pt>
+File: ./data/fractionalalphachangek1neu.png Graphic file (type png)
+
+<use ./data/fractionalalphachangek1neu.png>
+Package pdftex.def Info: ./data/fractionalalphachangek1neu.png used on input li
+ne 1156.
+(pdftex.def)             Requested size: 398.33864pt x 220.55084pt.
+ [43 <./data/highlocaldensityconcentrationversionfbmvsbm.png>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./data/hvsalpha.png, id=791, 229.0959pt x 276.3123pt>
+File: ./data/hvsalpha.png Graphic file (type png)
+
+<use ./data/hvsalpha.png>
+Package pdftex.def Info: ./data/hvsalpha.png used on input line 1217.
+(pdftex.def)             Requested size: 179.25116pt x 216.19308pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[44 <./data/chapman-limit-radial_alpha_betterfbm.png>] [45 <./data/chapman-limi
+t-radial_alpha_betterfbmfast.png>] [46 <./data/fractionalalphachangek1neu.png> 
+<./data/hvsalpha.png>]
 Chapter 4.
-[46
+[47
 
 
-] [47]
+] [48]
 Chapter 5.
-[48
+[49
 
 
-] [49] [50] (./finalreport.bbl [51]
+]
+Underfull \vbox (badness 1769) has occurred while \output is active []
+
+ [50]
+[51] (./finalreport.bbl [52]
 Underfull \hbox (badness 1237) in paragraph at lines 71--76
 []\OT1/cmr/m/n/10.95 A. Ein-stein: []\OT1/cmr/m/it/10.95 Uber die von der molek
 u-larkinetis-chen the-o-rie der w^^?arme
  []
 
-[52
+[53
 
 
-] [53]) 
+] [54]) 
 AED: lastpage setting LastPage
-[54]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1385.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1385.
+[55]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1526.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1526.
  (./finalreport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1385.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1385.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1526.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1526.
 
 Package rerunfilecheck Info: File `finalreport.out' has not changed.
-(rerunfilecheck)             Checksum: 42AB5BF16C5D3F833516226502192F23;1472.
+(rerunfilecheck)             Checksum: 5DB290CC62A502520C8CE352E683EF11;1638.
 
 
-LaTeX Warning: There were undefined references.
+LaTeX Warning: There were multiply-defined labels.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1385.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1526.
  ) 
 Here is how much of TeX's memory you used:
- 38602 strings out of 493105
- 786360 string characters out of 6137071
- 921539 words of memory out of 5000000
- 41166 multiletter control sequences out of 15000+600000
- 24391 words of font info for 91 fonts, out of 8000000 for 9000
+ 38638 strings out of 493105
+ 787689 string characters out of 6137071
+ 922145 words of memory out of 5000000
+ 41186 multiletter control sequences out of 15000+600000
+ 24726 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  72i,20n,90p,10376b,982s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texli
@@ -2577,11 +2638,12 @@ cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/s
-hare/texmf/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on finalreport.pdf (56 pages, 2718068 bytes).
+hare/texmf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/typ
+e1/public/cm-super/sfrm1095.pfb>
+Output written on finalreport.pdf (59 pages, 3981486 bytes).
 PDF statistics:
- 981 PDF objects out of 1000 (max. 8388607)
- 833 compressed objects within 9 object streams
- 299 named destinations out of 1000 (max. 500000)
- 281 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1037 PDF objects out of 1200 (max. 8388607)
+ 876 compressed objects within 9 object streams
+ 311 named destinations out of 1000 (max. 500000)
+ 312 words of extra memory for PDF output out of 10000 (max. 10000000)
 

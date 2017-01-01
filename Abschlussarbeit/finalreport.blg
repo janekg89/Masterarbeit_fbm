@@ -10,7 +10,7 @@ Warning--empty journal in Smoluchowski1
 Warning--empty journal in Flegg
 You've used 39 entries,
             3109 wiz_defined-function locations,
-            1404 strings with 15740 characters,
+            1404 strings with 15732 characters,
 and the built_in function-call counts, 22231 in all, are:
 = -- 1362
 > -- 510
