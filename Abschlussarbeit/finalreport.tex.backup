@@ -923,7 +923,7 @@ The quasi-equilibrium approximation is the second very common approximation, typ
 \end{align}
 The assumption was shown to be true for $c_{E_0}\gg K_M \text{ or } k_- \gg k_c$ by \citet{Palsson1987}.\par  An early description of reaction kinetics with fractional diffusion was done by Kopelman \cite{Kopelman1988} for a percolation cluster with a scaling theory and an upgraded time depended reaction rates. This concept was applied by Berry \cite{Berry2002} and Schnell \cite{Schnell2004} for the Michaelis Menten mechanism.
 \section{Simulation Model}
-The simulation of the Michaelis-Menten mechanism \cref{eq:michaelismechanism} and fractional Brownian motion with the circulant method by Davis-Harte \cite{Dieker2004} and modified Lowen was setup up with RevReaDDy. Four particle types were defined: substrate, product, complex and enzyme. Again, the reaction radius $\sigma$ will be used as units of length and  $\Gamma$ as units of time, with $\Gamma^{\alpha}=\sigma^2/6 K_{\alpha} $.   Substrates and products were set to diffuse with the same diffusion constant $K_{\alpha}=1 \sigma^2 / \Gamma^{\alpha} $. Enzymes and complexes are modelled to be immobile with $K_{\alpha}= 0 \sigma^2 / \Gamma^{\alpha} $. Enzymes are typically larger than substrates or products and therefore, diffuse therefore slower ($D\approx k_B T/6 \pi \eta a$).  A single enzyme was set in the origin $(x,y)=(0,0)$ and 20 substrates were placed randomly in the simulation box with various box sizes and periodic boundary conditions. The box size $L$ was used as a parameter to control the concentration. Two association/decay reaction types were defined:  \ch{S + E <=>[$ k_+ $][$ k_- $] ES} and \ch{P + E <-[$ k_c $] ES} with intrinsic reaction rates $\lambda_+$,$\lambda_-$ and $\lambda_c$ for complex formation, decay into substrate and enzyme and decay into product and enzyme, respectively. The reaction radius $\sigma$ was set equal for both reaction types to be $1 [\sigma]$. A desired simulation length of $M=2^{14}$ steps and length of the time step $\Delta t=0.05 \sigma^{2/\alpha}/6 K_{\alpha}^{\alpha} \Gamma $ was set. In this simulation setup and regardless of $\alpha$ the particles on average travel for $n=20$ steps $\sqrt{6K_{\alpha} n \Delta t^{\alpha}} \sigma$ to overcome the distance $\sigma$. Further the reaction probability  as approximated in \cref{propabilityreaction} should be a lot smaller than  $P(\Delta t)=\lambda \Delta t \ll 1$. Otherwise that approximations fails to describe the correct reaction probability $P(t)=1-\exp(-\lambda t)$. This is a short-coming of the implementation. Simulations for various $\lambda_+$ ,$\lambda_-$,$\lambda_c$, box size $L$ and $\alpha$ were performed. The results are discussed in the next two sections. 
+The simulation of the Michaelis-Menten mechanism \cref{eq:michaelismechanism} and fractional Brownian motion with the circulant method by Davis-Harte \cite{Dieker2004} and modified Lowen was setup up with RevReaDDy. Four particle types were defined: substrate, product, complex and enzyme. Again, the reaction radius $\sigma$ will be used as units of length and  $\Gamma$ as units of time, with $\Gamma^{\alpha}=\sigma^2/6 K_{\alpha} $.   Substrates and products were set to diffuse with the same diffusion constant $K_{\alpha}=1 \sigma^2 / \Gamma^{\alpha} $. Enzymes and complexes are modelled to be immobile with $K_{\alpha}= 0 \sigma^2 / \Gamma^{\alpha} $. Enzymes are typically larger than substrates or products and therefore, diffuse therefore slower ($D\approx k_B T/6 \pi \eta a$).  A single enzyme was set in the origin $(x,y)=(0,0)$ and 20 substrates were placed randomly in the simulation box with various box sizes and periodic boundary conditions. The length of the quadratic box $L=8 \sigma$ was set fixed, but could be used as a parameter to control the concentration. Two association/decay reaction types were defined:  \ch{S + E <=>[$ k_+ $][$ k_- $] ES} and \ch{P + E <-[$ k_c $] ES} with intrinsic reaction rates $\lambda_+$,$\lambda_-$ and $\lambda_c$ for complex formation, decay into substrate and enzyme and decay into product and enzyme, respectively. The reaction radius $\sigma$ was set equal for both reaction types to be $1 [\sigma]$. A desired simulation length of $M=2^{14}$ steps and length of the time step $\Delta t=0.05 \sigma^{2/\alpha}/6 K_{\alpha}^{\alpha} \Gamma $ was set. In this simulation setup and regardless of $\alpha$ the particles on average travel for $n=20$ steps $\sqrt{6K_{\alpha} n \Delta t^{\alpha}} \sigma$ to overcome the distance $\sigma$. Further the reaction probability  as approximated in \cref{propabilityreaction} should be a lot smaller than  $P(\Delta t)=\lambda \Delta t \ll 1$. Otherwise that approximations fails to describe the correct reaction probability $P(t)=1-\exp(-\lambda t)$. This is a short-coming of the implementation. Simulations for various $\lambda_+$ ,$\lambda_-$,$\lambda_c$, box size $L$ and $\alpha$ were performed. The results are discussed in the next two sections. 
 \section{Results for Normal Diffusion}
 First, simulations with normal diffusion were set up to verify our simulation model  with the results from Smoluchowski \cite{vonSmoluchowski1906} and Erban-Chapman \cite{Erban2009} and classical Michaelis Menten mechanism. The difference in kinetics of the Michaelis Menten mechanism to the Erban-Chapman problem is a possible blocking of enzymes. Thus, slowing down the reaction speed. Also, a higher local concentration of the substrates in close proximity to the enzyme  is present because of the back reaction. At first a reaction similar to the Erban-Chapman problem was aimed to simulate. Therefore,  $\lambda_-=0 $  was chosen to avoid the effect of a higher local concentration of substrates and $\lambda_+ < \lambda_c$ to reduce enzyme blocking. Thereafter, the normal MM mechanism was studied. 
 \subsection{Results for One-way Reactions}
@@ -931,14 +931,14 @@ First, simulations with normal diffusion were set up to verify our simulation mo
   \centering
   \includegraphics[width=\textwidth]{./data/chapman-limit-concentrations1.png}
   \captionsetup{width=\linewidth}
-  \captionof{figure}{ Normalised concentrations of substrate, product and complexes are displayed as solid lines. \cref{tiemdependedC_S}(QSSA) was fitted to $c_s(t)$. The resulting $k_+=0.36\sigma^3/\Gamma$ from the fit was inserted in \cref{timedendendces,timedendendcp} and plotted as empty circles. The blue bar in the plot indicates the area where the radial distribution was sampled (see \cref{fig:diffusion_limit-Erban-Chapmann_radial}). Parameters were set to:  $\lambda_+=0.1 /\Gamma$, $\lambda_-=0$,  $\lambda_c=1.0 /\Gamma $ and the box size $L^3=(8\sigma)^3$.}
+  \captionof{figure}{Scenario: One-way "Erban-Chapman" reaction. Normalised concentrations of substrate, product and complexes are displayed as solid lines. \cref{tiemdependedC_S}(QSSA) was fitted to $c_s(t)$. The resulting $k_+=0.36\sigma^3/\Gamma$ from the fit was inserted in \cref{timedendendces,timedendendcp} and plotted as empty circles. The blue bar in the plot indicates the area where the radial distribution was sampled (see \cref{fig:diffusion_limit-Erban-Chapmann_radial}). Parameters were set to:  $\lambda_+=0.1 /\Gamma$, $\lambda_-=0$,  $\lambda_c=1.0 /\Gamma $.}
   \label{fig:diffusion_limit-Erban-Chapmann}
 \end{figure}
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{./data/chapman-limit-radial_alpha_better.png}
   \captionsetup{width=\linewidth}
-  \captionof{figure}{The radial distribution function \ref{eq:messsungradial} of the substrates around the enzyme/complex was sampled in the range of ($100 \Delta t<t<2^{14}\Delta t$) and plotted as error-bar with the width of the standard deviation. The Erban-Chapman \ref{erbanchapmanradial1} result was plotted as a solid black line.\\ green: One-way reaction:  $\lambda_+=0.1/\Gamma$, $\lambda_-=0$,  $\lambda_c=1.0/\Gamma$.\\blue: One-way "diffusion-limited" reaction: $\lambda_+=3.0/\Gamma$, $\lambda_-=0$,  $\lambda_c=3.0/\Gamma$  }
+  \captionof{figure}{ The radial distribution function \ref{eq:messsungradial} of the substrates around the enzyme/complex was sampled in the range of ($100 \Delta t<t<2^{14}\Delta t$) and plotted as error-bars with the width of the standard deviation. The Erban-Chapman \ref{erbanchapmanradial1} result was plotted as a solid black line.\\ green: One-way "Erban-Chapman" reaction:  $\lambda_+=0.1/\Gamma$, $\lambda_-=0$,  $\lambda_c=1.0/\Gamma$.\\blue: One-way "diffusion-limited" reaction: $\lambda_+=3.0/\Gamma$, $\lambda_-=0$,  $\lambda_c=3.0/\Gamma$  }
   \label{fig:diffusion_limit-Erban-Chapmann_radial}
 \end{figure}
 
@@ -949,7 +949,7 @@ First, simulations with normal diffusion were set up to verify our simulation mo
   \captionof{figure}{Two scenarios, with three different calculations of $k_+$ are displayed:}
   \begin{small}
   \begin{itemize}
-  \item green: One-way reaction:  $\lambda_+=0.1/\Gamma$, $\lambda_-=0$,  $\lambda_c=1.0/\Gamma$.
+  \item green: One-way "Erban-Chapman" reaction :  $\lambda_+=0.1/\Gamma$, $\lambda_-=0$,  $\lambda_c=1.0/\Gamma$.
   \item blue: One-way "diffusion-limited" reaction: $\lambda_+=3.0/\Gamma$, $\lambda_-=0$,  $\lambda_c=3.0/\Gamma$.
   \end{itemize}
   \begin{enumerate}
@@ -993,13 +993,13 @@ The forward macroscopic reaction rate $k_+$ was shown by Erban-Chapman to be con
   k^{count}_+(t)=\frac{ \langle dN_{react}\rangle}{dt}\frac{1}{V c_S(t) c_E(t)}= \frac{1}{V c_S(t) c_E(t)} \lim_{\tau \to 0} \frac{dN_{react}}{\tau}
  \end{align}
 \end{enumerate}
-$V$ is the volume of the simulation box. $k_+$ was very noisy. A reasonable smooth $k_+(t)$ could be obtained for $\tau=300 \Delta t$. Only the third method calculates the macroscopic forward reaction rate at different times. For the first and second method, $k_{+}$ is assumed constant in time. This assumption holds for Brownian motion but not for fractional Brownian motion. The forward reaction rates have been calculated with the three methods and plotted  as the green in \cref{fig:diffusion_limit-Erban-Chapmann_k1}. The reaction rate from method 1 and 3 are accurate. They both reproduce similar forward reaction rates. $k^{QSSA}_{+}=0.359 \sigma^3/\Gamma$ is inside the standard deviation of the mean of  $k^{count}_+=(0.360\pm0.003)\sigma^3/\Gamma$ from the counted reaction number. The second method rely on a constant concentration of substrates at the boundary. This might cause this method to underestimate the reaction rate $k^{EC}_{+}=0.338$. The second method rely solely on the theory and not on the simulation data. The simulation model reproduces the kinetics and spatial distribution of the theoretical results of Erban-Chapman.
+$V$ is the volume of the simulation box. $k_+$ was very noisy. A reasonable smooth $k_+(t)$ could be obtained for $\tau=300 \Delta t$. Only the third method calculates the macroscopic forward reaction rate at different times. For the first and second method, $k_{+}$ is assumed constant in time. This assumption holds for Brownian motion but not for fractional Brownian motion. The forward reaction rates have been calculated with the three methods and plotted  as the green in \cref{fig:diffusion_limit-Erban-Chapmann_k1}. The reaction rate from method 1 and 3 are accurate. They both reproduce similar forward reaction rates. $k^{QSSA}_{+}=0.359 \sigma^3/\Gamma$ is inside the standard deviation of the mean of  $k^{count}_+=(0.360\pm0.003)\sigma^3/\Gamma$ from the counted reaction number. The second method rely on a constant concentration of substrates at the boundary. This might cause this method to underestimate the reaction rate $k^{EC}_{+}=0.338 \sigma^3/\Gamma$. The second method rely solely on the theory and not on the simulation data. The simulation model reproduces the kinetics and spatial distribution of the theoretical results of Erban-Chapman.
 \subsubsection{Results for "Diffusion-Limited" One-way Reaction}
 \begin{figure} [h]
   \centering
   \includegraphics[width=\textwidth]{./data/diffusion-limit-concentractionlambdaminus_k1}
   \captionsetup{width=\linewidth}
-  \captionof{figure}{  One-way "diffusion-limited" reaction was tried to reach by: $1 /\Gamma\leq\lambda_+\leq3.0/\Gamma$.  $\lambda_c=1.0/\Gamma$, $\lambda_-=0$. $k^{QSSA}_{+}$ was calculated and displayed as empty circles. The dashed blue line describes the diffusion limit \cref{difkinetics}}
+  \captionof{figure}{Displayed is the saturation of macroscopic reaction rates with an increase of $\lambda_+$ towards a "diffusion-limited" reaction. $k^{QSSA}_{+}$ was calculated and displayed as empty circles. The dashed blue line describes the diffusion limit \cref{difkinetics}.  Microscopic rates  were varied in the range of:  $1 /\Gamma\leq\lambda_+\leq3.0/\Gamma$. The remaining  microscopic rates were chosen: $\lambda_c=1.0/\Gamma$, $\lambda_-=0$.}
   \label{fig:diffusionlimit_k1}
 \end{figure}
 \begin{comment}
@@ -1030,14 +1030,14 @@ Subsequently,  $1\leq\lambda_+\leq3.0$ was scanned until diffusion becomes the r
   \centering
   \includegraphics[width=\textwidth]{./data/highlocaldensityconcentrationversion2.png}
   \captionsetup{width=\linewidth}
-  \captionof{figure}{ Normalised concentrations of substrate, product and complex and their fit with the quasi-steady state approximation for the substrate concentration are shown. The blue bar in the plot indicates the area where the radial distribution was observed, which is plotted in \cref{fig:diffusion_limit-Erban-Chapmann_radial}. The remaining Parameters were set to:  $\lambda_+=1$, $\lambda_-=1$,  $\lambda_c=0.1$ and the box size $L^3=(8\sigma^3)^3$.}
+  \captionof{figure}{Scenario: "enzyme blocking" Michaelis Menten. Normalised concentrations of substrate, product and complex and their fit with the quasi-steady state approximation for the substrate concentration are shown. The blue bar in the plot indicates the area where the radial distribution was observed, which is plotted in \cref{fig:diffusion_limit-Erban-Chapmann_radial}. The remaining Parameters were set to:  $\lambda_+=1$, $\lambda_-=1$,  $\lambda_c=0.1$}
   \label{fig:enzyme_blocking}
 \end{figure}
 \begin{figure}[h]
   \centering
   \includegraphics[width=\textwidth]{./data/limit-radial-highlocalconcentration.png}
   \captionsetup{width=\linewidth}
-  \captionof{figure}{For the Michaelis Menten scenario: $\lambda_+=1.0/\Gamma$, $\lambda_-=1.0/\Gamma$,  $\lambda_c=0.1/\Gamma$, the radial distribution function \ref{eq:messsungradial} of the substrates around the enzyme/complex was sampled in the range of ($100 \Delta t<t<2^{14}\Delta t$) and plotted as error-bar with the width of the standard deviation. The Erban-Chapman \ref{erbanchapmanradial1} result was plotted as a solid black line.}
+  \captionof{figure}{Scenario: "enzyme blocking" Michaelis Menten. For $\lambda_+=1.0/\Gamma$, $\lambda_-=1.0/\Gamma$,  $\lambda_c=0.1/\Gamma$, the radial distribution function \ref{eq:messsungradial} of the substrates around the enzyme/complex was sampled in the range of ($100 \Delta t<t<2^{14}\Delta t$) and plotted as error-bars with the width of the standard deviation. The Erban-Chapman \ref{erbanchapmanradial1} result was plotted as a solid black line.}
   \label{fig:diffusion1_limit-radial_local concentration}
 \end{figure}
 The MM mechanism was simulated for $\lambda_{-}=1.0/\Gamma >\lambda_c=0.1/\Gamma$ and $\lambda_{+}=1.0/\Gamma>\lambda_c=0.1/\Gamma$ to have a locally higher concentration of substrates around the enzyme. The kinetics were calculated with the same method as described in the previous section. The concentrations of substrate, enzyme and product are displayed in \cref{fig:enzyme_blocking} in solid lines. The kinetics of the one-way reaction with same parameters but $\lambda_{-}=0.0/\Gamma $ are displayed as a transparent line. One can see that indeed the blocking is decreasing the reaction velocity $dc_p/dt$.Again,  equations (\ref{tiemdependedC_S} - \ref{timedendendcp})  were chosen to model the concentrations resulting from the simulation. They reproduce the simulation accurately. One can see the concentration of complexes to be higher as intended for the Michaelis Menten scenario.$k^{QSSA}_{+}=4.34 \sigma^3/\Gamma$, from the fit of \cref{tiemdependedC_S}, results in a higher reaction rate than the Erban-Chapman result $k^{EC}_{+}=1.25 \sigma^3/\Gamma$. Also the method of counting reactions \cref{reactioncount} yields a comparable macroscopic reaction rate $k^{count}_{+}=(4.39\pm0.02) \sigma^3/\Gamma$. The reason for $k^{EC}_{+}$ to be smaller is presumably a high local concentration of substrates around the enzyme. The radial distribution function was plotted in \cref{fig:diffusion1_limit-radial_local concentration} with the Erban-Chapman result as a reference. As expected, the radial distribution shows a lot higher concentrations of substrates in close proximity.
@@ -1105,14 +1105,27 @@ The mass action law does not hold any more for reactions with fractional Brownia
 \begin{align} \label{ktime}
 k(t)=k_0 t^{-h} \qquad \text{for} \qquad 0 \leq h \leq 1 \qquad \text{and} \qquad t \geq 1,
 \end{align}
-with $h$ the fractal kinetics exponent. Its value is zero for classic kinetics.  For diffusion limited kinetics Kopelman derived a scaling theory. 
-
+with $h$ the fractal kinetics exponent. Its value is zero for classic kinetics.  For  diffusion limited kinetics in a percolation cluster and a Bi-molecular reaction \ch{A + A}, Kopelman derived a relation between fractal like kinetics exponent $h$ and the spectral density $d_s$:
+\begin{align}
+ h=1-\frac{d_s}{2}
+\end{align}
+The spectral dimension is defined by the recurrence probability $\mathrm{P}$ of a random walker to return to its origin after time t:
+\begin{align}
+ P\sim t^{-d_s/2}
+\end{align}
+The spectral dimension can be related to the anomalous coefficient $d_s=d \alpha$. 
+The fractal exponent $h$ as a result of percolation theory can be related to $\alpha$ for a three-dimensional, diffusion-limited reaction \ch{A + A} as:
+\begin{align} \label{koppelmaneq}
+ h=1-\frac{3 \alpha}{2} \qquad \text{for} \qquad 0<\alpha<2/3 \\
+ h=0 \qquad \text{for} \qquad 2/3<\alpha<1
+\end{align}
+In the kinetics of fractional Brownian motion with $\alpha=0.5$ have been compared to the same system with normal diffusion $\alpha=1$. Subsequently, the impact of $\alpha$ on $k_{+}$ for one scenario was studied and compared to the theory for percolation cluster mentioned above. The initial densities of substrates $c_{S_0}=5/128\sigma^3$ and enzymes  $c_{E_0}=1/512 \sigma^3$ and diffusion coefficient $K_{\alpha}$ remained unchanged.
 \subsection{Comparison to normal Diffusion}
 \begin{figure} [h]
   \centering
   \includegraphics[width=\textwidth]{./data/highlocaldensityconcentrationversionfbmvsbm.png}
   \captionsetup{width=\linewidth}
-  \captionof{figure}{ Normalised concentrations of substrate, product and complex and their fit with the quasi-steady state approximation for the substrate concentration are shown. The blue bar in the plot indicates the area where the radial distribution was sampled, which is plotted in \cref{fig:diffusion_limit-Erban-Chapmann_radialfbmfast}. The remaining Parameters were set to:  $\lambda_+=1$, $\lambda_-=1$,  $\lambda_c=1.0$ and the box size $L^3=(8\sigma^3)^3$.}
+  \captionof{figure}{Scenario: fBm influenced Michaelis Menten reaction. Normalised concentrations of substrate, product and complex and their fit with the quasi-steady state approximation for the substrate concentration are shown. The blue bar in the plot indicates the area where the radial distribution was sampled, which is plotted in \cref{fig:diffusion_limit-Erban-Chapmann_radialfbmfast}. The remaining Parameters were set to:  $\lambda_+=1.0$, $\lambda_-=1.0$,  $\lambda_c=1.0$. }
   \label{fig:enzyme_blocking_fbm}
 \end{figure}
 
@@ -1120,8 +1133,8 @@ with $h$ the fractal kinetics exponent. Its value is zero for classic kinetics. 
   \centering
   \includegraphics[width=\textwidth]{./data/chapman-limit-radial_alpha_betterfbm.png}
   \captionsetup{width=\linewidth}
-  \captionof{figure}{The radial distribution function \ref{eq:messsungradial} of the substrates around the enzyme/complex was sampled in the range of ($100 \Delta t<t<2^{14}\Delta t$) and plotted as error-bar with the width of the standard deviation and microscopic reaction set to: $\lambda_+=1.0/\Gamma$, $\lambda_-=1.0$,  $\lambda_c=1.0/\Gamma$.\\ green: Michaelis Menten with Bm: $\alpha=1.0$
-  \\blue: Michaelis Menten with fBm: $\alpha=0.5$ }
+  \captionof{figure}{The radial distribution function \ref{eq:messsungradial} of the substrates around the enzyme/complex was sampled in the range of ($100 \Delta t<t<2^{14}\Delta t$) and plotted as error-bar with the width of the standard deviation and microscopic reaction set to: $\lambda_+=1.0/\Gamma$, $\lambda_-=1.0$,  $\lambda_c=1.0/\Gamma$.\\ green: Michaelis Menten reaction: $\alpha=1.0$
+  \\blue: "fBm-influenced" Michaelis Menten reaction: $\alpha=0.5$ }
   \label{fig:diffusion_limit-Erban-Chapmann_radialfbm}
 \end{figure}
 
@@ -1129,52 +1142,23 @@ with $h$ the fractal kinetics exponent. Its value is zero for classic kinetics. 
   \centering
   \includegraphics[width=\textwidth]{./data/chapman-limit-radial_alpha_betterfbmfast.png}
   \captionsetup{width=\linewidth}
-  \captionof{figure}{The radial distribution function \ref{eq:messsungradial} of the substrates around the enzyme/complex was sampled in the range of ($100 \Delta t<t<2^{14}\Delta t$) and plotted as error-bar with the width of the standard deviation and microscopic reaction set to: $\lambda_+=1.0/\Gamma$, $\lambda_-=1.0$,  $\lambda_c=0.02/\Gamma$.\\ green: Michaelis Menten with Bm: $\alpha=1.0$
+  \captionof{figure}{Scenario: An attempt of fast fBm reactions. The radial distribution function \ref{eq:messsungradial} of the substrates around the enzyme/complex was sampled in the range of ($100 \Delta t<t<2^{14}\Delta t$) and plotted as error-bar with the width of the standard deviation and microscopic reaction set to: $\lambda_+=1.0/\Gamma$, $\lambda_-=1.0$,  $\lambda_c=0.02/\Gamma$.\\ green: Michaelis Menten with Bm: $\alpha=1.0$
   \\blue: Michaelis Menten with fBm: $\alpha=0.5$ }
   \label{fig:diffusion_limit-Erban-Chapmann_radialfbmfast}
 \end{figure}
 
-2. show one scenario with the idea of fastest possible fractional reaction. conclusion still slower than Brownian motion. No scenario good be found, which is faster than Brownian motion.
+For the first simulation, $\lambda_+=1.0/\Gamma$, $\lambda_-=1.0$,  $\lambda_c=1.0/\Gamma$ 
+an diffusion influenced scenario was chosen. The kinetics are shown in solid line in \cref{fig:enzyme_blocking_fbm}. In transparent the same scenario with normal diffusion is plotted. A slowing down of the kinetics compared to normal diffusion is obvious. The concentration of complexes is not constant in time during the time window indicate as a blue bar in the figure. Thus, a QSSA ($dc_C/dt=0$) should not hold. Still the radial distribution function was sampled in the time window indicated by the blue bar and compared to normal diffusion. The radial distribution function is displayed in \cref{fig:diffusion_limit-Erban-Chapmann_radialfbm}. One can see a stronger depletion of substrates close to the enzyme than for normal diffusion. \par
+A second scenario with $\lambda_+=1.0/\Gamma$, $\lambda_-=1.0$,  $\lambda_c=0.02/\Gamma$  and $\alpha=0.5$ was set up. Intended was a scenario, where kinetics are accelerated due to fBm. With $\lambda_c \gg\lambda_-$, the idea was to increase the density of substrates locally around the enzyme. substrates which propagated with fBm should have more difficulties to escape out of the reaction radius. With similar microscopic reaction rates a higher density of substrates would cause a higher reaction rate. The radial distribution function of an attempt of fast kinetics with fBm are shown in \cref{fig:diffusion_limit-Erban-Chapmann_radialfbmfast}. The local concentration of substrates around the enzyme is higher for normal diffusion. The impact of slower escape probability is presumably overcompensated by an lower arrival probability of the substrates.
 
-
-
-
-\subsection{Time-depended reaction rates}
-
-
-\begin{comment}
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{./data/k1_fordifferentalpha_withfit.png}
-  \captionsetup{width=\linewidth}
-  \captionof{figure}{$k1(t)$ for different $\alpha$ with fitted h}
-  \label{fig:k1differentalphawithfit}
-\end{figure}
-\end{comment}
+\subsection{Time-depended Reaction Rates}
 \begin{figure}[h]
   \centering
   \includegraphics[width=\textwidth]{./data/fractionalalphachangek1neu.png}
   \captionsetup{width=\linewidth}
-  \captionof{figure}{Form the number of reactions $k_{+count}(t)$ was calculated via  \cref{reactioncount} and displayed as solid lines for $0.5\leq\alpha\leq1.0$. With\cref{ktime} the fractal like kinetics exponent $h$ was fitted and displayed as dashed lines in the plot. The remaining parameters were set to: $\lambda_+=1.0$, $\lambda_-=1$,  $\lambda_c=1.0$ and the box size $l^3=8^3$.}
+  \captionof{figure}{Scenario: "fBm-influenced" Michaelis Menten reaction. For  $\lambda_+=1.0$, $\lambda_-=1.0$,  $\lambda_c=1.0$, the impact of $\alpha$ on $k^{count}_+(t)$ is displayed as empty circles in the range of $0.05\leq\alpha\leq1.0$. With \cref{ktime} the fractal like kinetics exponent $h$ was fitted and displayed as dashed lines in the plot.  }
   \label{fig:k1differentalphawithfitbetter}
 \end{figure}
-The random walk dimension $d_w=2/\alpha$ is describing the 
-
-3. Show Kopelman. make table.
-
-
-
-
-
-
-The mass action law does not hold any more for reactions with fractional Brownian motion. Kopelman suggested for percolation cluster, in which particles diffuse  anomalously, to have time depended macroscopic reaction rates for bi-molecular reactions of the form \cite{Kopelman1988}:
-\begin{align} \label{ktime}
-k(t)=k_0 t^{-h} \qquad \text{for} \qquad 0 \leq h \leq 1 \qquad \text{and} \qquad t \geq 1
-\end{align}
-
-
-\cref{fig:k1differentalphawithfitbetter}. Can be shown that k(t) indeed describes the kinetics of MM with fractional Brownian motion. 
-
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.45\textwidth]{./data/hvsalpha.png}
@@ -1189,29 +1173,22 @@ k(t)=k_0 t^{-h} \qquad \text{for} \qquad 0 \leq h \leq 1 \qquad \text{and} \qqua
   0.4 & 0.33364 & 0.4 \\
   0.5 & 0.18971 & 0.25 \\
   0.6 & 0.10969 & 0.1 \\
-  0.7 & 0.03544 & 0 \\
-  0.8 & 0.01657 & 0 \\
-  0.9 & 0.01320 & 0 \\
-  1.0 & 0.0 & 0 \\
-  \hline   
+  0.7 & 0.03544 & 0.0 \\
+  0.8 & 0.01657 & 0.0 \\
+  0.9 & 0.01320 & 0.0 \\
+  1.0 & 0.0 & 0.0\vspace{1.0cm}
   \end{tabular}
-  \\
-  
-  \captionlistentry[table]{h vs. $\alpha$}
+  \captionlistentry[table]{Impact of $\alpha$ on $h$ resulting from a fit ($h^{fit}$) of the simulations displayed in \cref{fig:k1differentalphawithfitbetter} and from the percolation theory ($h^{theo}$). }
   \captionsetup{labelformat=andtable}
-  \captionof{figure}{h vs. $\alpha$}
-  \label{fig:k1differentalphawithfitbetter}
+  \captionof{figure}{Impact of $\alpha$ on $h$ resulting from a fit ($h^{fit}$ of the simulations displayed in \cref{fig:k1differentalphawithfitbetter} and from the percolation theory $h^{theo}$.}
+  \label{fig:k1differentalphawithfitbetter1}
 \end{figure}
-
-
-
-
-
-\newpage
+As suggested by the theory for a "diffusion limited" $A+A$ reaction in a percolation cluster the rate coefficients should become time depended for $\alpha>2/3$ as described by \cref{koppelmaneq}. The impact of $\alpha$ on $k^{count}_+(t)$ was simulated for a "fBm-influenced" Michaelis Menten reaction with microscopic reaction rates  $\lambda_+=1.0$, $\lambda_-=1.0$,  $\lambda_c=1.0$.  $k^{count}_+(t)$ for $0.05>\alpha>1$ was averaged over at least $2400$ runs and displayed in \cref{fig:k1differentalphawithfitbetter}. The fractional kinetics exponent $h^{fit}$ was fitted via \cref{ktime} and plotted as solid lines into the simulation data. $h^{fit}$ and  $h^{theo}$ from the theory have been compared in \cref{fig:k1differentalphawithfitbetter1}. They show good agreement.
 \section{Conclusion}
-The simulation model is capable of reproducing Smoluchwoskis and Erban-Chapman theoretical results for a Bi-molecular reaction. 
-The simulation model can be described by Michaelis Menten kinetics for the quasi steady state approximation for normal diffusion but not for anomalous diffusion.
-Michaelis Menten reactions in a diffusion controlled regime with fractional Brownian motion are of fractal type. The modeling of biological reaction-diffusion dynamics with fBm can be interesting in a large system with a high number of particles not involved in the reaction mechanism but a small number of reactants, which diffuse anomalously. The large number of particles not  have to be simulated explicitly. There influence on diffusion of the reactants is incorporated in fBm. The missing particle-particle interactions might get negligible with a low density of particles.  
+The simulation model is capable of reproducing the theoretical results of Smoluchwoski and Erban-Chapman for a bi-molecular reaction One-Way reaction \ch{S + E ->[$ k_+ $] ES -> [ $k_c $]P + E}. Reactions influenced most by diffusion showed the strongest deviations from theory. However, in theory a constant concentration of substrates is assumed at $r\rightarrow \infty$, which is not the case in the simulation. The simulation model can also be described by Michaelis Menten kinetics with the QSSA for $c_S(t)$ and normal diffusion. $c_{S_0}/c_{E_0}=20$ was chosen to be sufficient for the QSSA to hold. From theory, QSSA holds for $c_{S_0}\gg c_{E_0}$. The Michaelis Menten mechanism results in locally higher concentration of substrates around the enzyme in comparison to one-Way reactions. The previous simulations, with theory as reference, deal as a verification of the simulation model. This modelled was  used to simulate a Michaelis Menten mechanism with fractional Brownian motion in a diffusion influenced regime. No scenario with enhanced kinetics to fBm was found, but all simulations in a diffusion controlled regime were of fractal type.  A stronger depletion of substrates around enzymes for fBm in comparison to Bm was observed. 
+
+
+The modeling of biological reaction-diffusion dynamics with fBm can be interesting in a large system with a high number of particles not involved in the reaction mechanism but a small number of reactants, which diffuse anomalously. The large number of particles not  have to be simulated explicitly. There influence on diffusion of the reactants is incorporated in fBm. The missing particle-particle interactions might get negligible with a low density of particles.  
 \chapter{Summary}
 In cells, reaction-diffusion simulations are particularly challenging. On one hand, large numbers of macromolecules densely packed causes classical particle-based simulations to reach computational limits very early.  On the other hand, small molecular abundances of particular species cause simulations based on a "well-mixed assumption" to be inaccurate, although computationally favourable. For a specific reaction-diffusion system, only specific reactions are of interest. Most of the molecules thereby are not involved in reactions but induce anomalous diffusion. The aim of this thesis is to tackle the impact of anomalous diffusion on reaction-diffusion systems. \par
 Diffusion was chosen to be modelled by fractional Brownian motion. This approach approximates the influence of the crowded medium by long-range correlations of the trajectory increments. First,theoretical foundations for fBm were set. Most importantly auto-covariance functions for fractional Brownian noise and motion have been introduced. Subsequently, fBm generating algorithms have been studied in terms of accuracy and performance. They rely on Wiener-Khintchin's theorem and theses auto-covariance functions.A naive, Cholesky, Davis-Harte and Lowen's fBm generating algorithm were implemented and analysed in terms of accuracy and performance. Our implementation of Lowen's algorithm turned out not to be exact as claimed by the author\cite{Lowen1999}. A slightly modified version of Lowen's algorithm was introduced. The modified version turned out to overcome the problem of a non-Gaussian distribution.Davis-Harte and modified Lowen algorithms seam to be both, exact and fast $\mathcal{O}(M log(M))$ with the trajectory length ($M$).\par

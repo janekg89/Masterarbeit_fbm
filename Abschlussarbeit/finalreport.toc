@@ -20,16 +20,16 @@
 \contentsline {section}{\numberline {3.1}Michaelis-Menten (MM) kinetics}{31}{section.3.1}
 \contentsline {section}{\numberline {3.2}Simulation Model}{33}{section.3.2}
 \contentsline {section}{\numberline {3.3}Results for Normal Diffusion}{34}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}Results for One-way Reactions}{34}{subsection.3.3.1}
-\contentsline {subsubsection}{\nonumberline Results for "Diffusion-Limited" One-way Reaction}{39}{section*.28}
-\contentsline {subsection}{\numberline {3.3.2}Results for the MM mechanism}{41}{subsection.3.3.2}
+\contentsline {subsection}{\numberline {3.3.1}One-Way Reactions}{34}{subsection.3.3.1}
+\contentsline {subsubsection}{\nonumberline "Diffusion-Limited" One-Way Reaction}{39}{section*.28}
+\contentsline {subsection}{\numberline {3.3.2}Michaelis-Menten mechanism}{41}{subsection.3.3.2}
 \contentsline {section}{\numberline {3.4}Results for fBm}{43}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Comparison to normal Diffusion}{43}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}Time-depended reaction rates}{44}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.1}Comparison to Normal Diffusion}{43}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Fractal Kinetics}{44}{subsection.3.4.2}
 \contentsline {section}{\numberline {3.5}Conclusion}{45}{section.3.5}
-\contentsline {chapter}{\numberline {4}Summary}{47}{chapter.4}
-\contentsline {chapter}{\numberline {5}Appendix}{49}{chapter.5}
-\contentsline {section}{\numberline {5.1}From Central Limit Theorem to Gaussian Distribution}{49}{section.5.1}
-\contentsline {section}{\numberline {5.2}From Gaussian Distribution to Gaussian Transition Probability}{50}{section.5.2}
-\contentsline {section}{\numberline {5.3}Einstein Formula}{50}{section.5.3}
-\contentsline {section}{\numberline {5.4}Erban-Chapman}{51}{section.5.4}
+\contentsline {chapter}{\numberline {4}Summary}{49}{chapter.4}
+\contentsline {chapter}{\numberline {5}Appendix}{51}{chapter.5}
+\contentsline {section}{\numberline {5.1}From Central Limit Theorem to Gaussian Distribution}{51}{section.5.1}
+\contentsline {section}{\numberline {5.2}From Gaussian Distribution to Gaussian Transition Probability}{52}{section.5.2}
+\contentsline {section}{\numberline {5.3}Einstein Formula}{52}{section.5.3}
+\contentsline {section}{\numberline {5.4}Erban-Chapman}{53}{section.5.4}

@@ -9,11 +9,11 @@
 \BOOKMARK [1][-]{section.3.1}{Michaelis-Menten \(MM\) kinetics}{chapter.3}% 9
 \BOOKMARK [1][-]{section.3.2}{Simulation Model}{chapter.3}% 10
 \BOOKMARK [1][-]{section.3.3}{Results for Normal Diffusion}{chapter.3}% 11
-\BOOKMARK [2][-]{subsection.3.3.1}{Results for One-way Reactions}{section.3.3}% 12
-\BOOKMARK [2][-]{subsection.3.3.2}{Results for the MM mechanism}{section.3.3}% 13
+\BOOKMARK [2][-]{subsection.3.3.1}{One-Way Reactions}{section.3.3}% 12
+\BOOKMARK [2][-]{subsection.3.3.2}{Michaelis-Menten mechanism}{section.3.3}% 13
 \BOOKMARK [1][-]{section.3.4}{Results for fBm}{chapter.3}% 14
-\BOOKMARK [2][-]{subsection.3.4.1}{Comparison to normal Diffusion}{section.3.4}% 15
-\BOOKMARK [2][-]{subsection.3.4.2}{Time-depended reaction rates}{section.3.4}% 16
+\BOOKMARK [2][-]{subsection.3.4.1}{Comparison to Normal Diffusion}{section.3.4}% 15
+\BOOKMARK [2][-]{subsection.3.4.2}{Fractal Kinetics}{section.3.4}% 16
 \BOOKMARK [1][-]{section.3.5}{Conclusion}{chapter.3}% 17
 \BOOKMARK [0][-]{chapter.4}{Summary}{}% 18
 \BOOKMARK [0][-]{chapter.5}{Appendix}{}% 19
