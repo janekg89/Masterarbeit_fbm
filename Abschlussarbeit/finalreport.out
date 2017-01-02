@@ -3,7 +3,7 @@
 \BOOKMARK [1][-]{section.1.2}{Fractional Brownian Motion}{chapter.1}% 3
 \BOOKMARK [1][-]{section.1.3}{Algorithm}{chapter.1}% 4
 \BOOKMARK [0][-]{chapter.2}{Particle Based Reaction Diffusion}{}% 5
-\BOOKMARK [1][-]{section.2.1}{Diffusion Influenced Bimolecular Reaction}{chapter.2}% 6
+\BOOKMARK [1][-]{section.2.1}{Diffusion-Influenced Bi-molecular Reaction}{chapter.2}% 6
 \BOOKMARK [1][-]{section.2.2}{RevReaddy with fBm}{chapter.2}% 7
 \BOOKMARK [0][-]{chapter.3}{An Enzymatic Reaction With Fractional Brownian Motion}{}% 8
 \BOOKMARK [1][-]{section.3.1}{Michaelis-Menten \(MM\) kinetics}{chapter.3}% 9
@@ -13,7 +13,7 @@
 \BOOKMARK [2][-]{subsection.3.3.2}{Michaelis-Menten mechanism}{section.3.3}% 13
 \BOOKMARK [1][-]{section.3.4}{Results for fBm}{chapter.3}% 14
 \BOOKMARK [2][-]{subsection.3.4.1}{Comparison to Normal Diffusion}{section.3.4}% 15
-\BOOKMARK [2][-]{subsection.3.4.2}{Fractal Kinetics}{section.3.4}% 16
+\BOOKMARK [2][-]{subsection.3.4.2}{Fractal Reaction Kinetics}{section.3.4}% 16
 \BOOKMARK [1][-]{section.3.5}{Conclusion}{chapter.3}% 17
 \BOOKMARK [0][-]{chapter.4}{Summary}{}% 18
 \BOOKMARK [0][-]{chapter.5}{Appendix}{}% 19
