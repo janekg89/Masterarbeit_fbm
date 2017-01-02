@@ -22,11 +22,11 @@
 \contentsline {section}{\numberline {3.3}Results for Normal Diffusion}{34}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}One-Way Reactions}{34}{subsection.3.3.1}
 \contentsline {subsubsection}{\nonumberline "Diffusion-Limited" One-Way Reaction}{39}{section*.28}
-\contentsline {subsection}{\numberline {3.3.2}Michaelis-Menten mechanism}{40}{subsection.3.3.2}
-\contentsline {section}{\numberline {3.4}Results for fBm}{41}{section.3.4}
+\contentsline {subsection}{\numberline {3.3.2}Michaelis-Menten mechanism}{41}{subsection.3.3.2}
+\contentsline {section}{\numberline {3.4}Results for fBm}{43}{section.3.4}
 \contentsline {subsection}{\numberline {3.4.1}Comparison to Normal Diffusion}{43}{subsection.3.4.1}
 \contentsline {subsection}{\numberline {3.4.2}Fractal Reaction Kinetics}{45}{subsection.3.4.2}
-\contentsline {section}{\numberline {3.5}Conclusion}{46}{section.3.5}
+\contentsline {section}{\numberline {3.5}Conclusion}{45}{section.3.5}
 \contentsline {chapter}{\numberline {4}Summary}{49}{chapter.4}
 \contentsline {chapter}{\numberline {5}Appendix}{51}{chapter.5}
 \contentsline {section}{\numberline {5.1}From Central Limit Theorem to Gaussian Distribution}{51}{section.5.1}
