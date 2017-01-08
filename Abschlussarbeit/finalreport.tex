@@ -18,6 +18,7 @@
 \bibliographystyle{detailed}
 \usepackage{hyperref}
 \usepackage{subfigure} 
+
 \usepackage[dvipsnames,svgnames,x11names,hyperref]{xcolor}
 \hypersetup{colorlinks,breaklinks,
             urlcolor=gray,
@@ -37,6 +38,11 @@
 
 
 
+\definecolor{britishracinggreen}{rgb}{0.0, 0.26, 0.15}
+\definecolor{blue-violet}{rgb}{0.54, 0.17, 0.89}
+\definecolor{bostonuniversityred}{rgb}{0.8, 0.0, 0.0}
+\definecolor{brightgreen}{rgb}{0.4, 1.0, 0.0}
+\definecolor{coquelicot}{rgb}{1.0, 0.22, 0.0}
 
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
@@ -900,11 +906,12 @@ Leonor Michaelis and Maud Menten  proposed in 1913 a mathematical model for enzy
  v=\frac{v_{max} c_s}{K_M+ c_s}
 \end{align}
 Here, $v_{max}$ is the maximum reaction velocity. The Michaelis constant ($K_M$) is the substrate concentration with $50 \%$ of maximum velocity and ($c_S$)  is the concentration of the substrate. A derivation of the Michaelis-Menten equation was done by \citet{Briggs1925} in 1925, assuming the mass action law, mass conservation and a quasi-steady state approximation (QSSA). It states that after a negligible initial transition regime ($t \ll t_c$) the concentration of the complex varies slowly as if in a quasi-steady state ($dc_{ES}/dt=0$). A set of differential equations can be formulated as a result of mass conservation and mass action law:
+
 \begin{align}
-\frac{dc_S(t)}{dt} &= k_{\mathrm{-}} c_{ES}(t)-k_{\mathrm{+}} c_E(t) c_S(t),\\
-\frac{dc_{ES}(t)}{dt} &=  - k_{\mathrm{c}} c_{ES}(t) -k_{\mathrm{-}} c_{ES}(t)+k_{\mathrm{+}} c_E(t) c_S(t), \label{quasisteadymichaelis} \\
-\frac{dc_P(t)}{dt} &= k_{\mathrm{c}} c_{ES}(t)  \label{first}, \\
-\frac{dc_E(t)}{dt} &= k_{\mathrm{c}} c_{ES}(t)+k_{\mathrm{-}} c_{ES}(t)-k_{\mathrm{-}} c_E(t) c_S(t),
+\frac{d \color{bostonuniversityred}c_S(t)}{\color{black}dt} &= k_{\mathrm{-}} \color{blue-violet}c_{ES}(t)\color{black}-k_{\mathrm{+}} \color{brightgreen}c_E(t)\color{bostonuniversityred} c_S(t) \color{black},\\
+\frac{d\color{blue-violet}c_{ES}(t)}{\color{black} dt} &=  - k_{\mathrm{c}} \color{blue-violet}c_{ES}(t)\color{black} - k_{\mathrm{-}} \color{blue-violet} c_{ES}(t) \color{black} +k_{\mathrm{+}} \color{brightgreen} c_E(t) \color{bostonuniversityred}c_S(t) \color{black}, \label{quasisteadymichaelis} \\
+\frac{d\color{coquelicot}c_P(t)}{dt} &= k_{\mathrm{c}} \color{blue-violet}c_{ES}(t)  \label{first} \color{black}, \\
+\frac{d \color{brightgreen} c_E(t)}{dt} &= k_{\mathrm{c}} \color{blue-violet}c_{ES}(t)\color{black}+k_{\mathrm{-}} \color{blue-violet}c_{ES}(t)\color{black}-k_{\mathrm{-}} \color{brightgreen}c_E(t) \color{bostonuniversityred} c_S(t) \color{black},
 \end{align}
 with a quasi-steady-state approximation, one can reduce \cref{quasisteadymichaelis} to: $ k_{\mathrm{+}}c_E(t) c_S(t)=k_{\mathrm{-}}c_{ES}+k_{\mathrm{c}}c_{ES}(t)$. A Rearrangement of this equation results in the Michaelis-Menten constant:
 \begin{align}
