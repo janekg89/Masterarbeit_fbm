@@ -79,7 +79,7 @@ void Increments1::generateIncrements1 (double D ,double tau, double alpha)
                 {
                     if( i>0  and  i<N)
                     {
-                        innew[i] = sqrt(2*D* std::pow(tau ,alpha)*out[i])*gsl_ran_gaussian(r,1)*std::exp(2*M_PI*gsl_rng_uniform(r)*icomplex);
+                        innew[i] = sqrt(out[i])*gsl_ran_gaussian(r,1)*std::exp(2*M_PI*gsl_rng_uniform(r)*icomplex);
                     }
 
 

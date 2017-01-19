@@ -14,10 +14,7 @@ namespace janek {
     }
 }
 */
-double covariance(long i, double alpha) {
-    if (i == 0) return 1;
-    else return (pow(i-1,alpha)-2*pow(i,alpha)+pow(i+1,alpha))/2;
-}
+
 void Increments1::generateIncrements1 (double D ,double tau, double alpha)
 {
         int dimensions= 3;
@@ -41,23 +38,12 @@ void Increments1::generateIncrements1 (double D ,double tau, double alpha)
         r = gsl_rng_alloc (T);
         gsl_rng_set(r, 0);
         std::complex <double> icomplex (0,1);
-        double factor= sqrt(D* std::pow(tau ,alpha))/N;
-
-
-
-
-
-
-
-
-
-
+        double factor= sqrt(D* std::pow((double) N ,alpha)/(N));
         for(int ii = 0; ii < Nextended; ++ii)
-
         {
                     if(ii<=N)
                     {
-                     in[ii] =  covariance(ii,alpha);
+                     in[ii] =  std::pow(tau,alpha)*( 1- std::pow((double) ii/N,alpha))/2;
                     }
 
                     if(ii>N)
@@ -65,7 +51,6 @@ void Increments1::generateIncrements1 (double D ,double tau, double alpha)
                      in[ii] = in[2*N-(ii)];
                     }
         }
-         in[N]=0;
         /*
         for (ipart=0; ipart < particles; ++ipart)
        {
@@ -82,7 +67,8 @@ void Increments1::generateIncrements1 (double D ,double tau, double alpha)
        */
        fftw_execute(planforward);
 
-
+       innew[0]= std::complex <double> (0,0);
+       innew[N]=sqrt(2*D* std::pow(tau ,alpha)*out[N])*gsl_ran_gaussian(r,1);
 
        for (int ipart=0; ipart < particles; ++ipart)
        {
@@ -91,9 +77,9 @@ void Increments1::generateIncrements1 (double D ,double tau, double alpha)
                 //std::cout << idim;
                 for(int i = 0; i < Nextended; ++i)
                 {
-                    if( i<N)
+                    if( i>0  and  i<N)
                     {
-                        innew[i] = sqrt(out[i].real()*(double)N)*gsl_ran_gaussian(r,1)*std::exp(2*M_PI*gsl_rng_uniform(r)*icomplex);
+                        innew[i] = sqrt(out[i]/2.0)*(gsl_ran_gaussian(r,1)+gsl_ran_gaussian(r,1)*icomplex);
                     }
 
 
@@ -103,16 +89,11 @@ void Increments1::generateIncrements1 (double D ,double tau, double alpha)
                     }
 
                 }
-                    innew[0]=sqrt(out[0].real()*(double)N)*gsl_ran_gaussian(r,1);
-                    innew[N]=sqrt(out[N].real()*(double)N)*gsl_ran_gaussian(r,1);
-
-                    fftw_execute(planbackward);
-
+                fftw_execute(planbackward);
 
                  for(int i=0; i < N; i++)
                  {
-                    increments[ipart][idim][i]=(outnew[i].real())*factor;
-                     //increments[ipart][idim][i]=in[i].real();
+                    increments[ipart][idim][i]=(-outnew[i].real()+outnew[i+1].real())*factor;
                  }
 
             }
