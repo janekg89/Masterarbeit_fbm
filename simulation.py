@@ -111,6 +111,7 @@ class Felix_Method():
                 r_t=np.zeros(self.n)
                 r_t[1:]=np.cumsum(v_ano_t[:self.n].real)[:self.n-1] #Ort bei anomaler Diffusion in Abhängigkeit von der zeit
                 r_t_allparticles.append(r_t) # Trajektorie bei anomaler Diffusion für alle teilchen
+                return np.array(r_t_allparticles)
         if self.version == "python_notrick":
             sqrt2zreal=np.sqrt(self.z1().real*2.)
             for particle in range(self.particles):
@@ -196,7 +197,7 @@ class Felix_Method():
                 r_t_allparticles.append(np.cumsum(eta)-eta[0])
             return np.array(r_t_allparticles)
 
-        if self.version=="hartecpp":
+        if self.version=="lowenmodified":
             inc3 = ginc3.pyIncrements(self.n,self.particles)
             inc3.generateIncrements1(self.D, self.dt, self.alpha)
             a =inc3.returnIncrements()
@@ -211,5 +212,29 @@ class Felix_Method():
             r_t=np.zeros((self.particles,self.n))
             r_t[:,1:]=np.cumsum(a[:,0,1:self.n],axis=1)
             return r_t
+
+        if self.version=="lowennew":
+            r_t_allparticles=[]
+            n=np.array(range(2*self.n))*1.
+            r_x1=(self.dt**self.alpha)*(1-(n[:self.n+1]/self.n)**self.alpha)/2
+            r_x2=r_x1[::-1]
+
+            r_x=np.append(r_x1,r_x2[1:])
+            s_x=np.fft.fft(r_x)
+            X_k1=0+0j
+
+            for particle in range(self.particles):
+                X_k2=np.array(np.sqrt(s_x[1:self.n]/2)*(np.random.normal(size=self.n-1)+1j*np.random.normal(size=self.n-1)))
+                X_k3=np.array(np.random.normal()*np.sqrt(1*s_x[self.n]))
+                X_k1_2=np.append(X_k1,X_k2)
+                X_k1_k3=np.append(X_k1_2,X_k3)
+                X_k=np.append(X_k1_2,np.conjugate(X_k2[::-1]))
+
+                X_n=np.fft.ifft(X_k)
+                y_n=X_n[:self.n]-X_n[0]
+                r_n=y_n[:]*np.sqrt(4.*self.D*(self.n)**self.alpha*self.n)
+                r_t_allparticles.append(r_n)
+                #r_t_allparticles.append(r_x)
+            return np.array(r_t_allparticles)
 
 
