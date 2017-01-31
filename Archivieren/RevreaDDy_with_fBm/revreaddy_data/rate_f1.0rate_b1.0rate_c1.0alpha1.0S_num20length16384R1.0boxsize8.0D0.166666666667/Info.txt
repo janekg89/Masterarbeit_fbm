@@ -1,0 +1,1 @@
+This is the description of the setup of the Simulationboxsize= 8Diffusion= 0reactiondistance= 1reactionrate_f= 1reactionrate_b= 1reactionrate_c= 1alpha= 1trajectory length= 16384amount of particles= 20timestep=0

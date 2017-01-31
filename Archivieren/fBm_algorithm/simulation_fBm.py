@@ -6,8 +6,9 @@ import lowen_modified.genereatefracincrements as ginc1
 import lowen.genereatefracincrements as ginc3
 import davis_harte.genereatefracincrements as ginc4
 
+
 class Simulation_fbm():
-    def __init__(self, D, particles,length,alpha,dt,x=2, version="hartecppverion2"):
+    def __init__(self, D, particles,length,alpha,dt,x=2, version="davis-harte"):
         """
 
         :param D: diffusion coeffcient

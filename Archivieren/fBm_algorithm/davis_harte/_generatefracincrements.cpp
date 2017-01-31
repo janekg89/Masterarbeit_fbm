@@ -15,6 +15,7 @@ void Increments1::generateIncrements1 (double D ,double tau, double alpha)
         int dimensions= 3;
         int Nextended = N*2;
 
+
         fftw_plan planforward, planbackward;
         std::complex <double> *innew = new std::complex<double>[Nextended];
         std::complex <double> *in = new std::complex<double>[Nextended];

@@ -4,27 +4,23 @@
 
 #include <boost/multi_array.hpp>
 #include <complex>
-#include "/home/janek/Dokumente/Masterarbeit/Masterarbeit_fbm/lown_cython/include/fftw3.h"
-#include <stdio.h>
+#include "./include/fftw3.h"
+#include<stdio.h>
 #include <iostream>
-#include <gsl/gsl_rng.h>
-#include <gsl/gsl_randist.h>
-#include <stdlib.h>
+#include<gsl/gsl_rng.h>
+#include<gsl/gsl_randist.h>
+#include<stdlib.h>
 #include <algorithm>
-//#include "Random.h"
 
 
-class Increments1 {
+class Increments {
 public:
-    Increments1(int N, int particles);
-
+    Increments(int N, int particles);
     int N;
     int particles;
-    boost::multi_array<double, 3> increments;
-
-    void generateIncrements1(double D, double tau, double alpha);
-
-    double *returnIncrements() { return increments.data(); }
+    boost::multi_array<double,3> increments;
+    void generateIncrements(double D,double tau, double alpha);
+    double * returnIncrements() { return increments.data(); }
 };
 
 #endif // INCREMENTS_INCLUDED
